@@ -1,0 +1,245 @@
+﻿.bg-rhyming-train {
+    width: 1280px;
+    height: 780px;
+    background: url(./images/bg_rhyming_train.jpg);
+}
+
+.wrapper-train {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 1280px;
+    height: 420px;
+}
+
+.wrapper-train-outer.move {
+    animation: outerMove 3s forwards linear;
+}
+
+.wrapper-train-inner {
+    left: -1280px;
+    display: flex;
+    justify-content: center;
+    align-items: flex-end;
+}
+
+    .wrapper-train-inner.move {
+        animation: innerMove 2.2s forwards ease-in;
+    }
+
+    .wrapper-train-inner .train-head {
+        position: relative;
+        display: flex;
+        width: 281px;
+        height: 281px;
+        background: url(./images/img_train_01.png);
+    }
+
+        .wrapper-train-inner .train-head .character-dodo {
+            position: absolute;
+            top: 50px;
+            left: 25px;
+            width: 120px;
+            height: 138px;
+            background: url(./images/img_character_dodo.png);
+            animation: dodo 3s steps(2) infinite;
+        }
+
+            .wrapper-train-inner .train-head .character-dodo.correct {
+                background: url(./images/img_character_dodo_correct.png);
+                animation: none;
+            }
+
+            .wrapper-train-inner .train-head .character-dodo.incorrect {
+                background: url(./images/img_character_dodo_incorrect.png);
+                animation: none;
+            }
+
+        .wrapper-train-inner .train-head .text-question {
+            position: absolute;
+            top: 107px;
+            right: 5px;
+            width: 160px;
+            height: 75px;
+            text-align: center;
+            font-size: 4rem;
+        }
+
+    .wrapper-train-inner .wrapper-question {
+        position: relative;
+        width: 256px;
+        height: 281px;
+    }
+
+        .wrapper-train-inner .wrapper-question.first {
+            background: url(./images/img_train_02.png) no-repeat;
+        }
+
+        .wrapper-train-inner .wrapper-question.second {
+            background: url(./images/img_train_03.png) no-repeat;
+        }
+
+        .wrapper-train-inner .wrapper-question.third {
+            background: url(./images/img_train_04.png) no-repeat;
+        }
+
+        .wrapper-train-inner .wrapper-question .drop-target {
+            position: absolute;
+            width: 235px;
+            height: 235px;
+        }
+
+            .wrapper-train-inner .wrapper-question .drop-target img {
+                position: absolute;
+                top: -40px;
+                left: 40px;
+                width: 165px;
+                height: 165px;
+            }
+
+        .wrapper-train-inner .wrapper-question .text-question {
+            position: absolute;
+            bottom: 80px;
+            left: 10px;
+            width: 217px;
+            font-size: 3.4em;
+            text-align: center;
+        }
+.drop-target.dot {
+    background: url(./images/img_dot.png) no-repeat center center;
+    top: -10%;
+    background-size: 80% 80%;
+    animation: dot 1s infinite;
+}
+
+@keyframes dot {
+    from {
+        opacity: 1;
+    }
+
+    to {
+        opacity: 0.2;
+    }
+}
+
+@keyframes outerMove {
+    to {
+        left: 1280px;
+    }
+}
+
+@keyframes innerMove {
+    to {
+        left: 0;    
+    }
+}
+
+@keyframes dodo {
+    to {
+        background-position: -240px;
+    }
+}
+
+.wrapper-examples {
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    width: 1280px;
+    height: 250px;
+    cursor: url(../../include/images/cursor_hover.png), pointer;
+}
+
+    .wrapper-examples .wrapper-example {
+        position: absolute;
+        bottom: 46px;
+        width: 250px;
+        height: 176px;
+        background-color: #efebe2;
+        border: 5px solid #924811;
+        border-radius: 1.4em;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+    }
+
+        .wrapper-examples .wrapper-example:first-of-type {
+            left: 228px;
+        }
+
+        .wrapper-examples .wrapper-example:nth-of-type(2) {
+            left: 516px;
+        }
+
+        .wrapper-examples .wrapper-example:last-of-type {
+            left: 804px;
+        }
+
+        .wrapper-examples .wrapper-example img {
+            width: 165px;
+            height: 165px;
+        }
+
+.circle {
+    position: absolute;
+    top: 189px;
+    width: 281px;
+    height: 91px;
+    display: inline-block;
+}
+
+.wrapper-question .circle {
+    width: 250px;
+    height: 56px;
+}
+
+.circle .circle01 {
+    float: left;
+    width: 91px;
+    height: 91px;
+    background-image: url(./images/circle_red.png);
+    margin-left: 16px;
+    animation: rotate 1.5s infinite linear;
+    opacity: 0.7;
+}
+
+.wrapper-question .circle .circle03:first-of-type {
+    width:56px;
+    height:56px;
+    margin-left: 22px;
+    background-image: url(./images/circle_black.png);
+}
+
+.wrapper-question .circle .circle03:last-of-type {
+    width: 56px;
+    height: 56px;
+    margin-left: 82px;
+    background-image: url(./images/circle_black.png);
+}
+
+.circle .circle02 {
+        float: left;
+        width: 91px;
+        height: 91px;
+        background-image: url(./images/circle_red.png);
+        animation: rotate 1.5s infinite linear;
+        margin-left: 5px;
+        opacity: 0.7;
+    }
+
+.circle .circle03 {
+    float: left;
+    width: 60px;
+    height: 60px;
+    margin-left: 16px;
+    animation: rotate 1.5s infinite linear;
+    margin-top: 30px;
+    margin-left: 12px;
+    background-image: url(./images/circle_red02.png);
+    opacity: 0.7;
+}
+
+@keyframes rotate {
+    to {
+        transform: rotate(360deg);
+    }
+}

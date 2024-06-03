@@ -1,0 +1,395 @@
+﻿<!doctype html>
+
+<html xmlns="http://www.w3.org/1999/xhtml">
+  <head>
+    <title></title>
+
+    <meta
+      name="viewport"
+      content="width=device-width, initial-scale=0.95, maximum-scale=0.95, user-scalable=no"
+    />
+    <meta http-equiv="X-UA-Compatible" content="IE=Edge" />
+    <link href="../common/css/prek.css" rel="stylesheet" />
+
+    <style type="text/css">
+      .study {
+        position: absolute;
+        margin-left: 100px;
+        margin-top: 210px;
+        width: 830px;
+        height: 240px;
+        text-align: center;
+        font-family: YDVYGO23;
+        font-size: 150px;
+        font-weight: 700;
+        text-align: center;
+        padding-top: 26px;
+        letter-spacing: -7px;
+        color: cornflowerblue;
+        border: 0px solid red;
+      }
+    </style>
+
+    <script src="../common/js/sweetalert.min.js"></script>
+    <script src="../common/js/jquery-2.1.4.min.js"></script>
+    <script src="../common/js/jquery-ui-1.8.21.min.js"></script>
+
+    <script type="text/javascript" src="../common/js/api.js"></script>
+    <script
+      type="text/javascript"
+      src="../common/js/global_function.js?ver=230628001"
+    ></script>
+    <script
+      type="text/javascript"
+      src="../common/js/prek.js?ver=230628001"
+    ></script>
+    <script
+      type="text/javascript"
+      src="../common/js/jquery.easing.1.3.js"
+    ></script>
+    <script type="text/javascript" src="js/wordland.js?ver=230628001"></script>
+
+    <script type="text/javascript">
+      var getParam = function (key) {
+        var _parammap = {}
+        document.location.search.replace(
+          /\??(?:([^=]+)=([^&]*)&?)/g,
+          function () {
+            function decode(s) {
+              return decodeURIComponent(s.split('+').join(' '))
+            }
+
+            _parammap[decode(arguments[1])] = decode(arguments[2])
+          },
+        )
+
+        return _parammap[key]
+      }
+
+      var _letter
+      var _pNum
+      var _move = false
+      var _cnt = 0
+      var _try = 0
+
+      $(document).ready(function () {
+        getStudyRecord()
+          .then((data) => {
+            if (!data.ok) {
+              throw new Error('Network response was not ok')
+            }
+            return data.json()
+          })
+          .then((json) => {
+            const score1 = json.ScoreStep1
+            const score2 = json.ScoreStep2
+            const score3 = json.ScoreStep3
+
+            getArgs()
+            if (
+              (score1 === '100' || score2 === '100' || score3 === '100') &&
+              _usermode === '1'
+            ) {
+              // 기존의 학습 이력이 있으면 해당 Step으로 바로 이동
+              if (score1 === '100' && score2 === '100') {
+                // Step3 Activity로 이동
+                goStep('step3a.html')
+                return false
+              } else if (score1 === '100') {
+                // Step2 Activity로 이동
+                goStep('step2a.html')
+                return false
+              }
+            } else {
+              PlayLandBGM('WORD')
+
+              $('#divStart').css('display', 'block')
+              $('#imgStart').bind('click', function (e) {
+                Start()
+              })
+
+              PlayDirection('WordLand', 'WL-intro-popup.mp3', undefined)
+            }
+          })
+          .catch((error) => {
+            swal('학습 정보를 가져올 수 없습니다. - PreK/PKWordLand/intro.html')
+          })
+      })
+
+      function Start() {
+        if (_snd != undefined && _snd != NaN) {
+          _snd.Stop()
+        }
+
+        hidePopup()
+        LoadTest()
+      }
+
+      function hidePopup() {
+        $('#divStart').hide(
+          'puff',
+          {
+            duration: 'slow',
+            easing: 'swing',
+            queue: false,
+          },
+          1000,
+        )
+
+        StopLandBGM()
+      }
+
+      function playWord(pStr, pEndFun) {
+        if (_snd != undefined && _snd != NaN) {
+          _snd.Stop()
+        }
+
+        var audio = $('#player')
+        var sndAddr =
+          'https://wcfresource.a1edu.com/NewSystem/sound/PK/WordLand/Words/' +
+          pStr +
+          '.mp3'
+
+        audio.attr('src', sndAddr)
+        audio.bind('ended', function () {
+          audio.unbind('ended')
+          if (pEndFun != undefined && pEndFun != NaN) {
+            pEndFun()
+          }
+        })
+        audio[0].pause()
+        audio[0].load()
+        audio[0].play()
+        return false
+      }
+
+      function LoadTest() {
+        UnLockScreen()
+
+        if (_cnt >= _wordland[_pNum - 167][0].length) {
+          document.getElementById('divPannel1').style.display = 'block'
+        } else {
+          var word = _wordland[_pNum - 167][0][_cnt]
+          setScale($('#divStudy'), 1.0 + _try * 0.2)
+          $('#divStudy').html(word)
+
+          playWord(word.replace(' ', ''), function () {
+            _try++
+            if (_try > 2) {
+              _cnt++
+              _try = 0
+            }
+            LoadTest()
+          })
+        }
+      }
+
+      function StaffGoStep(pPage) {
+        if (pPage == 'step3a') {
+          goStep('step3a.html')
+        } else {
+          goStep(pPage + '.html')
+        }
+      }
+
+      // Intro 학습 후 재학습 가능하도록 추가 - 2016-05-10 박현기
+      function goStep1() {
+        goStep('step1a.html')
+      }
+
+      // Intro 학습 후 재학습 가능하도록 추가 - 2016-05-10 박현기
+      function rePlay() {
+        document.getElementById('divPannel1').style.display = 'none'
+
+        _cnt = 0
+
+        LoadTest()
+      }
+    </script>
+  </head>
+  <body
+    style="
+      background-image: url('img/common/bg.gif');
+      background-repeat: repeat-x repeat-y;
+    "
+  >
+    <form id="form1">
+      <div
+        id="divFrame"
+        class="clsFrame"
+        style="background-image: url('img/intro/bg.jpg')"
+      >
+        <div
+          id="divStepIntro"
+          style="
+            width: 110px;
+            height: 110px;
+            position: absolute;
+            margin-left: 0px;
+            margin-left: 0px;
+          "
+        >
+          <img
+            src="img/common/stepmark.png"
+            style="
+              width: 110px;
+              height: 110px;
+              position: absolute;
+              margin-left: 0px;
+              margin-left: 0px;
+            "
+          />
+          <a id="ancMark" class="mark">Intro</a>
+        </div>
+
+        <!--<div id="divExit" style="width:72px; height:58px; position:absolute; margin-left:940px; margin-top:10px; cursor:pointer;" onclick="return goIndex();">
+            <img id="imgExit" src="../common/img/exit.png" />
+        </div>-->
+
+        <div
+          id="divDirection"
+          style="
+            width: 624px;
+            height: 32px;
+            position: absolute;
+            margin-left: 200px;
+            margin-top: 0px;
+            text-align: center;
+          "
+        >
+          <img id="img0a" src="img/common/step0a.png" />
+        </div>
+
+        <div id="divStudy" class="study"></div>
+
+        <div
+          id="divPannel1"
+          style="
+            width: 200px;
+            height: 96px;
+            position: absolute;
+            margin-left: 410px;
+            margin-top: 230px;
+            border: 5px solid orange;
+            border-radius: 30px;
+            display: none;
+          "
+        >
+          <img
+            title="Replay"
+            src="../common/img/replay.png"
+            style="margin-left: 10px; margin-top: 5px; cursor: pointer"
+            onclick="rePlay();"
+          />
+          <img
+            title="Next"
+            src="../common/img/next.png"
+            style="margin-left: 10px; margin-top: 5px; cursor: pointer"
+            onclick="goStep1();"
+          />
+        </div>
+
+        <div
+          id="divStart"
+          style="
+            width: 520px;
+            height: 520px;
+            position: absolute;
+            margin-left: 260px;
+            margin-top: 50px;
+            display: none;
+            z-index: 11;
+          "
+        >
+          <img
+            class="rollMove"
+            src="img/common/aLPopBorder.png"
+            style="position: absolute; float: left; top: 0px; left: 0px"
+          />
+          <img
+            src="img/common/aLPopInner.png"
+            style="position: absolute; left: 71px; top: 71px"
+          />
+          <img
+            id="imgStart"
+            src="../common/img/start.png"
+            style="position: absolute; left: 220px; top: 360px; cursor: pointer"
+          />
+          <a runat="server" class="txtTitle">Word Land</a>
+          <a runat="server" class="txtCourse" style="font-size: 54px">Intro</a>
+          <a runat="server" class="txtReady">Are you Ready?</a>
+        </div>
+
+        <div style="display: none">
+          <audio id="player">
+            <source id="mp3Source" type="audio/mp3" />
+          </audio>
+        </div>
+
+        <div
+          id="divBtn"
+          style="
+            position: absolute;
+            top: 150px;
+            width: 70px;
+            height: 100px;
+            display: none;
+          "
+        >
+          <div
+            onclick="StaffGoStep('intro')"
+            style="
+              width: 100px;
+              margin-top: 2px;
+              text-align: center;
+              cursor: pointer;
+              border: 1px solid black;
+              background-color: white;
+            "
+          >
+            &nbsp;intro&nbsp;
+          </div>
+          <div
+            onclick="StaffGoStep('step1a')"
+            style="
+              width: 100px;
+              margin-top: 2px;
+              text-align: center;
+              cursor: pointer;
+              border: 1px solid black;
+              background-color: white;
+            "
+          >
+            step1a
+          </div>
+          <div
+            onclick="StaffGoStep('step2a')"
+            style="
+              width: 100px;
+              margin-top: 2px;
+              text-align: center;
+              cursor: pointer;
+              border: 1px solid black;
+              background-color: white;
+            "
+          >
+            step2a
+          </div>
+          <div
+            onclick="StaffGoStep('step3a')"
+            style="
+              width: 100px;
+              margin-top: 2px;
+              text-align: center;
+              cursor: pointer;
+              border: 1px solid black;
+              background-color: white;
+            "
+          >
+            step3a
+          </div>
+        </div>
+      </div>
+    </form>
+  </body>
+</html>

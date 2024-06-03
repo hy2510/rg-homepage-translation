@@ -1,0 +1,207 @@
+﻿<!DOCTYPE html>
+<html lang="en">
+<head>
+    <title></title>
+    <!--<meta http-equiv="X-UA-Compatible" content="IE=Edge" />-->
+    <!--<meta charset="utf-8" />
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />-->
+
+    <style type="text/css">
+        body {
+            background: #fffafa;
+        }
+
+        /*획1*/
+        #line1 {
+            width: 480px;
+            height: 441px;
+            position: absolute;
+            background-color: transparent;
+        }
+
+        /*획2*/
+        #line2 {
+            width: 480px;
+            height: 441px;
+            position: absolute;
+            background-color: transparent;
+        }
+
+        /*획3*/
+        #line3 {
+            width: 480px;
+            height: 441px;
+            position: absolute;
+            background-color: transparent;
+        }
+
+        /* 버튼*/
+        .button {
+            position: absolute;
+            cursor: pointer;
+            width: 40px;
+            height: 40px;
+            border-radius: 20px;
+            background-color: #ff6a00;
+            font-size: 30px;
+            color: white;
+            text-align: center;
+            font-weight: bolder;
+            font-family: YDVYGO25;
+            padding: 3px;
+        }
+
+        .numberCircle {
+            position: absolute;
+            border-radius: 50%;
+            behavior: url(PIE.htc); /* remove if you don't care about IE8 */
+            width: 30px;
+            height: 30px;
+            padding: 4px;
+            background: #fff;
+            border: 2px solid #666;
+            color: #666;
+            text-align: center;
+            font: 32px YDVYGO25, Arial, sans-serif;
+            cursor: pointer;
+        }
+    </style>
+
+    <script src="../common/js/jquery.lazylinepainter-1.5.1.min.js"></script>
+
+    <script type="text/javascript">
+        // goto http://lazylinepainter.info to convert your svg into a svgData object.
+        var svgData1 = {
+            "line1":
+            {                
+                "strokepath": [{ "path": "M176,81 L176,330", "duration": 500 }],                
+                "dimensions": { "width": 480, "height": 441 }
+            }
+        }
+
+        var svgData2 = {
+            "line2":
+            {
+                "strokepath": [{ "path": "M191,105 L260,105 C345,105 340,209 248,209 L195,209 ", "duration": 500 }],
+                "dimensions": { "width": 480, "height": 441 }
+            }
+        }
+
+        var svgData3 = {
+            "line3":
+            {
+                "strokepath": [{ "path": "M255,215 L343,344", "duration": 300 }],
+                "dimensions": { "width": 480, "height": 441 }
+            }
+        }
+
+        function draw1() {
+            $('#line1').lazylinepainter({
+                'svgData': svgData1,
+                'strokeWidth': 45,
+                'strokeColor': '#0000ff',
+                'strokeFill': '#f00',
+                'strokeCap': 'butt',
+                'onComplete': function () {
+                    $('#num1').fadeOut(300);
+                    $('#num2').css('display', 'block');
+                },
+
+                'onStart': function () {
+                }
+            })
+
+            var state = 'paint';
+            $('#line1').lazylinepainter(state);
+        }
+
+        function draw2() {
+            $('#line2').lazylinepainter({
+                'svgData': svgData2,
+                'strokeWidth': 50,
+                'strokeColor': '#0000ff',
+                'strokeCap': 'butt',
+                'strokeFill': '#f00',
+                'onComplete': function () {
+                    $('#num2').fadeOut(300);
+                    $('#num3').css('display', 'block');
+                },
+
+                'onStart': function () {
+                }
+            });
+            
+            var state = 'paint';
+            $('#line2').lazylinepainter(state);
+        }
+
+        function draw3() {
+            playLetter(_alphabet, doAfterEndDraw);
+            $('#line3').lazylinepainter({
+                'svgData': svgData3,
+                'strokeWidth': 47,
+                'strokeColor': '#0000ff',
+                'strokeFill': '#f00',
+                'strokeCap': 'butt',
+                'onComplete': function () {
+                    $('#num3').fadeOut(300);
+                },
+
+                'onStart': function () {
+                    showSmile();
+                }
+            })
+
+            var state = 'paint';
+            $('#line3').lazylinepainter(state);
+        }
+
+        function doAfterEndDraw() {
+            hideSmile();
+            $('#divStudy2').fadeOut(300);
+            $('#divStudy3').load('html/small2' + _alphabet + '.html');
+            $('#divStudy3').fadeIn(600);
+        }
+
+        function clear2() {
+            $('#line1').lazylinepainter('erase');
+            $('#line2').lazylinepainter('erase');
+            $('#line3').lazylinepainter('erase');
+        }
+
+        $(document).ready(function () {
+            //$('#divStart').css('display', 'block');
+
+            $("#btn1").bind('click', function (e) { Start(); });
+            $("#btn2").bind('click', function (e) { goIndex(); });
+            $("#btn3").bind('click', function (e) { goIndex(); });
+        });
+    </script>
+</head>
+<body style="margin:0; width:480px; height:441px;">
+    <div style="position:absolute; margin-left:0px;">
+        <div id='line1'>
+        </div>
+
+        <div id='line2'>
+        </div>
+
+        <div id='line3'>
+        </div>
+
+        <img src="img/intro/big2R.png" style="width:480px; height: 441px; position:absolute; margin-left:0px; margin-top:0px; opacity:1.7" />
+
+        <div id="num1" class="numberCircle" style="margin-left:100px; margin-top:80px; display:block;" onclick="return draw1();">
+            <a>1</a>
+        </div>
+
+        <div id="num2" class="numberCircle" style="margin-left:160px; margin-top:30px; display:none;" onclick="return draw2();">
+            <a>2</a>
+        </div>
+
+        <div id="num3" class="numberCircle" style="margin-left:320px; margin-top:210px; display:none;" onclick="return draw3();">
+            <a>3</a>
+        </div>
+    </div>
+</body>
+</html>

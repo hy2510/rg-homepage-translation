@@ -1,0 +1,86 @@
+
+@font-face {
+    src: url('/css/fonts/YoonGothic230.eot');
+    src: url('/css/fonts/YoonGothic230.eot?#iefix') format('embedded-opentype'), url('/css/fonts/YoonGothic230.woff'), url('/css/fonts/YoonGothic230.ttf') format('truetype');
+    font-weight: normal;
+    font-style: normal;
+    font-stretch: narrower;
+}
+
+@font-face {
+    src: url('/css/fonts/YoonGothic220.eot');
+    src: url('/css/fonts/YoonGothic220.eot?#iefix') format('embedded-opentype'), url('/css/fonts/YoonGothic220.woff'), url('/css/fonts/YoonGothic220.ttf') format('truetype');
+    font-weight: normal;
+    font-style: normal;
+    font-stretch: narrower;
+}
+
+@font-face {
+    font-family: 'font3';
+    src: url('/css/fonts/YoonMyungjo420.eot');
+    src: url('/css/fonts/YoonMyungjo420.eot?#iefix') format('embedded-opentype'), url('/css/fonts/YoonMyungjo420.woff'), url('/css/fonts/YoonMyungjo420.ttf') format('truetype');
+    font-weight: bold;
+    font-style: normal;
+    font-stretch: narrower;
+}
+
+@font-face {
+    font-family: 'kor';
+    src: url('/css/fonts/NanumGothic.eot');
+    src: url('/css/fonts/NanumGothic.eot?#iefix') format('embedded-opentype'), url('/css/fonts/NanumGothic.woff'), url('/css/fonts/NanumGothic.ttf') format('truetype');
+    font-weight: bold;
+    font-style: normal;
+    font-stretch: narrower;
+}
+
+@font-face {
+    font-family: 'kor_bold';
+    src: url('/css/fonts/MalgunGothicBold.woff') format('woff'), url('/css/fonts/MalgunGothicBold.ttf') format('truetype');
+    font-weight: normal;
+    font-style: normal;
+    font-stretch: narrower;
+}
+
+@font-face {
+    font-family: 'YDVYMjO44';
+    src: url('/css/fonts/YDVYMjO44.eot');
+    src: url('/css/fonts/YDVYMjO44.eot?#iefix') format('embedded-opentype'), url('/css/fonts/YDVYMjO44.woff') format('woff'), url('/css/fonts/YDVYMjO44.ttf') format('truetype');
+    font-weight: normal;
+    font-style: normal;
+    font-stretch: narrower;
+}
+
+@font-face {
+    font-family: 'YDVYGO25';
+    src: url('/css/fonts/YDVYGO25.eot');
+    src: url('/css/fonts/YDVYGO25.eot?#iefix') format('embedded-opentype'), url('/css/fonts/YDVYGO25.woff') format('woff'), url('/css/fonts/YDVYGO25.ttf') format('truetype');
+    font-weight: normal;
+    font-style: normal;
+    font-stretch: narrower;
+}
+
+@font-face {
+    font-family: 'MalgunGothicBold';
+    src: url('/css/fonts/MalgunGothicBold.woff') format('woff'), url('/css/fonts/MalgunGothicBold.ttf') format('truetype');
+    font-weight: normal;
+    font-style: normal;
+    font-stretch: narrower;
+}
+
+@font-face {
+    font-family: 'NanumGothic';
+    src: url('/css/fonts/NanumGothic.eot');
+    src: url('/css/fonts/NanumGothic.eot?#iefix') format('embedded-opentype'), url('/css/fonts/NanumGothic.woff') format('woff'), url('/css/fonts/NanumGothic.ttf') format('truetype');
+    font-weight: normal;
+    font-style: normal;
+    font-stretch: narrower;
+}
+
+@font-face {
+    font-family: 'MinionPro-Regular';
+    src: url('/css/fonts/MinionPro-Regular.eot');
+    src: url('/css/fonts/MinionPro-Regular.eot?#iefix') format('embedded-opentype'), url('/css/fonts/MinionPro-Regular.woff') format('woff'), url('/css/fonts/MinionPro-Regular.ttf') format('truetype');
+    font-weight: bold;
+    font-style: normal;
+    font-stretch: narrower;
+}

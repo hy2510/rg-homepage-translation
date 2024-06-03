@@ -1,0 +1,303 @@
+﻿.bg-jack-vote {
+    width: 1280px;
+    height: 720px;
+    background: url(./images/bg_jack_vote.jpg);
+}
+
+.hyper {
+    position: absolute;
+}
+
+.wrapper-spider {
+    left: 100px;
+}
+
+.wrapper-pumpkin {
+    top: 400px;
+    left: 20px;
+}
+
+.wrapper-character {
+    position: absolute;
+    top: 280px;
+    width: 312px;
+    height: 440px;
+    background-image: url(./images/img_box_left.png);
+    background-position: bottom left;
+    background-repeat: no-repeat;
+    background-position: bottom left;
+    z-index: 99;
+}
+
+.character {
+    width: 250px;
+    height: 316px;
+    background: url(./images/img_character_jack.png);
+    animation: jack 2.5s steps(2) infinite;
+}
+
+    .character.correct {
+        background: url(./images/img_character_jack_correct.png);
+        animation: jackCorrect 2s steps(2);
+    }
+
+    .character.incorrect {
+        background: url(./images/img_character_jack_incorrect.png);
+        animation: jackCorrect 2s steps(2);
+    }
+
+@keyframes jack {
+    80% {
+        background-position: 0;
+    }
+
+    100% {
+        background-position: -500px;
+    }
+}
+
+@keyframes jackCorrect {
+    to {
+        background-position: -500px;
+    }
+}
+
+@keyframes jackIncorrect {
+    80% {
+        background-position: 0;
+    }
+
+    100% {
+        background-position: -500px;
+    }
+}
+
+.wrapper-flower {
+    position: absolute;
+    width: 250px;
+    height: 316px;
+}
+
+.flower {
+    position: absolute;
+    width: 250px;
+    height: 316px;
+}
+
+.flower:first-of-type {
+    background-image: url(./images/img_flower_01.png);
+    animation: flower 1s infinite;
+}
+
+.flower:nth-of-type(2) {
+    background-image: url(./images/img_flower_02.png);
+    animation: flower 1s 0.4s infinite;
+}
+
+.flower:last-of-type {
+    background-image: url(./images/img_flower_03.png);
+    animation: flower 1s 0.8s infinite;
+}
+
+@keyframes flower {
+    30% {
+        opacity: 1;
+    }
+
+    70% {
+        opacity: 1;
+    }
+
+    30% {
+        opacity: 0;
+    }
+}
+
+.wrapper-paper {
+    position: absolute;
+    top: 132px;
+    left: 533px;
+    width: 747px;
+    height: 193px;
+}
+
+.paper {
+    position: absolute;
+    top: 0;
+    width: 188px;
+    height: 193px;
+    background: url(./images/img_paper.png);
+    cursor: url(../../include/images/cursor_hover.png), pointer;
+}
+    .paper.shake {
+        animation: shake cubic-bezier(.50,.20,.20,.97) 0.6s;
+    }
+
+    .paper:first-of-type {
+        left: 80px;
+    }
+
+    .paper:nth-of-type(2) {
+        left: 290px;
+    }
+
+    .paper:last-of-type {
+        left: 500px;
+    }
+
+    .paper.selected {
+        animation: selected 1s forwards;
+    }
+
+@keyframes selected {
+    to {
+        top: 275px;
+        left: 290px;
+        transform: rotate(120deg);
+    }
+}
+
+.text-alphabet {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -65%);
+    text-align: center;
+    font-size: 6rem;
+}
+
+    /*.text-alphabet.lower {
+        margin-top:15px;
+    }*/
+    .paper > p.smalla{margin-top: 8px;}
+    .paper > p.smallb{margin-top: 15px;}
+    .paper > p.smallc{margin-top: 8px;}
+    .paper > p.smalld{margin-top: 15px;}
+    .paper > p.smalle{margin-top: 8px;}
+    .paper > p.smallf{margin-top: 15px;}
+    .paper > p.smallg{margin-top: -2px;}
+    .paper > p.smallh{margin-top: 15px;}
+    .paper > p.smalli{margin-top: 15px;}
+    .paper > p.smallj{margin-top: 5px;}
+    .paper > p.smallk{margin-top: 15px;}
+    .paper > p.smalll{margin-top: 15px;}
+    .paper > p.smallm{margin-top: 8px;}
+    .paper > p.smalln{margin-top: 8px;}
+    .paper > p.smallo{margin-top: 8px;}
+    .paper > p.smallp{margin-top: -2px;}
+    .paper > p.smallq{margin-top: -2px;}
+    .paper > p.smallr{margin-top: 8px;}
+    .paper > p.smalls{margin-top: 8px;}
+    .paper > p.smallt{margin-top: 10px;}
+    .paper > p.smallu{margin-top: 8px;}
+    .paper > p.smallv{margin-top: 8px;}
+    .paper > p.smallw{margin-top: 8px;}
+    .paper > p.smallx{margin-top: 8px;}
+    .paper > p.smally{margin-top: -2px;}
+    .paper > p.smallz{margin-top: 8px;}
+
+.wrapper-cover {
+    position: absolute;
+    top: 425px;
+    left: 520px;
+    width: 760px;
+    height: 295px;
+    padding-top: 131px;
+    font-size: 5rem;
+    text-align: center;
+    z-index: 100;
+    display: block;
+    background: url(./images/img_box_cover.png);
+}
+
+.wrapper-word {
+    display: inline-block;
+}
+
+    .wrapper-word span {
+        float: left;
+        font-size: 5rem;
+        height: 94px;
+        line-height: 94px;
+    }
+
+    .wrapper-word .text-blank {
+        display: inline-block;
+        text-align: center;
+        border-radius: 1rem;
+        background-color: #fff;
+        padding: 0 12px;
+        display:none;
+    }
+
+        .wrapper-word .text-blank.one {
+            min-width: 75px;
+            display: block;
+        }
+
+        .wrapper-word .text-blank.two {
+            min-width: 130px;
+            display: block;
+        }
+
+        .wrapper-word .text-blank.three {
+            min-width: 160px;
+            display: block;
+        }
+
+    /*.wrapper-word .text-example {
+        margin-left: 8px;
+    }*/
+
+        .wrapper-word .text-example.correct {
+            color:#a50000;
+        }
+
+.wrapper-question {
+    position: absolute;
+    width: 300px;
+    height: 300px;
+    top: 200px;
+    left: 247px;
+    text-align:center;
+    padding:0;
+}
+
+    .wrapper-question img {
+        margin-top: 25px;
+        width: 238px;
+        height: 238px;
+        transition: width 1s, height 1s, margin-top 1s;
+    }
+
+        .wrapper-question img.bigger {
+            width: 300px;
+            height: 300px;
+            margin-top: 0;
+        }
+
+@keyframes shake {
+    10%, 90% {
+        transform: translate3d(-10px, 0, 0);
+    }
+
+    20%, 80% {
+        transform: translate3d(10px, 0, 0);
+    }
+
+    30%, 50%, 70% {
+        transform: translate3d(-10px, 0, 0);
+    }
+
+    40%, 60% {
+        transform: translate3d(10px, 0, 0);
+    }
+}
+
+.characteract {
+    background: url(./images/img_character_jack_screaming.png);
+}
+
+.text-alphabet:hover{
+    color:#FF9000;
+}

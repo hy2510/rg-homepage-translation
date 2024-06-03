@@ -1,0 +1,274 @@
+﻿.bg-ice-cream {
+    width: 1280px;
+    height: 720px;
+    background: url(./images/bg_ice_cream.jpg);
+}
+
+.wrapper-word {
+    position: absolute;
+    top: 135px;
+    left: 95px;
+    width: 300px;
+    height: 95px;
+    font-size: 5rem;
+    line-height: 94px;
+    text-align: center;
+}
+
+    .wrapper-word img {
+        vertical-align: top;
+    }
+
+.wrapper-example {
+    position: absolute;
+    top: 0;
+    left: 880px;
+    width: 210px;
+    height: 720px;
+    cursor: url(../../include/images/cursor_hover.png), pointer;
+}
+
+.wrapper-ice-cream {
+    position: absolute;
+    width: 210px;
+    height: 204px;
+}
+
+    .wrapper-ice-cream.first {
+        top: 96px;
+    }
+
+    .wrapper-ice-cream.second {
+        top: 300px;
+    }
+
+    .wrapper-ice-cream.third {
+        top: 504px;
+    }
+
+    .wrapper-ice-cream.ice1 {
+        background: url(./images/img_ice_cream_01.png);
+        background-repeat: no-repeat;
+        background-size: cover;
+    }
+
+    .wrapper-ice-cream.ice2 {
+        background: url(./images/img_ice_cream_02.png);
+        background-repeat: no-repeat;
+        background-size: cover;
+    }
+
+
+    .wrapper-ice-cream.ice3 {
+        background: url(./images/img_ice_cream_03.png);
+        background-repeat: no-repeat;
+        background-size: cover;
+    }
+
+
+    .wrapper-ice-cream.ice4 {
+        background: url(./images/img_ice_cream_04.png);
+        background-repeat: no-repeat;
+        background-size: cover;
+    }
+
+
+    .wrapper-ice-cream.ice5 {
+        background: url(./images/img_ice_cream_05.png);
+        background-repeat: no-repeat;
+        background-size: cover;
+    }
+
+    .wrapper-ice-cream.ice6 {
+        background: url(./images/img_ice_cream_06.png);
+        background-repeat: no-repeat;
+        background-size: cover;
+    }
+
+    .wrapper-ice-cream img {
+        position: absolute;
+        top: 45%;
+        left: 50%;
+        width: 130px;
+        height: 130px;
+        transform: translate(-50%, -50%);
+    }
+
+.wrapper-character {
+    position: absolute;
+    top: 420px;
+    left: 160px;
+    width: 200px;
+    height: 220px;
+}
+
+    .wrapper-character > .character-dodo {
+        background: url(./images/roro_d.png);
+        animation: dodo 2s steps(2) infinite;
+        width: 200px;
+        height: 220px;
+    }
+
+        .wrapper-character > .character-dodo.correct {
+            width: 200px;
+            height: 220px;
+            background: url(./images/roro_correct.png);
+            animation: dodo 2s steps(2) infinite;
+        }
+
+        .wrapper-character > .character-dodo.incorrect {
+            width: 200px;
+            height: 220px;
+            background: url(./images/roro_incorrect.png);
+            animation: dodo 2s steps(2) infinite;
+        }
+
+@keyframes dodo {
+    to {
+        background-position: -400px;
+    }
+}
+
+.slip {
+    position: absolute;
+    left: 534px;
+    width: 210px;
+    height: 204px;
+}
+
+    .slip:first-of-type {
+        top: 365px;
+    }
+
+    .slip:nth-of-type(2) {
+        top: 245px;
+    }
+
+    .slip:last-of-type {
+        top: 125px;
+    }
+
+.drop-target {
+    position: absolute;
+    left: 534px;
+    width: 210px;
+    height: 204px;
+}
+
+    .drop-target:first-of-type {
+        top: 365px;
+    }
+
+    .drop-target:nth-of-type(2) {
+        top: 245px;
+    }
+
+    .drop-target:last-of-type {
+        top: 125px;
+    }
+
+    .drop-target.dot {
+        background: url(./images/img_dot.png);
+        animation: dot 1s infinite;
+    }
+
+@keyframes dot {
+    from {
+        opacity: 1;
+    }
+
+    to {
+        opacity: 0.2;
+    }
+}
+
+.drop-target .wrapper-ice-cream {
+    top: 0;
+    left: 0;
+}
+
+.sheila-correct {
+    position: absolute;
+    top: 440px;
+    left: 930px;
+    width: 204px;
+    height: 216px;
+    background: url(./images/sheila_correct.png);
+    animation: sheila 2s steps(2) infinite;
+}
+
+@keyframes sheila {
+    to {
+        background-position: -200%;
+    }
+}
+
+.blanchand {
+    position: absolute;
+    top: 235px;
+    left: 564px;
+    z-index: 1001;
+}
+
+.blanc {
+    position: absolute;
+    top: 250px;
+    left: 573px;
+    width: 184px;
+    height: 202px;
+    position: absolute;
+    background-image: url(./images/blanc.png);
+    animation: blanc 1.5s steps(2) infinite;
+    transition: all .5s linear;
+    opacity: 0.01;
+}
+
+    .blanc.correct {
+        transform: translate(-45px, -110px);
+        -webkit-transform: translate(-45px, -110px);
+    }
+
+@keyframes blanc {
+    to {
+        background-position: -368px;
+    }
+}
+
+.jackhand {
+    position: absolute;
+    top: 360px;
+    left: 625px;
+    z-index: 1001;
+}
+
+.jack {
+    position: absolute;
+    top: 375px;
+    left: 590px;
+    width: 123px;
+    height: 127px;
+    position: absolute;
+    background-image: url(./images/dodo.png);
+    animation: jack 1.5s steps(2) infinite;
+    transition: all .5s linear;
+    opacity: 0.01;
+}
+
+    .jack.correct {
+        transform: translate(30px, -110px);
+        -webkit-transform: translate(30px, -110px);
+    }
+
+@keyframes jack {
+    to {
+        background-position: -246px;
+    }
+}
+
+.slipdown {
+    animation: slipdown 2s forwards;
+}
+
+.characteract {
+    background: url(./images/roro_d.png);
+}

@@ -1,0 +1,380 @@
+﻿html {
+    cursor: url(../include/images/cursor.png), pointer;
+}
+
+.media-control-panel-backscreen {
+    position: absolute;
+    width: 1280px;
+    height: 86px;
+    top: 646px;
+    background-color: black;
+    opacity: 0.0;
+}
+
+
+.media-control-panel {
+    position: absolute;
+    width: 1280px;
+    height: 86px;
+    top: 660px;
+}
+
+    /*컨트롤*/
+    .media-control-panel > .control-left {
+        width: 110px;
+        height: 74px;
+        float: left;
+        padding: 5px;
+        /*margin-left: 10px;*/
+        margin-left: 0px;
+    }
+
+        .media-control-panel > .control-left > img {
+            width: 50px;
+            height: 50px;
+        }
+
+.js-test-record {
+    cursor: url(../include/images/cursor_hover.png), pointer;
+}
+
+.js-btn-play {
+    cursor: url(../include/images/cursor_hover.png), pointer;
+}
+
+.media-control-panel > .record-skip {
+    position: absolute;
+    width: 64px;
+    height: 74px;
+    float: left;
+    padding: 5px;
+    margin-left: 55px;
+}
+
+        .media-control-panel > .record-skip > img {
+            cursor: url(../include/images/cursor_hover.png), pointer;
+            width: 50px;
+            height: 50px;
+        }
+
+
+    /*자막 영역*/
+    .media-control-panel > .script-back {
+        width: 1000px;
+        height: 74px;
+        float: left;
+        margin-right: 10px;
+        text-align: center;
+        font-size: 2.5rem;
+        line-height: 70px;
+        color:white;
+    }
+
+        .media-control-panel > .script-back > b {
+            color: yellow;
+        }
+
+    .media-control-panel > .js-btn-next {
+        width: 31px;
+        height: 45px;
+        padding:0;
+        border:0;
+        background:none;
+        background-image: url(./images/btn_next.png);
+        position: absolute;
+        right: 26px;
+        bottom: 24px;
+        cursor: url(../include/images/cursor_hover.png), pointer;
+        animation: blink 0.8s steps(2) infinite;
+    }
+    @keyframes blink {
+        to {
+            background-position: -200%;
+        }
+    }
+
+
+
+
+.wrapper-next2 {
+    position: absolute;
+    width: 1280px;
+    height: 720px;
+    top:0px;
+    left:0px;
+    z-index: 9999;
+}
+
+.black-wall2 {
+    position: absolute;
+    width: 1280px;
+    height: 720px;
+    background-color: black !important;
+    opacity: 0.85 !important;
+}
+
+.next-popup2 {
+    position: absolute;
+    width: 398px;
+    height: 238px;
+    top: 33%;
+    left: 35%;
+    background-image: url(./images/movie_btn_bg.png);
+}
+
+.again2 {
+    position: absolute;
+    width: 137px;
+    height: 134px;
+    top: 21%;
+    left: 13%;
+    float: left;
+    cursor: url(../include/images/cursor_hover.png), pointer;
+    background-image: url(./images/btn_again01.png);
+}
+
+    .again2:hover {
+        background-image: url(./images/btn_again02.png);
+    }
+
+.pop-sing {
+    position: absolute;
+    left: 50%;
+    top: 50%;
+    transform: translate(-50%, -50%);
+    text-align: center;
+    width: 365px;
+    height: 205px;
+    background-image: url(./images/pop_sing.png);
+    animation: sing 1s steps(2) infinite;
+}
+
+@keyframes sing {
+    to {
+        background-position: -200%;
+    }
+}
+
+
+
+
+.next2 {
+    position: absolute;
+    width: 137px;
+    height: 134px;
+    top: 21%;
+    right: 13%;
+    float: right;
+    cursor: url(../include/images/cursor_hover.png), pointer;
+    background-image: url(./images/btn_record01.png);
+}
+
+    .next2:hover {
+        background-image: url(./images/btn_record02.png);
+    }
+
+
+.pop_point {
+    position: absolute;
+    left: 50%;
+    width: 352px;
+    height: 538px;
+    transform: translate(-50%, -50%);
+    background-image: url(./images/pop_point.png);
+    /*background-image: url(./images/pop_point02.png);*/
+    top: 47% !important;
+    z-index: 99;
+}
+
+    .pop_point p {
+        font-size: 2.7rem;
+        line-height: 60px;
+        margin-top: 90px;
+        color: #fff;
+        text-align: center;
+    }
+    /*
+    .pop_point span {
+        position: absolute;
+        top: 370px;
+        left: 112px;
+        font-size: 2.2rem;
+        color: #fff300;
+        text-align: right;
+    }*/
+
+    .pop_point span {
+        list-style:none;
+        width: 150px;
+        line-height: 44px;
+        position: absolute;
+        bottom: 20px;
+        font-size: 1.4rem;
+        background-color: #f7820a;
+        color: #fff;
+        border-radius: 0.6rem;
+        cursor: pointer;
+        text-align: center;
+    }
+
+    .pop_point .btn01 {
+        left: 100px;
+    }
+
+    .pop_point .btn02 {
+        right: 20px;
+    }
+
+    .pop_point li:hover {
+        background-color: #f8750c;
+    }
+
+.firework {
+    width: 221px;
+    height: 175px;
+    background-image: url(./images/pop_point_firework.png);
+    position: absolute;
+    top: 178px;
+    left: 55px;
+    animation: firework 1.5s steps(4) forwards;
+ 
+}
+
+@keyframes firework {
+    to {
+        background-position: -400%;
+    }
+}
+
+.firework p {
+    width: 100%;
+    height: 100%;
+    background-image: url(./images/pop_point_firework02.png);
+    position: absolute;
+    top: -100px;
+    left: 0px;
+    opacity: 0;
+    transform: rotate(-5deg);
+    animation: firework02 1.5s 0.4s forwards;
+}
+
+@keyframes firework02 {
+    to {
+        opacity: 1;
+        transform: rotate(0);
+    }
+}
+
+.shine {
+    width: 69px;
+    height: 69px;
+    background-image: url(./images/pop_point_shine.png);
+    position: absolute;
+    top: -12px;
+    left: 45%;
+    opacity: 0;
+    animation: shine 2s 1.2s forwards;
+}
+
+@keyframes shine {
+    to {
+        opacity: 1;
+        transform: rotate(36deg);
+    }
+}
+
+.js-todayGoal {
+    padding-top: 100px;
+    position: absolute;
+    width: 1280px;
+    height: 720px;
+    z-index: 1000;
+    background-color: transparent;
+}
+
+.bg-daily-goal {
+    position: absolute;
+    top: 55%;
+    left: 33%;
+    transform: translate(0%, -60%);
+    width: 460px;
+    height: 550px;
+    opacity: 1
+}
+
+
+.daily-goal-contents {
+    height: 100vh;
+    display: contents;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+}
+
+    .daily-goal-contents div:nth-child(1) {
+        margin-bottom: 10px;
+    }
+
+    .daily-goal-contents div:nth-child(2) {
+        margin-bottom: 20px;
+    }
+
+    .daily-goal-contents .message {
+        font-size: 22px;
+        color: #FFFFFF;
+    }
+
+    .daily-goal-contents .goal {
+        font-size: 33px;
+        color: #FFFFFF;
+    }
+
+.img-goal-achieved {
+    width: 100%;
+    max-width: 450px;
+    /* padding: 0px 20px 0px 20px; */
+    cursor: pointer;
+}
+
+.js-award {
+    background-color: #d87731 !important;
+    position: fixed;
+    width: 1280px;
+    height: 720px;
+}
+
+.bg-award {
+    position: absolute;
+    width: 100%;
+    height: 134%;
+    transform: scale(0.70);
+    top: -20%;
+}
+
+.eventAward1 {
+    background: top center no-repeat url('https://wcfresource.a1edu.com/newsystem/image/eventaward/eventaward1.png');
+    background-color: #94d4eb;
+}
+
+.eventAward2 {
+    background: top center no-repeat url('https://wcfresource.a1edu.com/newsystem/image/eventaward/eventaward2.png');
+    background-color: #94d4eb;
+}
+
+.eventAward3 {
+    background: top center no-repeat url('https://wcfresource.a1edu.com/newsystem/image/eventaward/eventaward3.png');
+    background-color: #94d4eb;
+}
+
+.eventAward4 {
+    background: top center no-repeat url('https://wcfresource.a1edu.com/newsystem/image/eventaward/eventaward4.png');
+    background-color: #94d4eb;
+}
+
+.black-wall {
+    position: absolute;
+    width: 1280px;
+    height: 720px;
+    background-color: black !important;
+    opacity: 0.85 !important;
+}

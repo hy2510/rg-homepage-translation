@@ -1,0 +1,284 @@
+﻿.bg-umbrella {
+    width: 1280px;
+    height: 720px;
+    background: url(./images/bg_umbrella.jpg);
+}
+
+.wrapper-question {
+    position: absolute;
+    top: 68px;
+    left: 453px;
+    width: 374px;
+    height: 218px;
+}
+
+.question {
+    position: absolute;
+    top: 20px;
+    height: 127px;
+    left: 50%;
+    transform: translateX(-50%);
+    cursor: url(../../include/images/cursor_hover.png), pointer;
+}
+
+.umbrella {
+    position: absolute;
+    top: 358px;
+    width: 300px;
+    height: 300px;
+}
+
+    .umbrella:first-of-type {
+        left: 110px;
+    }
+
+    .umbrella:nth-of-type(2) {
+        left: 440px;
+    }
+
+    .umbrella:last-of-type {
+        left: 770px;
+    }
+
+.umbrella-top {
+    position: absolute;
+    top: 0px;
+    width: 300px;
+    height: 300px;
+    background-repeat: no-repeat;
+    background-position: center;
+    cursor: url(../../include/images/cursor_hover.png), pointer;
+}
+
+    .umbrella-top.incorrect {
+        animation: umbrellaincorrect 0.5s forwards linear;
+    }
+
+    .umbrella-top p {
+        position: absolute;
+        top: 29%;
+        left: 50%;
+        transform: translate(-50%, -50%);
+        font-size: 3.5rem;
+    }
+
+.umbrella-bottom {
+    position: absolute;
+    top: -1px;
+    width: 300px;
+    height: 300px;
+}
+
+.dodo {
+    position: absolute;
+    top: 485px;
+    left: 1105px;
+    width: 154px;
+    height: 178px;
+    background: url(./images/dodo_d.png);
+    animation: dodo 1.8s steps(2) infinite;
+    z-index: 3;
+}
+    .dodo.correct {
+        background: url(./images/dodo_correct.png);
+        z-index: 3;
+    }
+
+    .dodo.incorrect {
+        background: url(./images/dodo_incorrect.png);
+        z-index: 3;
+    }
+
+    .dodo.walk {
+        background: url(./images/dodo_walk.png);
+        animation: dodo 0.5s steps(2) infinite;
+    }
+
+@keyframes dodo {
+    100% {
+        background-position: -308px;
+    }
+}
+
+.wrapper-cloud {
+    position: absolute;
+    width: 295px;
+    height: 203px;
+    top: 125px;
+    left: 34%;
+    text-align: center;
+    z-index: 2;
+}
+    .wrapper-cloud .papa {
+        position: absolute;
+        top: -87px;
+        left: 160px;
+        width: 214px;
+        height: 230px;
+        animation: papa 2.2s steps(2) infinite;
+        background-image: url(./images/papa_d.png);
+    }
+
+    .wrapper-cloud .papa.correct {
+        background-image: url(./images/papa_correct.png);
+    }
+
+    .wrapper-cloud .papa.incorrect {
+        background-image: url(./images/papa_incorrect.png);
+    }
+
+.cloud {
+    position: absolute;
+    width: 295px;
+    height: 200px;
+    background-image: url(./images/cloud.png);
+}
+
+    .cloud img {
+        margin-top: 20px;
+        z-index: 3;
+    }
+        .cloud .papa.correct {
+            transform: translate(45px, -143px);
+            -webkit-transform: translate(45px, -143px);
+        }
+
+    .cloud > .bigger {
+        animation: fullscale 1.5s forwards;
+    }
+
+    @keyframes fullscale {
+        to {
+            transform: scale(1.3);
+            left: 30%;
+        }
+    }
+
+.wrapper-puddle {
+    position: absolute;
+    top: 640px;
+    left: 0px;
+    width: 1280px;
+    height: 37px;
+}
+    .wrapper-puddle .puddle {
+        position: absolute;
+        width: 171px;
+        height: 37px;
+        background-image: url(./images/puddle.png);
+    }
+
+        .wrapper-puddle .puddle:first-of-type {
+            left: 240px;
+        }
+
+        .wrapper-puddle .puddle:nth-of-type(2) {
+            left: 555px;
+        }
+
+        .wrapper-puddle .puddle:last-of-type {
+            left: 865px;
+        }
+
+.rain {
+    width: 337px;
+    height: 190px;
+    top:200px;
+    position: absolute;
+}
+
+.rain:first-of-type {
+    left: 130px;
+}
+
+.rain:nth-of-type(2) {
+    left: 440px;
+}
+
+.rain:last-of-type {
+    left: 750px;
+}
+
+    .rain li {
+        width: 337px;
+        height: 190px;
+        position: absolute;
+        opacity: 0;
+    }
+
+    .rain li.rain01 {
+        background-image: url(./images/rain01.png);
+        animation: rain 2s infinite linear;
+    }
+
+    .rain li.rain02 {
+        background-image: url(./images/rain02.png);
+        animation: rain 2s 1s infinite linear;
+    }
+
+    .rain li.rain03 {
+        background-image: url(./images/rain03.png);
+        animation: rain 1.2s infinite linear;
+    }
+
+.plant {
+    position: absolute;
+    width: 1280px;
+    height: 135px;
+    top: 605px;
+    left: 0;
+    background-image: url(./images/plant.png);
+    z-index: 10;
+}
+
+@keyframes papa {
+    to {
+        background-position: -428px;
+    }
+}
+
+@keyframes wave {
+    10%, 90% {
+        transform: translate3d(20px, -2px, 0);
+    }
+
+    20%, 80% {
+        transform: translate3d(-5px, 3px, 0);
+    }
+
+    30%, 50%, 70% {
+        transform: translate3d( 5px,-2px, 0);
+    }
+
+    40%, 60% {
+        transform: translate3d(-20px, -3px, 1px);
+    }
+}
+@keyframes rain {
+    0% {
+        top: 5%;
+        opacity: 0
+    }
+
+    15% {
+        top: 35%;
+        opacity: 1;
+    }
+
+    65% {
+        top: 65%;
+        opacity: 1;
+    }
+
+    100% {
+        top: 95%;
+        opacity: 0;
+    }
+}
+
+@keyframes umbrellaincorrect {
+    to {
+        transform-origin: center;
+        transform: rotate(-30deg);
+    }
+}

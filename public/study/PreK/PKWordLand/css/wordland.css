@@ -1,0 +1,328 @@
+﻿body {
+}
+
+/* bubble1 [[[ */
+@-webkit-keyframes bubble1-move {
+    0% {left:10px; top: 0px; opacity:0.0;}
+    10% {left:10px; top: -40px; opacity:1.0;}
+    50% {left:-10px; top:-220px; opacity:1.0}
+    90% {left:-10px; top:-420px; opacity:1.0}
+    100% {left:20px; top:-440px; opacity:0.0;}
+}
+
+@-ms-keyframes bubble1-move {
+    0% {left:10px; top: 0px; opacity:0.0;}
+    10% {left:10px; top: -40px; opacity:1.0;}
+    50% {left:-10px; top:-220px; opacity:1.0}
+    90% {left:-10px; top:-420px; opacity:1.0}
+    100% {left:20px; top:-440px; opacity:0.0;}
+}
+
+@-o-keyframes bubble1-move {
+    0% {left:10px; top: 0px; opacity:0.0;}
+    10% {left:10px; top: -40px; opacity:1.0;}
+    50% {left:-10px; top:-220px; opacity:1.0}
+    90% {left:-10px; top:-420px; opacity:1.0}
+    100% {left:20px; top:-440px; opacity:0.0;}
+}
+
+@-moz-keyframes bubble1-move {
+    0% {left:10px; top: 0px; opacity:0.0;}
+    10% {left:10px; top: -40px; opacity:1.0;}
+    50% {left:-10px; top:-220px; opacity:1.0}
+    90% {left:-10px; top:-420px; opacity:1.0}
+    100% {left:20px; top:-440px; opacity:0.0;}
+}
+
+@keyframes bubble1-move {
+    0% {left:10px; top: 0px; opacity:0.0;}
+    10% {left:10px; top: -40px; opacity:1.0;}
+    50% {left:-10px; top:-220px; opacity:1.0}
+    90% {left:-10px; top:-420px; opacity:1.0}
+    100% {left:20px; top:-440px; opacity:0.0;}
+}
+
+.bubble1 {
+    -webkit-animation:bubble1-move 10.0s linear;
+    -ms-animation:bubble1-move 10.0s linear;
+    -o-animation:bubble1-move 10.0s linear;
+    -moz-animation:bubble1-move 10.0s linear;
+    animation:bubble1-move 10.0s linear infinite;
+}
+/* bubble1 ]]] */
+
+/* bubble2 [[[ */
+@-webkit-keyframes bubble2-move {
+    0% {left:0px; top: 0px; opacity:0.0;}
+    10% {left:-10px; top: -40px; opacity:1.0;}
+    50% {left:20px; top:-220px; opacity:1.0}
+    90% {left:-20px; top:-440px; opacity:1.0}
+    100% {left:0px; top:-480px; opacity:0.0;}
+}
+
+@-ms-keyframes bubble2-move {
+    0% {left:0px; top: 0px; opacity:0.0;}
+    10% {left:-10px; top: -40px; opacity:1.0;}
+    50% {left:20px; top:-220px; opacity:1.0}
+    90% {left:-20px; top:-440px; opacity:1.0}
+    100% {left:0px; top:-480px; opacity:0.0;}
+}
+
+@-o-keyframes bubble2-move {
+    0% {left:0px; top: 0px; opacity:0.0;}
+    10% {left:-10px; top: -40px; opacity:1.0;}
+    50% {left:20px; top:-220px; opacity:1.0}
+    90% {left:-20px; top:-440px; opacity:1.0}
+    100% {left:0px; top:-480px; opacity:0.0;}
+}
+
+@-moz-keyframes bubble2-move {
+    0% {left:0px; top: 0px; opacity:0.0;}
+    10% {left:-10px; top: -40px; opacity:1.0;}
+    50% {left:20px; top:-220px; opacity:1.0}
+    90% {left:-20px; top:-440px; opacity:1.0}
+    100% {left:0px; top:-480px; opacity:0.0;}
+}
+
+@keyframes bubble2-move {
+    0% {left:0px; top: 0px; opacity:0.0;}
+    10% {left:-10px; top: -40px; opacity:1.0;}
+    50% {left:20px; top:-220px; opacity:1.0}
+    90% {left:-20px; top:-440px; opacity:1.0}
+    100% {left:0px; top:-480px; opacity:0.0;}
+}
+
+.bubble2 {
+    -webkit-animation:bubble2-move 16.0s linear;
+    -ms-animation:bubble2-move 16.0s linear;
+    -o-animation:bubble2-move 16.0s linear;
+    -moz-animation:bubble2-move 16.0s linear;
+    animation:bubble2-move 16.0s linear infinite;
+}
+/* bubble2 ]]] */
+
+/* weed1 [[[ */
+@-webkit-keyframes weed1-move {
+    0% {-webkit-transform: rotate(0deg); transform-origin: center bottom;}
+    25% {-webkit-transform: rotate(10deg); transform-origin: center bottom;}
+    75% {-webkit-transform: rotate(-10deg); transform-origin: center bottom;}
+    100% {-webkit-transform: rotate(0deg); transform-origin: center bottom;}
+}
+
+@-moz-keyframes weed1-move {
+    0% {-moz-transform: rotate(0deg); transform-origin: center bottom;}
+    25% {-moz-transform: rotate(10deg); transform-origin: center bottom;}
+    75% {-moz-transform: rotate(-10deg); transform-origin: center bottom;}
+    100% {-moz-transform: rotate(0deg); transform-origin: center bottom;}
+}
+
+@-o-keyframes weed1-move {
+    0% {-o-transform: rotate(0deg); transform-origin: center bottom;}
+    25% {-o-transform: rotate(10deg); transform-origin: center bottom;}
+    75% {-o-transform: rotate(-10deg); transform-origin: center bottom;}
+    100% {-o-transform: rotate(0deg); transform-origin: center bottom;}
+}
+
+@-ms-keyframes weed1-move {
+    0% {-ms-transform: rotate(0deg); transform-origin: center bottom;}
+    25% {-ms-transform: rotate(10deg); transform-origin: center bottom;}
+    75% {-ms-transform: rotate(-10deg); transform-origin: center bottom;}
+    100% {-ms-transform: rotate(0deg); transform-origin: center bottom;}
+}
+
+@keyframes weed1-move {
+    0% {transform: rotate(0deg); transform-origin: center bottom;}
+    25% {transform: rotate(10deg); transform-origin: center bottom;}
+    75% {transform: rotate(-10deg); transform-origin: center bottom;}
+    100% {transform: rotate(0deg); transform-origin: center bottom;}
+}
+
+.weed1 {
+    -webkit-animation:weed1-move 6.0s ease-in-out alternate infinite;
+    -moz-animation:weed1-move  6.0s ease-in-out alternate infinite;
+    -o-animation:weed1-move  6.0s ease-in-out alternate infinite;
+    -ms-animation:weed1-move  6.0s ease-in-out alternate infinite;
+    animation:weed1-move  6.0s ease-in-out alternate infinite;
+}
+/* weed1 ]]] */
+
+/* weed2 [[[ */
+@-webkit-keyframes weed2-move {
+    0% {-webkit-transform: rotate(0deg); transform-origin: center bottom;}
+    25% {-webkit-transform: rotate(20deg); transform-origin: center bottom;}
+    75% {-webkit-transform: rotate(-20deg); transform-origin: center bottom;}
+    100% {-webkit-transform: rotate(0deg); transform-origin: center bottom;}
+}
+
+@-moz-keyframes weed2-move {
+    0% {-moz-transform: rotate(0deg); transform-origin: center bottom;}
+    25% {-moz-transform: rotate(20deg); transform-origin: center bottom;}
+    75% {-moz-transform: rotate(-20deg); transform-origin: center bottom;}
+    100% {-moz-transform: rotate(0deg); transform-origin: center bottom;}
+}
+
+@-o-keyframes weed2-move {
+    0% {-o-transform: rotate(0deg); transform-origin: center bottom;}
+    25% {-o-transform: rotate(20deg); transform-origin: center bottom;}
+    75% {-o-transform: rotate(-20deg); transform-origin: center bottom;}
+    100% {-o-transform: rotate(0deg); transform-origin: center bottom;}
+}
+
+@-ms-keyframes weed2-move {
+    0% {-ms-transform: rotate(0deg); transform-origin: center bottom;}
+    25% {-ms-transform: rotate(20deg); transform-origin: center bottom;}
+    75% {-ms-transform: rotate(-20deg); transform-origin: center bottom;}
+    100% {-ms-transform: rotate(0deg); transform-origin: center bottom;}
+}
+
+@keyframes weed2-move {
+    0% {transform: rotate(0deg); transform-origin: center bottom;}
+    25% {transform: rotate(20deg); transform-origin: center bottom;}
+    75% {transform: rotate(-20deg); transform-origin: center bottom;}
+    100% {transform: rotate(0deg); transform-origin: center bottom;}
+}
+
+.weed2 {
+    -webkit-animation:weed2-move 6.0s ease-in-out alternate infinite;
+    -moz-animation:weed2-move 6.0s ease-in-out alternate infinite;
+    -o-animation:weed2-move 6.0s ease-in-out alternate infinite;
+    -ms-animation:weed2-move 6.0s ease-in-out alternate infinite;
+    animation:weed2-move 6.0s ease-in-out alternate infinite;
+}
+/* weed2 ]]] */
+
+/* weed3 [[[ */
+@-webkit-keyframes weed3-move {
+    0% {-webkit-transform: rotate(0deg); transform-origin: center bottom;}
+    25% {-webkit-transform: rotate(15deg); transform-origin: center bottom;}
+    75% {-webkit-transform: rotate(-15deg); transform-origin: center bottom;}
+    100% {-webkit-transform: rotate(0deg); transform-origin: center bottom;}
+}
+
+@-moz-keyframes weed3-move {
+    0% {-moz-transform: rotate(0deg); transform-origin: center bottom;}
+    25% {-moz-transform: rotate(15deg); transform-origin: center bottom;}
+    75% {-moz-transform: rotate(-15deg); transform-origin: center bottom;}
+    100% {-moz-transform: rotate(0deg); transform-origin: center bottom;}
+}
+
+@-o-keyframes weed3-move {
+    0% {-o-transform: rotate(0deg); transform-origin: center bottom;}
+    25% {-o-transform: rotate(15deg); transform-origin: center bottom;}
+    75% {-o-transform: rotate(-15deg); transform-origin: center bottom;}
+    100% {-o-transform: rotate(0deg); transform-origin: center bottom;}
+}
+
+@-ms-keyframes weed3-move {
+    0% {-ms-transform: rotate(0deg); transform-origin: center bottom;}
+    25% {-ms-transform: rotate(15deg); transform-origin: center bottom;}
+    75% {-ms-transform: rotate(-15deg); transform-origin: center bottom;}
+    100% {-ms-transform: rotate(0deg); transform-origin: center bottom;}
+}
+
+@keyframes weed3-move {
+    0% {transform: rotate(0deg); transform-origin: center bottom;}
+    25% {transform: rotate(15deg); transform-origin: center bottom;}
+    75% {transform: rotate(-15deg); transform-origin: center bottom;}
+    100% {transform: rotate(0deg); transform-origin: center bottom;}
+}
+
+.weed3 {
+    -webkit-animation:weed3-move  6.0s ease-in-out alternate infinite;
+    -moz-animation:weed3-move  6.0s ease-in-out alternate infinite;
+    -o-animation:weed3-move  6.0s ease-in-out alternate infinite;
+    -ms-animation:weed3-move  6.0s ease-in-out alternate infinite;
+    animation:weed3-move  6.0s ease-in-out alternate infinite ;
+}
+/* weed3 ]]] */
+
+
+/* submarin [[[ */
+@-webkit-keyframes submarin-move {
+    0% {-webkit-transform: scaleX(1);}
+    50% {-webkit-transform: scaleX(0.8);}
+    100% {-webkit-transform: scaleX(1);}
+}
+
+@-moz-keyframes submarin-move {
+    0% {-moz-transform: scaleX(1);}
+    50% {-moz-transform: scaleX(0.8);}
+    100% {-moz-transform: scaleX(1);}
+}
+
+@-o-keyframes submarin-move {
+    0% {-o-transform: scaleX(1);}
+    50% {-o-transform: scaleX(0.8);}
+    100% {-o-transform: scaleX(1);}
+}
+
+@-ms-keyframes submarin-move {
+    0% {-ms-transform: scaleX(1);}
+    50% {-ms-transform: scaleX(0.8);}
+    100% {-ms-transform: scaleX(1);}
+}
+
+@keyframes submarin-move {
+    0% {transform: scaleX(1);}
+    50% {transform: scaleX(0.8);}
+    100% {transform: scaleX(1);}
+}
+
+.submarin {
+    -webkit-animation: submarin-move 1.0s ease-in-out alternate;
+    -moz-animation: submarin-move 1.0s ease-in-out alternate;
+    -o-animation: submarin-move 1.0s ease-in-out alternate;
+    -ms-animation: sub-move 1.0s ease-in-out alternate;
+    animation: submarin-move 1.0s ease-in-out alternate;
+}
+/* submarin ]]] */
+
+/* fish1 [[[ */
+@-webkit-keyframes fish1-move {
+    0% {left:0px; top: 0px; -webkit-transform: rotateY(0deg);}
+    25% {left:1px; top: -5px; -webkit-transform: rotateY(5deg);}
+    50% {left:3px; top: -4px; -webkit-transform: rotateY(0deg);}
+    75% {left:2px; top: -3px;  -webkit-transform: rotateY(-5deg);}
+    100% {left:0px; top: 0px; -webkit-transform: rotateY(0deg);}
+}
+
+@-ms-keyframes fish1-move {
+    0% {left:0px; top: 0px; -ms-transform: rotateY(0deg);}
+    25% {left:1px; top: -5px; -ms-transform: rotateY(5deg);}
+    50% {left:3px; top: -4px; -ms-transform: rotateY(0deg);}
+    75% {left:2px; top: -3px;  -ms-transform: rotateY(-5deg);}
+    100% {left:0px; top: 0px; -ms-transform: rotateY(0deg);}
+}
+
+@-o-keyframes fish1-move {
+    0% {left:0px; top: 0px; -o-transform: rotateY(0deg);}
+    25% {left:1px; top: -5px; -o-transform: rotateY(5deg);}
+    50% {left:3px; top: -4px; -o-transform: rotateY(0deg);}
+    75% {left:2px; top: -3px;  -o-transform: rotateY(-5deg);}
+    100% {left:0px; top: 0px; -o-transform: rotateY(0deg);}
+}
+
+@-moz-keyframes fish1-move {
+    0% {left:0px; top: 0px; -moz-transform: rotateY(0deg);}
+    25% {left:1px; top: -5px; -moz-transform: rotateY(5deg);}
+    50% {left:3px; top: -4px; -moz-transform: rotateY(0deg);}
+    75% {left:2px; top: -3px;  -moz-transform: rotateY(-5deg);}
+    100% {left:0px; top: 0px; -moz-transform: rotateY(0deg);}
+}
+
+@keyframes fish1-move {
+    0% {left:0px; top: 0px; transform: rotateY(0deg);}
+    25% {left:1px; top: -5px; transform: rotateY(5deg);}
+    50% {left:3px; top: -4px; transform: rotateY(0deg);}
+    75% {left:2px; top: -3px;  transform: rotateY(-5deg);}
+    100% {left:0px; top: 0px; transform: rotateY(0deg);}
+}
+
+.fishTail {
+    -webkit-animation:fish1-move 2.0s linear;
+    -ms-animation:fish1-move 2.0s linear;
+    -o-animation:fish1-move 2.0s linear;
+    -moz-animation:fish1-move 2.0s linear;
+    animation:fish1-move 2.0s linear infinite;
+}
+/* fish1 ]]] */

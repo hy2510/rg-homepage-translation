@@ -1,0 +1,171 @@
+﻿.bg-chef-sheila {
+    width: 1280px;
+    height: 720px;
+    background: url(./images/bg_chef_sheila.png);
+}
+
+.wrapper-question {
+    position: absolute;
+    width: 302px;
+    top: 125px;
+    left: 350px;
+    text-align:center;
+}
+
+.question {
+    height: 214px;
+    cursor: url(../../include/images/cursor_hover.png), pointer;
+}
+
+.sheila {
+    position: absolute;
+    width: 220px;
+    height: 306px;
+    top: 66px;
+    left: 970px;
+    background: url(./images/img_character_sheila.png);
+    animation: sheila 3s steps(3) infinite;
+}
+
+    .sheila.correct {
+        margin-top:8px !important;
+        width: 228px !important; 
+        background: url(./images/img_character_sheila_correct.png);
+        animation: sheilaCorrect 1.2s steps(4) forwards;
+    }
+
+    .sheila.incorrect {
+        background: url(./images/img_character_sheila_incorrect.png);
+        animation: sheilaIncorrect 2s steps(3) forwards;
+    }
+
+    .sheila.complete {
+        background: url(./images/img_character_sheila_complete.png);
+        animation: complete 3.5s steps(6) forwards;
+    }
+
+@keyframes sheila {
+    to {
+        background-position: -660px;
+    }
+}
+
+@keyframes sheilaCorrect {
+    to {
+        background-position: -912px;
+    }
+}
+
+@keyframes sheilaIncorrect {
+    to {
+        background-position: -660px;
+    }
+}
+
+@keyframes complete {
+    to {
+        background-position: -1320px;
+    }
+}
+
+.wrapper-example {
+    position: absolute;
+    top: 445px;
+    left: 55px;
+    width: 805px;
+    height: 130px;
+    cursor: url(../../include/images/cursor_hover.png), pointer;
+}
+
+.stuff {
+    position: absolute;
+    width: 230px;
+    height: 130px;
+}
+
+.wrapper-example .stuff0 {
+    left: 10px;
+}
+
+.wrapper-example .stuff1 {
+    left: 290px;
+}
+
+.wrapper-example .stuff2 {
+    left: 565px;
+}
+
+.stuff.stuff01 {
+    background: url(./images/img_burger_01.png);
+    background-repeat: no-repeat;
+    background-size: cover;
+}
+
+.stuff.stuff02 {
+    background: url(./images/img_burger_02.png);
+    background-repeat: no-repeat;
+    background-size: cover;
+}
+
+.stuff.stuff03 {
+    background: url(./images/img_burger_03.png);
+    background-repeat: no-repeat;
+    background-size: cover;
+}
+
+.stuff.stuff04 {
+    background: url(./images/img_burger_04.png);
+    background-repeat: no-repeat;
+    background-size: cover;
+}
+
+.stuff p {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -85%);
+    font-size: 4.4rem;
+}
+
+.wrapper-plate {
+    position: absolute;
+    top: 375px;
+    left: 980px;
+    width: 230px;
+    height: 200px;
+}
+
+.wrapper-plate img {
+    position: absolute;
+    bottom: 0;
+}
+
+.drop-target {
+    position: absolute;
+    top: 425px;
+    left: 980px;
+    width: 230px;
+    height: 140px;
+    z-index: 10;
+    border-radius: 100px;
+    border: 6px dashed #f5a100;
+    animation: dot 1s infinite;
+}
+
+@keyframes dot {
+    from {
+        opacity: 1;
+    }
+
+    to {
+        opacity: 0.2;
+    }
+}
+
+.drop-target .stuff {
+    bottom: 0;
+}
+
+.characteract {
+    background: url(./images/img_character_sheila_ghost.png);
+}

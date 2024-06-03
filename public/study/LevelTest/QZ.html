@@ -1,0 +1,144 @@
+﻿
+<!DOCTYPE html>
+<html>
+<head>
+    <!-- _head_lvTest.html -->
+    <title>ReadingGate</title>
+    <meta charset="utf-8" />
+    <meta http-equiv="Content-Script-Type" content="text/javascript" />
+    <meta http-equiv="Content-Style-Type" content="text/css" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta http-equiv="cache-control" content="no-cache" />
+    <meta name="expires" content="0" />
+    <meta name="viewport" content="width=device-width,user-scalable=no" />
+    <meta name="google" value="notranslate" />
+    <script src="./jsAssets/jquery-2.1.4.min.js"></script>
+    <script src="./jsAssets/jquery-ui.min.js"></script>
+    <script src="./jsAssets/sweetalert.min.js"></script>
+    <link rel="stylesheet" href="./jsAssets/jquery-ui.min.css" />
+    <script src="./jsAssets/common.js"></script>
+    <script src="./jsAssets/study.js"></script>
+
+    <link rel="stylesheet" href="./css/QZ.css?ver=230915003" />
+    <script type="text/javascript" src="./js/common.js?ver=230915003"></script>
+    <script src="./js/api.js"></script>
+
+    <script type="text/javascript">
+        let userMode = "";
+        let userType = "student";
+        levelTestYn = "N";
+        let _sellvl = "";
+        gvLanguage = "KOR";
+    </script>
+
+    <script type="text/javascript">
+        function doStart() {
+            $('#btStartK').on('click touchstart', function () { _sellvl = "K"; goLevelTest('K'); });
+            $('#btStart1').on('click touchstart', function () { _sellvl = "1"; goLevelTest('1'); });
+            $('#btStart2').on('click touchstart', function () { _sellvl = "2"; goLevelTest('2'); });
+            $('#btStart4').on('click touchstart', function () { _sellvl = "4"; goLevelTest('4'); });
+
+            $('#btCancel').on('click touchstart', function () {
+                TestCancel();
+            });
+
+
+            // 언어 코드
+            //gvLanguage = "ENG";
+
+            if (gvLanguage == "VTN") {
+                $("#guide_img").attr("src", "img/intro/gi_guide_VN_new.png");
+                $("#head_k_img").attr("src", "img/intro/bx_head_k_VN.png");
+                $("#head_1_img").attr("src", "img/intro/bx_head_1_VN.png");
+                $("#head_23_img").attr("src", "img/intro/bx_head_23_VN.png");
+                $("#head_46_img").attr("src", "img/intro/bx_head_46_VN.png");
+            } else if (gvLanguage != "KOR") {
+                $("#guide_img").attr("src", "img/intro/gi_guide_US_new.png");
+                $("#head_k_img").attr("src", "img/intro/bx_head_k_US.png");
+                $("#head_1_img").attr("src", "img/intro/bx_head_1_US.png");
+                $("#head_23_img").attr("src", "img/intro/bx_head_23_US.png");
+                $("#head_46_img").attr("src", "img/intro/bx_head_46_US.png");
+            }
+        }
+
+        function goLevelTest(_sellvl) {
+            if(!_sellvl) return;
+
+            getLevelTestInfo('').then(data => {
+                if(!data.ok){
+                    throw new Error('Network response was not ok');
+                }
+                return data.json()
+            }).then(json => {
+                const info = json.info
+                if(info.LevelTestId){
+                    deleteTest(info.LevelTestId).then(data => {
+                        if(data.ok){
+                            getLevelTestInfo(_sellvl).then(data => {
+                                if(!data.ok){
+                                    throw new Error('Network response was not ok');
+                                }
+                                return data.json()
+                            }).then(json => {
+                                const info = json.info
+                                sessionStorage.setItem("apiStudyInfo", JSON.stringify(info));
+                                if(info.Level === 'K'){
+                                    location.replace('QK.html');
+                                }else{
+                                    location.replace('Q1.html?lvl=' + info.Level);
+                                }
+                            })
+                        }else{
+                            swal("레벨 테스트 정보 초기화 실패");
+                        }
+                    })
+                }
+            }).catch(error => {
+                swal("레벨 테스트 정보 조회 오류");
+            })
+        }
+    </script>
+</head>
+<body>
+
+<table id="body"><tr><td>
+	
+	<div class="body-bg">
+		<div id="outline">
+			
+			<div id="boxMain">
+				<div class="title"><img src="img/intro/tt_title_new.png" /></div>
+				<div class="guide"><Img src="img/intro/gi_guide_new.png" id="guide_img" /></div>
+                <!--<button id="btHome"><img src="img/intro/bt_home_new.png" /></button>-->
+				<table>
+				<tbody>
+					<tr>
+						<td>
+                            <div class="head"><img src="img/intro/bx_head_k.png" id="head_k_img" /></div>
+                            <button id="btStartK"><img src="img/intro/bt_start.png" id="btStartK_img" /></button>
+						</td>
+						<td>
+                            <div class="head"><img src="img/intro/bx_head_1.png" id="head_1_img" /></div>
+                            <button id="btStart1"><img src="img/intro/bt_start.png" id="btStart1_img" /></button>
+						</td>
+						<td>
+                            <div class="head"><img src="img/intro/bx_head_23.png" id="head_23_img" /></div>
+                            <button id="btStart2"><img src="img/intro/bt_start.png" id="btStart2_img" /></button>
+						</td>
+						<td>
+                            <div class="head"><img src="img/intro/bx_head_46.png" id="head_46_img" /></div>
+                            <button id="btStart4"><img src="img/intro/bt_start.png" id="btStart4_img" /></button>
+						</td>
+					</tr>
+				</tbody>
+				</table>
+                <button id="btCancel"><img src="img/intro/bt_zero_base.png" /></button>
+			</div>
+
+		</div>
+	</div>
+
+</td></tr></table>
+
+</body>
+</html>

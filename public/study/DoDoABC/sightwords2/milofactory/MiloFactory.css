@@ -1,0 +1,380 @@
+﻿.bg-milo-factory {
+    width: 1280px;
+    height: 720px;
+    background: url(./images/bg_factory.png);
+}
+
+.light {
+    position: absolute;
+    top: 0;
+    left: 0;
+    opacity: 0;
+    width: 1280px;
+    height: 250px;
+    background: url(./images/bg_factory_light.png);
+    animation: light .1s infinite;
+    z-index: 1;
+}
+
+.wrapper-img {
+    position: absolute;
+    top: 110px;
+    left: 0;
+    width: 427px;
+    height: 223px;
+    background: url(./images/img_board.png);
+    z-index: 2;
+}
+
+    .wrapper-img img {
+        position: absolute;
+        top: 19px;
+        right: 16px;
+        width: 338px;
+        height: 186px;
+        border-radius: 0.9rem;
+    }
+
+.wrapper-examples {
+    position: absolute;
+    top: 20px;
+    right: 0;
+    width: 833px;
+    height: 328px;
+    background: url(./images/img_sentence_box.png);
+    z-index: 2;
+}
+
+    .wrapper-examples .wrapper-example {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        position: absolute;
+        left: 0;
+        width: 772px;
+        height: 100px;
+        font-size: 2.6rem;
+        color: #ffee7e;
+        cursor: url(../../include/images/cursor_hover.png), auto;
+    }
+
+        .wrapper-examples .wrapper-example:first-child {
+            top: 93px;
+        }
+
+        .wrapper-examples .wrapper-example:last-child {
+            top: 208px;
+        }
+
+        .wrapper-examples .wrapper-example.selected {
+            display: none;
+        }
+
+.wrapper-rail {
+    position: absolute;
+    top: 400px;
+    left: 0;
+    width: 1280px;
+    height: 194px;
+}
+
+    .wrapper-rail .road-top {
+        position: absolute;
+        top: 57px;
+        left: -200%;
+        width: 3840px;
+        height: 54px;
+        background: url(./images/img_road_top.png);
+    }
+
+        .wrapper-rail .road-top.first {
+            animation: firstRoad 4s forwards;
+        }
+
+        .wrapper-rail .road-top.second {
+            animation: secondRoad 2s linear forwards;
+        }
+
+        .wrapper-rail .road-top .wrapper-answer {
+            display: flex;
+            justify-content: space-around;
+            position: absolute;
+            top: -35px;
+            left: 1280px;
+            width: 1280px;
+            height: 70px;
+        }
+
+            .wrapper-rail .road-top .wrapper-answer .answer {
+                display: flex;
+                justify-content: center;
+                align-items: center;
+                width: 388px;
+                height: 70px;
+                background: white;
+                font-size: 2.6rem;
+                border-radius: 0.8rem;
+                box-shadow: 0 6px 0 #c5c7d3;
+            }
+
+            .wrapper-rail .road-top .wrapper-answer .txt-complete {
+                display: flex;
+                justify-content: center;
+                align-items: center;
+                position: absolute;
+                width: 97%;
+                height: 70px;
+                opacity: 0;
+                background: white;
+                font-size: 2.6rem;
+                border-radius: 0.8rem;
+                box-shadow: 0 6px 0 #c5c7d3;
+                animation: completeText 1s forwards;
+            }
+
+    .wrapper-rail .road-bottom {
+        position: absolute;
+        top: 111px;
+        left: 0;
+        width: 1280px;
+        height: 83px;
+        background: url(./images/img_road_bottom.png);
+    }
+
+    .wrapper-rail .wrapper-wheels {
+        display: flex;
+        justify-content: space-between;
+        position: absolute;
+        bottom: 17px;
+        left: 0;
+        width: 1280px;
+        height: 45px;
+    }
+
+    .wrapper-rail.active .wrapper-wheels img {
+        animation: wheel 2.5s linear forwards;
+    }
+
+.wrapper-box {
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    width: 902px;
+    height: 145px;
+    background: url(./images/img_box.png);
+    z-index: 2;
+}
+
+    .wrapper-box img {
+        position: absolute;
+        top: 20px;
+        width: 162px;
+        height: 122px;
+        animation: appear 1s linear forwards;
+        opacity: 0;
+        display: none;
+    }
+
+        .wrapper-box img.appear {
+            display: block;
+        }
+
+        .wrapper-box img:first-child {
+            left: 185px;
+        }
+
+        .wrapper-box img:nth-child(2) {
+            left: 367px;
+        }
+
+        .wrapper-box img:nth-child(3) {
+            left: 543px
+        }
+
+        .wrapper-box img:last-child {
+            left: 728px;
+        }
+
+.lever {
+    position: absolute;
+    bottom: 0;
+    right: 160px;
+    width: 220px;
+    height: 180px;
+    background: url(./images/img_lever.png);
+    z-index: 3;
+}
+
+    .lever.active {
+        animation: lever 1s steps(4) forwards;
+    }
+
+.character-milo {
+    position: absolute;
+    bottom: 0;
+    right: 0;
+    width: 300px;
+    height: 268px;
+    background: url(./images/img_character_milo.png);
+    animation: milo 1s steps(5) infinite;
+}
+
+    .character-milo.correct {
+        background: url(./images/img_character_milo_correct.png);
+        animation: miloCorrect 1s steps(4) 2;
+    }
+
+    .character-milo.incorrect {
+        background: url(./images/img_character_milo_incorrect.png);
+        animation: miloIncorrect 1s steps(10) infinite;
+    }
+
+.wrapper-robot {
+    position: absolute;
+    top: -5px;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 496px;
+    height: 516px;
+    z-index: 4;
+    overflow: hidden;
+    display: none;
+}
+
+    .wrapper-robot.active {
+        display: block;
+    }
+
+        .wrapper-robot.active .spotlight {
+            position: absolute;
+            top: 0;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 200px;
+            height: 516px;
+            background: url(./images/img_spotlight.png) center;
+            opacity: 0;
+            animation: spotlight 1.8s forwards;
+        }
+
+    .wrapper-robot .robots {
+        position: absolute;
+        top: -270px;
+        left: 50%;
+        transform: translateX(-50%);
+        width: 270px;
+        height: 270px;
+        display: none;
+        z-index: 2;
+    }
+
+    .wrapper-robot.active .robots.descent {
+        display: block;
+    }
+
+    .wrapper-robot.active .bottom {
+        position: absolute;
+        top: 0;
+        left: 50%;
+        transform: translateX(-50%);
+        width: 496px;
+        height: 516px;
+        background: url(./images/img_spotlight_bottom.png) center;
+        animation: bottom 1s forwards;
+        opacity: 0;
+        display: none;
+    }
+
+        .wrapper-robot.active .bottom.open {
+            display: block;
+        }
+
+.wrapper-items {
+}
+
+@keyframes light {
+    to {
+        opacity: .1;
+    }
+}
+
+@keyframes firstRoad {
+    to {
+        left: -100%;
+    }
+}
+
+@keyframes secondRoad {
+    from {
+        left: -100%;
+    }
+
+    to {
+        left: 0%;
+    }
+}
+
+@keyframes wheel {
+    to {
+        transform: rotate(360deg);
+    }
+}
+
+@keyframes milo {
+    to {
+        background-position: -500%;
+    }
+}
+
+@keyframes lever {
+    to {
+        background-position: -400%;
+    }
+}
+
+@keyframes miloCorrect {
+    to {
+        background-position: -400%;
+    }
+}
+
+@keyframes miloIncorrect {
+    to {
+        background-position: -1000%;
+    }
+}
+
+@keyframes completeText {
+    to {
+        opacity: 1;
+    }
+}
+
+@keyframes spotlight {
+    10% {
+        width: 496px;
+        opacity: 1;
+    }
+
+    100% {
+        width: 496px;
+        opacity: 1;
+    }
+}
+
+@keyframes bottom {
+    from {
+        width: 200px;
+    }
+
+    to {
+        width: 496px;
+        opacity: 1;
+    }
+}
+
+@keyframes appear {
+    to {
+        opacity: 1;
+    }
+}

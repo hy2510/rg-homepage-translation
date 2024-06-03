@@ -1,0 +1,38 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title></title>
+
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/mobile-detect/1.4.5/mobile-detect.min.js"></script>
+    <script type="text/javascript" src="../../include/js/jquery-3.5.1.min.js"></script>
+    <script type="text/javascript" src="../../include/js/sweetalert.min.js"></script>
+    <script type="text/javascript" src="../../include/js/api.js"></script>
+    <script type="text/javascript" src="../../include/js/common.js"></script>
+    <script type="text/javascript" src="../../include/js/language.js"></script>
+    <script type="text/javascript" src="../phonics1.js"></script>
+</head>
+<body bgcolor='black'>
+    <script type="text/javascript">
+        $(document).ready(() => {
+            $(".js-wrapper-header").addClass("d-none");
+            $(".curtain-panel").removeClass("left right");
+
+            getStudyInfo(getBookOnSucc);  // GetStudyInfo("EXEC [dbo].[sStudySetupInfoEbPreK] @pStudyId = '" + pStudyId + "', @pStudentHistoryId = '" + pStudentHistoryId + "' ");)
+        });
+
+        const getBookOnSucc = (data) => {
+            if(!isValidateRound(data.Round)){
+                throw Error('Round Invalid')
+            }
+            const userMode = ssStudyInfo.user     // STUDENT ("GUEST", "STAFF")
+            if (userMode === "STUDENT") {
+                nextActivity(data.StatusCode == "" ? "025001" : data.StatusCode);
+            } else {
+                nextActivity("025001");
+            }
+        };
+    </script>
+</body>
+</html>

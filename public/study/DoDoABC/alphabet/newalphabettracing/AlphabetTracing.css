@@ -1,0 +1,6 @@
+﻿.bg-alphabet-tracing {
+  width: 1280px;
+  height: 720px;
+  background: url(images/bg_night.png);
+  cursor: url(../../include/images/cursor_hover.png), pointer;
+}

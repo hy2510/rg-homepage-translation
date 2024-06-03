@@ -1,0 +1,464 @@
+﻿
+<!DOCTYPE html>
+
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head runat="server">
+    <title></title>
+    <meta name="viewport" content="width=device-width, initial-scale=0.95, maximum-scale=0.95, user-scalable=no" />
+    <meta http-equiv="X-UA-Compatible" content="IE=Edge" />
+
+    <link href="../common/css/prek.css" rel="stylesheet" />
+    <link href="css/alphabetland.css" rel="stylesheet" />
+
+    <style type="text/css">
+        .alphabetSmall {
+            position: absolute;
+            width: 60px;
+            margin-left: 37px;
+            margin-top: 9px;
+            font-family: YDVYGO25;
+            font-size: 90px;
+            font-weight: bolder;
+            text-align: center;
+            cursor: pointer;
+            color: black;
+            text-align: center;
+        }
+
+        .alphabetBig {
+            position: absolute;
+            margin-left: 60px;
+            padding-top: 95px;
+            font-family: YDVYGO25;
+            font-size: 90px;
+            font-weight: bolder;
+            text-align: center;
+            cursor: pointer;
+            color: black;
+            text-align: center;
+        }
+    </style>
+
+    <script src="../common/js/sweetalert.min.js"></script>
+    <script src="../common/js/jquery-1.4.min.js"></script>
+    <script src="../common/js/jquery-ui-1.7.2.custom.min.js"></script>
+
+    <script type="text/javascript" src="../common/js/api.js"></script>
+    <script type="text/javascript" src="../common/js/global_function.js?ver=230628001"></script>
+    <script type="text/javascript" src="../common/js/language.js?ver=230628001"></script>
+    <script type="text/javascript" src="../common/js/prek.js?ver=230628001"></script>
+    <script type="text/javascript" src="../common/js/jquery-animate-css-rotate-scale.js"></script>
+    <script type="text/javascript" src="js/alphabetland.js?ver=230628001"></script>
+
+    <script type="text/javascript">
+        var _alphabet;
+        var _move = false;
+        var _cnt = 0;
+        var _child1, _child2, _child3;
+
+        $(document).ready(function () {
+            getArgs();
+
+            function startStep() {
+                PlayLandBGM("ALPHABET");
+
+                _alphabet = GetAlphabet(_pNum).toLowerCase();
+
+                showChild(_cnt + 1);
+
+                document.addEventListener("touchstart", touchHandler, true);
+                document.addEventListener("touchmove", touchHandler, true);
+                document.addEventListener("touchend", touchHandler, true);
+                document.addEventListener("touchcancel", touchHandler, true);
+
+                $('#divStart').css('display', 'block');
+                $("#imgStart").bind('click', function (e) { Start(); });
+
+
+                $('#divKey1').draggable({
+                    revert: true
+                });
+
+                $('#divKey2').draggable({
+                    revert: true
+                });
+
+                $('#divKey3').draggable({
+                    revert: true
+                });
+
+                $("#divLocker").droppable({
+                    drop: function (event, ui) {
+                        $(this).css({ 'background': 'transparent' });
+                        checkAnswer($(ui.draggable)[0].innerText);
+                        // resetting CSS styles for Drop area.
+                    },
+                    over: function (event, ui) {
+                        $(this).css({ 'background': 'lightpink' });
+                        // Creating an effect on dragging over the Drop area.
+                    },
+                    out: function (event, ui) {
+                        $(this).css({ 'background': 'transparent' });
+                        // resetting CSS styles for Drop area.
+                    }
+                });
+
+                PlayDirection('AlphabetLand', 'AL-S2-Activity.mp3', undefined);
+
+                // child [
+                _child1 = new Animation({
+                    image: 'img/step2/child1.png',
+                    imgW: 200,
+                    imgH: 1080,
+                    aniW: 185,
+                    aniH: 270,
+                    left: 0,
+                    top: 0,
+                    frame: 4,
+                    msec: 200,
+                    //completed: asdf,
+                    container: 'divChild1',
+                    onclick: undefined,
+                    repeat: 3
+                });
+
+                _child2 = new Animation({
+                    image: 'img/step2/child2.png',
+                    imgW: 200,
+                    imgH: 1080,
+                    aniW: 185,
+                    aniH: 270,
+                    left: 0,
+                    top: 0,
+                    frame: 4,
+                    msec: 200,
+                    //completed: asdf,
+                    container: 'divChild2',
+                    onclick: undefined,
+                    repeat: 3
+                });
+
+                _child3 = new Animation({
+                    image: 'img/step2/child3.png',
+                    imgW: 200,
+                    imgH: 1080,
+                    aniW: 185,
+                    aniH: 270,
+                    left: 0,
+                    top: 0,
+                    frame: 4,
+                    msec: 200,
+                    //completed: asdf,
+                    container: 'divChild3',
+                    onclick: undefined,
+                    repeat: 3
+                });
+            }
+
+            // Step2A 저장
+            if (_usermode === '1') {
+                saveRecord(1, false).then(data=> {
+                    if(!data.ok){
+                        throw Error('')
+                    }
+                    return data.json()
+                }).then(json => {
+                    if(json.result === 0){
+                        startStep()
+                    }else{
+                        throw Error('')
+                    }
+                }).catch(error => {
+
+                })
+            }else{
+                startStep();
+            }
+        });
+
+        function touchHandler(event) {
+            var touches = event.changedTouches,
+                first = touches[0],
+                type = "";
+
+            switch (event.type) {
+                case "touchstart": type = "mousedown"; break;
+                case "touchmove": type = "mousemove"; break;
+                case "touchend": type = "mouseup"; break;
+                default: return;
+            }
+
+            var simulatedEvent = document.createEvent("MouseEvent");
+            simulatedEvent.initMouseEvent(type, true, true, window, 1,
+                first.screenX, first.screenY,
+                first.clientX, first.clientY, false,
+                false, false, false, 0/*left*/, null);
+
+            first.target.dispatchEvent(simulatedEvent);
+            //event.preventDefault();
+        }
+
+        function Start() {
+            if (_snd != undefined && _snd != NaN) {
+                _snd.Stop();
+            }
+
+            PlayStart(hidePopup);
+        }
+
+        function hidePopup() {
+            $('#divStart').hide('puff', {
+                duration: 'slow',
+                easing: 'swing',
+                queue: false
+            }, 1000);
+
+            StopLandBGM();
+
+            showDragUp();
+
+            //LoadTest();
+            if (isMobile) {
+                setTimeout(function () { hideDrag(); LoadTest(); }, 3000);
+            } else {
+                PlayDirection('AlphabetLand', 'LADA.mp3', function () { hideDrag(); LoadTest(); });
+            }
+        }
+
+        function openDoor() {
+            $('#imgClosed').css('display', 'none');
+            $('#imgOpen1').css('display', 'block');
+            $('#imgOpen2').css('display', 'block');
+
+            $('#imgRed').css('display', 'none');
+            $('#imgGreen').css('display', 'block');
+
+            PlayEffect('open_door1.mp3', undefined);
+            moveChild();
+        }
+
+        function closeDoor() {
+            $('#imgClosed').css('display', 'block');
+            $('#imgOpen1').css('display', 'none');
+            $('#imgOpen2').css('display', 'none');
+
+            $('#imgRed').css('display', 'block');
+            $('#imgGreen').css('display', 'none');
+
+            //PlayEffect('close_door1.mp3', undefined);
+        }
+
+        function moveChild() {
+            if (_cnt == 1) {
+                if (_child1 != undefined) {
+                    _child1.Play(_child1);
+                }
+                $('#divChild1').animate({ 'marginLeft': '+=460px' }, { 'duration': 2500 }, { 'easing': 'linear' });
+            } else if (_cnt == 2) {
+                if (_child2 != undefined) {
+                    _child2.Play(_child2);
+                }
+                $('#divChild2').animate({ 'marginLeft': '+=460px' }, { 'duration': 2500 }, { 'easing': 'linear' });
+            } else {
+                if (_child3 != undefined) {
+                    _child3.Play(_child3);
+                }
+                $('#divChild3').animate({ 'marginLeft': '+=460px' }, { 'duration': 2500 }, { 'easing': 'linear' });
+            }
+
+            $('#divFrame').delay(2500).fadeOut(1000, function () {
+                LoadTest();
+                $('#divFrame').fadeIn(1000);
+            });
+        }
+
+        function LoadTest() {
+            UnLockScreen();
+
+            $('#imgQzNum').attr('src', '../common/img/q' + (_cnt + 1).toString() + '.png');
+            if (_cnt >= 3) {
+                goStep3();
+            } else {
+                $('#divLocker').css('display', 'block');
+                $("#imgLocker").attr('src', 'img/step2/locked.png');
+                //reloadChild();
+                closeDoor();
+                GetChoice(_alphabet);
+                $('#ancLetter1').html(_choice[0]);
+                $('#ancLetter2').html(_choice[1]);
+                $('#ancLetter3').html(_choice[2]);
+                $('#ancLetter4').html(_alphabet.toUpperCase());
+
+                $('#divKeys').css('display', 'block');
+
+                showChild(_cnt + 1);
+            }
+        }
+
+        function checkAnswer(pChar) {
+            LockScreen();
+            $('#imgO').css('display', 'none');
+            $('#imgX').css('display', 'none');
+
+            if (_move == true) {
+                return false;
+            }
+
+            if (_cnt >= 3) {
+                return false;
+            }
+
+            _move = true;
+            $('#divKeys').css('display', 'none');
+
+            if (pChar.trim().toLowerCase() == _alphabet.trim().toLowerCase()) {
+                // 정답
+                $("#imgLocker").attr('src', 'img/step2/opened.png');
+                $('#imgO').css('display', 'block');
+                playCorrectDrag(undefined, doAfterSuccess);
+            } else {
+                // 오답
+                $('#imgX').css('display', 'block');
+                playTryAgainDrag(undefined, doAfterFalse);
+            }
+        }
+
+        function doAfterSuccess() {
+            _cnt++;
+            _move = false;
+            $('#divLocker').css('display', 'none');
+            openDoor();
+            $('#imgO').css('display', 'none');
+            $('#imgX').css('display', 'none');
+        }
+
+        function doAfterFalse() {
+            $('#imgO').css('display', 'none');
+            $('#imgX').css('display', 'none');
+            LoadTest();
+            _move = false;
+        }
+
+        function showChild(pNum) {
+            $('#divChild1').css('display', 'none');
+            $('#divChild2').css('display', 'none');
+            $('#divChild3').css('display', 'none');
+
+            if (pNum == 1) {
+                $('#divChild1').css('display', 'block');
+            } else if (pNum == 2) {
+                $('#divChild2').css('display', 'block');
+            } else {
+                $('#divChild3').css('display', 'block');
+            }
+        }
+
+        function goStep3() {
+            goStep('step3p.html');
+        }
+
+        function StaffGoStep(pPage) {
+            if (pPage == 'step2b') {
+                goStep('step2b.html');
+            } else if (pPage == 'step2a') {
+                goStep('step2a.html');
+            } else if (pPage == 'step3t') {
+                goStep('step3t.html');
+            } else {
+                goStep(pPage + '.html');
+            }
+        }
+    </script>
+</head>
+<body style="background-image:url('img/common/bg.gif'); background-repeat:repeat-x repeat-y;">
+<form id="form1">
+    <div id="divFrame" class="clsFrame" style="background-image:url('img/step2/bgs2a.jpg');">
+        <div id="divStepIntro" style="width:110px; height:110px; position:absolute; margin-left:0px; margin-left:0px;">
+            <img src="img/common/stepmark.png?ver=230622001" style="width:110px; height:110px; position:absolute; margin-left:0px; margin-left:0px;"/>
+            <a class="qzNum">Step2</a>
+            <img id="imgQzNum" src="../common/img/q1.png?ver=230622001" style="width:24px; height:24px; position:absolute; margin-left:43px; margin-top:62px;" />
+        </div>
+
+        <!--<div id="divExit" style="width:72px; height:58px; position:absolute; margin-left:940px; margin-top:10px; cursor:pointer; " onclick="return goIndex();">
+            <img id="imgExit" src="../common/img/exit.png?ver=230622001" />
+        </div>-->
+
+        <div id="divDirection" style="width:624px; height:32px; position:absolute; margin-left:200px; margin-top:0px; text-align:center;">
+            <img id="img0a" src="img/common/step2a.png?ver=230622001" />
+        </div>
+
+        <div id="divNext" style="position:absolute; margin-left:840px; margin-top:10px; cursor:pointer; display:none;" onclick="return goStep3();">
+            <img id="imgNext" src="../common/img/next_up.png?ver=230622001" style="width:60px; height:60px;" />
+        </div>
+
+        <div id="divTest" style="width:660px; height:500px; position:absolute; margin-left:80px; margin-top:20px;">
+            <img id="imgClosed" src="img/step2/door-close.png?ver=230622001" style="position:absolute; margin-left:165px; margin-top:9px;"/>
+            <img id="imgOpen1" src="img/step2/door-open-1.png?ver=230622001" style="position:absolute; margin-top:35px; display:none;"/>
+            <div id="divChild1" style="width:190px; height:220px; position:absolute; margin-top:225px;">
+            </div>
+            <div id="divChild2" style="width:190px; height:220px; position:absolute; margin-top:225px; display:none;">
+            </div>
+            <div id="divChild3" style="width:190px; height:220px; position:absolute; margin-top:225px; display:none;">
+            </div>
+            <img id="imgOpen2" src="img/step2/door-open-2.png?ver=230622001" style="position:absolute; margin-left:455px; display:none;"/>
+        </div>
+
+        <img id="imgGreen" src="img/step2/light-green.png?ver=230622001" style="position:absolute; margin-left:778px; margin-top:357px; display:none;"/>
+        <img id="imgRed" src="img/step2/light-red.png?ver=230622001" style="position:absolute; margin-left:884px; margin-top:358px;"/>
+
+        <div id="divLocker" style="width:192px; height:212px; position:absolute; margin-left:395px; margin-top:170px; border-radius:70px;">
+            <img id="imgLocker" src="img/step2/locked.png?ver=230622001" style="position:absolute;" />
+            <a id="ancLetter4" class="alphabetBig"></a>
+        </div>
+
+        <div id="divKeys" style="width:690px; height:120px; position:absolute; margin-left:180px; margin-top:510px; display:none;">
+            <div id="divKey1" style="width:200px; height:120px; float:left;">
+                <img src="img/step2/key.png?ver=230622001" style="width:200px; height:120px; position:absolute;"/>
+                <a id="ancLetter1" class="alphabetSmall"></a>
+            </div>
+
+            <div id="divKey2" style="width:200px; height:120px; float:left; margin-left:35px;">
+                <img src="img/step2/key.png?ver=230622001" style="width:200px; height:120px; position:absolute;"/>
+                <a id="ancLetter2" class="alphabetSmall"></a>
+            </div>
+
+            <div id="divKey3" style="width:200px; height:120px; float:left; margin-left:35px;">
+                <img src="img/step2/key.png?ver=230622001" style="width:200px; height:120px; position:absolute;"/>
+                <a id="ancLetter3" class="alphabetSmall"></a>
+            </div>
+        </div>
+
+        <div id="divDrag" style="position:absolute; width:150px; height:250px; margin-left:360px; margin-top:330px; border:0px solid black; display:none;">
+            <img src="../common/img/drag1.png?ver=230622001" style="position:absolute; width:84px; height:200px; margin-left:0px; margin-top:0px;"/>
+            <img id="imgDragF1" src="../common/img/dragfinger1.png?ver=230622001" style="position:absolute; width:130px; height:130px; margin-left:0px; margin-top:130px;"/>
+        </div>
+
+        <div id="divLock"><img id="imgLock" src="../common/img/lock.png?ver=230622001"/></div>
+
+        <img id="imgO" src="../common/img/correct.png?ver=230622001" style="position:absolute; margin-left:360px; margin-top:170px; width:300px; display:none; opacity:0.7;" />
+        <img id="imgX" src="../common/img/fail.png?ver=230622001"  style="position:absolute; margin-left:360px; margin-top:170px; width:300px; display:none; opacity:0.7;"/>
+
+        <div id="divStart" style="width:520px; height:520px; position:absolute; margin-left:260px; margin-top:50px; display:none;">
+            <img class="rollMove" src="img/common/aLPopBorder.png?ver=230622001" style="position:absolute; float:left; top: 0px; left: 0px;" />
+            <img src="img/common/aLPopInner.png?ver=230622001" style="position:absolute; left:71px; top:71px;"/>
+            <img id="imgStart" src="../common/img/start.png?ver=230622001" style="position:absolute; left:220px; top:360px; cursor:pointer;"/>
+
+            <a runat="server" class="txtTitle">Alphabet Land</a>
+            <a runat="server" class="txtCourse">Step2</a>
+            <a runat="server" class="txtState">Activity</a>
+            <a runat="server" class="txtReady">Are you Ready?</a>
+        </div>
+
+        <div id="divBtn" style="position:absolute; top:150px; width:70px; height:100px; display:none;">
+            <div onclick="StaffGoStep('intro')"  style="width:100px; margin-top:2px; text-align:center; cursor:pointer; border:1px solid black; background-color:white;" >intro</div>
+            <div onclick="StaffGoStep('step1p')"  style="width:100px; margin-top:2px; text-align:center; cursor:pointer; border:1px solid black; background-color:white;" >step1p</div>
+            <div onclick="StaffGoStep('step1t')"  style="width:100px; margin-top:2px; text-align:center; cursor:pointer; border:1px solid black; background-color:white;" >step1t</div>
+            <div onclick="StaffGoStep('step2a')"  style="width:100px; margin-top:2px; text-align:center; cursor:pointer; border:1px solid black; background-color:white;" >step2a</div>
+            <div onclick="StaffGoStep('step2b')"  style="width:100px; margin-top:2px; text-align:center; cursor:pointer; border:1px solid black; background-color:white;" >step2b</div>
+            <div onclick="StaffGoStep('step3p')"  style="width:100px; margin-top:2px; text-align:center; cursor:pointer; border:1px solid black; background-color:white;" >step3p</div>
+            <div onclick="StaffGoStep('step3t')"  style="width:100px; margin-top:2px; text-align:center; cursor:pointer; border:1px solid black; background-color:white;" >step3t</div>
+        </div>
+    </div>
+</form>
+</body>
+</html>

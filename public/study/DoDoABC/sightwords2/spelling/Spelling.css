@@ -1,0 +1,848 @@
+﻿/* 1번 */
+.bg-spelling {
+    width: 1280px;
+    height: 720px;
+    opacity: 1;
+    background: url(./images/bg_spelling_01.png);
+}
+
+    .bg-spelling .wrapper-effect {
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 1280px;
+        height: 720px;
+        z-index: 1;
+    }
+
+        .bg-spelling .wrapper-effect .effects {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 1280px;
+            height: 720px;
+        }
+
+            .bg-spelling .wrapper-effect .effects.effect1 {
+                position: absolute;
+                top: 0;
+                left: 0;
+                width: 1280px;
+                height: 720px;
+                background: url(./images/img_bg_effect_01.png);
+                animation: effectLight1 5s infinite;
+            }
+
+            .bg-spelling .wrapper-effect .effects.effect2 {
+                position: absolute;
+                top: 0;
+                left: 0;
+                width: 1280px;
+                height: 720px;
+                background: url(./images/img_bg_effect_02.png);
+                animation: effectLight2 3s infinite;
+            }
+
+    .bg-spelling .wrapper-characters {
+        position: absolute;
+        top: 95px;
+        left: 185px;
+        width: 901px;
+        height: 230px;
+        z-index: 2;
+    }
+
+        .bg-spelling .wrapper-characters .wrapper-characters-left {
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            width: 180px;
+            height: 230px;
+        }
+
+            .bg-spelling .wrapper-characters .wrapper-characters-left .characters-left {
+                position: absolute;
+                bottom: 0;
+            }
+
+                .bg-spelling .wrapper-characters .wrapper-characters-left .characters-left.dodo {
+                    left: 0;
+                    width: 180px;
+                    height: 230px;
+                    background: url(./images/img_character_dodo.png);
+                }
+
+        .bg-spelling .wrapper-characters .wrapper-characters-right {
+            position: absolute;
+            bottom: 0;
+            right: 0;
+            width: 180px;
+            height: 230px;
+        }
+
+            .bg-spelling .wrapper-characters .wrapper-characters-right .characters-right {
+                position: absolute;
+                right: 0;
+                bottom: 0;
+            }
+
+                .bg-spelling .wrapper-characters .wrapper-characters-right .characters-right.baro {
+                    width: 180px;
+                    height: 230px;
+                    transform: rotateY(180deg);
+                    background: url(./images/img_character_baro.png);
+                }
+
+        .bg-spelling .wrapper-characters.walking .wrapper-characters-left {
+            animation: move 2.4s forwards;
+        }
+
+            .bg-spelling .wrapper-characters.walking .wrapper-characters-left .dodo {
+                background: url(./images/img_dodo_walk.png);
+                animation: walking 1s steps(4) infinite;
+            }
+
+                .bg-spelling .wrapper-characters.walking .wrapper-characters-left .dodo.correct {
+                    background: url(./images/img_character_dodo_correct.png);
+                    animation: correct 1.4s steps(2) infinite;
+                }
+
+        .bg-spelling .wrapper-characters.incorrect .wrapper-characters-left .dodo {
+            width: 180px;
+            height: 230px;
+            background: url(./images/img_character_dodo_incorrect.png);
+        }
+
+        .bg-spelling .wrapper-characters.incorrect .wrapper-characters-right .baro {
+            background: url(./images/img_character_baro_incorrect.png);
+        }
+
+        .bg-spelling .wrapper-characters .wrapper-characters-right .baro.correct {
+            background: url(./images/img_character_baro_correct.png);
+            transform: none;
+            animation: correct 1.4s steps(2) infinite;
+        }
+
+    /* 2번 */
+    .bg-spelling.second {
+        opacity: 0;
+        background: url(./images/bg_spelling_02.png);
+        animation: fadeIn 2s forwards;
+    }
+
+        .bg-spelling.second .wrapper-effect .effects {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 1280px;
+            height: 720px;
+        }
+
+            .bg-spelling.second .wrapper-effect .effects.effect1 {
+                position: absolute;
+                top: 0;
+                left: 0;
+                width: 1280px;
+                height: 720px;
+                background: url(./images/img_bg_effect_03.png);
+                animation: effectLight1 5s infinite;
+            }
+
+            .bg-spelling.second .wrapper-effect .effects.effect2 {
+                position: absolute;
+                top: 0;
+                left: 0;
+                width: 1280px;
+                height: 720px;
+                background: url(./images/img_bg_effect_04.png);
+                animation: effectLight1 5s infinite;
+            }
+
+        .bg-spelling.second .wrapper-characters .wrapper-characters-left {
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            width: 180px;
+            height: 230px;
+        }
+
+            .bg-spelling.second .wrapper-characters .wrapper-characters-left .characters-left.dodo {
+                left: 90px;
+                width: 180px;
+                height: 230px;
+                background: url(./images/img_character_dodo.png);
+            }
+
+            .bg-spelling.second .wrapper-characters .wrapper-characters-left .characters-left.baro {
+                left: 0;
+                width: 180px;
+                height: 230px;
+                background: url(./images/img_character_baro.png);
+            }
+
+        .bg-spelling.second .wrapper-characters .wrapper-characters-right .characters-right.baro {
+            display: none;
+        }
+
+        .bg-spelling.second .wrapper-characters .wrapper-characters-right .characters-right.jack {
+            width: 180px;
+            height: 230px;
+            transform: rotateY(180deg);
+            background: url(./images/img_character_jack.png);
+        }
+
+        .bg-spelling.second .wrapper-characters.walking .wrapper-characters-left {
+            animation: move2 2.4s forwards;
+        }
+
+            .bg-spelling.second .wrapper-characters.walking .wrapper-characters-left .dodo {
+                background: url(./images/img_dodo_walk.png);
+                animation: walking 1s steps(4) infinite;
+            }
+
+                .bg-spelling.second .wrapper-characters.walking .wrapper-characters-left .dodo.correct {
+                    background: url(./images/img_character_dodo_correct.png);
+                    animation: correct 1.4s steps(2) infinite;
+                }
+
+            .bg-spelling.second .wrapper-characters.walking .wrapper-characters-left .baro {
+                background: url(./images/img_baro_walk.png);
+                animation: walking 1s steps(4) infinite;
+            }
+
+                .bg-spelling.second .wrapper-characters.walking .wrapper-characters-left .baro.correct {
+                    background: url(./images/img_character_baro_correct.png);
+                    transform: rotateY(180deg);
+                    animation: correct 1.4s steps(2) infinite;
+                }
+
+        .bg-spelling.second .wrapper-characters.incorrect .wrapper-characters-left .dodo {
+            width: 180px;
+            height: 230px;
+            background: url(./images/img_character_dodo_incorrect.png);
+        }
+
+        .bg-spelling.second .wrapper-characters.incorrect .wrapper-characters-left .baro {
+            width: 180px;
+            height: 230px;
+            background: url(./images/img_character_baro_incorrect.png);
+        }
+
+        .bg-spelling.second .wrapper-characters.incorrect .wrapper-characters-right .jack {
+            transform: none;
+            background: url(./images/img_character_jack_incorrect.png);
+        }
+
+        .bg-spelling.second .wrapper-characters .wrapper-characters-right .jack.correct {
+            background: url(./images/img_character_jack_correct.png);
+            transform: none;
+            animation: correct 1.4s steps(2) infinite;
+        }
+
+    /* 3번 */
+    .bg-spelling.third {
+        opacity: 0;
+        background: url(./images/bg_spelling_03.png);
+        animation: fadeIn2 2s forwards;
+    }
+
+        .bg-spelling.third .wrapper-effect .effects {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 1280px;
+            height: 720px;
+        }
+
+            .bg-spelling.third .wrapper-effect .effects.effect1 {
+                position: absolute;
+                top: -220px;
+                left: 310px;
+                width: 35px;
+                height: 396px;
+                background: url(./images/img_bg_effect_05.png);
+                transform: rotate(8deg);
+                animation: shaking 5s infinite;
+            }
+
+            .bg-spelling.third .wrapper-effect .effects.effect2 {
+                position: absolute;
+                top: -220px;
+                left: 1000px;
+                width: 25px;
+                height: 346px;
+                background: url(./images/img_bg_effect_06.png);
+                transform: rotate(8deg);
+                animation: shaking 5s infinite;
+            }
+
+        .bg-spelling.third .wrapper-characters .wrapper-characters-left {
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            width: 180px;
+            height: 230px;
+        }
+
+            .bg-spelling.third .wrapper-characters .wrapper-characters-left .characters-left.dodo {
+                left: 180px;
+                width: 180px;
+                height: 230px;
+                background: url(./images/img_character_dodo.png);
+            }
+
+            .bg-spelling.third .wrapper-characters .wrapper-characters-left .characters-left.baro {
+                left: 100px;
+                width: 180px;
+                height: 230px;
+                background: url(./images/img_character_baro.png);
+            }
+
+            .bg-spelling.third .wrapper-characters .wrapper-characters-left .characters-left.jack {
+                left: 0;
+                width: 180px;
+                height: 230px;
+                background: url(./images/img_character_jack.png);
+            }
+
+        .bg-spelling.third .wrapper-characters .wrapper-characters-right .characters-right.baro {
+            display: none;
+        }
+
+        .bg-spelling.third .wrapper-characters .wrapper-characters-right .characters-right.jack {
+            display: none;
+        }
+
+        .bg-spelling.third .wrapper-characters .wrapper-characters-right .characters-right.papa {
+            width: 180px;
+            height: 230px;
+            transform: rotateY(180deg);
+            background: url(./images/img_character_papa.png);
+        }
+
+        .bg-spelling.third .wrapper-characters.walking .wrapper-characters-left {
+            animation: move3 2.4s forwards;
+        }
+
+            .bg-spelling.third .wrapper-characters.walking .wrapper-characters-left .dodo {
+                background: url(./images/img_dodo_walk.png);
+                animation: walking 1s steps(4) infinite;
+            }
+
+                .bg-spelling.third .wrapper-characters.walking .wrapper-characters-left .dodo.correct {
+                    background: url(./images/img_character_dodo_correct.png);
+                    animation: correct 1.4s steps(2) infinite;
+                }
+
+            .bg-spelling.third .wrapper-characters.walking .wrapper-characters-left .baro {
+                background: url(./images/img_baro_walk.png);
+                animation: walking 1s steps(4) infinite;
+            }
+
+                .bg-spelling.third .wrapper-characters.walking .wrapper-characters-left .baro.correct {
+                    background: url(./images/img_character_baro_correct.png);
+                    transform: rotateY(180deg);
+                    animation: correct 1.4s steps(2) infinite;
+                }
+
+            .bg-spelling.third .wrapper-characters.walking .wrapper-characters-left .jack {
+                background: url(./images/img_jack_walk.png);
+                animation: walking 1s steps(4) infinite;
+            }
+
+                .bg-spelling.third .wrapper-characters.walking .wrapper-characters-left .jack.correct {
+                    background: url(./images/img_character_jack_correct.png);
+                    transform: rotateY(180deg);
+                    animation: correct 1.4s steps(2) infinite;
+                }
+
+        .bg-spelling.third .wrapper-characters.incorrect .wrapper-characters-left .dodo {
+            width: 180px;
+            height: 230px;
+            background: url(./images/img_character_dodo_incorrect.png);
+        }
+
+        .bg-spelling.third .wrapper-characters.incorrect .wrapper-characters-left .baro {
+            width: 180px;
+            height: 230px;
+            background: url(./images/img_character_baro_incorrect.png);
+        }
+
+        .bg-spelling.third .wrapper-characters.incorrect .wrapper-characters-left .jack {
+            width: 180px;
+            height: 230px;
+            background: url(./images/img_character_jack_incorrect.png);
+        }
+
+        .bg-spelling.third .wrapper-characters.incorrect .wrapper-characters-right .papa {
+            width: 180px;
+            height: 230px;
+            transform: none;
+            background: url(./images/img_character_papa_incorrect.png);
+        }
+
+        .bg-spelling.third .wrapper-characters .wrapper-characters-right .papa.correct {
+            background: url(./images/img_character_papa_correct.png);
+            transform: none;
+            animation: correct 1.4s steps(2) infinite;
+        }
+
+    /* 4번 */
+    .bg-spelling.last {
+        opacity: 0;
+        background: url(./images/bg_spelling_04.png);
+        animation: fadeIn3 2s forwards;
+    }
+
+        .bg-spelling.last .wrapper-effect .effects {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 1280px;
+            height: 720px;
+            background: none;
+        }
+
+        .bg-spelling.last .wrapper-effect .effects {
+            width: 75px;
+            height: 45px;
+            background: url(./images/img_shootingstar.png);
+        }
+
+            .bg-spelling.last .wrapper-effect .effects.effect1 {
+                top: -100px;
+                left: 800px;
+                transform: scale(0.2);
+                animation: shooting01 6s 1s infinite;
+            }
+
+            .bg-spelling.last .wrapper-effect .effects.effect2 {
+                top: -100px;
+                left: 1000px;
+                transform: scale(0.8);
+                animation: shooting02 5s infinite;
+            }
+
+            .bg-spelling.last .wrapper-effect .effects.effect3 {
+                top: -100px;
+                left: 1200px;
+                transform: scale(1);
+                animation: shooting03 5s 1s infinite;
+            }
+
+        .bg-spelling.last .wrapper-characters .wrapper-characters-left {
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            width: 180px;
+            height: 230px;
+        }
+
+            .bg-spelling.last .wrapper-characters .wrapper-characters-left .characters-left.dodo {
+                left: 300px;
+                width: 180px;
+                height: 230px;
+                background: url(./images/img_character_dodo.png);
+            }
+
+            .bg-spelling.last .wrapper-characters .wrapper-characters-left .characters-left.baro {
+                left: 215px;
+                width: 180px;
+                height: 230px;
+                background: url(./images/img_character_baro.png);
+            }
+
+            .bg-spelling.last .wrapper-characters .wrapper-characters-left .characters-left.jack {
+                left: 120px;
+                width: 180px;
+                height: 230px;
+                background: url(./images/img_character_jack.png);
+            }
+
+            .bg-spelling.last .wrapper-characters .wrapper-characters-left .characters-left.papa {
+                left: 0;
+                width: 180px;
+                height: 230px;
+                background: url(./images/img_character_papa.png);
+            }
+
+        .bg-spelling.last .wrapper-characters .wrapper-characters-right .characters-right.baro {
+            display: none;
+        }
+
+        .bg-spelling.last .wrapper-characters .wrapper-characters-right .characters-right.jack {
+            display: none;
+        }
+
+        .bg-spelling.last .wrapper-characters .wrapper-characters-right .characters-right.papa {
+            display: none;
+        }
+
+        .bg-spelling.last .wrapper-characters .wrapper-characters-right .characters-right.edmond {
+            width: 180px;
+            height: 230px;
+            background: url(./images/img_character_edmond.png);
+        }
+
+        .bg-spelling.last .wrapper-characters.walking .wrapper-characters-left {
+            animation: move4 2.4s forwards;
+        }
+
+            .bg-spelling.last .wrapper-characters.walking .wrapper-characters-left .dodo {
+                background: url(./images/img_dodo_walk.png);
+                animation: walking 1s steps(4) infinite;
+            }
+
+                .bg-spelling.last .wrapper-characters.walking .wrapper-characters-left .dodo.correct {
+                    background: url(./images/img_character_dodo_correct.png);
+                    animation: correct 1.4s steps(2) infinite;
+                }
+
+            .bg-spelling.last .wrapper-characters.walking .wrapper-characters-left .baro {
+                background: url(./images/img_baro_walk.png);
+                animation: walking 1s steps(4) infinite;
+            }
+
+                .bg-spelling.last .wrapper-characters.walking .wrapper-characters-left .baro.correct {
+                    background: url(./images/img_character_baro_correct.png);
+                    transform: rotateY(180deg);
+                    animation: correct 1.4s steps(2) infinite;
+                }
+
+            .bg-spelling.last .wrapper-characters.walking .wrapper-characters-left .jack {
+                background: url(./images/img_jack_walk.png);
+                animation: walking 1s steps(4) infinite;
+            }
+
+                .bg-spelling.last .wrapper-characters.walking .wrapper-characters-left .jack.correct {
+                    background: url(./images/img_character_jack_correct.png);
+                    transform: rotateY(180deg);
+                    animation: correct 1.4s steps(2) infinite;
+                }
+
+            .bg-spelling.last .wrapper-characters.walking .wrapper-characters-left .papa {
+                background: url(./images/img_papa_walk.png);
+                animation: walking 1s steps(4) infinite;
+            }
+
+                .bg-spelling.last .wrapper-characters.walking .wrapper-characters-left .papa.correct {
+                    background: url(./images/img_character_papa_correct.png);
+                    transform: rotateY(180deg);
+                    animation: correct 1.4s steps(2) infinite;
+                }
+
+        .bg-spelling.last .wrapper-characters.incorrect .wrapper-characters-left .dodo {
+            width: 180px;
+            height: 230px;
+            background: url(./images/img_character_dodo_incorrect.png);
+        }
+
+        .bg-spelling.last .wrapper-characters.incorrect .wrapper-characters-left .baro {
+            width: 180px;
+            height: 230px;
+            background: url(./images/img_character_baro_incorrect.png);
+        }
+
+        .bg-spelling.last .wrapper-characters.incorrect .wrapper-characters-left .jack {
+            width: 180px;
+            height: 230px;
+            background: url(./images/img_character_jack_incorrect.png);
+        }
+
+        .bg-spelling.last .wrapper-characters.incorrect .wrapper-characters-left .papa {
+            width: 180px;
+            height: 230px;
+            background: url(./images/img_character_papa_incorrect.png);
+        }
+
+        .bg-spelling.last .wrapper-characters.incorrect .wrapper-characters-right .edmond {
+            width: 180px;
+            height: 230px;
+            transform: none;
+            background: url(./images/img_character_edmond_incorrect.png);
+        }
+
+        .bg-spelling.last .wrapper-characters .wrapper-characters-right .edmond.correct {
+            background: url(./images/img_character_edmond_correct.png);
+            transform: none;
+            animation: correct 1.4s steps(2) infinite;
+        }
+
+/* 하단 키보드 */
+.wrapper-keyboard {
+    position: absolute;
+    top: 338px;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 1187px;
+    height: 656px;
+    background-image: url(./images/img_box_spelling.png);
+    z-index: 3;
+}
+
+.wrapper-input {
+    position: absolute;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 100%;
+    top: 58px;
+}
+
+.input-spelling {
+    display: flex;
+    width: 500px;
+    height: 103px;
+    justify-content: center;
+    margin: -1px;
+    background: url(./images/bg_input.png);
+}
+
+    .input-spelling .letters {
+        width: 70px;
+        height: 92px;
+        font-size: 4rem;
+        text-align: center;
+        line-height: 100px;
+    }
+
+        .input-spelling .letters.cursor {
+            background: url(./images/img_cursor.png);
+            animation: cursor 2s steps(2) infinite;
+        }
+
+        .input-spelling .letters .text-shadow {
+            position: absolute;
+            width: 70px;
+            height: 92px;
+            color: #6c63bf;
+            z-index: 1;
+        }
+
+        .input-spelling .letters .text-selected {
+            position: absolute;
+            width: 70px;
+            height: 92px;
+            color: #fff;
+            z-index: 2;
+        }
+
+.btn-backspace {
+    position: absolute;
+    top: 65px;
+    right: 180px;
+    width: 95px;
+    height: 94px;
+    background-image: url(./images/btn_back.png);
+    cursor: url(../../include/images/cursor_hover.png), auto;
+}
+
+    .btn-backspace:hover {
+        background-image: url(./images/btn_back_active.png);
+    }
+
+.keyboard {
+    display: flex;
+    position: absolute;
+    left: 50%;
+    bottom: 320px;
+    height: 120px;
+    transform: translateX(-50%);
+    align-items: center;
+}
+
+.btn-keyboard {
+    width: 120px;
+    height: 120px;
+    line-height: 120px;
+    margin: 0 16px;
+    font-size: 3.5rem;
+    text-align: center;
+    background: url(./images/btn_typing.png);
+}
+
+    .btn-keyboard.disabled {
+        background: url(./images/btn_typing_bg.png);
+        pointer-events: none;
+    }
+
+    .btn-keyboard:hover {
+        cursor: url(../../include/images/cursor_hover.png), auto;
+        background: url(./images/btn_typing_active.png);
+    }
+
+.wrapper-pictures {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0);
+    animation: fadeBlack 1s 1s forwards;
+    z-index: 5;
+}
+
+    .wrapper-pictures .pictures {
+        position: absolute;
+        width: 479px;
+        height: 385px;
+        border: 20px solid #fff;
+        box-shadow: 5px 5px 10px #000;
+        opacity: 0;
+        transform: rotate(0);
+    }
+
+        .wrapper-pictures .pictures:first-child {
+            top: 130px;
+            left: 126px;
+            animation: photo01 1.5s 1s forwards;
+        }
+
+        .wrapper-pictures .pictures:last-child {
+            top: 180px;
+            right: 126px;
+            animation: photo02 1.5s 2s forwards;
+        }
+
+@keyframes fadeIn {
+    to {
+        opacity: 1;
+    }
+}
+
+@keyframes fadeIn2 {
+    to {
+        opacity: 1;
+    }
+}
+
+@keyframes fadeIn3 {
+    to {
+        opacity: 1;
+    }
+}
+
+@keyframes effectLight1 {
+    50% {
+        opacity: 1;
+    }
+}
+
+@keyframes effectLight2 {
+    50% {
+        opacity: .7;
+    }
+}
+
+@keyframes shaking {
+    50% {
+        transform: rotate(-8deg);
+    }
+}
+
+@keyframes shooting01 {
+    30% {
+        opacity: 1;
+    }
+
+    100% {
+        top: 300px;
+        left: 300px;
+        transform: scale(1);
+        opacity: 0;
+    }
+}
+
+@keyframes shooting02 {
+    30% {
+        opacity: 1;
+    }
+
+    100% {
+        top: 300px;
+        left: 500px;
+        transform: scale(0.8);
+        opacity: 0;
+    }
+}
+
+@keyframes shooting03 {
+    30% {
+        opacity: 1;
+    }
+
+    100% {
+        top: 300px;
+        left: 700px;
+        transform: scale(1);
+        opacity: 0;
+    }
+}
+
+@keyframes move {
+    to {
+        left: 640px;
+    }
+}
+
+@keyframes move2 {
+    to {
+        left: 540px;
+    }
+}
+
+@keyframes move3 {
+    to {
+        left: 440px;
+    }
+}
+
+@keyframes move4 {
+    to {
+        left: 340px;
+    }
+}
+
+@keyframes walking {
+    to {
+        background-position: -400%;
+    }
+}
+
+@keyframes correct {
+    to {
+        background-position: -200%;
+    }
+}
+
+@keyframes cursor {
+    to {
+        background-position: -200%;
+    }
+}
+
+@keyframes fadeBlack {
+    to {
+        background-color: rgba(0, 0, 0, 0.8);
+    }
+}
+
+@keyframes photo01 {
+    to {
+        opacity: 1;
+        transform: rotate(-8deg);
+    }
+}
+
+@keyframes photo02 {
+    to {
+        opacity: 1;
+        transform: rotate(8deg);
+    }
+}
+
+.hidden {
+    position: absolute;
+    bottom: -100px;
+    opacity: 0;
+}

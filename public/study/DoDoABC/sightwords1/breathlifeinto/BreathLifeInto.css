@@ -1,0 +1,268 @@
+﻿/* 배경 */
+.bg-breath-life {
+    width: 1280px;
+    height: 780px;
+    background: url(./images/bg_breath_life.jpg);
+    animation: space 100s linear infinite;
+}
+
+@keyframes space {
+    to {
+        background-position: -2516px;
+    }
+}
+
+/* 커버 */
+.wrapper-cover {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 1280px;
+    height: 780px;
+    background: url(./images/img_cover.png);
+    z-index: 100;
+}
+
+    /* 버튼 */
+    .wrapper-cover .wrapper-panel {
+        position: absolute;
+        left: 50%;
+        bottom: 75px;
+        height: 100px;
+        transform: translateX(-50%);
+        display: flex;
+        justify-content: center;
+        cursor: url(../../include/images/cursor_hover.png), pointer;
+    }
+
+        .wrapper-cover .wrapper-panel.hidden {
+            bottom: -75px;
+            opacity:0;
+        }
+
+        .wrapper-cover .wrapper-panel .btn-left:hover {
+            content: url(./images/img_btn_left_03.png);
+        }
+
+            .wrapper-cover .wrapper-panel .btn-left:hover:active {
+                content: url(./images/img_btn_left_02.png);
+            }
+
+        .wrapper-cover .wrapper-panel .btn-ok {
+            margin-left: 10px;
+            margin-right: 10px;
+        }
+
+        .wrapper-cover .wrapper-panel .btn-ok:hover {
+            content: url(./images/img_btn_ok_03.png);
+        }
+            .wrapper-cover .wrapper-panel .btn-ok:hover:active {
+                content: url(./images/img_btn_ok_02.png);
+            }
+
+        .wrapper-cover .wrapper-panel .btn-right:hover {
+            content: url(./images/img_btn_right_03.png);
+        }
+
+            .wrapper-cover .wrapper-panel .btn-right:hover:active {
+                content: url(./images/img_btn_right_02.png);
+            }
+
+    /* 캐릭터 */
+    .wrapper-cover .wrapper-character {
+        position: absolute;
+        bottom: 0;
+        right: 32px;
+        width: 222px;
+        height: 244px;
+        background: url(./images/img_character_gino.png);
+        animation: gino 2.5s steps(2) infinite;
+    }
+
+        .wrapper-cover .wrapper-character.correct {
+            background: url(./images/img_character_gino_correct.png);
+            animation: gino 2.5s steps(2) infinite;
+        }
+
+        .wrapper-cover .wrapper-character.incorrect {
+            background: url(./images/img_character_gino_incorrect.png);
+            animation: gino 2.5s steps(2) infinite;
+        }
+
+@keyframes gino {
+    70% {
+        background-position: 0;
+    }
+
+    100% {
+        background-position: -200%;
+    }
+}
+
+/* 예제 */
+.wrapper-examples {
+    position: absolute;
+    top: 65px;
+    left: 92px;
+    width: 1095px;
+    height: 520px;
+    z-index: 200;
+}
+
+    .wrapper-examples .wrapper-example {
+        position: absolute;
+        width: 322px;
+        height: 324px;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        font-size: 5rem;
+        color: #fff;
+        text-shadow: 3px 3px 3px rgba(0, 0, 0, 0.5);
+        cursor: url(../../include/images/cursor_hover.png), pointer;
+    }
+
+        .wrapper-examples .wrapper-example.move {
+            z-index: 300;
+            animation: move 2s linear forwards;
+        }
+
+        .wrapper-examples .wrapper-example.invisible {
+            transition: 1.2s;
+            opacity: 0;
+            cursor: url(../../include/images/cursor.png), auto;
+        }
+
+        .wrapper-examples .wrapper-example:first-of-type {
+            top: 25px;
+            left: 30px;
+            background: url(./images/img_planet_01_grey.png);
+        }
+
+            .wrapper-examples .wrapper-example:first-of-type.correct .img-planet {
+                animation: correct01 2s forwards;
+            }
+
+            .wrapper-examples .wrapper-example:first-of-type.incorrect .img-planet {
+                content: url(./images/img_planet_01_light.png);
+            }
+
+            .wrapper-examples .wrapper-example:first-of-type.incorrect * {
+                animation: incorrect 1s forwards;
+            }
+
+        .wrapper-examples .wrapper-example:nth-of-type(2) {
+            top: 100px;
+            left: 388px;
+            background: url(./images/img_planet_02_grey.png);
+        }
+
+            .wrapper-examples .wrapper-example:nth-of-type(2).correct .img-planet {
+                animation: correct02 2s forwards;
+            }
+
+            .wrapper-examples .wrapper-example:nth-of-type(2).incorrect .img-planet {
+                content: url(./images/img_planet_02_light.png);
+            }
+
+            .wrapper-examples .wrapper-example:nth-of-type(2).incorrect * {
+                animation: incorrect 1s forwards;
+            }
+
+        .wrapper-examples .wrapper-example:last-of-type {
+            top: 25px;
+            left: 750px;
+            background: url(./images/img_planet_03_grey.png);
+        }
+
+            .wrapper-examples .wrapper-example:last-of-type.correct .img-planet {
+                animation: correct03 2s forwards;
+            }
+
+            .wrapper-examples .wrapper-example:last-of-type.incorrect .img-planet {
+                content: url(./images/img_planet_03_light.png);
+            }
+
+            .wrapper-examples .wrapper-example:last-of-type.incorrect * {
+                animation: incorrect 1s forwards;
+            }
+
+        .wrapper-examples .wrapper-example * {
+            position: absolute;
+        }
+
+        .wrapper-examples .wrapper-example .img-selected {
+            display: none;
+        }
+
+        .wrapper-examples .wrapper-example.selected .img-selected {
+            display: block !important;
+        }
+
+/* 행성 이동 */
+@keyframes move {
+    80% {
+        left: 37%;
+        top: 20%;
+        font-size: 5.5rem;
+        transform: scale(1.3);
+    }
+
+    100% {
+        left: 37%;
+        top: 20%;
+        font-size: 6rem;
+        transform: scale(1.3);
+    }
+}
+
+/* 정답 */
+@keyframes correct01 {
+    50% {
+        content: url(./images/img_planet_01.png);
+        font-size: 200px !important;
+    }
+
+    100% {
+        content: url(./images/img_planet_01.png);
+    }
+}
+
+@keyframes correct02 {
+    50% {
+        content: url(./images/img_planet_02.png);
+    }
+
+    100% {
+        content: url(./images/img_planet_02.png);
+    }
+}
+
+@keyframes correct03 {
+    50% {
+        content: url(./images/img_planet_03.png);
+    }
+
+    100% {
+        content: url(./images/img_planet_03.png);
+    }
+}
+
+/* 오답 */
+@keyframes incorrect {
+    70%, 90% {
+        transform: translateX(-4%);
+    }
+
+    80% {
+        transform: translate(4%);
+    }
+
+    65%, 75%, 85%, 95% {
+        transform: translateX(1%);
+    }
+
+    100% {
+        transform: translateX(0%);
+    }
+}

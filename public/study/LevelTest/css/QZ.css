@@ -1,0 +1,84 @@
+﻿@charset "utf-8";
+@import url("./common.css");
+@import url("./fonts.css");
+
+html, body{width:100%;height:100%;}
+
+#body{
+    width: 100%;
+    height: 100%;
+}
+
+#body>tr>td{width:100%;height:100%;text-align:center;vertical-align:middle;}
+
+.body-bg {
+    background: url(../img/intro/bg_intro_new.jpg) repeat-x;
+    width: 100%;
+    height: 800px;
+}
+
+#outline {
+    width: 930px;
+    height: 610px;
+    position: relative;
+    margin: 0 auto;
+}
+
+#boxMain {
+    position: relative;
+    width: 923px;
+    height: 100%;
+    margin: 0 auto;
+}
+
+#boxMain .title{
+    position: absolute;
+    top: 90px;
+    width: 100%;
+    text-align: center;
+}
+
+#boxMain .title>img{margin:0 auto;}
+
+#boxMain .guide{
+    position: absolute;
+    top: 170px;
+    width: 100%;
+    text-align: center;
+}
+#boxMain .guide>img{
+    margin: 0 auto;
+}
+
+#boxMain table{
+    position: absolute;
+    top: 200px;
+    margin: 0 auto;
+    border-collapse: separate;
+    border-spacing: 20px;
+}
+
+#boxMain table>tbody>tr>td{width:210px;}
+
+#btCancel {
+    position: absolute;
+    bottom: 40px;
+    display: none;
+    margin-left: 7px;
+    padding-right: 5px;
+    padding-bottom: 5px;
+}
+
+#btCancel.lvl-k {display:block;left:34px;}
+#btCancel.lvl-1 {display:block;left:264px;}
+#btCancel.lvl-2 {display:block;left:494px;}
+#btCancel.lvl-4 {display:block;left:724px;}
+
+#btHome {
+    position: absolute;
+    top: 10px;
+    right: 0px;
+    width: 52px;
+}
+
+#btHome img{width:100%;}

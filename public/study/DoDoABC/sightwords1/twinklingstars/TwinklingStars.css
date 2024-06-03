@@ -1,0 +1,397 @@
+﻿@charset "utf-8";
+
+/* CSS Document */
+
+
+/* 공통영역 */
+
+
+
+.box {
+    width: 1280px;
+    min-width: 1280px;
+    height: 720px;
+    position: relative;
+    overflow: hidden;
+}
+
+.exit {
+    width: 4rem;
+    height: auto;
+    margin: 1.6em;
+    cursor: pointer;
+    position: absolute;
+    top: 0;
+    left: 0;
+    opacity: 0.85;
+    z-index: 9999;
+}
+
+/* 컨텐츠 - 4-B Twinkling Stars */
+
+.sw_bg {
+    background-image: url(./images/sw_bg.png);
+}
+
+.goma li {
+    width: 150px;
+    height: 180px;
+    position: absolute;
+    bottom: 46px;
+    right: 56px;
+}
+
+.bg_star01 {
+    width: 100%;
+    height: 100%;
+    background-image: url(./images/sw_bg_star01.png);
+    opacity: 0;
+    animation: bg_star 2s infinite;
+}
+
+@keyframes bg_star {
+    50% {
+        opacity: 1;
+    }
+}
+
+.bg_star02 {
+    width: 100%;
+    height: 100%;
+    background-image: url(./images/sw_bg_star02.png);
+    opacity: 0;
+    animation: bg_star 3s 3s infinite;
+}
+
+.goma_d {
+    background-image: url(./images/goma_d.png);
+    animation: goma_d 2s steps(2) infinite;
+}
+
+@keyframes goma_d {
+    80% {
+        background-position: 0;
+    }
+
+    100% {
+        background-position: -200%;
+    }
+}
+
+.goma_correct {
+    background-image: url(./images/goma_correct.png);
+}
+
+.goma_incorrect {
+    background-image: url(./images/goma_incorrect.png);
+}
+
+.quiz_box {
+    width: 470px;
+    height: 270px;
+    position: absolute;
+    left: 150px;
+    top: 96px;
+}
+
+.quiz {
+    width: 100%;
+    height: 100%;
+    border-radius: 1rem;
+    border: 5px solid #faff54;
+    background-size: cover;
+    -webkit-filter: drop-shadow(0px 0px 5px #faff54);
+    filter: drop-shadow(0 0 5px #faff54);
+    position: absolute;
+}
+
+.twinkle {
+    width: 100%;
+    height: 100%;
+    background-image: url(./images/text_box_twinkle.png);
+    position: absolute;
+    opacity: 0;
+    -webkit-filter: drop-shadow(0px 0px 3px #faff54);
+    filter: drop-shadow(0 0 3px #faff54);
+    margin-bottom: 26px;
+    animation: appear 2s infinite;
+}
+
+@keyframes appear {
+    50% {
+        opacity: 1;
+    }
+}
+
+.quiz_box li {
+    width: 616px;
+    height: 108px;
+    line-height: 108px;
+    text-align: center;
+    font-size: 2rem;
+    color: #fff;
+    background-image: url(./images/text_box.png);
+    position: absolute;
+    left: 50%;
+    transform: translateX(-50%);
+    cursor: pointer;
+}
+
+    .quiz_box li:nth-of-type(1) {
+        top: 295px;
+    }
+
+    .quiz_box li:nth-of-type(2) {
+        top: 400px;
+    }
+
+    .quiz_box li:hover {
+        color: #faff54;
+        cursor: url(../../include/images/cursor_hover.png), pointer;
+    }
+
+    @media (any-pointer:coarse) {
+        .quiz_box li:hover {
+            color: #fff;
+            cursor: url(../../include/images/cursor_hover.png), pointer;
+        }   
+    }
+
+.q_correct {
+    animation: q_correct 2s forwards;
+}
+
+@keyframes q_correct {
+    to {
+        color: #faff54;
+        top: 340px;
+    }
+}
+
+.q_gone {
+    animation: q_gone 2s forwards;
+}
+
+@keyframes q_gone {
+    50% {
+        opacity: 0;
+    }
+
+    100% {
+        opacity: 0;
+        top: 340px;
+    }
+}
+
+.star li {
+    position: absolute;
+    opacity: 0;
+}
+
+.edmond_star {
+    width: 139px;
+    height: 155px;
+    right: 320px;
+    top: 80px;
+    background-image: url(./images/constell01_edmond.png);
+}
+
+.leoni_star {
+    width: 184px;
+    height: 183px;
+    right: 92px;
+    top: 124px;
+    background-image: url(./images/constell02_leoni.png);
+}
+
+.goma_star {
+    width: 168px;
+    height: 185px;
+    right: 377px;
+    top: 230px;
+    background-image: url(./images/constell03_goma.png);
+}
+
+.gino_star {
+    width: 187px;
+    height: 179px;
+    right: 170px;
+    top: 308px;
+    background-image: url(./images/constell04_gino.png);
+}
+
+.star_appear {
+    animation: star_appear 5s forwards;
+}
+
+@keyframes star_appear {
+    to {
+        opacity: 1;
+    }
+}
+
+.star div {
+    width: 100%;
+    height: 100%;
+    background-image: url(./images/star_sky.png);
+    position: absolute;
+    top: 0;
+    left: 0;
+    opacity: 0;
+    transform: rotate(3deg);
+    animation: last_star 2s 0.8s forwards;
+}
+
+@keyframes last_star {
+    to {
+        opacity: 1;
+        transform: rotate(0deg);
+    }
+}
+
+.star li {
+    position: absolute;
+    opacity: 0;
+}
+
+.edmond_star {
+    width: 139px;
+    height: 155px;
+    right: 320px;
+    top: 80px;
+    background-image: url(./images/constell01_edmond.png);
+}
+
+.leoni_star {
+    width: 184px;
+    height: 183px;
+    right: 92px;
+    top: 124px;
+    background-image: url(./images/constell02_leoni.png);
+}
+
+.goma_star {
+    width: 168px;
+    height: 185px;
+    right: 377px;
+    top: 230px;
+    background-image: url(./images/constell03_goma.png);
+}
+
+.gino_star {
+    width: 187px;
+    height: 179px;
+    right: 170px;
+    top: 308px;
+    background-image: url(./images/constell04_gino.png);
+}
+
+.star_appear {
+    animation: star_appear 3s forwards;
+}
+
+@keyframes star_appear {
+    80% {
+        opacity: 1;
+        -webkit-filter: drop-shadow(0px 0px 10px #fffce4);
+        filter: drop-shadow(0 0 10px #fffce4);
+    }
+
+    100% {
+        opacity: 1;
+    }
+}
+
+.star div {
+    width: 100%;
+    height: 100%;
+    background-image: url(./images/star_sky.png);
+    position: absolute;
+    top: 0;
+    left: 0;
+    opacity: 0;
+    transform: rotate(3deg);
+    animation: last_star 2s 0.8s forwards;
+}
+
+@keyframes last_star {
+    to {
+        opacity: 1;
+        transform: rotate(0deg);
+    }
+}
+
+.star li {
+    position: absolute;
+    opacity: 0;
+}
+
+.edmond_star {
+    width: 139px;
+    height: 155px;
+    right: 320px;
+    top: 80px;
+    background-image: url(./images/constell01_edmond.png);
+}
+
+.leoni_star {
+    width: 184px;
+    height: 183px;
+    right: 92px;
+    top: 124px;
+    background-image: url(./images/constell02_leoni.png);
+}
+
+.goma_star {
+    width: 168px;
+    height: 185px;
+    right: 377px;
+    top: 230px;
+    background-image: url(./images/constell03_goma.png);
+}
+
+.gino_star {
+    width: 187px;
+    height: 179px;
+    right: 170px;
+    top: 308px;
+    background-image: url(./images/constell04_gino.png);
+}
+
+.star_appear {
+    animation: star_appear 3s forwards;
+}
+
+@keyframes star_appear {
+    80% {
+        opacity: 1;
+        -webkit-filter: drop-shadow(0px 0px 10px #fffce4);
+        filter: drop-shadow(0 0 10px #fffce4);
+    }
+
+    100% {
+        opacity: 1;
+    }
+}
+
+.star div {
+    width: 100%;
+    height: 100%;
+    background-image: url(./images/star_sky.png);
+    position: absolute;
+    top: 0;
+    left: 0;
+    opacity: 0;
+    transform: rotate(3deg);
+    animation: last_star 2s 0.8s forwards;
+}
+
+@keyframes last_star {
+    to {
+        opacity: 1;
+        transform: rotate(0deg);
+    }
+}
+
+
+

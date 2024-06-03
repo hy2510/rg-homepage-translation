@@ -1,0 +1,703 @@
+﻿/* 배경 */
+.bg-boat-rider {
+    width: 1280px;
+    height: 720px;
+    background: url(./images/bg_boat_rider.png) no-repeat;
+}
+
+/* 캐릭터 */
+.character {
+    position: absolute;
+    top: 90px;
+    left: 150px;
+}
+
+.active-character {
+    position: absolute;
+    bottom: 270px;
+    left: 40px;
+    z-index: 1;
+}
+
+/* 점프 */
+.move1 {
+    animation: move01 .9s linear forwards;
+}
+
+@keyframes move01 {
+    0% {
+        top: 270px;
+        left: 40px;
+        content: url(./images/img_character_jump_01.png);
+    }
+
+    10% {
+        top: 230px;
+        left: 50px;
+        content: url(./images/img_character_jump_02.png);
+    }
+
+    20% {
+        top: 180px;
+        left: 85px;
+    }
+
+    30% {
+        top: 160px;
+        left: 115px;
+    }
+
+    40% {
+        top: 180px;
+        left: 150px;
+    }
+
+    50% {
+        top: 220px;
+        left: 200px;
+    }
+
+    60% {
+        top: 260px;
+        left: 245px;
+    }
+
+    70% {
+        top: 300px;
+        left: 290px;
+    }
+
+    80% {
+        top: 350px;
+        left: 340px;
+    }
+
+    90% {
+        top: 400px;
+        left: 385px;
+        content: url(./images/img_character_jump_02.png);
+    }
+
+    100% {
+        top: 440px;
+        left: 430px;
+        content: url(./images/img_character_jump_01.png);
+    }
+}
+
+.move2 {
+    animation: move02 1.2s linear forwards;
+}
+
+@keyframes move02 {
+    0% {
+        top: 270px;
+        left: 40px;
+        content: url(./images/img_character_jump_01.png);
+    }
+
+    9% {
+        top: 230px;
+        left: 95px;
+        content: url(./images/img_character_jump_02.png);
+    }
+
+    18% {
+        top: 190px;
+        left: 180px;
+    }
+
+    27% {
+        top: 150px;
+        left: 250px;
+    }
+
+    36% {
+        top: 110px;
+        left: 325px;
+    }
+
+    45% {
+        top: 80px;
+        left: 391px;
+    }
+
+    54% {
+        top: 95px;
+        left: 442px;
+    }
+
+    63% {
+        top: 110px;
+        left: 500px;
+    }
+
+    72% {
+        top: 122px;
+        left: 560px;
+    }
+
+    81% {
+        top: 138px;
+        left: 618px;
+    }
+
+    90% {
+        top: 153px;
+        left: 661px;
+        content: url(./images/img_character_jump_02.png);
+    }
+
+    100% {
+        top: 175px;
+        left: 685px;
+        content: url(./images/img_character_jump_01.png);
+    }
+}
+
+.move3 {
+    animation: move03 1.3s linear forwards;
+}
+
+@keyframes move03 {
+    0% {
+        top: 270px;
+        left: 40px;
+        content: url(./images/img_character_jump_01.png);
+    }
+
+    10% {
+        top: 200px;
+        left: 130px;
+        content: url(./images/img_character_jump_02.png);
+    }
+
+    20% {
+        top: 150px;
+        left: 220px;
+    }
+
+    30% {
+        top: 110px;
+        left: 320px;
+    }
+
+    40% {
+        top: 100px;
+        left: 430px;
+    }
+
+    50% {
+        top: 90px;
+        left: 540px;
+    }
+
+    60% {
+        top: 120px;
+        left: 640px;
+    }
+
+    70% {
+        top: 170px;
+        left: 740px;
+    }
+
+    80% {
+        top: 230px;
+        left: 840px;
+    }
+
+    90% {
+        top: 280px;
+        left: 940px;
+        content: url(./images/img_character_jump_02.png);
+    }
+
+    100% {
+        top: 330px;
+        left: 1040px;
+        content: url(./images/img_character_jump_01.png);
+    }
+}
+
+/* 점프 보물섬 */
+.movet1 {
+    animation: move31 0.9s linear forwards;
+}
+
+@keyframes move31 {
+    0% {
+        top: 270px;
+        left: 40px;
+        content: url(./images/img_character_jump_31.png);
+    }
+
+    10% {
+        top: 230px;
+        left: 50px;
+        content: url(./images/img_character_jump_32.png);
+    }
+
+    20% {
+        top: 180px;
+        left: 85px;
+    }
+
+    30% {
+        top: 160px;
+        left: 115px;
+    }
+
+    40% {
+        top: 180px;
+        left: 150px;
+    }
+
+    50% {
+        top: 220px;
+        left: 200px;
+    }
+
+    60% {
+        top: 260px;
+        left: 245px;
+    }
+
+    70% {
+        top: 300px;
+        left: 290px;
+    }
+
+    80% {
+        top: 350px;
+        left: 340px;
+    }
+
+    90% {
+        top: 400px;
+        left: 385px;
+        content: url(./images/img_character_jump_32.png);
+    }
+
+    100% {
+        top: 440px;
+        left: 430px;
+        content: url(./images/img_character_jump_31.png);
+    }
+}
+
+.movet2 {
+    animation: move32 1.2s linear forwards;
+}
+
+@keyframes move32 {
+    0% {
+        top: 270px;
+        left: 40px;
+        content: url(./images/img_character_jump_31.png);
+    }
+
+    9% {
+        top: 230px;
+        left: 95px;
+        content: url(./images/img_character_jump_32.png);
+    }
+
+    18% {
+        top: 190px;
+        left: 180px;
+    }
+
+    27% {
+        top: 150px;
+        left: 250px;
+    }
+
+    36% {
+        top: 110px;
+        left: 325px;
+    }
+
+    45% {
+        top: 80px;
+        left: 391px;
+    }
+
+    54% {
+        top: 95px;
+        left: 442px;
+    }
+
+    63% {
+        top: 110px;
+        left: 500px;
+    }
+
+    72% {
+        top: 122px;
+        left: 560px;
+    }
+
+    81% {
+        top: 138px;
+        left: 618px;
+    }
+
+    90% {
+        top: 153px;
+        left: 661px;
+        content: url(./images/img_character_jump_32.png);
+    }
+
+    100% {
+        top: 175px;
+        left: 685px;
+        content: url(./images/img_character_jump_31.png);
+    }
+}
+
+.movet3 {
+    animation: move33 1.3s linear forwards;
+}
+
+@keyframes move33 {
+    0% {
+        top: 270px;
+        left: 40px;
+        content: url(./images/img_character_jump_31.png);
+    }
+
+    10% {
+        top: 200px;
+        left: 130px;
+        content: url(./images/img_character_jump_32.png);
+    }
+
+    20% {
+        top: 150px;
+        left: 220px;
+    }
+
+    30% {
+        top: 110px;
+        left: 320px;
+    }
+
+    40% {
+        top: 100px;
+        left: 430px;
+    }
+
+    50% {
+        top: 90px;
+        left: 540px;
+    }
+
+    60% {
+        top: 120px;
+        left: 640px;
+    }
+
+    70% {
+        top: 170px;
+        left: 740px;
+    }
+
+    80% {
+        top: 230px;
+        left: 840px;
+    }
+
+    90% {
+        top: 280px;
+        left: 940px;
+        content: url(./images/img_character_jump_32.png);
+    }
+
+    100% {
+        top: 330px;
+        left: 1040px;
+        content: url(./images/img_character_jump_31.png);
+    }
+}
+
+.question-character {
+    position: absolute;
+    top: 95px;
+    left: 165px;
+}
+
+.question-character.both {
+    position: absolute;
+    top: 80px;
+    left: 165px;
+}
+
+@keyframes rich {
+    to {
+        background-position: -406px 0px;
+    }
+}
+
+/* 캐릭터 보트 */
+.wrapper-boat {
+    position: absolute;
+    top: 200px;
+    left: -90px;
+    transition: 4s;
+    animation: wave 3s infinite linear;
+}
+
+    .wrapper-boat.stop {
+        animation: none;
+    }
+
+        .wrapper-boat.stop > .character {
+            display: none;
+        }
+
+    /* 두번째 이미지 */
+    .wrapper-boat.second > .img-boat {
+        content: url(./images/img_boat_02_pink.png);
+    }
+
+    .wrapper-boat.second > .img-cover {
+        content: url(./images/img_cover_02.png);
+    }
+
+    /* 세번째 이미지*/
+    .wrapper-boat.third > .img-boat {
+        content: url(./images/img_boat_03.png);
+    }
+
+    .wrapper-boat.third > .img-cover {
+        content: url(./images/img_cover_03.png);
+    }
+
+    .wrapper-boat.third > .character {
+        top: 50px;
+        content: url(./images/img_character_02.png);
+    }
+
+.img-treasure {
+    position: absolute;
+    top: 120px;
+    left: 40px;
+    width: 140px;
+    height: 152px;
+    background: url(./images/img_treasure.png);
+    animation: treasure 1s steps(2) infinite;
+}
+
+@keyframes treasure {
+    to {
+        background-position: -280px 0px;
+    }
+}
+
+.js-boat-cover {
+    cursor: url(../../include/images/cursor_hover.png), pointer;
+}
+
+/* 문제 보트 */
+.wrapper-question-boat {
+    position: absolute;
+    cursor: url(../../include/images/cursor_hover.png), pointer;
+}
+
+    .wrapper-question-boat.correct {
+        transition: 2s;
+        left: 1300px !important;
+    }
+
+        .wrapper-question-boat.correct > .question-character {
+            width: 120px;
+            height: 155px;
+            background: url(./images/img_character_correct.png);
+        }
+
+        .wrapper-question-boat.third.correct > .question-character {
+            width: 120px;
+            height: 155px;
+            background: url(./images/img_character_correct3.png);
+        }
+
+        .wrapper-question-boat.success > .question-character {
+            width: 120px;
+            height: 155px;
+            display:block;
+            background: url(./images/img_character_correct.png);
+        }
+
+    .wrapper-question-boat.rich > .question-character {
+        width: 203px;
+        height: 190px;
+        background: url(./images/img_character_rich.png);
+        animation: rich 1s steps(2) infinite;
+    }
+
+    .wrapper-question-boat.incorrect > .question-character {
+        content: url(./images/img_character_incorrect.png) !important;
+        z-index: 10;
+    }
+
+    .wrapper-question-boat.third.incorrect > .question-character {
+        content: url(./images/img_character_incorrect3.png) !important;
+        z-index: 10;
+    }
+
+    .wrapper-question-boat.second > .img-question-boat {
+        content: url(./images/img_boat_03.png);
+    }
+
+    .wrapper-question-boat.second > .img-cover {
+        content: url(./images/img_cover_03.png);
+    }
+
+    .wrapper-question-boat.third {
+        animation: none !important;
+    }
+
+        .wrapper-question-boat.third > .img-question-boat {
+            content: url(./images/img_island.png);
+        }
+
+        .wrapper-question-boat.third > .img-cover {
+            display: none;
+        }
+
+        
+
+/* 문제 보트들 위치*/
+.bg-boat-rider > div:nth-child(3) {
+    top: 390px;
+    left: 300px;
+    animation: wave 3s infinite linear;
+}
+
+
+.left-boat-cover {
+    z-index: 9002;
+    position: absolute;
+    width: 310px;
+    height: 293px;
+    top: 200px;
+    left: -90px;
+    transition: 4s;
+    animation: wave 3s infinite linear;
+}
+
+    .left-boat-cover.stop {
+        animation: none;
+    }
+
+.boat-cover1 {
+    z-index: 9002;
+    position: absolute;
+    width: 310px;
+    height: 293px;
+    top: 390px;
+    left: 300px;
+    animation: wave 3s infinite linear;
+}
+
+.bg-boat-rider > div:nth-child(4) {
+    top: 90px;
+    left: 520px;
+    animation: wave 4s infinite linear;
+}
+
+.boat-cover2 {
+    z-index: 9002;
+    position: absolute;
+    width: 310px;
+    height: 293px;
+    top: 90px;
+    left: 520px;
+    animation: wave 4s infinite linear;
+}
+
+.bg-boat-rider > div:nth-child(5) {
+    top: 265px;
+    left: 860px;
+    animation: wave 4.5s infinite linear;
+}
+
+.boat-cover3 {
+    z-index: 9002;
+    position: absolute;
+    width: 310px;
+    height: 293px;
+    top: 265px;
+    left: 860px;
+    animation: wave 4.5s infinite linear;
+}
+
+/* 캐릭터 발 감싸주는 커버 이미지 */
+.img-cover {
+    position: absolute;
+    top: 0;
+    left: 0;
+    z-index: 9001;
+}
+
+.boats_wave {
+    position: absolute;
+    bottom: 12px;
+    right: 40px;
+    z-index: 1301;
+}
+
+/*문제 글씨 래퍼*/
+.wrapper-text-alphabet > .big {
+    position: absolute;
+    top:50px;
+    text-align: center;
+    width: 350px;
+    height: 90px;
+}
+
+.wrapper-text-alphabet > .small {
+    position: absolute;
+    top: 45px;
+    text-align: center;
+    width: 350px;
+    height: 90px;
+}
+
+.wrapper-text-alphabet > .both {
+    position: absolute;
+    top: 65px;
+    text-align: center;
+    width: 310px;
+    height: 90px;
+    color: black;
+    font-size:4.5rem;
+}
+
+/* 문제 글씨 */
+.text-alphabet {
+    font-size: 5.5rem;
+    color: white;
+}
+
+/* 파도 */
+#boatWave {
+    position: absolute;
+    top: 265px;
+    left: 30px;
+}
+
+@keyframes wave {
+    0% {
+        transform: rotate(5deg);
+    }
+
+    50% {
+        transform: rotate(-5deg);
+    }
+
+    100% {
+        transform: rotate(5deg);
+    }
+}

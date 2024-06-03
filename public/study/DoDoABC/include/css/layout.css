@@ -1,0 +1,754 @@
+﻿html {
+    -webkit-tap-highlight-color: transparent;
+    overflow: hidden;
+}
+.background {
+    width: 100%;
+    height: 100dvh;
+    background-color: black;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.wrapper-layout {
+    transform-origin: center;
+    min-width: 1280px;
+    min-height: 720px;
+    background-color: white;
+    position: relative;
+}
+
+.wrapper-header {
+    position: absolute;
+    width: 1280px;
+    height: 80px;
+    padding: 4px;
+    z-index: 1000;
+    opacity: 0.01;
+    transition: 0.6s;
+    padding: 8px;
+}
+
+    .wrapper-header:hover {
+        opacity: 1;
+        z-index: 2000;
+    }
+
+    .wrapper-header > .header-left {
+        width: 170px;
+        height: 70px;
+        float: left;
+        z-index: 2;
+        margin-top: 13px;
+        margin-left: 20px
+    }
+
+        .wrapper-header > .header-left > .button {
+            width: 70px;
+            height: 70px;
+            margin-right: 8px;
+            float: left;
+            z-index: 2;
+        }
+
+            .wrapper-header > .header-left > .button:hover {
+                cursor: url(../../include/images/cursor_hover.png), pointer;
+            }
+
+    .wrapper-header > .header-center {
+        width: 880px;
+        height: 70px;
+        float: left;
+        margin-left: 50px;
+        text-align: center;
+        opacity: 0.4;
+        z-index: 2;
+    }
+
+        .wrapper-header > .header-center > .button {
+            width: 60px;
+            height: 60px;
+            margin-left: 10px;
+            float: left;
+            padding-top: 25px;
+            border-radius: 30px;
+            background-color: rgba(255, 255, 0, 0.4);
+            color: blue;
+            line-height: 16px;
+            z-index: 2;
+            font-size: 14px;
+        }
+
+            .wrapper-header > .header-center > .button.current-focus {
+                border: 3px solid orange;
+                line-height: 11px;
+                font-size: 16px;
+            }
+
+            .wrapper-header > .header-center > .button:hover {
+                cursor: url(../../include/images/cursor_hover.png), pointer;
+            }
+
+    .wrapper-header > .header-right {
+        width: 70px;
+        height: 70px;
+        float: right;
+        z-index: 2;
+    }
+
+        .wrapper-header > .header-right > .button > img {
+            width: 70px;
+            height: 70px;
+        }
+
+        .wrapper-header > .header-right > .button {
+            width: 70px;
+            height: 70px;
+            /*margin-left: 10px;*/
+            float: right;
+            z-index: 2;
+        }
+
+            .wrapper-header > .header-right > .button:hover {
+                cursor: url(../../include/images/cursor_hover.png), pointer;
+            }
+
+.wrapper-content {
+    position: absolute;
+    width: 1280px;
+    height: 720px;
+    overflow: hidden;
+    background: black;
+}
+
+.wrapper-next {
+    position: absolute;
+    width: 1280px;
+    height: 720px;
+    z-index: 9999;
+}
+
+    .wrapper-next > .next-popup {
+        position: absolute;
+        width: 398px;
+        height: 238px;
+        top: 33%;
+        left: 35%;
+        background-image: url(../../include/images/btn_nextbg.png);
+    }
+
+        .wrapper-next > .next-popup > .again {
+            position: absolute;
+            width: 137px;
+            height: 134px;
+            top: 21%;
+            left: 13%;
+            float: left;
+            cursor: url(../../include/images/cursor_hover.png), pointer;
+            background-image: url(../../include/images/btn_again01.png);
+        }
+
+            .wrapper-next > .next-popup > .again:hover {
+                background-image: url(../../include/images/btn_again02.png);
+            }
+
+            .wrapper-next > .next-popup > .again.focus {
+                background-image: url(../../include/images/btn_again02.png);
+            }
+
+        .wrapper-next > .next-popup > .next {
+            position: absolute;
+            width: 137px;
+            height: 134px;
+            top: 21%;
+            right: 13%;
+            float: right;
+            cursor: url(../../include/images/cursor_hover.png), pointer;
+            background-image: url(../../include/images/btn_next01.png);
+        }
+
+            .wrapper-next > .next-popup > .next:hover {
+                background-image: url(../../include/images/btn_next02.png);
+            }
+
+            .wrapper-next > .next-popup > .next.focus {
+                background-image: url(../../include/images/btn_next02.png);
+            }
+
+            .wrapper-next > .next-popup > .next.movie {
+                position: absolute;
+                width: 137px;
+                height: 134px;
+                top: 21%;
+                right: 13%;
+                float: right;
+                cursor: url(../../include/images/cursor_hover.png), pointer;
+                background-image: url(../../include/images/btn_activity01.png);
+            }
+
+                .wrapper-next > .next-popup > .next.movie:hover {
+                    background-image: url(../../include/images/btn_activity02.png);
+                }
+
+
+.controls button:hover, .controls button:focus {
+    cursor: url(../../include/images/cursor_hover.png), pointer;
+    opacity: 0.5;
+}
+
+.screen-lock {
+    position: absolute;
+    width: 1280px;
+    height: 720px;
+    /*height: 650px;
+    margin-top: 70px;*/
+    z-index: 9998;
+}
+
+/*포인트만 획득 [[[*/
+.wrapper-reward {
+    position: absolute;
+    width: 1280px;
+    height: 720px;
+    z-index: 9999;
+}
+
+    .wrapper-reward > .reward {
+        position: absolute;
+        top: 50%;
+        left: 50%;
+        transform: translate(-50%, -50%);
+        width: 700px;
+        height: 720px;
+        background: url(../images/img_reward_open.png); /*1점*/
+        opacity: 1;
+        animation: openRewardBox 5s steps(11) forwards;
+        cursor: url(../../include/images/cursor_hover.png), pointer;
+    }
+
+        /*0.4점*/
+        .wrapper-reward > .reward.point2 {
+            background: url(../images/img_reward_open2.png);
+        }
+        /*0점*/
+        .wrapper-reward > .reward.point3 {
+            background: url(../images/img_reward_open3.png);
+        }
+
+@keyframes openRewardBox {
+    from {
+        background-position: 0;
+    }
+
+    to {
+        background-position: -7700px;
+    }
+}
+/*]]]*/
+
+/*포인트획득 + 레벨업 [[[*/
+.wrapper-reward2 {
+    position: absolute;
+    width: 1280px;
+    height: 720px;
+    z-index: 9999;
+}
+
+    .wrapper-reward2 > .reward1 {
+        position: absolute;
+        top: 50%;
+        left: 13%;
+        transform: translate(0%, -60%);
+        width: 460px;
+        height: 550px;
+        background: url(../images/p_open1.png); /*1점*/
+        opacity: 1;
+        animation: openRewardBox2 4s steps(7) forwards;
+        cursor: url(../../include/images/cursor_hover.png), pointer;
+    }
+
+    .wrapper-reward2 > .reward2 {
+        position: absolute;
+        top: 50%;
+        left: 53%;
+        transform: translate(0%, -60%);
+        width: 460px;
+        height: 550px;
+        background: url(../images/img_levelup_open.png);
+        opacity: 1;
+        animation: openRewardBox2 4s steps(7) forwards;
+        cursor: url(../../include/images/cursor_hover.png), pointer;
+    }
+/*]]]*/
+
+/*포인트획득 + 리딩유닛획득 [[[*/
+.wrapper-reward4 {
+    position: absolute;
+    width: 1280px;
+    height: 720px;
+    z-index: 9999;
+}
+
+    .wrapper-reward4 > .reward1 {
+        position: absolute;
+        top: 50%;
+        left: 13%;
+        transform: translate(0%, -60%);
+        width: 460px;
+        height: 550px;
+        background: url(../images/p_open1.png); /*1점*/
+        opacity: 1;
+        animation: openRewardBox2 4s steps(7) forwards;
+        cursor: url(../../include/images/cursor_hover.png), pointer;
+    }
+
+    .wrapper-reward4 > .reward4 {
+        position: absolute;
+        top: 50%;
+        left: 53%;
+        transform: translate(0%, -60%);
+        width: 460px;
+        height: 550px;
+        background: url(../images/unit_097901.png);
+        opacity: 1;
+        animation: openRewardBox2 4s steps(7) forwards;
+        cursor: url(../../include/images/cursor_hover.png), pointer;
+    }
+/*]]]*/
+
+/*포인트획득 + 레벨업 + 리딩유닛획득 [[[*/
+.wrapper-reward6 {
+    position: absolute;
+    width: 1280px;
+    height: 720px;
+    z-index: 9999;
+}
+
+    .wrapper-reward6 > .reward1 {
+        position: absolute;
+        top: 65%;
+        left: 10%;
+        transform: scale(0.9) translate(0%, -60%);
+        width: 460px;
+        height: 550px;
+        background: url(../images/p_open1.png); /*1점*/
+        opacity: 1;
+        animation: openRewardBox2 4s steps(7) forwards;
+        cursor: url(../../include/images/cursor_hover.png), pointer;
+    }
+
+    .wrapper-reward6 > .reward2 {
+        position: absolute;
+        top: 27%;
+        left: 33%;
+        transform: scale(0.9) translate(0%, -60%);
+        width: 460px;
+        height: 550px;
+        background: url(../images/img_levelup_open.png);
+        opacity: 1;
+        animation: openRewardBox2 4s steps(7) forwards;
+        cursor: url(../../include/images/cursor_hover.png), pointer;
+    }
+
+    .wrapper-reward6 > .reward4 {
+        position: absolute;
+        top: 65%;
+        left: 56%;
+        transform: scale(0.9) translate(0%, -60%);
+        width: 460px;
+        height: 550px;
+        background: url(../images/unit_097901.png);
+        opacity: 1;
+        animation: openRewardBox2 4s steps(7) forwards;
+        cursor: url(../../include/images/cursor_hover.png), pointer;
+    }
+/*]]]*/
+
+
+/*0.5점*/
+.reward1.point2 {
+    background: url(../images/img_reward_open2.png);
+}
+/*0점*/
+.reward1.point3 {
+    background: url(../images/p_open3.png);
+}
+
+.reward4.rgunit01 {
+    background: url(../images/unit_097901.png);
+}
+
+.reward4.rgunit02 {
+    background: url(../images/unit_097902.png);
+}
+
+.reward4.rgunit03 {
+    background: url(../images/unit_097903.png);
+}
+
+.reward4.rgunit04 {
+    background: url(../images/unit_097904.png);
+}
+
+.reward4.rgunit05 {
+    background: url(../images/unit_097905.png);
+}
+
+.reward4.rgunit06 {
+    background: url(../images/unit_097906.png);
+}
+
+.reward4.rgunit07 {
+    background: url(../images/unit_097907.png);
+}
+
+.reward4.rgunit08 {
+    background: url(../images/unit_097908.png);
+}
+
+.reward4.rgunit09 {
+    background: url(../images/unit_097909.png);
+}
+
+.reward4.rgunit10 {
+    background: url(../images/unit_097910.png);
+}
+
+.reward4.rgunit11 {
+    background: url(../images/unit_097911.png);
+}
+
+.reward4.rgunit12 {
+    background: url(../images/unit_097912.png);
+}
+
+.reward4.rgunit13 {
+    background: url(../images/unit_097913.png);
+}
+
+.reward4.rgunit14 {
+    background: url(../images/unit_097914.png);
+}
+
+.reward4.rgunit15 {
+    background: url(../images/unit_097915.png);
+}
+
+.reward4.rgunit16 {
+    background: url(../images/unit_097916.png);
+}
+
+@keyframes openRewardBox2 {
+    from {
+        background-position: 0;
+    }
+
+    to {
+        background-position: -700%;
+    }
+}
+
+.black-wall {
+    position: absolute;
+    width: 1280px;
+    height: 720px;
+    background-color: black !important;
+    opacity: 0.85 !important;
+}
+
+.exit.button:hover {
+    cursor: url(../../include/images/cursor_hover.png), pointer;
+}
+
+/*깜빡임 방지를 위해 이미지 미리 로딩*/
+.img-pre-load {
+    position: absolute;
+    left: -1px;
+    top: -1px;
+    width: 1px;
+    height: 1px;
+    opacity: 0.01;
+}
+
+/*-------------------------*/
+.wrapper-curtains .curtain-panel {
+    position: absolute;
+    top: -70px;
+    width: 640px;
+    height: 720px;
+    margin-top: 70px;
+    z-index: 9999;
+    background-color: black;
+    opacity: 1;
+}
+.wrapper-curtains .curtain-panel.left {
+    left: 0%;
+}
+
+.wrapper-curtains .curtain-panel.right {
+    left: 50%;
+}
+
+.wrapper-curtains.open .curtain-panel.left {
+    animation: move-left 0.8s forwards linear;
+}
+
+.wrapper-curtains.open .curtain-panel.right {
+    animation: move-right 0.8s forwards linear;
+}
+
+@keyframes move-left {
+    0% {
+        width: 640px;
+    }
+
+    100% {
+        width: 0px;
+        left: 0%;
+    }
+}
+
+@keyframes move-right {
+    0% {
+        width: 640px;
+    }
+
+    100% {
+        width: 0px;
+        left: 100%;
+    }
+}
+
+.twinkle01 {
+    opacity: 0;
+    animation: twinkle 2s infinite;
+    position: absolute;
+    width: 460px;
+    left: 50px;
+    top: -20px;
+}
+
+.twinkle02 {
+    opacity: 0;
+    animation: twinkle 2s 0.5s infinite;
+    position: absolute;
+    width: 460px;
+    left: 150px;
+}
+
+.twinkle03 {
+    opacity: 0;
+    animation: twinkle 2s 1s infinite;
+    position: absolute;
+    width: 460px;
+    left: 250px;
+}
+
+@keyframes twinkle {
+    50% {
+        opacity: 1;
+    }
+
+    100% {
+        opacity: 0;
+    }
+}
+
+
+/*메뉴박스*/
+.m_box {
+    width: 174px;
+    background-color: #ececec;
+    font-size: 1.0rem;
+    color: #6b6b6b;
+    text-align: center;
+    padding: 1.6rem 1.2rem;
+    border-radius: 2rem 0 0 2rem;
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+    right: 0;
+    z-index: 10000;
+}
+
+.arrow {
+    width: 28px;
+    height: 200px;
+    display: none;
+    background-image: url(../images/arrow02.png);
+    background-color: #fff;
+    border-radius: 0.5rem 0 0 0.5rem;
+    background-position: center;
+    background-repeat: no-repeat;
+    position: absolute;
+    /*left: -28px;*/
+    top: 50%;
+    transform: translateY(-50%);
+    /*cursor: url(../../include/images/cursor_hover.png), pointer;*/
+    z-index: 10000;
+}
+
+    .arrow:hover {
+        cursor: url(../../include/images/cursor_hover.png), pointer;
+    }
+
+.arrow_bar01 {
+    right: 174px;
+    background-image: url(../images/arrow01.png);
+}
+
+.arrow_bar02 {
+    right: 0;
+    background-image: url(../images/arrow02.png);
+}
+
+.arrow_bar03 {
+    right: 94px;
+    background-image: url(../images/arrow01.png);
+}
+
+
+.ico li {
+    width: 57px;
+    height: 57px;
+    text-indent: -9999px;
+    margin-bottom: 1.8rem;
+    cursor: url(../../include/images/cursor_hover.png), pointer;
+}
+
+.staffMenu > .ico > .button:hover {
+    cursor: url(../../include/images/cursor_hover.png), pointer;
+}
+
+.staffMenu > .menu > .button:hover {
+    cursor: url(../../include/images/cursor_hover.png), pointer;
+}
+
+.staffMenu > .ico > .movie:hover {
+    cursor: url(../../include/images/cursor_hover.png), pointer;
+}
+
+.ico_exit {
+    float: left;
+    background-image: url(../images/ico_exit.png);
+    background-repeat: no-repeat;
+}
+
+.ico_movie {
+    float: right;
+    background-image: url(../images/ico_movie.png);
+}
+
+.on {
+    color: #e56264;
+}
+
+.menu {
+    margin-bottom: 0.6rem;
+}
+
+    .menu p {
+        /*padding: 22px 0; r*/
+        padding: 16px 0;
+        background-image: url(../images/m_list_bar.png);
+        background-position: center;
+        background-repeat: no-repeat;
+        margin-bottom: 0;
+    }
+
+    .menu > .button {
+        /*padding: 22px 0; r*/
+        padding: 6.0px 0;
+    }
+
+.js-todayGoal {
+    position: absolute;
+    width: 1280px;
+    height: 720px;
+    z-index: 1000;
+    background-color: transparent;
+}
+
+.bg-daily-goal {
+    position: absolute;
+    top: 45%;
+    left: 33%;
+    transform: translate(0%, -60%);
+    width: 460px;
+    height: 550px;
+    opacity: 1
+}
+
+.daily-goal-contents {
+    height: 80vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+}
+
+    .daily-goal-contents div:nth-child(1) {
+        margin-bottom: 0px;
+    }
+
+    .daily-goal-contents div:nth-child(2) {
+        margin-bottom: 20px;
+    }
+
+    .daily-goal-contents .message {
+        font-size: 22px;
+        font-family: 'Microsoft Sans Serif' !important;
+        color: #FFFFFF;
+    }
+
+    .daily-goal-contents .goal {
+        font-size: 33px;
+        color: #FFFFFF;
+    }
+
+.img-goal-achieved {
+    width: 100%;
+    max-width: 450px;
+    /* padding: 0px 20px 0px 20px; */
+    cursor: pointer;
+}
+
+.js-award {
+    background-color: #94d4eb !important;
+    position: fixed;
+    width: 1280px;
+    height: 720px;
+}
+
+.bg-award {
+    position: absolute;
+    width: 100%;
+    height: 134%;
+    transform: scale(0.70);
+    top: -20%;
+}
+
+.eventAward1 {
+    background: top center no-repeat url('https://wcfresource.a1edu.com/newsystem/image/eventaward/eventaward1.png');
+    background-color: #94d4eb;
+}
+
+.eventAward2 {
+    background: top center no-repeat url('https://wcfresource.a1edu.com/newsystem/image/eventaward/eventaward2.png');
+    background-color: #94d4eb;
+}
+
+.eventAward3 {
+    background: top center no-repeat url('https://wcfresource.a1edu.com/newsystem/image/eventaward/eventaward3.png');
+    background-color: #94d4eb;
+}
+
+.eventAward4 {
+    background: top center no-repeat url('https://wcfresource.a1edu.com/newsystem/image/eventaward/eventaward4.png');
+    background-color: #94d4eb;
+}
+
+.gu-mirror {
+    transform: scale(0.5);
+}

@@ -1,0 +1,224 @@
+﻿.bg-desk {
+    background-image: url(./images/bg_desk.jpg);
+    width: 1280px;
+    height: 720px;
+}
+
+.area-letter {
+    cursor: url(../../include/images/cursor_hover.png), auto;
+}
+
+.wrapper-letter {
+    position: absolute;
+    width: 1280px;
+    height: 720px;
+}
+
+    .wrapper-letter.correct {
+        background-image: url(./images/img_correct.png);
+        animation: correct 0.9s steps(2) infinite;
+    }
+
+    .wrapper-letter.incorrect {
+        background-color: rgba(0,0,0,0.6);
+    }
+
+.letter-open {
+    position: absolute;
+    width: 1280px;
+    height: 720px;
+    background-image: url(./images/img_letter_01.png);
+    animation: openLetter 0.7s forwards;
+}
+
+.letter-hand {
+    position: absolute;
+    width: 1280px;
+    height: 720px;
+}
+
+    .letter-hand img {
+        position: absolute;
+        bottom: 0;
+        opacity: 0;
+        animation: gribLetter 1.5s forwards;
+    }
+
+        .letter-hand img:first-child {
+            left: 0;
+        }        
+
+        .letter-hand img:last-child {
+            right: 0;
+        }
+
+
+.character-edmond {
+    position: absolute;
+    top: 30px;
+    right: 50px;
+    width: 310px;
+    height: 270px;
+    background: url(./images/img_edmond.png);
+    animation: edmond 0.6s steps(2) infinite;
+}
+
+    .character-edmond.end {
+        background: none;
+        content: url(./images/img_edmond_02.gif);    
+        animation: none;
+    }
+
+.text-letter {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    font-size: 3.89rem;
+    color: #e2b478;
+    line-height: 1.2em;
+    text-align: center;
+    opacity: 0;
+    animation: text 2s forwards;
+}
+
+.wrapper-activity {
+    position: absolute;
+    top: 0;
+    left: 0;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 1280px;
+    height: 720px;
+}
+
+    .wrapper-activity .wrapper-img img {
+        position: absolute;
+        top: 120px;
+        left: 50%;
+        transform: translateX(-50%);
+        width: 550px;
+        border-radius: 15px;
+    }
+
+    .wrapper-activity .text-question {
+        position: absolute;
+        width: 930px;
+        font-size: 6.25rem;
+        text-align: center;
+        line-height: 1em;
+        color: #b18b59;
+    }
+
+        .wrapper-activity .text-question.sentence {
+            top: 460px;
+            font-size: 3.5rem;
+        }
+
+    .wrapper-activity .wrapper-btns {
+        display: flex;
+        justify-content: center;
+        position: absolute;
+        bottom: 108px;
+        left: 50%;
+        width: 600px;
+        height: 108px;
+        transform: translate(-50%);
+    }
+
+        .wrapper-activity .wrapper-btns .btns {
+            position: absolute;
+            top: 50px;
+            width: 108px;
+            height: 108px;
+            cursor: url(../../include/images/cursor_hover.png), auto;
+        }
+
+        .wrapper-activity .wrapper-btns .btn-record {
+            left: 0;
+            background-image: url(./images/btn_record_01.png);
+        }
+
+            .wrapper-activity .wrapper-btns .btn-record.recording {
+                /*background-image: url(./images/btn_record_02.png);
+                animation: recording steps(7) forwards;*/
+            }
+
+        .wrapper-activity .wrapper-btns .btn-play {
+            left: 50%;
+            transform: translateX(-50%);
+            background-image: url(./images/btn_play.png);
+        }
+
+            .wrapper-activity .wrapper-btns .btn-play.active {
+                left: 50%;
+                transform: translateX(-50%);
+                background-image: url(./images/btn_pause.png);
+            }
+
+        .wrapper-activity .wrapper-btns .btn-next {
+            right: 0;
+            background-image: url(./images/btn_next.png);
+            animation: next 1s steps(2) infinite;
+        }
+
+            .wrapper-activity .wrapper-btns .btn-next:hover {
+                background-image: url(./images/btn_next.png);
+                animation: none;
+            }
+
+@keyframes openLetter {
+    0% {
+        opacity: 0;
+        top: 60px;
+        transform: scale(0.2);
+    }
+
+    40% {
+        opacity: 0.5;
+        top: -160px;
+    }
+
+    100% {
+        opacity: 1;
+        top: 0;
+        transform: scale(1);
+    }
+}
+
+@keyframes correct {
+    to {
+        background-position: -200%;
+    }
+}
+
+@keyframes gribLetter {
+    100% {
+        opacity: 1;
+    }
+}
+
+@keyframes edmond {
+    to {
+        background-position: -200%;
+    }
+}
+
+@keyframes text {
+    to {
+        opacity: 1
+    }
+}
+
+@keyframes recording {
+    to {
+        background-position: -700%;
+    }
+}
+
+@keyframes next {
+    to {
+        background-position: -200%;
+    }
+}

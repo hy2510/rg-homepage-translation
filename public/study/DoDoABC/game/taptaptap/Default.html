@@ -1,0 +1,99 @@
+﻿<!DOCTYPE html>
+
+<html>
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <title></title>
+
+    <link href="../../include/css/reset.css" rel="stylesheet" />
+    <link href="../../include/css/layoutGame.css" rel="stylesheet" />
+
+    <script type="text/javascript" src="../../include/js/sweetalert.min.js"></script>
+    <script type="text/javascript" src="../../include/js/jquery-3.5.1.min.js"></script>
+    <script type="text/javascript" src="../../include/js/language.js"></script>
+    <script type="text/javascript" src="../../include/js/api.js"></script>
+    <script type="text/javascript" src="../../include/js/common.js"></script>
+</head>
+<body>
+    <div class="background">
+        <div class="wrapper-layout">
+            <div class="wrapper-content">
+                <!--<asp:ContentPlaceHolder ID="Layout" runat="server">
+                </asp:ContentPlaceHolder>-->
+                <link href="./TapTapTap.css" rel="stylesheet" />
+
+                <div id="phaser" class="bg-taptaptap"></div>
+
+                <script type="text/javascript" src="../../include/js/phaser.min.js"></script>
+                <script type="text/javascript" src="../gameland.js"></script>
+                <script type="text/javascript" src="./TapTapTap.js"></script>
+
+                <img src="../carracing/images/Common/img_keyboard_shortcuts.png" class="img-shortcut d-none" style="position:absolute; bottom: -95px; right: 0; width:252px;" alt="keyboard" />
+            </div>
+
+            <!-- award -->
+            <div class="js-award justify-content-center vh-100 flex-column align-items-center modal-position2 d-none">
+                <div class="col text-center mx-auto bg-award"></div>
+                <div style="position: absolute; cursor: pointer; top: 10px; left: 10px;"><img id="imgAwardHome" src="https://wcfresource.a1edu.com/newsystem/AppMobile/eBookSkin/k/Cover0/main_home.png" onclick="goDodo();return false" /></div>
+            </div>
+            <!-- award end -->
+            <!-- todayGoal -->
+            <div class="bg-todayGoal js-todayGoal justify-content-center vh-100 flex-column align-items-center modal-position2 d-none">
+                <div class="js-black-wall black-wall"></div>
+                <div class="col text-center mx-auto bg-daily-goal">
+                    <div class="daily-goal-contents">
+                        <div>
+                            <div>
+                                <img src="https://wcfresource.a1edu.com/newsystem/image/eventaward/img_daily_goal_achieved_prek.png" alt="" class="img-goal-achieved">
+                            </div>
+                            <div>
+                                <span class="message"></span>
+                            </div>
+                            <div>
+                                <span class="goal"></span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <audio id="todayGoalAudio">
+                    <source src="https://wcfresource.a1edu.com/newsystem/sound/soundeffect/daily_goal_sound.mp3" type="audio/mp3">
+                </audio>
+            </div>
+            <!-- todayGoal end -->
+        </div>
+    </div> <!--/background-->
+
+    <audio id="dodoaudio">
+        <source src="#">
+    </audio>
+    <audio id="effect1">
+        <source src="#">
+    </audio>
+    <audio id="effect2">
+        <source src="#">
+    </audio>
+
+    <audio id="audio-eventAward" src="https://wcfresource.a1edu.com/newsystem/sound/character/subcharacter/baro_21.mp3"></audio>
+
+    <audio loop id="bgm">
+        <source src="#">
+    </audio>
+
+    <audio id="preload1">
+        <source src="#">
+    </audio>
+    <audio id="preload2">
+        <source src="#">
+    </audio>
+    <audio id="preload3">
+        <source src="#">
+    </audio>
+    <audio id="preload4">
+        <source src="#">
+    </audio>
+    <audio id="preload5">
+        <source src="#">
+    </audio>
+</body>
+</html>

@@ -1,0 +1,443 @@
+﻿.bg-flying-craft {
+    width: 1280px;
+    height: 780px;
+    background: url(./images/bg_flying_craft.png);
+}
+
+.wrapper-character {
+    position: absolute;
+    top: 380px;
+    left: 24px;
+    width: 156px;
+    height: 220px;
+    background: url(./images/img_stage.png) no-repeat bottom;
+}
+
+    .wrapper-character.move1 {
+        animation: move01 0.9s linear forwards;
+    }
+
+    .wrapper-character.move2 {
+        animation: move02 1.3s linear forwards;
+    }
+
+    .wrapper-character.move3 {
+        animation: move03 1.5s linear forwards;
+    }
+
+    .wrapper-character .character-jino {
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 156px;
+        height: 166px;
+        background: url(./images/img_character_jino.png) no-repeat;
+        animation: jino 3s steps(2) infinite;
+        z-index:1;
+    }
+
+        .wrapper-character .character-jino.correct {
+            background: url(./images/img_character_jino_correct.png) no-repeat;
+            animation: jino 3s steps(2) infinite;
+        }
+
+        .wrapper-character .character-jino.incorrect {
+            background: url(./images/img_character_jino_incorrect.png) no-repeat;
+            animation: jino 3s steps(2) infinite;
+        }
+
+        .wrapper-character .character-jino.up {
+            background: url(./images/img_character_jino_correct.png) no-repeat;
+            animation: jinoUp 1.2s steps(2) forwards;
+        }
+
+        .wrapper-character .character-jino.up2 {
+            background: url(./images/img_character_jino_correct.png) no-repeat;
+            animation: jinoUp2 1.5s steps(2) forwards;
+        }
+
+@keyframes move01 {
+    to {
+        left: 230px;
+        top: 386px;
+    }
+}
+
+@keyframes move02 {
+    40% {
+        left: 230px;
+        top: 386px;
+    }
+
+    100% {
+        left: 590px;
+        top: 460px;
+    }
+}
+
+@keyframes move03 {
+    20% {
+        left: 230px;
+        top: 386px;
+    }
+
+    60% {
+        left: 590px;
+        top: 460px;
+    }
+
+    70% {
+        left: 700px;
+        top: 478px;
+    }
+
+    100% {
+        left: 968px;
+        top: 484px;
+    }
+}
+
+@keyframes jino {
+    70% {
+        background-position: 0;
+    }
+
+    100% {
+        background-position: -312px;
+    }
+}
+
+@keyframes jinoUp {
+    10% {
+        top: -10%;
+        transform: scale(0.95);
+    }
+
+    20% {
+        top: -20%;
+        transform: scale(0.90);
+    }
+
+    30% {
+        top: -30%;
+        transform: scale(0.85);
+    }
+
+    40% {
+        top: -40%;
+        transform: scale(0.80);
+    }
+
+    50% {
+        top: -50%;
+        transform: scale(0.75);
+    }
+
+    60% {
+        top: -60%;
+        transform: scale(0.70);
+    }
+
+    70% {
+        top: -70%;
+        transform: scale(0.65);
+    }
+
+    80% {
+        top: -80%;
+        transform: scale(0.60);
+    }
+
+    90% {
+        top: -90%;
+        transform: scale(0.55);
+        opacity: 0;
+    }
+
+
+    100% {
+        top: -100%;
+        opacity: 0;
+    }
+}
+
+@keyframes jinoUp2 {
+    10% {
+        top: -10%;
+        transform: scale(0.95);
+    }
+
+    20% {
+        top: -25%;
+        transform: scale(0.90);
+    }
+
+    30% {
+        top: -40%;
+        transform: scale(0.85);
+    }
+
+    40% {
+        top: -55%;
+        transform: scale(0.80);
+    }
+
+    50% {
+        top: -70%;
+        transform: scale(0.75);
+    }
+
+    60% {
+        top: -85%;
+        transform: scale(0.70);
+    }
+
+    70% {
+        top: -100%;
+        transform: scale(0.65);
+    }
+
+    80% {
+        top: -115%;
+        transform: scale(0.60);
+    }
+
+    90% {
+        top: -130%;
+        transform: scale(0.55);
+        opacity: 0;
+    }
+
+
+    100% {
+        top: -145%;
+        opacity: 0;
+    }
+}
+
+.wrapper-examples {
+    position: absolute;
+    top: 60px;
+    width: 100%;
+    height: 400px;
+}
+
+    .wrapper-examples .wrapper-example {
+        position: absolute;
+        width: 273px;
+        height: 250px;
+        animation: wave 12s both infinite linear;
+    }
+
+        .wrapper-examples .wrapper-example:first-of-type {
+            top: 0;
+            left: 186px;
+        }
+
+        .wrapper-examples .wrapper-example:nth-of-type(2) {
+            top: 146px;
+            left: 540px;
+        }
+
+        .wrapper-examples .wrapper-example:last-of-type {
+            top: 70px;
+            left: 924px;
+        }
+
+        .wrapper-examples .wrapper-example .example {
+            width: 273px;
+            height: 250px;
+            display: flex;
+            align-items: flex-end;
+            justify-content: center;
+            padding-bottom: 25px;
+            font-size: 4rem;
+            color: #fff76c;
+            background: url(./images/img_spacecraft.png);
+            animation: spaceCraft 2s steps(2) infinite;
+            cursor: url(../../include/images/cursor_hover.png), pointer;
+            z-index:15;
+        }
+
+@keyframes wave {
+    10%, 90% {
+        transform: translate(0, -1px);
+    }
+
+    20%, 80% {
+        transform: translate(-1px, 4px);
+    }
+
+    30%, 50%, 70% {
+        transform: translate( 5px,-4px);
+    }
+
+    40%, 60% {
+        transform: translate(-5px, -6px);
+    }
+}
+
+@keyframes spaceCraft {
+    to {
+        background-position: -546px;
+    }
+}
+
+.wrapper-craft {
+    position: absolute;
+    top: 60px;
+    width: 273px;
+    height: 250px;
+    z-index: 9999;
+}
+
+    .wrapper-craft.gone {
+        background: url(./images/img_spacecraft_correct.png);
+    }
+
+    .wrapper-craft.craft1 {
+        top: 60px;
+        left: 186px;
+    }
+
+        .wrapper-craft.craft1.gone {
+            top: 60px;
+            animation: gone01 5s 1s forwards;
+        }
+
+    .wrapper-craft.craft2 {
+        top: 206px;
+        left: 540px;
+    }
+
+        .wrapper-craft.craft2.gone {
+            top: 206px;
+            animation: gone02 5s 1s forwards;
+        }
+
+    .wrapper-craft.craft3 {
+        top: 130px;
+        left: 924px;
+    }
+
+        .wrapper-craft.craft3.gone {
+            top: 130px;
+            animation: gone03 5s 1s forwards;
+        }
+
+    .wrapper-craft .craft {
+        position: absolute;
+        top: 0px;
+        left: 0;
+        width: 273px;
+        height: 485px;
+        background: url(./images/img_spacecraft_up.png);
+        animation: lightUp 1.35s steps(7) forwards;
+        overflow: hidden;
+    }
+
+@keyframes lightUp {
+    0% {
+        background-position: 0px;
+    }
+    100% {
+        background-position: -1911px;
+    }
+}
+
+@keyframes gone01 {
+    0% {
+        top: 60px;
+        left: 186px;
+    }
+
+    40% {
+        top: 60px;
+        left: 186px;
+    }
+
+    60% {
+        top: -2%;
+        left: 40%;
+        transform: scale(0.6);
+        opacity: 1;
+    }
+
+    100% {
+        top: -20%;
+        left: 80%;
+        transform: scale(0.3);
+        opacity: 0;
+    }
+}
+
+@keyframes gone02 {
+    0% {
+        top: 206px;
+        left: 540px;
+    }
+
+    40% {
+        top: 206px;
+        left: 540px;
+    }
+
+    60% {
+        top: -2%;
+        left: 40%;
+        transform: scale(0.6);
+        opacity: 1;
+    }
+
+    100% {
+        left: 80%;
+        top: -20%;
+        transform: scale(0.3);
+        opacity: 0;
+    }
+}
+
+@keyframes gone03 {
+    0% {
+        top: 130px;
+        left: 924px;
+    }
+
+    40% {
+        top: 130px;
+        left: 924px;
+    }
+
+    60% {
+        top: -2%;
+        left: 40%;
+        transform: scale(0.6);
+        opacity: 1;
+    }
+
+    100% {
+        top: -20%;
+        left: 80%;
+        transform: scale(0.3);
+        opacity: 0;
+    }
+}
+
+
+
+.wrapper-examples .wrapper-example .example span.correct {
+    animation: sapnAni 1.0s 1s infinite;
+}
+
+@keyframes sapnAni {
+    0% {
+        opacity: 0;
+    }
+    50% {
+        opacity:1.0;
+    }
+
+    100% {
+        opacity: 0;
+    }
+}

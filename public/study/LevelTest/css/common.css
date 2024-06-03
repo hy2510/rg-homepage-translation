@@ -1,0 +1,48 @@
+* {	border-collapse: collapse; outline: none; }
+
+html, body { width:100%; height:100%;overflow:hidden; }
+html, body, h1, h2, h3, h4, h5, h6, ol, ul, div, li, dl, dt, dd, form, iframe, p, a, span, blockquote, fieldset, img, table, th, td, input, button, select, textarea, table, tfoot,thead,th,td, label {margin:0; padding:0; -webkit-font-smoothing: antialiased;}
+body { font-weight:normal; font-style:normal; font-size:1em;  }
+
+#body { width:100%; height:100%; }
+
+div, p, span, input, li, td, textarea { font-family:Verdana;font-weight:normal; font-style:normal;}
+ul, ol { list-style-type: none;}
+
+body{
+    -webkit-user-select: none; /* Safari, Chrome */
+    -khtml-user-select: none; /* Konqueror */
+    -moz-user-select: none; /* Firefox */
+    -ms-user-select: none; /* IE */
+    user-select: none; /* CSS3 */
+}
+
+table   { position:relative; table-layout:fixed; border-spacing:0; border-collapse:collapse; color:#000;}
+a { border:none; outline:none; }
+img { border:0 none; display:block; }
+
+textarea, input[type=text] { outline: none;-webkit-ime-mode:inactive; -moz-ime-mode:inactive; -ms-ime-mode:inactive; ime-mode:inactive; resize: none;}
+
+button::-ms-clear, input::-ms-clear, textarea::-ms-clear { display: none; }
+button { background:transparent; border:0; cursor:pointer; }
+button[disabled=disabled], button:disabled{cursor: default;pointer-events: none;opacity: 0.4;filter: alpha(opacity=40); /* For IE8 and earlier */}
+input[disabled=disabled], input:disabled {opacity: 0.4;filter: alpha(opacity=40); /* For IE8 and earlier */}
+.bttn { cursor:pointer; }
+.bttn img { width:100%; }
+.bttn .on {display:block;}
+.bttn .ov, .bttn .hit { display:none; }
+.bttn:hover .on {display:none;}
+.bttn:hover .ov {display:block;}
+.bttn:hover .hit {display:none;}
+.bttn:active .on{display:none;}
+.bttn:active .ov{display:none;}
+.bttn:active .hit{display:block;}
+
+/* popup */
+#popBg { z-index:50; position:absolute; display:none; height:100%; width:100%; background:#000000; top:0px; left:0px; } 
+.pop { display:none; position:absolute; z-index:100; left:50%; top:50%; }
+.pop.eng .en{display:block;}
+.pop.eng .ko{display:none;}
+.pop.kor .ko{display:block;}
+.pop.kor .en{display:none;}
+

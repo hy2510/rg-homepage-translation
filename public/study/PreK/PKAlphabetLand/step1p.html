@@ -1,0 +1,271 @@
+﻿
+<!DOCTYPE html>
+
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head runat="server">
+    <title></title>
+    <meta name="viewport" content="width=device-width, initial-scale=0.95, maximum-scale=0.95, user-scalable=no" />
+    <meta http-equiv="X-UA-Compatible" content="IE=Edge" />
+
+    <link href="../common/css/prek.css" rel="stylesheet" />
+    <link href="css/alphabetland.css" rel="stylesheet" />
+
+    <style type="text/css">
+        /* Monkey [[[ */
+        @-webkit-keyframes alphabet-move {
+            from {
+                -webkit-transform: scaleX(1);
+            }
+
+            to {
+                -webkit-transform: scaleX(-1);
+            }
+        }
+
+        @-moz-keyframes alphabet-move {
+            from {
+                -moz-transform: scaleX(1);
+            }
+
+            to {
+                -moz-transform: scaleX(-1);
+            }
+        }
+
+        @-o-keyframes alphabet-move {
+            from {
+                -o-transform: scaleX(1);
+            }
+
+            to {
+                -o-transform: scaleX(-1);
+            }
+        }
+
+        @-ms-keyframes alphabet-move {
+            from {
+                -ms-transform: scaleX(1);
+            }
+
+            to {
+                -ms-transform: scaleX(-1);
+            }
+        }
+
+        @keyframes alphabet-move {
+            0% {
+                transform: scaleX(1);
+            }
+
+            50% {
+                transform: scaleX(-1);
+            }
+
+            100% {
+                transform: scaleX(1);
+            }
+        }
+
+        .alphabetMove {
+            /*color:#e61f1f;*/
+            -webkit-animation: alphabet-move 1.5s ease-in-out alternate infinite;
+            -moz-animation: alphabet-move 1.5s ease-in-out alternate infinite;
+            -o-animation: alphabet-move 1.5s ease-in-out alternate infinite;
+            -ms-animation: alphabet-move 1.5s ease-in-out alternate infinite;
+            animation: alphabet-move 1.5s ease-in-out alternate;
+        }
+        /* Monkey ]]] */
+
+        .alphabetSmall {
+            padding-top: 25px;
+            font-family: YDVYGO25;
+            font-size: 250px;
+            font-weight: 700;
+            text-align: center;
+        }
+    </style>
+
+    <script src="../common/js/sweetalert.min.js"></script>
+    <script src="../common/js/jquery-1.4.min.js"></script>
+    <script src="../common/js/jquery-ui-1.7.2.custom.min.js"></script>
+
+    <script type="text/javascript" src="../common/js/jquery-animate-css-rotate-scale.js"></script>
+
+    <script type="text/javascript" src="../common/js/api.js"></script>
+    <script type="text/javascript" src="../common/js/global_function.js?ver=230628001"></script>
+    <script type="text/javascript" src="../common/js/prek.js?ver=230628001"></script>
+    <script type="text/javascript" src="js/alphabetland.js?ver=230628001"></script>
+
+    <script type="text/javascript">
+        var _alphabet;
+        var _move = false;
+        var _cnt = 0;
+
+        $(document).ready(function () {
+            getArgs();
+
+            PlayLandBGM("ALPHABET");
+
+            $('#divStart').css('display', 'block');
+            $("#imgStart").bind('click', function (e) { Start(); });
+            $("#imgAlphabet").bind('click', function (e) { clickLetter(); });
+
+            _alphabet = GetAlphabet(_pNum).toLowerCase();
+
+            PlayDirection('AlphabetLand', 'AL-S1-Practice.mp3', undefined);
+        });
+
+        function Start() {
+            if (_snd != undefined && _snd != NaN) {
+                _snd.Stop();
+            }
+
+            PlayStart(hidePopup);
+        }
+
+        function hidePopup() {
+            $('#divStart').hide('puff', {
+                duration: 'slow',
+                easing: 'swing',
+                queue: false
+            }, 1000);
+
+            StopLandBGM();
+
+            PlayDirection('AlphabetLand', 'AL-S1-Practice-D.mp3', undefined);
+
+            LoadPractic();
+        }
+
+        function LoadPractic() {
+            $('#ancLetter').html(_alphabet);
+            showClick2();
+        }
+
+        function clickLetter() {
+            hideClick();
+
+            if (_move == true) {
+                return false;
+            }
+
+            if (_cnt >= 3) {
+                return false;
+            }
+
+            _move = true;
+            _cnt++;
+
+            playPhonetic(_alphabet, nextPlay);
+
+            $('#ancLetter').addClass('alphabetMove');
+            $('#ancLetter').css('color', '#e61f1f');
+
+            // 폭발효과 [
+            $('#imgExplosion').css('display', 'block');
+            $('#imgExplosion').animate({ scale: '+=0.5' }, { queue: false, duration: 1500 });
+            $('#imgExplosion').fadeOut(1500);
+            // ]
+        }
+
+        function nextPlay() {
+            $('#ancLetter').css('color', 'black');
+
+            showClick2();
+
+            $('#ancLetter').removeClass('alphabetMove');
+            if (_cnt >= 3) {
+                // Practice 학습 후 재학습 가능하도록 수정 - 2016-05-10 박현기
+                //goStep1T();
+
+                document.getElementById("divPannel1").style.display = "block";
+            } else {
+                _move = false;
+                $('#imgExplosion').animate({ scale: '1' });
+            }
+        }
+
+        function goStep1T() {
+            goStep('step1t.html');
+        }
+
+        function StaffGoStep(pPage) {
+            if (pPage == 'step2b') {
+                goStep('step2b.html');
+            } else if (pPage == 'step2a') {
+                goStep('step2a.html');
+            } else if (pPage == 'step3t') {
+                goStep('step3t.html');
+            } else {
+                goStep(pPage + '.html');
+            }
+        }
+
+        // Practice 학습 후 재학습 가능하도록 추가 - 2016-05-10 박현기
+        function rePlay() {
+            document.getElementById("divPannel1").style.display = "none";
+
+            _cnt = 0;
+            _move = false;
+
+            LoadPractic();
+        }
+    </script>
+</head>
+<body style="background-image:url('img/common/bg.gif'); background-repeat:repeat-x repeat-y;">
+<form id="form1">
+    <div id="divFrame" class="clsFrame" style="background-image:url('img/step1/bgs1p.jpg');">
+        <div id="divStepIntro" style="width:110px; height:110px; position:absolute; margin-left:0px; margin-left:0px;">
+            <img src="img/step1/mark1.png?ver=230622001" style="width:110px; height:110px;"/>
+        </div>
+
+        <!--<div id="divExit" style="width:72px; height:58px; position:absolute; margin-left:940px; margin-top:10px; cursor:pointer; " onclick="return goIndex();">
+            <img id="imgExit" src="../common/img/exit.png?ver=230622001" />
+        </div>-->
+
+        <div id="divDirection" style="width:624px; height:32px; position:absolute; margin-left:200px; margin-top:0px; text-align:center;">
+            <img id="img0a" src="img/common/step1a.png?ver=230622001" />
+        </div>
+
+        <div id="divNext" style="position:absolute; margin-left:840px; margin-top:10px; cursor:pointer; display:none;" onclick="return goStep1T();">
+            <img id="imgNext" src="../common/img/next_up.png?ver=230622001" style="width:60px; height:60px;" />
+        </div>
+
+        <img id="imgExplosion" src="img/step1/explosion.png?ver=230622001" style="position:absolute; width:400px; height:400px; margin-left:320px; margin-top:100px; display:none;" />
+
+        <div id="divStudy1" style="width:300px; height:300px; position:absolute; margin-left:380px; margin-top:135px; display:block;">
+            <a id="ancLetter" class="alphabetSmall" style="position:absolute; width:300px; height:300px;"></a>
+            <img src="img/step1/witchball.png?ver=230622001" style="opacity:0.4; position:absolute; margin-left:0px; margin-top:0px;"/>
+            <img id="imgClick" src="img/intro/click2.png?ver=230622001" style="width:100px; height:100px; position:absolute; left:200px; top:150px; display:none;" onclick="clickLetter();"/>
+            <img id="imgAlphabet" src="img/step1/1.png?ver=230622001" style="position:absolute; width:150px; height:180px; margin-left:75px; margin-top:55px; cursor:pointer; background-color:transparent;" />
+        </div>
+
+        <div id="divPannel1" style="width:200px; height:96px; position:absolute; margin-left:410px; margin-top:230px; border:5px solid orange; border-radius:30px; display:none;" >
+            <img title="Replay" src="../common/img/replay.png?ver=230622001" style="margin-left:10px; margin-top:5px; cursor:pointer;" onclick="rePlay();"/>
+            <img title="Next" src="../common/img/next.png?ver=230622001"  style="margin-left:10px; margin-top:5px; cursor:pointer;" onclick="goStep1T();"/>
+        </div>
+
+        <div id="divStart" style="width:520px; height:520px; position:absolute; margin-left:260px; margin-top:50px; display:none;">
+            <img class="rollMove" src="img/common/aLPopBorder.png?ver=230622001" style="position:absolute; float:left; top: 0px; left: 0px;" />
+            <img src="img/common/aLPopInner.png?ver=230622001" style="position:absolute; left:71px; top:71px;"/>
+            <img id="imgStart" src="../common/img/start.png?ver=230622001" style="position:absolute; left:220px; top:360px; cursor:pointer;"/>
+
+            <a runat="server" class="txtTitle">Alphabet Land</a>
+            <a runat="server" class="txtCourse">Step1</a>
+            <a runat="server" class="txtState">Practice</a>
+            <a runat="server" class="txtReady">Are you Ready?</a>
+        </div>
+
+        <div id="divBtn" style="position:absolute; top:150px; width:70px; height:100px; display:none;">
+            <div onclick="StaffGoStep('intro')"  style="width:100px; margin-top:2px; text-align:center; cursor:pointer; border:1px solid black; background-color:white;" >&nbsp;intro&nbsp;</div>
+            <div onclick="StaffGoStep('step1p')"  style="width:100px; margin-top:2px; text-align:center; cursor:pointer; border:1px solid black; background-color:white;" >step1p</div>
+            <div onclick="StaffGoStep('step1t')"  style="width:100px; margin-top:2px; text-align:center; cursor:pointer; border:1px solid black; background-color:white;" >step1t</div>
+            <div onclick="StaffGoStep('step2a')"  style="width:100px; margin-top:2px; text-align:center; cursor:pointer; border:1px solid black; background-color:white;" >step2a</div>
+            <div onclick="StaffGoStep('step2b')"  style="width:100px; margin-top:2px; text-align:center; cursor:pointer; border:1px solid black; background-color:white;" >step2b</div>
+            <div onclick="StaffGoStep('step3p')"  style="width:100px; margin-top:2px; text-align:center; cursor:pointer; border:1px solid black; background-color:white;" >step3p</div>
+            <div onclick="StaffGoStep('step3t')"  style="width:100px; margin-top:2px; text-align:center; cursor:pointer; border:1px solid black; background-color:white;" >step3t</div>
+        </div>
+    </div>
+</form>
+</body>
+</html>

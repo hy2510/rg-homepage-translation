@@ -1,0 +1,407 @@
+﻿/* 배경 */
+.bg-letter-catcher {
+    width: 1280px;
+    height: 720px;
+    /*background: url(images/bg_letter_catcher.jpg) no-repeat;*/
+}
+
+/* 크래인 */
+.crane {
+    width: 220px;
+    height: 500px;
+    background-image: url(./images/img_crane_bone.png);
+    background-repeat: no-repeat;
+    background-position: center;
+    padding-top: 200px;
+    position: absolute;
+    top: -380px;
+    left: 40px;
+    z-index: 100;
+    transition: 1s;
+}
+
+    .crane li img {
+        position: absolute;
+        left: 50%;
+        transform: translateX(-50%);
+        bottom: -100px;
+        display: none
+    }
+
+    .crane li:first-child img {
+        display: block;
+    }
+
+    .crane.open li:nth-child(2) img {
+        display: block;
+    }
+
+    .crane.open li:not(:nth-child(2)) img {
+        display: none;
+    }
+
+    .crane.catch li:last-child img {
+        display: block;
+    }
+
+    .crane.catch li:not(:last-child) img {
+        display: none;
+    }
+
+    .crane.zone1 {
+        left: 327px;
+    }
+
+        .crane.zone1.descend {
+            top: -115px;
+        }
+
+    .crane.zone2 {
+        left: 508px;
+    }
+
+        .crane.zone2.descend {
+            top: -165px;
+        }
+
+    .crane.zone3 {
+        left: 684px;
+    }
+
+        .crane.zone3.descend {
+            top: -135px;
+        }
+
+    .crane.zone4 {
+        left: 878px;
+    }
+
+        .crane.zone4.descend {
+            top: -150px;
+        }
+
+    .crane.zone5 {
+        left: 1046px;
+    }
+
+        .crane.zone5.descend {
+            top: -140px;
+        }
+
+/* 공 */
+.wrapper-balls .ball {
+    position: absolute;
+    z-index: 2;
+    width: 133px;
+    height: 133px;
+    text-align: center;
+    color: #fff;
+    transition: 1s;
+}
+
+    .wrapper-balls .ball:nth-child(1) {
+        left: 372px;
+        top: 378px;
+        background-image: url(./images/img_ball_01.png);
+        color: #f66338;
+        animation: wave 13s both infinite;
+        transform: translate3d(0, 10px, 0);
+    }
+
+    .wrapper-balls .ball:nth-child(2) {
+        left: 550px;
+        top: 336px;
+        background-image: url(./images/img_ball_02.png);
+        color: #eb456e;
+        animation: wave 16s both infinite;
+        transform: translate3d(0, 0, 0);
+    }
+
+    .wrapper-balls .ball:nth-child(3) {
+        left: 726px;
+        top: 380px;
+        background-image: url(./images/img_ball_03.png);
+        color: #cb3ba8;
+        animation: wave 18s both infinite;
+        transform: translate3d(0, -12px, 0);
+    }
+
+    .wrapper-balls .ball:nth-child(4) {
+        left: 920px;
+        top: 356px;
+        background-image: url(./images/img_ball_04.png);
+        color: #6162d2;
+        animation: wave 12s both infinite;
+    }
+
+    .wrapper-balls .ball:nth-child(5) {
+        left: 1089px;
+        top: 376px;
+        background-image: url(./images/img_ball_05.png);
+        color: #3f9947;
+        animation: wave 15s both infinite;
+        transform: translate3d(10px, -8px, 0);
+    }
+
+    /* 볼 상위 포지션 */
+    .wrapper-balls .ball.ascend:first-child {
+        top: 125px;
+    }
+
+    .wrapper-balls .ball.ascend:nth-child(2) {
+        top: 140px;
+    }
+
+    .wrapper-balls .ball.ascend:nth-child(3) {
+        top: 150px;
+    }
+
+    .wrapper-balls .ball.ascend:nth-child(4) {
+        top: 150px;
+    }
+
+    .wrapper-balls .ball.ascend:last-child {
+        top: 150px;
+    }
+
+    /* 정답*/
+    .wrapper-balls .ball.correct:first-child {
+        top: 400px;
+    }
+
+    .wrapper-balls .ball.correct:nth-child(2) {
+        top: 407px;
+    }
+
+    .wrapper-balls .ball.correct:nth-child(3) {
+        top: 420px;
+    }
+
+    .wrapper-balls .ball.correct:nth-child(4) {
+        top: 407px;
+    }
+
+    .wrapper-balls .ball.correct:last-child {
+        top: 415px;
+    }
+
+    /* 좌측 이동*/
+    .wrapper-balls .ball.left:first-child {
+        left: 83px;
+    }
+
+    .wrapper-balls .ball.left:nth-child(2) {
+        left: 83px;
+    }
+
+    .wrapper-balls .ball.left:nth-child(3) {
+        left: 80px;
+    }
+
+    .wrapper-balls .ball.left:nth-child(4) {
+        left: 85px;
+    }
+
+    .wrapper-balls .ball.left:last-child {
+        left: 75px;
+    }
+
+    /* 공 원통으로 떨어지는 */
+    .wrapper-balls .ball.drop {
+        top: 550px !important;
+    }
+
+    /* 오답 */
+    .wrapper-balls .ball.incorrect:first-child {
+        top: 400px;
+    }
+
+    .wrapper-balls .ball.incorrect:nth-child(2) {
+        top: 407px;
+    }
+
+    .wrapper-balls .ball.incorrect:nth-child(3) {
+        top: 420px;
+    }
+
+    .wrapper-balls .ball.incorrect:nth-child(4) {
+        top: 407px;
+    }
+
+    .wrapper-balls .ball.incorrect:last-child {
+        top: 415px;
+    }
+
+.wrapper-balls.stop .ball {
+    animation: none !important;
+}
+
+.wrapper-balls li.ball span {
+    text-align: center;
+    line-height: 123px;
+    font-size: 5rem;
+    text-shadow: -4px 0px 15px #ffffff, 0px 4px 15px #ffffff, 4px 0px 15px #ffffff, 0 -4px 15px white;
+}
+
+@keyframes wave {
+    10%, 90% {
+        transform: translate3d(0, -15px, 0);
+    }
+
+    20%, 80% {
+        transform: translate3d(-2px, 12px, 0);
+    }
+
+    30%, 50%, 70% {
+        transform: translate3d( 4px,-10px, 0);
+    }
+
+    40%, 60% {
+        transform: translate3d(4px, 8px, 12px);
+    }
+}
+
+/* 바닥 연기 */
+.wrapper-smog {
+    position: absolute;
+    top: 510px;
+    left: 355px;
+}
+
+    .wrapper-smog > img {
+        position: absolute;
+        animation: smog 0.8s forwards;
+    }
+
+        .wrapper-smog > img:first-child {
+            left: 0;
+        }
+
+        .wrapper-smog > img:nth-child(2) {
+            left: 177px;
+        }
+
+        .wrapper-smog > img:nth-child(3) {
+            left: 355px;
+        }
+
+        .wrapper-smog > img:nth-child(4) {
+            left: 550px;
+        }
+
+        .wrapper-smog > img:last-child {
+            left: 720px;
+        }
+
+
+@keyframes smog {
+    20% {
+        opacity: 1;
+    }
+
+    70% {
+        opacity: 1;
+        transform: scale(1.1);
+    }
+
+    100% {
+        opacity: 0;
+        transform: scale(1.3);
+    }
+}
+
+
+
+/* 도도 */
+.dodo {
+    width: 220px;
+    height: 266px;
+    position: absolute;
+    left: 350px;
+    background-image: url(./images/img_dodo.png);
+    bottom: -174px;
+    animation: dodo 4s steps(4) infinite;
+}
+
+@keyframes dodo {
+    to {
+        background-position: -880px;
+    }
+}
+
+.dodo.correct {
+    background-image: url(./images/img_dodo_correct.png);
+    bottom: -110px;
+    animation: dodoCorrect 2s steps(2) infinite;
+}
+
+@keyframes dodoCorrect {
+    to {
+        background-position: -440px;
+    }
+}
+
+.dodo.incorrect {
+    background-image: url(./images/img_dodo_incorrect.png);
+    bottom: -110px;
+    animation: dodoIncorrect 2s steps(2) infinite;
+}
+
+@keyframes dodoIncorrect {
+    to {
+        background-position: -440px;
+    }
+}
+
+/* 컨트롤 패널 */
+.control-pannel {
+    position: absolute;
+    right: 8%;
+    bottom: 3.2%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.btn {
+    margin-right:5px;
+    padding-top: 1em;
+    cursor: url(../../include/images/cursor_hover.png), pointer;
+}
+
+.btn-ok {
+    margin-left: 1em;
+    margin-right: 1em;
+}
+
+.btn-left:hover:active {
+    content: url(./images/img_btn_left_02.png);
+}
+
+/*.btn-left:hover {
+    content: url(./images/img_btn_left_03.png);
+}*/
+
+.btn-ok:hover:active {
+    content: url(./images/img_btn_ok_02.png);
+}
+
+/*.btn-ok:hover {
+    content: url(./images/img_btn_ok_03.png);
+}*/
+
+.btn-right:hover:active {
+    content: url(./images/img_btn_right_02.png);
+}
+
+/*.btn-right:hover {
+    content: url(./images/img_btn_right_03.png);
+}*/
+
+.bg-up {
+    position: absolute;
+    left: 0;
+    bottom: 0;
+    z-index: 5;
+    opacity: 0.8;
+}

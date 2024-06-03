@@ -1,0 +1,341 @@
+﻿.bg-hot-air-balloon {
+    width: 1280px;
+    height: 720px;
+    background: url(./images/bg_hot_air_balloon.jpg);
+    position: relative;
+}
+
+.wrapper-balloons {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 750px;
+    height: 720px;
+}
+
+    .wrapper-balloon {
+        position: absolute;
+        width: 212px;
+        height: 453px;
+    }
+
+        .wrapper-balloon.word {
+            top: 85px;
+            left: 270px;
+            width: 230px;
+            transform: translate3d(20px, 5px, 0);
+            background: url(./images/img_balloon_01.png);
+            animation: wave 30s both infinite;
+        }
+
+            .wrapper-balloon.word .wrapper-word {
+                position: absolute;
+                width: 230px;
+                height: 230px;
+                font-size: 5.5rem;
+            }
+
+    .wrapper-word .text-word {
+        position: absolute;
+        top: 50%;
+        left: 50%;
+        transform: translate(-50%, -50%);
+    }
+
+@keyframes wave {
+    10%, 90% {
+        transform: translate3d(0, -15px, 0);
+    }
+
+    20%, 80% {
+        transform: translate3d(-2px, 12px, 0);
+    }
+
+    30%, 50%, 70% {
+        transform: translate3d( 4px,-10px, 0);
+    }
+
+    40%, 60% {
+        transform: translate3d(4px, 8px, 12px);
+    }
+}
+
+.wrapper-balloon.first {
+    top: 288px;
+    left: 50px;
+    transform: translate3d(20px, 10px, 0);
+    background: url(./images/img_balloon_02.png);
+    background-repeat: no-repeat;
+    background-size: cover;
+    animation: wave 30s both infinite;
+}
+
+.wrapper-balloon.second {
+    top: 354px;
+    left: 284px;
+    transform: translate3d(15px, 5px, 0);
+    background: url(./images/img_balloon_03.png);
+    background-repeat: no-repeat;
+    background-size: cover;
+    animation: wave 20s both infinite;
+}
+
+.wrapper-balloon.third {
+    top: 262px;
+    left: 508px;
+    transform: translate3d(-20px, 20px, 0);
+    background: url(./images/img_balloon_04.png);
+    background-repeat: no-repeat;
+    background-size: cover;
+    animation: wave 18s both infinite;
+    position: relative;
+}
+
+.wrapper-balloon .wrapper-img {
+    position: absolute;
+    top: 15px;
+    left: 15px;
+    max-width: 180px;
+    max-height: 180px;
+    font-size: 5.5rem;
+    cursor: url(../../include/images/cursor_hover.png), pointer;
+}
+
+.js-wrapper-balloons .wrapper-balloon .wrapper-img {
+    left: 15px;
+}
+
+.wrapper-img img {
+    width: 100%;
+    height: 100%;
+}
+
+.wrapper-air-balloon {
+    position: absolute;
+    top: 65px;
+    left: 800px;
+    width: 430px;
+    height: 630px;
+    transition: 1s;
+}
+
+    .wrapper-air-balloon.first {
+        top: 45px;
+    }
+
+    .wrapper-air-balloon.second {
+        top: 25px;
+    }
+
+.air-balloon {
+    position: absolute;
+    width: 430px;
+    height: 630px;
+    background: url(./images/img_hot_air_balloon.png);
+}
+
+.drop-target {
+    position: absolute;
+    width: 184px;
+    height: 179px;
+}
+
+    .drop-target:first-of-type {
+        top: 175px;
+        left: 10px;
+    }
+
+    .drop-target:nth-of-type(2) {
+        top: 20px;
+        left: 130px;
+    }
+
+    .drop-target:last-of-type {
+        top: 175px;
+        left: 250px;
+    }
+
+    .drop-target.dot {
+        background: url(./images/img_dot.png);
+        animation: dot 1s infinite;
+    }
+
+@keyframes dot {
+    from {
+        opacity: 1;
+    }
+
+    to {
+        opacity: 0.2;
+    }
+}
+
+.drop-target .wrapper-balloon {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 180px;
+    height: 384px;
+    background-size: 180px 384px !important;
+    animation: none;
+}
+
+    .drop-target .wrapper-balloon.first {
+        background: url(./images/img_balloon_02.png);
+    }
+
+    .drop-target .wrapper-balloon.second {
+        background: url(./images/img_balloon_03.png);
+    }
+
+    .drop-target .wrapper-balloon.third {
+        background: url(./images/img_balloon_04.png);
+    }
+
+    .drop-target .wrapper-balloon .wrapper-img {
+        width: 180px;
+        height: 358px;
+        font-size: 2rem;
+        text-align: center;
+        left:0px;
+    }
+
+        .drop-target .wrapper-balloon .wrapper-img img {
+            position: absolute;
+            top: 5px;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 108px;
+            height: 108px;
+        }
+
+        .drop-target .wrapper-balloon .wrapper-img div {
+            margin-top: 115px;
+            display: inline-block;
+        }
+
+        .drop-target .wrapper-balloon .wrapper-img div span.correct {
+            color: #a50000;
+        }
+
+.dodo {
+    position: absolute;
+    top: 335px;
+    left: 125px;
+    width: 200px;
+    height: 126px;
+    background: url(./images/img_character_dodo.png);
+    animation: dodo 3s steps(2) infinite;
+}
+
+    .dodo.correct {
+        background: url(./images/img_character_dodo_correct.png);
+        animation: dodoCorrect 2s steps(2) 2;
+    }
+
+    .dodo.incorrect {
+        background: url(./images/img_character_dodo_incorrect.png);
+        animation: dodoIncorrect 2s steps(1);
+    }
+
+@keyframes dodo {
+    75% {
+        background-position: 0;
+    }
+
+    100% {
+        background-position: -400px;
+    }
+}
+
+@keyframes dodoCorrect {
+    100% {
+        background-position: -400px;
+    }
+}
+
+@keyframes dodoIncorrect {
+    100% {
+        background-position: -200px;
+    }
+}
+
+.wrapper-cover {
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    width: 430px;
+    height: 170px;
+    background: url(./images/img_cover.png);
+    z-index: 999;
+}
+
+.wrapper-air-balloon.up {
+    animation: up 4s forwards;
+}
+
+@keyframes up {
+    20% {
+        top: 20px;
+    }
+
+    30% {
+        top: 35px;
+        right: 40px;
+    }
+
+    40% {
+        top: 10px;
+        right: 60px;
+    }
+
+    50% {
+        top: 20px;
+        opacity: 1;
+    }
+
+    100% {
+        top: -1500px;
+        opacity: 1;
+    }
+}
+
+.img-shadow {
+    position: absolute;
+    top: 645px;
+    left: 905px;
+}
+
+    .img-shadow.first {
+        transform: scale(0.9);
+    }
+
+    .img-shadow.second {
+        transform: scale(0.7);
+    }
+
+    .img-shadow.up {
+        animation: shadowAnimation 3s forwards;
+    }
+
+@keyframes shadowAnimation {
+    20% {
+        transform: scale(0.7);
+    }
+
+    30% {
+        transform: scale(0.9);
+    }
+
+    55% {
+        transform: scale(0.7);
+    }
+
+    70% {
+        transform: scale(0.9);
+    }
+
+    100% {
+        opacity: 0;
+    }
+}

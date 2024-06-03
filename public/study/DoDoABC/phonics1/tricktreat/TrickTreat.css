@@ -1,0 +1,189 @@
+﻿.bg-trick-treat {
+    width: 1280px;
+    height: 720px;
+    background: url(./images/bg_trick_treat.jpg);
+}
+
+.wrapper-word {
+    position: absolute;
+    top: 10px;
+    left: 525px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 435px;
+    height: 210px;
+    font-size: 5.6rem;
+    color: #ddc6de;
+}
+
+    .wrapper-word.correct {
+        color: #fff200;
+    }
+
+.wrapper-examples {
+    position: absolute;
+    top: 192px;
+    width: 100%;
+    height: 510px;
+}
+
+    .wrapper-examples .example {
+        position: absolute;
+        top: 25px;
+        width: 295px;
+        height: 420px;
+        cursor: url(../../include/images/cursor_hover.png), pointer;
+    }
+
+        .wrapper-examples .example:first-of-type {
+            left: 260px;
+        }
+
+        .wrapper-examples .example:nth-of-type(2) {
+            left: 585px;
+        }
+
+        .wrapper-examples .example:last-of-type {
+            left: 915px;
+        }
+
+        .wrapper-examples .example img {
+            position: absolute;
+            top: 65px;
+            left: 62px;
+            width: 170px;
+            height: 170px;
+            background: #f29d76;
+            border: 5px solid #6d2227;
+            border-radius: 50%;
+        }
+
+        .wrapper-examples .example.correct {
+            top: 1px;
+            width: 440px;
+            height: 510px;
+            background: url(./images/img_door_correct.png);
+            backface-visibility: hidden;
+            -webkit-backface-visibility: hidden;
+            -moz-backface-visibility: hidden;
+            animation: doorCorrect 3s steps(8) forwards;
+        }
+
+            .wrapper-examples .example.correct:first-of-type {
+                left: 112px;
+            }
+
+            .wrapper-examples .example.correct:nth-of-type(2) {
+                left: 441px;
+            }
+
+            .wrapper-examples .example.correct:last-of-type {
+                left: 772px;
+            }
+
+            .wrapper-examples .example.correct img {
+                display: none;
+            }
+
+        .wrapper-examples .example.incorrect {
+            top: 4px;
+            left: -142px;
+            width: 440px;
+            height: 500px;
+            background: url(./images/img_door_incorrect.png);
+            animation: doorIncorrect 3s steps(8) forwards;
+        }
+
+            .wrapper-examples .example.incorrect:first-of-type {
+                left: 112px;
+            }
+
+            .wrapper-examples .example.incorrect:nth-of-type(2) {
+                left: 441px;
+            }
+
+            .wrapper-examples .example.incorrect:last-of-type {
+                left: 772px;
+            }
+
+            .wrapper-examples .example.incorrect img {
+                display: none
+            }
+
+@keyframes doorCorrect {
+    to {
+        background-position: -3520px;
+    }
+}
+
+@keyframes doorIncorrect {
+    to {
+        background-position: -3520px;
+    }
+}
+
+.wrapper-character {
+    position: absolute;
+    top: 420px;
+    left: 0;
+    width: 230px;
+    height: 280px;
+}
+
+    .wrapper-character.move1 {
+        transition: 1s;
+        animation: move1 0.9s linear forwards;
+    }
+
+    .wrapper-character.move2 {
+        transition: 1s;
+        animation: move2 1.4s linear forwards;
+    }
+
+    .wrapper-character.move3 {
+        transition: 1s;
+        animation: move3 1.8s linear forwards;
+    }
+
+@keyframes move1 {
+    to {
+        left: 100px;
+    }
+}
+
+@keyframes move2 {
+    to {
+        left: 420px;
+    }
+}
+
+@keyframes move3 {
+    to {
+        left: 760px;
+    }
+}
+
+.character-dodo {
+    width: 230px;
+    height: 280px;
+    background: url(./images/img_character_dodo.png);
+    animation: dodo 2.4s steps(2) infinite;
+}
+
+    .character-dodo.walk {
+        background: url(./images/img_character_dodo_walk.png);
+        animation: dodoWalk 1s steps(2) infinite;
+    }
+
+@keyframes dodoWalk {
+    to {
+        background-position: -460px;
+    }
+}
+
+.wrapper-front {
+    position: absolute;
+    top: 0;
+    left: 0;
+}

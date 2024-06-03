@@ -1,0 +1,259 @@
+﻿/* 배경 */
+.bg-chello-sing {
+    width: 1280px;
+    height: 720px;
+}
+
+.curtain-top {
+    position: absolute;
+    top: 0;
+    z-index: 997;
+}
+
+.bg-curtain {
+    position: absolute;
+    top: 0;
+    z-index: 996;
+}
+
+.wrapper-curtain-left {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 742px;
+    height: 720px;
+}
+
+.shadow {
+    position: absolute;
+    top: 0;
+    left: 0;
+}
+
+.curtain-left {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 742px;
+    height: 720px;
+}
+
+.wrapper-curtain-left.open .shadow {
+    animation: shadow 1s forwards;
+}
+
+@keyframes shadow {
+    to {
+        opacity: 0;
+    }
+}
+
+.wrapper-curtain-left.open .curtain-left {
+    content: url(./images/img_curtain_left_open.png);
+    animation: open 1.7s steps(12) forwards;
+}
+
+@keyframes open {
+    to {
+        left: -742px;
+    }
+}
+
+.stage {
+    position: absolute;
+    width: 1280px;
+    height: 720px;
+}
+
+    .stage .character {
+        position: absolute;
+        top: 224px;
+        left: 188px;
+        width: 387px;
+        height: 362px;
+    }
+
+    .stage.correct {
+        background: url(./images/bg_correct.png);
+    }
+
+        .stage.correct .character {
+            background: url(./images/img_character_correct.png);
+            animation: sing 4.5s steps(9) forwards;
+        }
+
+    .stage.incorrect {
+        background: url(./images/bg_incorrect.png);
+    }
+
+        .stage.incorrect .character {
+            background: url(./images/img_character_incorrect.png);
+            animation: dizzy 1s steps(2) 4;
+        }
+
+@keyframes sing {
+    from {
+        background-position: 0;
+    }
+
+    to {
+        background-position: -3483px;
+    }
+}
+
+@keyframes dizzy {
+    from {
+        background-position: 0;
+    }
+
+    to {
+        background-position: -774px;
+    }
+}
+
+.wrapper-record {
+    position: absolute;
+    top: 150px;
+    left: 740px;
+    width: 538px;
+    height: 570px;
+    font-size: 6em;
+    text-align: center;
+    z-index: 998;
+}
+
+.record:hover {
+    animation: record 2s .2s linear infinite;
+    cursor: url(../../include/images/cursor_hover.png), pointer;
+}
+
+.record:first-of-type:hover ~ .pin:first-of-type {
+    animation: pin 1s forwards;
+}
+
+.record:nth-of-type(2):hover ~ .pin:nth-of-type(2) {
+    animation: pin 1s forwards;
+}
+
+.record:last-of-type:hover ~ .pin:last-of-type {
+    animation: pin 1s forwards;
+}
+
+
+@keyframes record {
+    from {
+        transform: rotate(0deg);
+    }
+
+    to {
+        transform: rotate(360deg);
+    }
+}
+
+.wrapper-record > .record {
+    position: absolute;
+    width: 228px;
+    height: 226px;
+}
+
+    .wrapper-record > .record:first-of-type {
+        top: 30px;
+        left: 140px;
+    }
+
+    .wrapper-record > .record:nth-of-type(2) {
+        top: 280px;
+        left: 10px;
+    }
+
+    .wrapper-record > .record:last-of-type {
+        top: 280px;
+        left: 290px;
+    }
+
+.record > p {
+    position: absolute;
+    top: 45%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+}
+        .record > p.smalla{margin-top: 5px;}
+        .record > p.smallb{margin-top: 15px;}
+        .record > p.smallc{margin-top: 5px;}
+        .record > p.smalld{margin-top: 15px;}
+        .record > p.smalle{margin-top: 5px;}
+        .record > p.smallf{margin-top: 15px;}
+        .record > p.smallg{margin-top: 0px;}
+        .record > p.smallh{margin-top: 15px;}
+        .record > p.smalli{margin-top: 15px;}
+        .record > p.smallj{margin-top: 10px;}
+        .record > p.smallk{margin-top: 15px;}
+        .record > p.smalll{margin-top: 15px;}
+        .record > p.smallm{margin-top: 5px;}
+        .record > p.smalln{margin-top: 5px;}
+        .record > p.smallo{margin-top: 5px;}
+        .record > p.smallp{margin-top: 0px;}
+        .record > p.smallq{margin-top: 0px;}
+        .record > p.smallr{margin-top: 5px;}
+        .record > p.smalls{margin-top: 5px;}
+        .record > p.smallt{margin-top: 15px;}
+        .record > p.smallu{margin-top: 5px;}
+        .record > p.smallv{margin-top: 5px;}
+        .record > p.smallw{margin-top: 5px;}
+        .record > p.smallx{margin-top: 5px;}
+        .record > p.smally{margin-top: 0px;}
+        .record > p.smallz{margin-top: 5px;}
+
+.wrapper-pin {
+    position: absolute;
+    top: 150px;
+    left: 740px;
+    width: 538px;
+    height: 570px;
+    z-index: 998;
+}
+
+.pin {
+    position: absolute;
+}
+
+    .pin:first-of-type {
+        top: 45px;
+        left: 305px;
+        transform-origin: right bottom;
+        transform: rotate(90deg);
+    }
+
+    .pin:nth-of-type(2) {
+        top: 345px;
+        left: 165px;
+        transform-origin: left bottom;
+        transform: rotate(90deg);
+    }
+
+    .pin:last-of-type {
+        top: 345px;
+        left: 440px;
+        transform-origin: left bottom;
+        transform: rotate(90deg);
+    }
+
+@keyframes pin {
+    from {
+        transform: rotate(90deg);
+    }
+
+    to {
+        transform: rotate(0deg);
+    }
+}
+
+@keyframes pin2 {
+    from {
+        transform: rotate(-90deg);
+    }
+
+    to {
+        transform: rotate(0deg);
+    }
+}

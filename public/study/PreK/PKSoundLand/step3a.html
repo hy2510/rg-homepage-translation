@@ -1,0 +1,634 @@
+﻿
+<!DOCTYPE html>
+
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+    <title></title>
+    <meta name="viewport" content="width=device-width, initial-scale=0.95, maximum-scale=0.95, user-scalable=no" />
+    <meta http-equiv="X-UA-Compatible" content="IE=Edge" />
+    <link href="../common/css/prek.css" rel="stylesheet" />
+
+    <style type="text/css">
+        .letter {
+            position: absolute;
+            width: 150px;
+            height: 70px;
+            border: 0px solid red;
+            margin-left: 0px;
+            margin-top: 50px;
+            font-family: YDVYGO23;
+            font-size: 75px;
+            font-weight: bold;
+            text-align: center;
+            letter-spacing: -2px;
+            border-radius: 20px;
+            cursor: pointer;
+        }
+
+            .letter:hover {
+                color: red;
+            }
+
+        .word {
+            width: 252px;
+            height: 85px;
+            position: absolute;
+            margin-left: 8px;
+            margin-top: 280px;
+            letter-spacing: 4px;
+            font-size: 60px;
+            font-family: YDVYGO23;
+            font-weight: bold;
+            text-align: center;
+            border: 0px solid red;
+        }
+
+        /* balloon [[[ */
+        @keyframes balloon1-move {
+            0% {
+                left: 0px;
+                top: 0px;
+            }
+
+            30% {
+                left: -8px;
+                top: -1px;
+            }
+
+            70% {
+                left: 4px;
+                top: 4px;
+            }
+
+            100% {
+                left: 0px;
+                top: 0px;
+            }
+        }
+
+        @keyframes balloon2-move {
+            0% {
+                left: 0px;
+                top: 0px;
+            }
+
+            30% {
+                left: 4px;
+                top: -1px;
+            }
+
+            70% {
+                left: -8px;
+                top: 2px;
+            }
+
+            100% {
+                left: 0px;
+                top: 0px;
+            }
+        }
+
+        @keyframes balloon3-move {
+            100% {
+                left: 0px;
+                top: 0px;
+            }
+
+            70% {
+                left: 6px;
+                top: -2px;
+            }
+
+            30% {
+                left: -7px;
+                top: 2px;
+            }
+
+            0% {
+                left: 0px;
+                top: 0px;
+            }
+        }
+
+        @keyframes balloon4-move {
+            0% {
+                left: 0px;
+                top: 0px;
+            }
+
+            30% {
+                left: -5px;
+                top: 3px;
+            }
+
+            70% {
+                left: 6px;
+                top: 2px;
+            }
+
+            100% {
+                left: 0px;
+                top: 0px;
+            }
+        }
+
+        @keyframes balloon5-move {
+            100% {
+                left: 0px;
+                top: 0px;
+            }
+
+            70% {
+                left: 5px;
+                top: -4px;
+            }
+
+            30% {
+                left: -5px;
+                top: 4px;
+            }
+
+            0% {
+                left: 0px;
+                top: 0px;
+            }
+        }
+
+        @keyframes balloon6-move {
+            0% {
+                left: 0px;
+                top: 0px;
+            }
+
+            30% {
+                left: 6px;
+                top: -2px;
+            }
+
+            70% {
+                left: -6px;
+                top: 3px;
+            }
+
+            100% {
+                left: 0px;
+                top: 0px;
+            }
+        }
+
+        .balloon1 {
+            -webkit-animation: balloon1-move 2s ease-in-out alternate infinite;
+            -moz-animation: balloon1-move 2s ease-in-out alternate infinite;
+            -o-animation: balloon1-move 2s ease-in-out alternate infinite;
+            -ms-animation: balloon1-move 2s ease-in-out alternate infinite;
+            animation: balloon1-move 2s ease-in-out alternate infinite;
+        }
+
+        .balloon2 {
+            -webkit-animation: balloon2-move 2s ease-in-out alternate infinite;
+            -moz-animation: balloon2-move 2s ease-in-out alternate infinite;
+            -o-animation: balloon2-move 2s ease-in-out alternate infinite;
+            -ms-animation: balloon2-move 2s ease-in-out alternate infinite;
+            animation: balloon2-move 2s ease-in-out alternate infinite;
+        }
+
+        .balloon3 {
+            -webkit-animation: balloon3-move 3s ease-in-out alternate infinite;
+            -moz-animation: balloon3-move 3s ease-in-out alternate infinite;
+            -o-animation: balloon3-move 3s ease-in-out alternate infinite;
+            -ms-animation: balloon3-move 3s ease-in-out alternate infinite;
+            animation: balloon3-move 3s ease-in-out alternate infinite;
+        }
+
+        .balloon4 {
+            -webkit-animation: balloon4-move 3s ease-in-out alternate infinite;
+            -moz-animation: balloon4-move 3s ease-in-out alternate infinite;
+            -o-animation: balloon4-move 3s ease-in-out alternate infinite;
+            -ms-animation: balloon4-move 3s ease-in-out alternate infinite;
+            animation: balloon4-move 3s ease-in-out alternate infinite;
+        }
+
+        .balloon5 {
+            -webkit-animation: balloon5-move 2.5s ease-in-out alternate infinite;
+            -moz-animation: balloon5-move 2.5s ease-in-out alternate infinite;
+            -o-animation: balloon5-move 2.5s ease-in-out alternate infinite;
+            -ms-animation: balloon5-move 2.5s ease-in-out alternate infinite;
+            animation: balloon5-move 2.5s ease-in-out alternate infinite;
+        }
+
+        .balloon6 {
+            -webkit-animation: balloon6-move 2s ease-in-out alternate infinite;
+            -moz-animation: balloon6-move 2s ease-in-out alternate infinite;
+            -o-animation: balloon6-move 2s ease-in-out alternate infinite;
+            -ms-animation: balloon6-move 2s ease-in-out alternate infinite;
+            animation: balloon6-move 2s ease-in-out alternate infinite;
+        }
+        /* Elephant ]]] */
+    </style>
+
+    <script src="../common/js/sweetalert.min.js"></script>
+    <script src="../common/js/jquery-1.4.min.js"></script>
+    <script src="../common/js/jquery-ui-1.7.2.custom.min.js"></script>
+
+    <script type="text/javascript" src="../common/js/api.js"></script>
+    <script type="text/javascript" src="../common/js/global_function.js?ver=230628001"></script>
+    <script type="text/javascript" src="../common/js/prek.js?ver=230628003"></script>
+    <script type="text/javascript" src="../common/js/jquery.easing.1.3.js"></script>
+    <script type="text/javascript" src="js/soundland.js?ver=230628001"></script>
+
+    <script type="text/javascript">
+        var _letter;
+        var _pNum;
+        var _move = false;
+        var _cnt = 0;
+        var _try = 0;
+        var _arrWords = new Array();            // 문제 단어
+        var _arrImages = new Array();           // 문제 이미지
+        var _arrBlanks = new Array();           // blank
+        var _arrLetters = new Array();          // 정답 음가
+        var _arrChoices = new Array();          // 선택지 (6개짜리 배열 6개)
+        var i = 0;
+
+        const jsonStr = {
+            step: 2,
+            study_end_yn: 'N',
+            isMobile: 'N'
+        }
+        isMobile ? jsonStr.isMobile = 'Y' : jsonStr.isMobile = 'N';
+
+        var gvStorageStudyInfo = new Array();
+
+        $(document).ready(function () {
+            getArgs();
+
+            function startStep() {
+                PlayLandBGM("SOUND");
+
+                $('#divStart').css('display', 'block');
+                $("#imgStart").bind('click', function (e) { Start(); });
+                $('.letter').bind('click', function (e) { checkAnswer(this.id, this.innerHTML); });
+
+                var selected = (_pNum - 27) * 24 + 18;
+                var bookCode = _soundland[selected].code;
+                for (i = 0; i < 6; i++) {
+                    _arrWords.push(_soundland[selected + i].qword);
+                    _arrImages.push("img/quiz/" + bookCode + "/" + "EB-" + bookCode + "-S3-Q-0" + (i + 1).toString() + ".png");
+                    _arrLetters.push(_soundland[selected + i].choice1);
+                    _arrBlanks.push(_soundland[selected + i].blank);
+                    var choice = [_soundland[selected + i].choice1, _soundland[selected + i].choice2, _soundland[selected + i].choice3,
+                    _soundland[selected + i].choice4, _soundland[selected + i].choice5, _soundland[selected + i].choice6];
+                    ChoiceShuffle(choice);
+                    _arrChoices.push(choice);
+                }
+
+                PlayDirection('SoundLand', 'EB-PK-S3.mp3', undefined);
+            }
+
+            // Step2 저장
+            if (_usermode === '1') {
+                saveRecord(2, false).then(data=> {
+                    if(!data.ok){
+                        throw Error('')
+                    }
+                    return data.json()
+                }).then(json => {
+                    if(json.result === 0){
+                        startStep()
+                    }else{
+                        throw Error('')
+                    }
+                }).catch(error => {
+
+                })
+            }else{
+                startStep();
+            }
+        });
+
+        function Start() {
+            if (_snd != undefined && _snd != NaN) {
+                _snd.Stop();
+            }
+            PlayStart(hidePopup);
+        }
+
+        function hidePopup() {
+            $('#divStart').hide('puff', {
+                duration: 'slow',
+                easing: 'swing',
+                queue: false
+            }, 1000);
+
+            StopLandBGM();
+
+            $('#ancNum').html((_cnt + 1).toString());
+            ShowNextQzBtn();
+            $('#imgPlayStart').attr('src', '../common/img/sori.png');
+            $('#imgQzNum').attr('src', '../common/img/q' + (_cnt + 1).toString() + '.png');
+            showClick();
+            PlayDirection("SoundLand", "EB-PK-S3B_D.mp3");
+        }
+
+        function playWordSnd() {
+            $('#divSpeaker').fadeOut(1700, 'swing');
+            $('#imgPlayStart').attr('src', '../common/img/sori_d.png');
+            playWord(
+                _arrWords[_cnt],
+                function () {
+                    //HideNextQzBtn();
+                    $('#imgPlayStart').attr('src', '../common/img/sori.png');
+                    //LoadTest();
+                });
+
+            LoadTest();
+        }
+
+        function setImage() {
+            $('#divImg').css('background-image', "url('" + _arrImages[_cnt] + "')");
+        }
+
+        function setWord(pType) {
+            if (pType == 'Q') {
+                $('#divWord').html(_arrBlanks[_cnt].replace(/┒/gi, '_'));
+            } else {
+                $('#divWord').html(_arrWords[_cnt]);
+            }
+        }
+
+        function playCntWord() {
+            playWord(_arrWords[_cnt], undefined);
+        }
+
+        function setChoice() {
+            $('#ancA1').html(_arrChoices[_cnt][0].replace(/-/gi, ''));
+            $('#ancA2').html(_arrChoices[_cnt][1].replace(/-/gi, ''));
+            $('#ancA3').html(_arrChoices[_cnt][2].replace(/-/gi, ''));
+            $('#ancA4').html(_arrChoices[_cnt][3].replace(/-/gi, ''));
+            $('#ancA5').html(_arrChoices[_cnt][4].replace(/-/gi, ''));
+            $('#ancA6').html(_arrChoices[_cnt][5].replace(/-/gi, ''));
+
+            if ($('#ancA1')[0].innerHTML == "") {
+                $('#divB1').css('display', 'none');
+            } else {
+                $('#divB1').css('display', 'block');
+            }
+
+            if ($('#ancA2')[0].innerHTML == "") {
+                $('#divB2').css('display', 'none');
+            } else {
+                $('#divB2').css('display', 'block');
+            }
+
+            if ($('#ancA3')[0].innerHTML == "") {
+                $('#divB3').css('display', 'none');
+            } else {
+                $('#divB3').css('display', 'block');
+            }
+
+            if ($('#ancA4')[0].innerHTML == "") {
+                $('#divB4').css('display', 'none');
+            } else {
+                $('#divB4').css('display', 'block');
+            }
+
+            if ($('#ancA5')[0].innerHTML == "") {
+                $('#divB5').css('display', 'none');
+            } else {
+                $('#divB5').css('display', 'block');
+            }
+
+            if ($('#ancA6')[0].innerHTML == "") {
+                $('#divB6').css('display', 'none');
+            } else {
+                $('#divB6').css('display', 'block');
+            }
+        }
+
+        function clearScreen() {
+            $('#divImg').css('background-image', "url('img/step3/white.jpg')");
+            $('#divWord').html('');
+            $('#ancA1').html('');
+            $('#ancA2').html('');
+            $('#ancA3').html('');
+            $('#ancA4').html('');
+            $('#ancA5').html('');
+            $('#ancA6').html('');
+
+            $('#divB1').css('background-image', "url('img/step3/Balloon1.png')");
+            $('#divB2').css('background-image', "url('img/step3/Balloon2.png')");
+            $('#divB3').css('background-image', "url('img/step3/Balloon3.png')");
+            $('#divB4').css('background-image', "url('img/step3/Balloon4.png')");
+            $('#divB5').css('background-image', "url('img/step3/Balloon5.png')");
+            $('#divB6').css('background-image', "url('img/step3/Balloon6.png')");
+        }
+
+        function LoadTest() {
+            UnLockScreen();
+
+            var selected = (_pNum - 27) * 24 + 12;
+            var bookCode = _soundland[selected].code;
+
+            setImage();
+            setChoice();
+            setWord('Q');
+            // clearScreen();
+        }
+
+        function checkAnswer(pID, pLetter) {
+            LockScreen();
+            $('#imgO').css('display', 'none');
+            $('#imgX').css('display', 'none');
+
+            if (_arrLetters[_cnt].replace(/-/gi, '') == pLetter) {
+                $('#imgO').css('display', 'block');
+                $('#divB' + pID[4]).css("background-image", "url('img/step3/Balloon" + pID[4] + "p.png')");
+                setWord('A');
+                playCorrect(undefined, doAfterSuccess);
+            } else {
+                $('#imgX').css('display', 'block');
+                playTryAgain(undefined, doAfterFalse);
+            }
+        }
+
+        function doAfterSuccess() {
+            $('#imgO').css('display', 'none');
+            $('#imgX').css('display', 'none');
+
+            _cnt++;
+            if (_cnt >= 6) {
+                saveTestResult();
+            } else {
+                clearScreen();
+                $('#imgQzNum').attr('src', '../common/img/q' + (_cnt + 1).toString() + '.png');
+                $('#ancNum').html((_cnt + 1).toString());
+                ShowNextQzBtn();
+                $('#imgPlayStart').attr('src', '../common/img/sori.png');
+            }
+        }
+
+        function doAfterFalse() {
+            $('#imgO').css('display', 'none');
+            $('#imgX').css('display', 'none');
+            _move = false;
+        }
+
+        function goStepF(ErrorMessage) {
+            if (_usermode === '1' && ErrorMessage) {
+                const ferData = getFERData(ErrorMessage);
+                goStep(`finish.html?fer=${ferData}`);
+            } else {
+                goStep('finish.html');
+            }
+        }
+
+        function saveTestResult() {
+            if (_usermode === '1') {
+                saveRecord(3, true).then(data => {
+                    if(!data.ok){
+                        throw Error('')
+                    }
+                    return data.json()
+                }).then(json => {
+                    if(json.result <= 0){
+                        goStepF(json.resultMessage);
+                    }
+                }).catch(error => {
+
+                });
+            } else {
+                goStepF();
+            }
+        }
+
+        function plyWord() {
+            var audio = $("#player");
+            var sndAddr = "https://wcfresource.a1edu.com/NewSystem/sound/PK/Phonetic/" + _arrWords[_cnt] + ".mp3";
+            audio.attr('src', sndAddr);
+            audio.bind('ended', function () {
+                audio.unbind('ended');
+            });
+            audio[0].pause();
+            audio[0].load();
+            audio[0].play();
+            return false;
+        }
+
+        function StaffGoStep(pPage) {
+            goStep(pPage + '.html');
+        }
+    </script>
+</head>
+<body style="background-image:url('img/common/bg.gif'); background-repeat:repeat-x repeat-y;">
+<form id="form1">
+    <div id="divFrame" class="clsFrame" style="background-image:url('img/step3/bgA.jpg?ver=230628001')">
+        <div id="divStepIntro" style="width:110px; height:110px; position:absolute; margin-left:0px; margin-left:0px;">
+            <img src="img/common/stepmark.png?ver=230628001" style="width:110px; height:110px; position:absolute; margin-left:0px; margin-left:0px;"/>
+            <a class="qzNum">Step3</a>
+            <img id="imgQzNum" src="../common/img/q1.png?ver=230628001" style="width:24px; height:24px; position:absolute; margin-left:43px; margin-top:62px;" />
+        </div>
+
+        <!--<div id="divExit" style="width:72px; height:58px; position:absolute; margin-left:940px; margin-top:10px; cursor:pointer;" onclick="return goIndex();">
+            <img id="imgExit" src="../common/img/exit.png?ver=230628001" />
+        </div>-->
+
+        <div style="width:270px; height:360px; position:absolute; margin-left:20px; margin-top:220px; border:0px solid blue;">
+            <img src="../common/img/sori.png?ver=230628001" style="position:absolute; margin-left:95px; cursor:pointer; width:80px;" onclick="plyWord(); return false;"/>
+            <img src="img/step3/Quiz2.png?ver=230628001" style="position:absolute; margin-top:80px;" />
+            <div id="divImg" style="width:160px; height:160px; position:absolute; margin-left:51px; margin-top:85px; border:0px solid blue; background-size:160px 160px;">
+            </div>
+            <div id="divWord" class="word">
+            </div>
+        </div>
+
+        <div id="divB1" class="balloon1" style="width:150px; height:280px; position:absolute; margin-left:380px; margin-top:90px; border:0px solid red; background-image:url('img/step3/Balloon1.png');">
+            <a id="ancA1" class="letter"></a>
+        </div>
+
+        <div id="divB2" class="balloon2" style="width:150px; height:280px; position:absolute; margin-left:580px; margin-top:80px; border:0px solid red; background-image:url('img/step3/Balloon2.png');">
+            <a id="ancA2" class="letter"></a>
+        </div>
+
+        <div id="divB3" class="balloon3" style="width:150px; height:280px; position:absolute; margin-left:800px; margin-top:100px; border:0px solid red; background-image:url('img/step3/Balloon3.png');">
+            <a id="ancA3" class="letter"></a>
+        </div>
+
+        <div id="divB4" class="balloon4" style="width:150px; height:280px; position:absolute; margin-left:380px; margin-top:350px; border:0px solid red; background-image:url('img/step3/Balloon4.png');">
+            <a id="ancA4" class="letter"></a>
+        </div>
+
+        <div id="divB5" class="balloon5" style="width:150px; height:280px; position:absolute; margin-left:580px; margin-top:338px; border:0px solid red; background-image:url('img/step3/Balloon5.png');">
+            <a id="ancA5" class="letter"></a>
+        </div>
+
+        <div id="divB6" class="balloon6" style="width:150px; height:280px; position:absolute; margin-left:790px; margin-top:355px; border:0px solid red; background-image:url('img/step3/Balloon6.png');">
+            <a id="ancA6" class="letter"></a>
+        </div>
+
+        <div id="divLock"><img id="imgLock" src="../common/img/lock.png?ver=230628001"/></div>
+
+        <div id="divSpeaker" style="width:504px; height:265px; position:absolute; margin-left:260px; margin-top:220px; display:none;">
+            <img src="../common/img/speakerboard.png?ver=230628001" style="position:absolute;" />
+            <a id="ancNum" style="text-align:center; position:absolute; margin-left:190px; margin-top:90px; font-size:90px; font-family:YDVYGO25; color:#3678ff;">1</a>
+            <img id="imgPlayStart" src="../common/img/sori.png?ver=230628001" onclick="playWordSnd()" style="cursor:pointer; position:absolute; margin-left:290px; margin-top:60px;" />
+            <img id="imgClick" src="../common/img/click2.png?ver=230628001" onclick="playWordSnd()" style="width:100px; height:100px; position:absolute; left:350px; top:120px; display:none;;" />
+        </div>
+
+        <img id="imgO" src="../common/img/correct.png?ver=230628001" style="position:absolute; margin-left:360px; margin-top:170px; width:300px; display:none; opacity:0.7;" />
+        <img id="imgX" src="../common/img/fail.png?ver=230628001"  style="position:absolute; margin-left:360px; margin-top:170px; width:300px; display:none; opacity:0.7;"/>
+
+        <div id="divStart" style="width:520px; height:520px; position:absolute; margin-left:260px; margin-top:50px; display:none;  z-index:11">
+            <img class="rollMove" src="img/common/aLPopBorder.png?ver=230628001" style="position:absolute; float:left; top: 0px; left: 0px;" />
+            <img src="img/common/aLPopInner.png?ver=230628001" style="position:absolute; left:71px; top:71px;"/>
+            <img id="imgStart" src="../common/img/start.png?ver=230628001" style="position:absolute; left:220px; top:360px; cursor:pointer;"/>
+            <a runat="server" class="txtTitle">Story Land</a>
+            <a runat="server" class="txtCourse">Step3</a>
+            <a runat="server" class="txtState">Activity</a>
+            <a runat="server" class="txtReady">Are you Ready?</a>
+        </div>
+
+        <div style="display:none;">
+            <audio id="player">
+                <source id="mp3Source" type="audio/mp3" />
+            </audio>
+        </div>
+
+        <div id="divBtn" style="position:absolute; top:150px; width:70px; height:100px; display:none;">
+            <div onclick="StaffGoStep('intro')"  style="width:100px; margin-top:2px; text-align:center; cursor:pointer; border:1px solid black; background-color:white;" >intro</div>
+            <div onclick="StaffGoStep('step1p')"  style="width:100px; margin-top:2px; text-align:center; cursor:pointer; border:1px solid black; background-color:white;" >step1p</div>
+            <div onclick="StaffGoStep('step1a')"  style="width:100px; margin-top:2px; text-align:center; cursor:pointer; border:1px solid black; background-color:white;" id="lblStep1A" >step1a</div>
+            <div onclick="StaffGoStep('step1b')"  style="width:100px; margin-top:2px; text-align:center; cursor:pointer; border:1px solid black; background-color:white;" id="lblStep1B" >step1b</div>
+            <div onclick="StaffGoStep('step2p')"  style="width:100px; margin-top:2px; text-align:center; cursor:pointer; border:1px solid black; background-color:white;" >step2p</div>
+            <div onclick="StaffGoStep('step2a')"  style="width:100px; margin-top:2px; text-align:center; cursor:pointer; border:1px solid black; background-color:white;" >step2a</div>
+            <div onclick="StaffGoStep('step3a')"  style="width:100px; margin-top:2px; text-align:center; cursor:pointer; border:1px solid black; background-color:white;" >step3a</div>
+        </div>
+    </div>
+</form>
+
+<script type="text/javascript">
+    var getParam = function (key) {
+        var _parammap = {};
+        document.location.search.replace(/\??(?:([^=]+)=([^&]*)&?)/g, function () {
+            function decode(s) {
+                return decodeURIComponent(s.split("+").join(" "));
+            }
+
+            _parammap[decode(arguments[1])] = decode(arguments[2]);
+        });
+
+        return _parammap[key];
+    };
+
+    _pNum = getParam("arg1");
+    _usermode = getParam("arg2");
+
+    if (_usermode == "3") {
+        if (_soundland[(_pNum - 27) * 24 + 6].qtype == 'A') {
+            document.getElementById("lblStep1B").hidden = true;
+        } else {
+            document.getElementById("lblStep1A").hidden = true;
+        }
+    }
+</script>
+
+</body>
+</html>

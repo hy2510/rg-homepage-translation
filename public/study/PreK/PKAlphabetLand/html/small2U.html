@@ -1,0 +1,154 @@
+﻿<!DOCTYPE html>
+<html lang="en">
+<head>
+    <title></title>
+    <!--<meta http-equiv="X-UA-Compatible" content="IE=Edge" />-->
+    <!--<meta charset="utf-8" />
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />-->
+
+    <style type="text/css">
+        body {
+            background: #fffafa;
+        }
+
+        /*획1*/
+        #line1_ {
+            width: 480px;
+            height: 441px;
+            position: absolute;
+            background-color: transparent;
+        }
+
+        /*획2*/
+        #line2_ {
+            width: 480px;
+            height: 441px;
+            position: absolute;
+            background-color: transparent;
+        }
+        
+        /* 버튼*/
+        .button {
+            position: absolute;
+            cursor: pointer;
+            width: 40px;
+            height: 40px;
+            border-radius: 20px;
+            background-color: #ff6a00;
+            font-size: 30px;
+            color: white;
+            text-align: center;
+            font-weight: bolder;
+            font-family: YDVYGO25;
+            padding: 3px;
+        }
+
+        .numberCircle {
+            position: absolute;
+            border-radius: 50%;
+            behavior: url(PIE.htc); /* remove if you don't care about IE8 */
+            width: 30px;
+            height: 30px;
+            padding: 4px;
+            background: #fff;
+            border: 2px solid #666;
+            color: #666;
+            text-align: center;
+            font: 32px YDVYGO25, Arial, sans-serif;
+            cursor: pointer;
+        }
+    </style>
+
+    <script src="../common/js/jquery.lazylinepainter-1.5.1.min.js"></script>
+
+    <script type="text/javascript">
+        // goto http://lazylinepainter.info to convert your svg into a svgData object.
+        var svgData1 = {
+            "line1_":
+            {
+                "strokepath": [{ "path": "M178,130 L178,250 C178,315 277,310 270,240", "duration": 500 }],
+                "dimensions": { "width": 480, "height": 441 }
+            }
+        }
+
+        var svgData2 = {
+            "line2_":
+            {
+                "strokepath": [{ "path": "M297,130 L297,314", "duration": 500 }],
+                "dimensions": { "width": 480, "height": 441 }
+            }
+        }
+
+        function draw1() {
+            $('#line1_').lazylinepainter({
+                'svgData': svgData1,
+                'strokeWidth': 50,
+                'strokeColor': '#ff00bb',
+                'strokeFill': '#f00',
+                'strokeCap': 'butt',
+                'onComplete': function () {
+                    $('#num1_').fadeOut(300);;
+                    $('#num2_').css('display', 'block');
+                },
+
+                'onStart': function () {
+                    //todo
+                }
+            })
+
+            var state = 'paint';
+            $('#line1_').lazylinepainter(state);
+        }
+
+        function draw2() {
+            playLetter(_alphabet, doAfterEndDraw);
+            $('#line2_').lazylinepainter({
+                'svgData': svgData2,
+                'strokeWidth': 45,
+                'strokeColor': '#ff00bb',
+                'strokeFill': '#f00',
+                'strokeCap': 'butt',
+                'onComplete': function () {
+                    $('#num2_').fadeOut(300);;
+                },
+
+                'onStart': function () {
+                    showSmile();
+                }
+            })
+
+            var state = 'paint';
+            $('#line2_').lazylinepainter(state);
+        }
+
+        function doAfterEndDraw() {
+            hideSmile();
+            goStep1();
+        }
+
+        function clear2() {
+            $('#line1_').lazylinepainter('erase');
+            $('#line2_').lazylinepainter('erase');
+        }
+    </script>
+</head>
+<body style="margin:0; width:480px; height:441px;">
+    <div style="position:absolute; margin-left:0px;">
+        <div id='line1_'>
+        </div>
+
+        <div id='line2_'>
+        </div>
+
+        <img src="img/intro/small2U.png" style="width:480px; height: 441px; position:absolute; margin-left:0px; margin-top:0px; opacity:1.7" />
+
+        <div id="num1_" class="numberCircle" style="margin-left:100px; margin-top:110px; display:block;" onclick="return draw1();">
+            <a>1</a>
+        </div>
+
+        <div id="num2_" class="numberCircle" style="margin-left:330px; margin-top:110px; display:none;" onclick="return draw2();">
+            <a>2</a>
+        </div>
+    </div>
+</body>
+</html>

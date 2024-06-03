@@ -1,0 +1,238 @@
+﻿.bg-dj-blanc {
+    display: flex;
+    justify-content: center;
+    width: 1280px;
+    height: 720px;
+    background: url(./images/bg_dj_blanc_01.png);
+}
+
+.wave {
+    position: absolute;
+    top: -1000px;
+    transform: rotateZ(0);
+    width: 2000px;
+    height: 2000px;
+    opacity: .45;
+    background: url(./images/bg_dot.png);
+    animation: wave 120s linear infinite;
+    z-index: 2;
+}
+
+.mirror-ball {
+    position: absolute;
+    top: -525px;
+    transform: rotateZ(0);
+    width: 1000px;
+    height: 1000px;
+    background: url(./images/img_mirror_ball.png);
+    animation: mirrorBall 30s linear infinite;
+    z-index: 3;
+}
+
+.notes {
+    position: absolute;
+    z-index: 2;
+    transform: rotate(0);
+    opacity: 0;
+    display: none;
+}
+
+    .notes.active {
+        display: block;
+    }
+
+    .notes.note-left {
+        top: 287px;
+        left: 45px;
+        width: 63px;
+        height: 98px;
+        background: url(./images/img_note_01.png);
+        animation: note 1.8s infinite;
+    }
+
+    .notes.note-right {
+        top: 270px;
+        right: 45px;
+        width: 86px;
+        height: 109px;
+        background: url(./images/img_note_02.png);
+        animation: note 2s infinite;
+    }
+
+.wrapper-blanc {
+    width: 100%;
+    height: 210px;
+    display: flex;
+    position: absolute;
+    bottom: 0;
+    align-items: center;
+    justify-content: center;
+    z-index: 3;
+}
+
+.wrapper-question {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    position: absolute;
+    top: 70px;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 1005px;
+    height: 133px;
+    background: url(./images/img_box_quiz.png);
+    z-index: 5;    
+}
+
+    .wrapper-question.correct {
+        animation: turnLight .6s steps(2) infinite;
+    }
+
+    .wrapper-question .question {
+        color: #fff;
+        font-size: 2.7rem;
+    }
+
+    .wrapper-question.correct .question {
+        color: #fff000;
+    }
+
+.wrapper-imgs {
+    position: absolute;
+    top: 226px;
+    left: 50%;
+    width: 1005px;
+    height: 260px;
+    transform: translateX(-50%);
+    z-index: 5;
+}
+
+    .wrapper-imgs .img-examples {
+        position: absolute;
+        top: 0;
+        width: 460px;
+        height: 260px;
+        border: 6px solid #d2486d;
+        border-radius: 1rem;
+        box-sizing: border-box;
+        cursor: url(../../include/images/cursor_hover.png), auto;
+    }
+
+        .wrapper-imgs .img-examples:hover {
+            border: 6px solid #ffe57d;
+            filter: drop-shadow(0 0 12px #ffe57d);
+        }
+
+        .wrapper-imgs .img-examples.selected {
+            border: 6px solid #ffe57d;
+            filter: drop-shadow(0 0 12px #ffe57d);
+        }
+
+        .wrapper-imgs .img-examples:first-child {
+            left: 0;
+        }
+
+        .wrapper-imgs .img-examples:last-child {
+            right: 0;
+        }
+
+        .wrapper-imgs .img-examples.fade {
+            opacity: 0;
+            transition: .7s;
+        }
+
+        .wrapper-imgs .img-examples.correct {
+            left: 50%;
+            transform: translateX(-50%);
+            transition: 2s;
+        }
+
+.character-blanc {
+    position: absolute;
+    bottom: 0;
+    width: 180px;
+    height: 210px;
+    background: url(./images/img_character_blanc.png);
+    animation: blanc 2s steps(2) infinite;
+    z-index: 1;
+}
+
+.blanc-correct {
+    position: absolute;
+    bottom: 0;
+    width: 180px;
+    height: 210px;
+    background: url(./images/img_character_blanc_correct.png);
+    animation: blanc 2s steps(2) infinite;
+    z-index: 6;
+    display: none;
+}
+
+    .blanc-correct.correct {
+        display: block;
+    }
+
+.blanc-incorrect {
+    position: absolute;
+    bottom: 0;
+    width: 180px;
+    height: 210px;
+    background: url(./images/img_character_blanc_incorrect.png);
+    z-index: 1;
+    display: none;
+}
+
+    .blanc-incorrect.incorrect {
+        display: block;
+    }
+
+.table {
+    position: absolute;
+    bottom: 0;
+    width: 377px;
+    height: 61px;
+    background: url(./images/img_table.png) no-repeat;
+    z-index: 2;
+}
+
+@keyframes wave {
+    to {
+        transform: rotateZ(360deg);
+    }
+}
+
+@keyframes mirrorBall {
+    to {
+        transform: rotateZ(360deg);
+    }
+}
+
+@keyframes note {
+    5%,30%,55% {
+        transform: rotate(-3deg);
+    }
+
+    15%,40%,65% {
+        transform: rotate(3deg) scale(1.35);
+    }
+
+    40% {
+        opacity: 1;
+    }
+
+    100% {
+        top: 170px;
+    }
+}
+
+@keyframes blanc {
+    to {
+        background-position: -200%;
+    }
+}
+
+@keyframes turnLight {
+    to {
+        background-position: -200%;
+    }
+}

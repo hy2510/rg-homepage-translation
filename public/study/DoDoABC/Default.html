@@ -1,0 +1,63 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+    <script type="text/javascript" src="./include/js/jquery-3.5.1.min.js"></script>
+    <script type="text/javascript" src="./include/js/sweetalert.min.js"></script>
+    <script type="text/javascript" src="./include/js/api.js"></script>
+</head>
+<body style="background-color: black;">
+    <!--<iframe src="#" style="display:block; width:100vw; height: 100vh;"></iframe>-->
+    <!--<iframe src="#" style="display:block; width:1280px; height:720px;"></iframe>-->
+    
+    <script>
+        //document.addEventListener("DOMContentLoaded", () => {
+        window.onload = function () {
+            try{
+                if(REF.StudyId !== ssStudyInfo.stdid || REF.StudentHistoryId !== ssStudyInfo.sthid){
+                    throw Error('Study Info Invalid')
+                }
+                const round = parseInt(ssStudyInfo.book)
+
+                let hfUrl = '';
+                if (round >= 301 && round <= 326) {
+                    hfUrl = "alphabet/default/Default.html";
+                }
+                else if (round >= 401 && round <= 427) {
+                    hfUrl = "phonics1/default/Default.html";
+                }
+                else if (round >= 428 && round <= 450) {
+                    hfUrl = "phonics2/default/Default.html";
+                }
+                else if (round >= 501 && round <= 530) {
+                    hfUrl = "sightwords1/default/Default.html";
+                }
+                else if (round >= 531 && round <= 560) {
+                    hfUrl = "sightwords2/default/Default.html";
+                }
+                else if (round >= 601 && round <= 700) {
+                    hfUrl = "game/default/Default.html";
+                }
+                else if (round >= 701 && round <= 850) {
+                    hfUrl = "songandchant/Default.html";
+                } else {
+                    swal({
+                        text: "PreK 학습 리스트 오류!",
+                    }).then(function () { goToHome(); });
+                    //this.Page.ClientScript.RegisterStartupScript(this.Page.GetType(), "MessageBox", "swal({ text: 'PreK 학습 리스트 오류!' }).then(function () { goToHome(); });", true);
+                }
+
+                if(hfUrl){
+                    location.replace(hfUrl)
+                }
+
+                //const frame = document.querySelector('iframe'); frame.setAttribute('src', hfUrl);
+            }catch(error){
+                console.log(error)
+                swal({
+                    text: "PreK 학습 리스트 오류!",
+                }).then(function () { goToHome(); });
+            }
+        };
+    </script>
+</body>
+</html>

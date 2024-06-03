@@ -1,0 +1,347 @@
+﻿.bg-jump-leoni {
+    width: 1280px;
+    height: 720px;
+    background: url(./images/bg_jump_leoni.png);
+}
+
+    .bg-jump-leoni .wrapper-quiz {
+        position: absolute;
+        top: 0;
+        left: 290px;
+        display: flex;
+        justify-content: center;
+    }
+
+        .bg-jump-leoni .wrapper-quiz .rope {
+            position: absolute;
+            top: 0;
+            width: 173px;
+            height: 73px;
+            background: url(./images/img_box_rope.png);
+            z-index: 2;
+        }
+
+        .bg-jump-leoni .wrapper-quiz .board {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            position: absolute;
+            top: 25px;
+            width: 256px;
+            height: 264px;
+            background: url(./images/img_box.png);
+            z-index: 1
+        }
+
+            .bg-jump-leoni .wrapper-quiz .board img {
+                width: 200px;
+                height: 200px;
+            }
+
+    .bg-jump-leoni .wrapper-examples {
+        position: absolute;
+        bottom: 80px;
+        left: 604px;
+        width: 600px;
+        height: 320px;
+        z-index: 1;
+    }
+
+        .bg-jump-leoni .wrapper-examples .wrapper-example {
+            position: absolute;
+            bottom: 0;
+            width: 176px;
+        }
+
+            .bg-jump-leoni .wrapper-examples .wrapper-example .pipe {
+                position: absolute;
+                bottom: 0;
+            }
+
+            .bg-jump-leoni .wrapper-examples .wrapper-example:first-child {
+                height: 207px;
+                left: 0;
+            }
+
+                .bg-jump-leoni .wrapper-examples .wrapper-example:first-child .pipe {
+                    width: 176px;
+                    height: 136px;
+                    background: url(./images/img_pipe_01.png);
+                }
+
+            .bg-jump-leoni .wrapper-examples .wrapper-example:nth-child(2) {
+                height: 263px;
+                left: 50%;
+                transform: translateX(-50%);
+            }
+
+                .bg-jump-leoni .wrapper-examples .wrapper-example:nth-child(2) .pipe {
+                    width: 176px;
+                    height: 192px;
+                    background: url(./images/img_pipe_02.png);
+                }
+
+            .bg-jump-leoni .wrapper-examples .wrapper-example:last-child {
+                height: 320px;
+                right: 0;
+            }
+
+                .bg-jump-leoni .wrapper-examples .wrapper-example:last-child .pipe {
+                    width: 176px;
+                    height: 249px;
+                    background: url(./images/img_pipe_03.png);
+                }
+
+            .bg-jump-leoni .wrapper-examples .wrapper-example .wrapper-txt {
+                position: absolute;
+                top: 0;
+                left: 50%;
+                transform: translateX(-50%);
+                display: flex;
+                justify-content: center;
+                align-items: center;
+                width: 155px;
+                height: 65px;
+                margin-bottom: 10px;
+                background: white;
+                border-radius: 40px;
+                font-size: 1.8rem;
+                box-shadow: rgba(128, 128, 128, 0.4) -3px -4px inset;
+            }
+
+                .bg-jump-leoni .wrapper-examples .wrapper-example .wrapper-txt.hide {
+                    animation: hide 1s forwards;
+                }
+
+            .bg-jump-leoni .wrapper-examples .wrapper-example:hover {
+                cursor: url(../../include/images/cursor_hover.png), auto;
+            }
+
+                .bg-jump-leoni .wrapper-examples .wrapper-example:hover .wrapper-txt {
+                    color: #da3a4c;
+                }
+
+    .bg-jump-leoni .wrapper-leoni {
+        position: absolute;
+        top: 350px;
+        left: 120px;
+        width: 160px;
+        height: 288px;
+    }
+
+        .bg-jump-leoni .wrapper-leoni .character-leoni {
+            width: 160px;
+            height: 288px;
+            background: url(./images/img_character_leoni.png);
+            animation: leoni 2s steps(12) infinite;
+        }
+
+            .bg-jump-leoni .wrapper-leoni .character-leoni.happy {
+                background: url(./images/img_character_leoni_correct.png);
+                animation: happy 1s steps(6) 2;
+            }
+
+        .bg-jump-leoni .wrapper-leoni.walk {
+            left: 430px;
+            transition: 1.3s;
+        }
+
+            .bg-jump-leoni .wrapper-leoni.walk .character-leoni.walk {
+                background: url(./images/img_character_leoni_walk.png);
+                animation: walk .8s steps(8) infinite;
+            }
+
+            .bg-jump-leoni .wrapper-leoni.walk .character-leoni.jump1 {
+                background: url(./images/img_character_leoni_jump.png);
+                animation: leoniJump 1s steps(8) forwards;
+            }
+
+            .bg-jump-leoni .wrapper-leoni.walk .character-leoni.jump2 {
+                background: url(./images/img_character_leoni_jump.png);
+                animation: leoniJump 1.2s steps(8) forwards;
+            }
+
+            .bg-jump-leoni .wrapper-leoni.walk .character-leoni.jump3 {
+                background: url(./images/img_character_leoni_jump.png);
+                animation: leoniJump 1.4s steps(8) forwards;
+            }
+
+        .bg-jump-leoni .wrapper-leoni .character-leoni.incorrect {
+            width: 160px;
+            height: 288px;
+            background: url(./images/img_character_leoni_incorrect.png);
+            animation: leoniIncorrect 2s steps(6) infinite;
+        }
+
+    .bg-jump-leoni .img-floor {
+        position: absolute;
+        bottom: 0;
+        width: 1280px;
+        height: 90px;
+        background: url(./images/img_floor.png);
+        z-index: 2;
+    }
+
+    .bg-jump-leoni.second {
+        background-position: -100%;
+    }
+
+        .bg-jump-leoni.second .wrapper-quiz .rope {
+            background-position: -100%;
+        }
+
+        .bg-jump-leoni.second .wrapper-quiz .board {
+            background-position: -100%;
+        }
+
+        .bg-jump-leoni.second .wrapper-examples .wrapper-example .pipe {
+            background-position: -100%;
+        }
+
+        .bg-jump-leoni.second .img-floor {
+            background-position: -100%;
+        }
+
+    .bg-jump-leoni.third {
+        background-position: -200%;
+    }
+
+        .bg-jump-leoni.third .wrapper-quiz .rope {
+            background-position: -200%;
+        }
+
+        .bg-jump-leoni.third .wrapper-quiz .board {
+            background-position: -200%;
+        }
+
+        .bg-jump-leoni.third .wrapper-examples .wrapper-example .pipe {
+            background-position: -200%;
+        }
+
+        .bg-jump-leoni.third .img-floor {
+            background-position: -200%;
+        }
+
+    .bg-jump-leoni.last {
+        background-position: -300%;
+    }
+
+        .bg-jump-leoni.last .wrapper-quiz .rope {
+            background-position: -300%;
+        }
+
+        .bg-jump-leoni.last .wrapper-quiz .board {
+            background-position: -300%;
+        }
+
+        .bg-jump-leoni.last .wrapper-examples .wrapper-example .pipe {
+            background-position: -300%;
+        }
+
+        .bg-jump-leoni.last .img-floor {
+            background-position: -300%;
+        }
+
+@keyframes hide {
+    to {
+        top: 100px;
+    }
+}
+
+@keyframes leoni {
+    to {
+        background-position: -1200%;
+    }
+}
+
+@keyframes leoniIncorrect {
+    to {
+        background-position: -600%;
+    }
+}
+
+@keyframes walk {
+    to {
+        background-position: -800%;
+    }
+}
+
+@keyframes happy {
+    to {
+        background-position: -600%;
+    }
+}
+
+@keyframes leoniJump {
+    to {
+        background-position: -800%;
+    }
+}
+
+@keyframes leoniHide1 {
+    from {
+        bottom: 211px;
+        left: 604px;
+    }
+
+    to {
+        bottom: -10px;
+        left: 604px;
+    }
+}
+
+@keyframes leoniHide2 {
+    from {
+        bottom: 268px;
+        left: 822px;
+    }
+
+    to {
+        bottom: 50px;
+        left: 822px;
+    }
+}
+
+@keyframes leoniHide3 {
+    from {
+        bottom: 324px;
+        left: 1030px;
+    }
+
+    to {
+        bottom: 107px;
+        left: 1030px;
+    }
+}
+
+svg {
+    position: absolute;
+    width: 1280px;
+    height: 720px;
+    overflow: visible;
+    /* Fix Safari rendering bug */
+    transform: translateZ(0);
+}
+
+path {
+    stroke-width: 0;
+    fill: none;
+}
+
+#path1 {
+    stroke: gray;
+}
+
+#path2 {
+    stroke: yellow;
+}
+
+#path3 {
+    stroke: green;
+}
+
+.hidden {
+    position:absolute;
+    bottom:-100px;
+    opacity: 0;
+}

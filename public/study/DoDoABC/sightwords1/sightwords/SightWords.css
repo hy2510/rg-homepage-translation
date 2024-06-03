@@ -1,0 +1,274 @@
+﻿.bg-sight-words {
+    width: 1280px;
+    height: 780px;
+    background: url(./images/bg_sight_words.jpg);
+}
+
+.wrapper-intro {
+    position: absolute;
+    top: 74px;
+    width: 100%;
+    height: 462px;
+}
+
+.wrapper-intro-prev {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 462px;
+}
+
+    .wrapper-intro-prev .wrapper-dodo-prev {
+        position: absolute;
+        top: 260px;
+        left: -280px;
+        width: 279px;
+        height: 267px;
+    }
+
+        .wrapper-intro-prev .wrapper-dodo-prev.flying {
+            animation: appearDodo 4s linear forwards;
+        }
+
+        .wrapper-intro-prev .wrapper-dodo-prev .dodo-prev {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 279px;
+            height: 267px;
+            background: url(./images/img_character_dodo.png);
+        }
+
+        .wrapper-intro-prev .wrapper-dodo-prev .wrapper-twinkle {
+            position: absolute;
+            top: 50px;
+            left: -700px;
+            width: 881px;
+            height: 351px;
+        }
+
+            .wrapper-intro-prev .wrapper-dodo-prev .wrapper-twinkle:first-of-type {
+                background: url(./images/img_twinkle_01.png);
+                animation: twinkle 1s 1;
+            }
+
+            .wrapper-intro-prev .wrapper-dodo-prev .wrapper-twinkle:nth-of-type(2) {
+                background: url(./images/img_twinkle_02.png);
+                animation: twinkle 1s 0.4s 2;
+            }
+
+            .wrapper-intro-prev .wrapper-dodo-prev .wrapper-twinkle:last-of-type {
+                background: url(./images/img_twinkle_03.png);
+                animation: twinkle 1s 0.4s 2;
+            }
+
+@keyframes appearDodo {
+    0% {
+        transform: translate(-250px, -50px);
+    }
+
+    5% {
+        transform: translate(-100px, -20px);
+    }
+
+    15% {
+        transform: translate(198px, -53px);
+    }
+
+    25% {
+        transform: translate(594px, -80px);
+    }
+
+    35% {
+        transform: translate(970px, -150px);
+    }
+
+    45% {
+        transform: translate(1230px, -170px);
+    }
+
+    100% {
+        transform: translate(1230px, -170px);
+    }
+}
+
+@keyframes twinkle {
+    30% {
+        opacity: 1;
+    }
+
+    70% {
+        opacity: 1;
+    }
+
+    30% {
+        opacity: 0;
+    }
+}
+
+.wrapper-intro-next {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 462px;
+}
+
+    .wrapper-intro-next .text-activity {
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 462px;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        font-size: 5.6rem;
+        color: #fce400;
+        opacity: 0;
+        animation: fade 3s forwards;
+    }
+
+    .wrapper-intro-next .wrapper-dodo-next {
+        position: absolute;
+        top: 90px;
+        left: 950px;
+        width: 279px;
+        height: 267px;
+        background: url(./images/img_character_dodo.png);
+    }
+
+        .wrapper-intro-next .wrapper-dodo-next.exit {
+            animation: exitDodo 2s forwards;
+        }
+
+@keyframes fade {
+    to {
+        opacity: 1;
+    }
+}
+
+@keyframes exitDodo {
+    0% {
+        top: 90px;
+        left: 950px;
+    }
+
+    50% {
+        top: 90px;
+        left: 950px;
+    }
+
+    100% {
+        top: 0px;
+        left: 1400px;
+    }
+}
+
+.dodo-eyes {
+    position: absolute;
+    width: 279px;
+    height: 267px;
+    opacity: 0;
+    background: url(./images/img_dodo_eyes.png);
+    animation: eyes 5s infinite;
+}
+
+@keyframes eyes {
+    90% {
+        opacity: 0;
+    }
+
+    95% {
+        opacity: 1;
+    }
+
+    100% {
+        opacity: 0;
+    }
+}
+
+.wrapper-word {
+    position: absolute;
+    top: 120px;
+    width: 1280px;
+    height: 706px;
+    animation: fade 3s forwards;
+    display: flex;
+    justify-content: center;
+}
+
+    .wrapper-word .wrapper-sight-word {
+        width: 892px;
+        height: 465px;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        color: #fff;
+        font-size: 8rem;
+        background: url(./images/img_box_sight_01.png);
+    }
+
+        .wrapper-word .wrapper-sight-word.highlight {
+            color: #fce400;
+            font-size: 9.5rem;
+        }
+
+        .wrapper-word .wrapper-sight-word .box {
+            position: absolute;
+            width: 892px;
+            height: 465px;
+            background: url(./images/img_box_sight_02.png);
+            animation: fadeInOut 3s infinite;
+        }
+
+    .wrapper-word .wrapper-main-word {
+        width: 1080px;
+        height: 473px;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        font-size: 5.6rem;
+        color: #000;
+        background: url(./images/img_box_main.png);
+    }
+
+
+        .wrapper-word .wrapper-main-word.highlight {
+            color: #863290;
+            font-size: 7rem;
+        }
+
+        .wrapper-word .wrapper-main-word.smallHighlight {
+            color: #863290;
+            font-size: 6rem;
+        }
+
+        .wrapper-word .wrapper-main-word div {
+            display: inline-flex;
+            width: 540px;
+            height: 473px;
+            align-items: center;
+            justify-content: center;
+        }
+
+            .wrapper-word .wrapper-main-word div:first-of-type {
+            }
+
+            .wrapper-word .wrapper-main-word div:last-of-type {
+            }
+
+@keyframes fadeInOut {
+    40% {
+        opacity: 1;
+    }
+
+    80% {
+        opacity: 1;
+    }
+
+    100% {
+        opacity: 0;
+    }
+}

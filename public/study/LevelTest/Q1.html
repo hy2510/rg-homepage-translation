@@ -1,0 +1,111 @@
+﻿
+<!DOCTYPE html>
+<html>
+<head>
+    <title>ReadingGate</title>
+    <meta charset="utf-8" />
+    <meta http-equiv="Content-Script-Type" content="text/javascript" />
+    <meta http-equiv="Content-Style-Type" content="text/css" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta http-equiv="cache-control" content="no-cache" />
+    <meta name="expires" content="0" />
+    <meta name="viewport" content="width=device-width,user-scalable=no" />
+    <meta name="google" value="notranslate" />
+    <script src="./jsAssets/jquery-2.1.4.min.js"></script>
+    <script src="./jsAssets/jquery-ui.min.js"></script>
+    <script src="./jsAssets/sweetalert.min.js"></script>
+    <link rel="stylesheet" href="./jsAssets/jquery-ui.min.css" />
+    <script src="./jsAssets/common.js"></script>
+    <script src="./jsAssets/study.js"></script>
+
+    <link rel="stylesheet" href="./css/Q1.css?ver=230925021" />
+    <script src="./js/api.js"></script>
+    <script type="text/javascript" src="./js/Q1.js?ver=230925021"></script>
+    <script type="text/javascript" src="./js/common.js?ver=230925021"></script>
+
+</head>
+<body>
+<table id="body"><tbody><tr><td>
+    <img id="tmode" src="img/mod_teacher.png" class="teacher" style="display:none; float:right;"/>
+	<div id="outline">
+		<div id="boxMain">
+            <div class="bg">
+                <img src="img/h/bg_a.png" class="a"/>
+                <img src="img/h/bg_b.png" class="b"/>
+            </div>
+            <div id="elLevel">Level 0</div>
+            <!--<button id="btClose"><img src="img/k/bt_close.png" /></button>-->
+            <div class="timer"><div class="tx"></div></div>
+
+            <div class="box">
+                <table><tbody><tr><td>
+                    
+                    <table id="elArea">
+                        <colgroup>
+                            <col style="width:50px;" />
+                            <col style="width:auto;" />
+                        </colgroup>
+                        <tbody>
+                            <tr>
+                                <th><div class="num" id="num"><span id="elNum">0</span></div></th>
+                                <th><div class="question"><span id="elQuestion"></span></div></th>
+                            </tr>
+                            <tr>
+                                <td></td>
+                                <td><div class="answer" id="elAnswer"></div></td>
+                            </tr>
+                        </tbody>
+                    </table>
+
+                </td></tr></tbody></table>
+			    			    
+            </div>
+			
+			<div class="box-btm">
+				<button class="bttn" id="btNext"><img src="img/h/nextA_up.png" class="on"/><img src="img/h/nextA_down.png" class="ov"/><img src="img/h/nextA_down.png" class="hit"/></button>
+			</div>
+		</div>
+	</div>
+
+	<div class="pop" id="popStart">
+		<img src="img/h/guide_popup.png" class="bg"/>
+        <div class="logo"><img src="img/h/logo.png"/></div>
+        <div class="title"><img src="img/h/level_test.png"/></div>
+        <div class="guide" style="bottom: 55px;">※ You may take the test only once.<br /> Please read each question carefully and choose your answer.</div>
+		<button class="bt bttn"><img src="img/h/start_up.png" class="on"/><img src="img/h/start_down.png" class="ov"/><img src="img/h/start_down.png" class="hit"/></button>
+	</div>
+	
+	<div class="pop" id="popLevel">
+		<img id="popLevelbg" src="img/h/popup_level1.png" class="bg" />
+        <div class="guide" style="bottom: 55px;">※ You may take the test only once.<br /> Please read each question carefully and choose your answer.</div>
+		<button class="bt bttn"><img src="img/h/start_up.png" class="on"/><img src="img/h/start_down.png" class="ov"/><img src="img/h/start_down.png" class="hit"/></button>
+	</div>
+	
+	<div class="pop" id="popResult">
+		<div class="box-msg">
+			<img src="img/h/result_box.png" class="bg"/>
+			<div class="msg">You have achieved.</div>
+			<div class="lvl">1B</div>
+			<button class="bt bttn"><img src="img/h/close_up.png" class="on"/><img src="img/h/close_down.png" class="ov"/><img src="img/h/close_down.png" class="hit"/></button>
+		</div>
+		<div class="box-score">
+			<img src="img/h/answer_sheet.png" class="bg"/>
+            <div class="part-a"></div>
+            <div class="part-b"></div>
+		</div>
+	</div>
+
+	<!--#include file="_popup.aspx"-->
+
+    <form id="form1" runat="server">
+    <asp:ScriptManager ID="ScriptManager1" runat="server" >
+    <Services>
+        <asp:ServiceReference Path="~/Hp/asmx/lvTest.asmx" />
+    </Services>
+    </asp:ScriptManager>
+    </form>
+
+</td></tr></tbody></table>
+
+</body>
+</html>

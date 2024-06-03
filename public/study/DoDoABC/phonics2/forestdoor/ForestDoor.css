@@ -1,0 +1,248 @@
+﻿.bg-forest-door {
+    width: 1280px;
+    height: 720px;
+    background: url(./images/bg_forest_door.png);
+}
+
+.wrapper-word {
+    position: absolute;
+    top: 62px;
+    left: 567px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 353px;
+    height: 130px;
+    font-size: 5.6rem;
+    color: #000000;
+}
+
+    .wrapper-word.light {
+        color: #fffc00 !important;
+    }
+
+    .wrapper-word .phonetic.light {
+        color: #fffc00 !important;
+    }
+
+.wrapper-examples {
+    position: absolute;
+    top: 192px;
+    width: 100%;
+    height: 510px;
+}
+
+    .wrapper-examples .example {
+        position: absolute;
+        top: 22px;
+        width: 310px;
+        height: 420px;
+        cursor: url(../../include/images/cursor_hover.png), pointer;
+    }
+
+        .wrapper-examples .example:first-of-type {
+            left: 268px;
+        }
+
+        .wrapper-examples .example:nth-of-type(2) {
+            left: 597px;
+        }
+
+        .wrapper-examples .example:last-of-type {
+            left: 928px;
+        }
+
+        .wrapper-examples .example img {
+            position: absolute;
+            top: 65px;
+            left: 62px;
+            width: 170px;
+            height: 170px;
+            background: #f29d76;
+            border: 5px solid #6d2227;
+            border-radius: 50%;
+        }
+
+        .wrapper-examples .example.correct {
+            top: 22px;
+            width: 456px;
+            height: 474px;
+            background: url(./images/img_door_correct.png);
+            backface-visibility: hidden;
+            -webkit-backface-visibility: hidden;
+            -moz-backface-visibility: hidden;
+            animation: doorCorrect 1.5s steps(2) forwards;
+        }
+
+            .wrapper-examples .example.correct:first-of-type {
+                left: 123px;
+            }
+
+            .wrapper-examples .example.correct:nth-of-type(2) {
+                left: 453px;
+            }
+
+            .wrapper-examples .example.correct:last-of-type {
+                left: 784px;
+            }
+
+            .wrapper-examples .example.correct img {
+                display: none;
+            }
+
+        .wrapper-examples .example.incorrect {
+            top: 22px;
+            width: 456px;
+            height: 474px;
+            background: url(./images/img_door_incorrect.png);
+            animation: doorIncorrect 3s steps(4) forwards;
+        }
+
+            .wrapper-examples .example.incorrect:first-of-type {
+                left: 123px;
+            }
+
+            .wrapper-examples .example.incorrect:nth-of-type(2) {
+                left: 453px;
+            }
+
+            .wrapper-examples .example.incorrect:last-of-type {
+                left: 784px;
+            }
+
+            .wrapper-examples .example.incorrect img {
+                display: none
+            }
+
+@keyframes doorCorrect {
+    to {
+        background-position: -912px;
+    }
+}
+
+@keyframes doorIncorrect {
+    to {
+        background-position: -1824px;
+    }
+}
+
+.wrapper-character {
+    position: absolute;
+    top: 450px;
+    left: 0;
+    width: 230px;
+    height: 280px;
+}
+
+    .wrapper-character.move1 {
+        transition: 1s;
+        animation: move1 0.9s linear forwards;
+    }
+
+    .wrapper-character.move2 {
+        transition: 1s;
+        animation: move2 1.4s linear forwards;
+    }
+
+    .wrapper-character.move3 {
+        transition: 1s;
+        animation: move3 2.1s linear forwards;
+    }
+
+@keyframes move1 {
+    to {
+        left: 100px;
+    }
+}
+
+@keyframes move2 {
+    to {
+        left: 420px;
+    }
+}
+
+@keyframes move3 {
+    to {
+        left: 760px;
+    }
+}
+
+.character-roro {
+    width: 250px;
+    height: 240px;
+    background: url(./images/img_character_roro.png);
+    animation: roro 2.4s steps(2) infinite;
+}
+
+    .character-roro.walk {
+        background: url(./images/img_character_roro_walk.png);
+        animation: roroWalk 0.8s steps(2) infinite;
+    }
+
+@keyframes roro {
+    to {
+        background-position: -500px;
+    }
+}
+
+@keyframes roroWalk {
+    to {
+        background-position: -500px;
+    }
+}
+
+.wrapper-front {
+    position: absolute;
+    top: 0;
+    left: 0;
+}
+
+
+.ivy li {
+    position: absolute;
+}
+
+.ivy01 {
+    width: 97px;
+    height: 340px;
+    background-image: url(./images/ivy01.png);
+    top: 0;
+    left: 130px;
+    animation: ivy 20s infinite;
+}
+
+.ivy02 {
+    width: 141px;
+    height: 179px;
+    background-image: url(./images/ivy02.png);
+    top: 0;
+    left: 330px;
+    animation: ivy 14s infinite;
+}
+
+.ivy03 {
+    width: 47px;
+    height: 279px;
+    background-image: url(./images/ivy03.png);
+    top: 0;
+    right: 40px;
+    animation: ivy 16s alternate infinite;
+}
+
+@keyframes ivy {
+    20%, 80% {
+        transform: translateY(-16%);
+    }
+
+    60% {
+        transform: translateY(-7%);
+    }
+
+    50%, 100% {
+        transform: translateY(0);
+    }
+}
+
+.characteract {
+    background: url(./images/img_character_roro.png);
+}

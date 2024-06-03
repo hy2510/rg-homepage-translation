@@ -1,0 +1,343 @@
+﻿.bg-gino-plate {
+    width: 1280px;
+    height: 720px;
+    background: url(./images/bg_gino_plate.png);
+    z-index: 1;
+}
+
+.wrapper-light {
+    position: absolute;
+    z-index: 2;
+}
+
+    .wrapper-light.left {
+        left: 0;
+        width: 506px;
+        height: 285px;
+    }
+
+    .wrapper-light.right {
+        right: 0;
+        width: 493px;
+        height: 257px;
+    }
+
+    .wrapper-light img {
+        position: absolute;
+    }
+
+        .wrapper-light img:last-child {
+            position: absolute;
+            animation: light 4s infinite;
+        }
+
+.wrapper-quiz {
+    position: absolute;
+    top: 94px;
+    left: 146px;
+    width: 480px;
+    height: 270px;
+    background-color: rgb(128, 128, 128);
+    border: 6px solid #462466;
+    border-radius: 1rem;
+    text-align: center;
+    z-index: 3;
+}
+
+    .wrapper-quiz .img-quiz {
+        width: 100%;
+        height: 100%;
+        border-radius: 10px;
+        object-fit: fill;
+    }
+
+.wrapper-examples {
+    position: absolute;
+    top: 416px;
+    left: 46px;
+    z-index: 3;
+    width: 680px;
+    height: 200px;
+}
+
+    .wrapper-examples .wrapper-example {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        position: absolute;
+        width: 680px;
+        height: 80px;
+        background: url(./images/img_box_example_01.png);
+    }
+
+        .wrapper-examples .wrapper-example:first-child {
+            top: 0;
+        }
+
+        .wrapper-examples .wrapper-example:last-child {
+            top: 100px;
+        }
+
+        .wrapper-examples .wrapper-example:hover {
+            cursor: url(../../include/images/cursor_hover.png), auto;
+            background: url(./images/img_box_example_02.png);
+        }
+
+        .wrapper-examples .wrapper-example.selected {
+            background: url(./images/img_box_example_02.png);
+        }
+
+        .wrapper-examples .wrapper-example.fade {
+            opacity: 0;
+            transition: .7s;
+        }
+
+        .wrapper-examples .wrapper-example.correct {
+            top: 50%;
+            transform: translateY(-50%);
+            transition: 2s;
+        }
+
+        .wrapper-examples .wrapper-example p {
+            font-size: 2rem;
+            color: #fff;
+        }
+
+.img-table {
+    display: flex;
+    justify-content: center;
+    position: absolute;
+    right: 42px;
+    bottom: 0;
+    width: 534px;
+    height: 260px;
+    background: url(./images/img_table.png) bottom no-repeat;
+    z-index: 5;
+}
+
+    .img-table .foods {
+        position: absolute;
+        top: 0;
+        display: none;
+    }
+
+        .img-table .foods.appear {
+            display: block;
+        }
+
+        .img-table .foods:first-child {
+            top: 55px;
+            width: 142px;
+            height: 48px;
+            background: url(./images/img_food_empty.png);
+            animation: emptyFood 1s steps(2) infinite;
+        }
+
+        .img-table .foods:not(:first-child) {
+            width: 230px;
+            height: 120px;
+        }
+
+        .img-table .foods:nth-child(2) {
+            width: 230px;
+            height: 120px;
+            background: url(./images/img_food_01.png);
+        }
+
+        .img-table .foods:nth-child(3) {
+            width: 230px;
+            height: 120px;
+            background: url(./images/img_food_02.png);
+        }
+
+        .img-table .foods:nth-child(4) {
+            width: 230px;
+            height: 120px;
+            background: url(./images/img_food_03.png);
+        }
+
+        .img-table .foods:last-child {
+            width: 230px;
+            height: 120px;
+            background: url(./images/img_food_04.png);
+        }
+
+.heart {
+    position: absolute;
+    top: 220px;
+    left: 750px;
+    width: 60px;
+    height: 91px;
+    background: url(./images/img_heart.png) no-repeat;
+    animation: heart 2s forwards;
+    opacity: 0;
+    display: none;
+}
+
+    .heart.active {
+        display: block;
+    }
+
+.burp {
+    position: absolute;
+    top: 300px;
+    left: 750px;
+    width: 67px;
+    height: 43px;
+    background: url(./images/img_burp.png) no-repeat;
+    animation: burp 2s forwards;
+    opacity: 0;
+    display: none;
+}
+
+    .burp.active {
+        display: block;
+    }
+
+.character-gino {
+    position: absolute;
+    top: 170px;
+    right: 60px;
+    width: 500px;
+    height: 450px;
+    background: url(./images/img_character_gino.png);
+    animation: gino 1s steps(2) infinite;
+    z-index: 4;
+}
+
+    .character-gino.correct {
+        background-position: -200%;
+        animation: none;
+    }
+
+    .character-gino.incorrect {
+        background-position: -300%;
+        animation: none;
+    }
+
+    .character-gino.burger {
+        animation: burger 1.2s steps(21) forwards;
+    }
+
+    .character-gino.cake {
+        animation: cake 1.2s steps(21) forwards;
+    }
+
+    .character-gino.donut {
+        animation: donut 1.2s steps(21) forwards;
+    }
+
+    .character-gino.pizza {
+        animation: pizza 1.2s steps(21) forwards;
+    }
+
+    .character-gino.eat {
+        animation: eat 1.2s steps(27) forwards;
+    }
+
+    .character-gino.lastEat {
+        animation: lastEat 1.2s steps(19) forwards;
+    }
+
+@keyframes light {
+    50% {
+        opacity: 0;
+    }
+}
+
+@keyframes heart {
+    20% {
+        transform: rotate(5deg);
+    }
+
+    50% {
+        opacity: 1;
+        transform: rotate(-5deg);
+    }
+
+    100% {
+        top: 170px;
+    }
+}
+
+@keyframes burp {
+    50% {
+        opacity: 1;
+    }
+
+    100% {
+        left: 750px;
+    }
+}
+
+@keyframes gino {
+    to {
+        background-position: -200%;
+    }
+}
+
+@keyframes emptyFood {
+    to {
+        background-position: -200%;
+    }
+}
+
+@keyframes burger {
+    from {
+        background-position: -400%;
+    }
+
+    to {
+        background-position: -2500%;
+    }
+}
+
+@keyframes cake {
+    from {
+        background-position: -2600%;
+    }
+
+    to {
+        background-position: -4700%;
+    }
+}
+
+@keyframes donut {
+    from {
+        background-position: -4800%;
+    }
+
+    to {
+        background-position: -6900%;
+    }
+}
+
+@keyframes pizza {
+    from {
+        background-position: -7000%;
+    }
+
+    to {
+        background-position: -9100%;
+    }
+}
+
+@keyframes eat {
+    from {
+        background-position: -9200%;
+    }
+
+    to {
+        background-position: -11900%;
+    }
+}
+
+@keyframes lastEat {
+    from {
+        background-position: -12000%;
+    }
+
+    to {
+        background-position: -13900%;
+    }
+}

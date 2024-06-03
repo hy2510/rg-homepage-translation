@@ -1,0 +1,418 @@
+﻿@charset "utf-8";
+
+/* CSS Document */
+
+
+/* 공통영역 */
+
+
+
+.box {
+    width: 1280px;
+    min-width: 1280px;
+    height: 720px;
+    position: relative;
+    overflow: hidden;
+}
+
+.exit {
+    width: 4rem;
+    height: auto;
+    margin: 1.6em;
+    cursor: pointer;
+    position: absolute;
+    top: 0;
+    left: 0;
+    opacity: 0.85;
+    z-index: 9999;
+}
+
+/* 컨텐츠 - Listen & Repeat */
+
+.sw_bg {
+    background-image: url(images/sw_bg.png);
+}
+
+
+.dodo_move {
+    width: 279px;
+    height: 267px;
+    position: absolute;
+    top: 260px;
+    left: -250px;
+    animation: dodo_move 3s linear forwards;
+}
+
+@keyframes dodo_move {
+    0% {
+        transform: translate(-250px, -50px);
+    }
+
+    5% {
+        transform: translate(-100px, -20px);
+    }
+
+    15% {
+        transform: translate(198px, -53px);
+    }
+
+    25% {
+        transform: translate(594px, -80px);
+    }
+
+    35% {
+        transform: translate(900px, -150px);
+    }
+
+    45% {
+        transform: translate(1100px, -170px);
+    }
+
+    80% {
+        transform: translate(1100px, -170px);
+    }
+
+    100% {
+        transform: translate(1600px, -280px);
+    }
+}
+
+.dodo {
+    width: 100%;
+    height: 100%;
+    position: absolute;
+    background-image: url(./images/dodo.png);
+}
+
+    .dodo p {
+        width: 100%;
+        height: 100%;
+        opacity: 0;
+        background-image: url(./images/dodo_eyes.png);
+        animation: dodo_eyes 2s infinite;
+    }
+
+@keyframes dodo_eyes {
+    90% {
+        opacity: 0;
+    }
+
+    97% {
+        opacity: 1;
+    }
+
+    100% {
+        opacity: 0;
+    }
+}
+
+
+.twinkle {
+    animation: twinkle_bye 1s 1s forwards;
+}
+
+@keyframes twinkle_bye {
+    to {
+        opacity: 0;
+    }
+}
+
+
+.twinkle li {
+    width: 881px;
+    height: 351px;
+    position: absolute;
+    top: 80px;
+    left: -680px;
+}
+
+    .twinkle li:nth-child(1) {
+        background-image: url(./images/twinkle01.png);
+        animation: twinkle 0.8s infinite;
+    }
+
+    .twinkle li:nth-child(2) {
+        background-image: url(./images/twinkle02.png);
+        animation: twinkle 0.8s 0.4s infinite;
+    }
+
+    .twinkle li:nth-child(3) {
+        background-image: url(./images/twinkle03.png);
+        animation: twinkle 0.8s 0.8s infinite;
+    }
+
+
+@keyframes twinkle {
+    30% {
+        opacity: 1;
+    }
+
+    70% {
+        opacity: 1;
+    }
+
+    30% {
+        opacity: 0;
+    }
+}
+
+
+.word_box {
+    width: 860px;
+    height: 280px;
+    line-height: 280px;
+    ;
+    background-color: rgba(0,0,0,0.3);
+    font-size: 3.8rem;
+    color: #fff;
+    text-align: center;
+    position: absolute;
+    left: 160px;
+    top: 260px;
+    opacity: 0;
+    animation: word_box 1.7s 1.6s forwards;
+}
+
+@keyframes word_box {
+    60% {
+        opacity: 1;
+    }
+
+    70% {
+        opacity: 1;
+    }
+
+    100% {
+        opacity: 0;
+    }
+}
+
+
+.frame {
+    width: 1280px;
+    height: 720px;
+    display: flex;
+    align-items: center;
+    justify-content:center;
+    background-image: url(./images/frame.png);
+    position: absolute;
+    bottom: -100%;
+    left: 0;
+    line-height: 120px;
+    text-align: center;
+    animation: frame 1s 3s forwards;
+}
+
+@keyframes frame {
+    to {
+        bottom: 0;
+    }
+}
+
+.frame img { 
+    width:550px;
+    border-radius:30px;
+}
+
+
+.frame p {
+    font-size: 6.5rem;
+    color: #fff;
+    text-align: center;
+}
+
+@keyframes appear {
+    to {
+        opacity: 1;
+    }
+}
+
+.frame li {
+    font-size: 3.1rem;
+    line-height: 1.2em;
+    color: #fff;
+    text-align: center;
+}
+
+    .frame li:first-child {
+        margin-top: 120px;
+    }
+
+    .frame li:last-child {
+        margin-top: 20px;
+    }
+
+.edmond {
+    width: 330px;
+    height: 221px;
+    background-image: url(./images/edmond_bg.png);
+    position: absolute;
+    right: -100%;
+    bottom: 0;
+    animation: admond_hill 0.7s 4s forwards;
+}
+
+@keyframes admond_hill {
+    to {
+        right: 0;
+    }
+}
+
+.edmond div {
+    width: 220px;
+    height: 320px;
+    position: absolute;
+    right: 20px;
+    bottom: 124px;
+}
+
+    .edmond .edmond_d {
+        background-image: url(./images/edmond_d.png);
+        opacity: 0;
+        animation: edmond_d 0.3s 5s forwards;
+    }
+
+    .edmond .edmond_w {
+        background-image: url(./images/edmond_d.png);
+        opacity: 1;
+    }
+
+    @keyframes edmond_d {
+        to {
+            opacity: 1;
+        }
+    }
+
+.edmond_record {
+    background-image: url(./images/edmond_record_on.png);
+    animation: record 0.8s steps(2) infinite;
+}
+
+@keyframes record {
+    to {
+        background-position: -200%;
+    }
+}
+
+
+.edmond_correct {
+    background-image: url(./images/edmond_good.png);
+    animation: correct 1s steps(4) alternate infinite;
+}
+
+@keyframes correct {
+    to {
+        background-position: -400%;
+    }
+}
+
+.edmond_incorrect {
+    background-image: url(./images/edmond_sad.png);
+    animation: incorrect 1s steps(3) infinite;
+}
+
+@keyframes incorrect {
+    to {
+        background-position: -300%;
+    }
+}
+
+.edmond_record_off {
+    background-image: url(./images/edmond_record_off.png);
+}
+
+
+.btns {
+    display: flex;
+    position: absolute;
+    left: 50%;
+    transform: translate(-50%);
+    bottom: 20px;
+    width:510px;
+}
+
+    .btns div {
+        width: 88px;
+        height: 88px;
+        margin: 41px;
+        cursor: pointer;
+    }
+
+.btn01_record {
+    background-image: url(./images/btn01_record_on.png);
+    padding: 0;
+}
+
+    .btn01_record:hover {
+        cursor: url(../../include/images/cursor_hover.png), pointer;
+    }
+
+    .btn01_record.active {
+        animation: recording 2.5s steps(6) infinite;
+    }
+
+    .btn01_record .recording {
+        width: 88px;
+        height: 88px;
+        border: 5px solid rgb(255, 144, 0);
+        border-radius: 50%;
+        margin-left: -21px;
+        margin-top: -21px;
+    }
+
+    @keyframes recording {
+        to {
+        background-position: -600%;
+    }
+}
+
+.btn02_play {
+    position: absolute;
+    top: 0px;
+    left: 150px;
+    background-image: url(./images/btn02_play.png);
+    padding: 0;
+}
+
+    .btn02_play:hover {
+        cursor: url(../../include/images/cursor_hover.png), pointer;
+    }
+
+.btn03_next {
+    position: absolute;
+    top: 0px;
+    left: 300px;
+    background-image: url(./images/btn03_next.png);
+    animation: next 1s steps(2) infinite;
+    padding: 0;
+}
+
+    .btn03_next:hover {
+        cursor: url(../../include/images/cursor_hover.png), pointer;
+    }
+
+@keyframes next {
+    to {
+        background-position: -200%;
+    }
+}
+
+/*-------------------------------------------------------------------------*/
+
+.svg1 {
+    stroke-dasharray: 1000;
+    stroke-dashoffset: 0;
+    /*animation: dash 2s linear;*/
+    opacity: 1 !important;
+}
+
+
+@keyframes dash {
+    from {
+        stroke-dashoffset: 822;
+    }
+
+    to {
+        stroke-dashoffset: 0;
+    }
+}

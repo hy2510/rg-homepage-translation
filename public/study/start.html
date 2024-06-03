@@ -1,0 +1,144 @@
+<!doctype html>
+<html>
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <script>
+      function parseREF() {
+        // 현재 URL에서 Query String 가져오기
+        const queryString = window.location.search
+
+        // Query String을 파싱하여 객체로 변환하는 함수
+        function parseQueryString(queryString) {
+          const params = {}
+          const queryParams = queryString.substring(1).split('&')
+          for (let i = 0; i < queryParams.length; i++) {
+            const pair = queryParams[i].split('=')
+            const key = decodeURIComponent(pair[0])
+            const value = decodeURIComponent(pair[1])
+            params[key] = value
+          }
+          return params
+        }
+
+        // Query String 파싱
+        const queryParams = parseQueryString(queryString)
+        const signedREF = queryParams.REF
+
+        const REF_Object = {
+          flag: false,
+          signedREF,
+          deploy: undefined,
+        }
+        if (signedREF) {
+          try {
+            const obj = atob(signedREF)
+            REF_Object.deploy = JSON.parse(obj)
+            REF_Object.flag = true
+          } catch (error) {}
+        }
+        return REF_Object
+      }
+
+      function init() {
+        const parsedRef = parseREF()
+        if (!parsedRef.flag) {
+          throw Error('REF Validate Failed.')
+        }
+
+        const REF = parsedRef.deploy
+        let url = undefined
+        let studyInfoData = undefined
+        switch (REF.BookType) {
+          case 'PK': {
+            const round = parseInt(REF.LevelName.substring(6))
+            let userMode = '1'
+            switch (REF.Mode) {
+              case 'quiz':
+                userMode = '1'
+                break
+              case 'review':
+                userMode = '2'
+                break
+              case 'super':
+                userMode = '3'
+                userType = 'staff'
+                break
+              default:
+                userMode = '1'
+                break
+            }
+            const studyInfo = {
+              arg1: round,
+              arg2: userMode,
+              arg3: REF.StudyId,
+            }
+            studyInfoData = JSON.stringify(studyInfo)
+            url = './PreK/index.html'
+            break
+          }
+          case 'DODO': {
+            const d1 = REF.StudyId
+            const d2 = REF.StudentHistoryId
+            const d3 = ''
+            const d4 = REF.User.toUpperCase()
+            const d5 = REF.Mode.toLowerCase() === 'quiz' ? 'STUDY' : 'REVIEW'
+            const d6 = REF.LevelName.substring(6)
+            const d7 = 'dev'
+
+            const studyInfo = {
+              stdid: d1,
+              sthid: d2,
+              url: d3,
+              user: d5 === 'STUDY' ? d4 : 'STAFF',
+              mode: d5,
+              book: d6,
+              server: d7,
+            }
+            studyInfoData = JSON.stringify(studyInfo)
+            url = './DoDoABC/Default.html'
+
+            break
+          }
+          case 'LEVELTEST': {
+            url = './LevelTest/QZ.html'
+            break
+          }
+          case 'EB':
+          case 'PB': {
+            fetch('/api/accesstoken')
+              .then((data) => {
+                if (!data.ok) {
+                  throw Error('Not Found Token')
+                }
+                return data.json()
+              })
+              .then((json) => {
+                url = '/public/index.html'
+                const newRef = { ...REF, Token: json.token }
+                sessionStorage.setItem(
+                  'REF',
+                  encodeURIComponent(btoa(JSON.stringify(newRef))),
+                )
+                location.replace(url)
+              })
+              .catch((error) => {
+                history.back()
+              })
+            break
+          }
+        }
+        if (REF && url) {
+          sessionStorage.setItem('REF', parsedRef.signedREF)
+          sessionStorage.setItem('apiStudyInfo', studyInfoData)
+          location.replace(url)
+        }
+      }
+    </script>
+  </head>
+  <body onload="init()">
+    <button onclick="init()">Retry !</button>
+    <br />
+  </body>
+</html>

@@ -1,0 +1,426 @@
+﻿.bg-dressing-up {
+    background: url(./images/bg_dressing_up.png);
+    width: 1280px;
+    height: 720px;
+}
+
+.screen-block {
+    position: absolute;
+    top: 132px;
+    left: 10px;
+    width: 502px;
+    height: 531px;
+    background-color: black;
+    opacity:0;
+    z-index: 10;
+}
+
+.wrapper-examples {
+    position: absolute;
+    top: 132px;
+    left: 460px;
+    width: 502px;
+    height: 531px;
+    background: url(./images/img_box_word.png);
+    z-index: 1;
+}
+
+    .wrapper-examples.open {
+        animation: example 2s forwards;
+    }
+
+    .wrapper-examples.disabled {
+        pointer-events: none;
+    }
+
+    .wrapper-examples .examples {
+        position: absolute;
+        left: 24px;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        width: 480px;
+        height: 110px;
+        font-size: 3.5rem;
+        color: #02535b;
+        background: url(./images/img_word.png);
+    }
+
+        .wrapper-examples .examples .img-twinkle {
+            position: absolute;
+            top: -200px;
+            left: -43px;
+            width: 500px;
+            height: 500px;
+            z-index: 1;
+            background: url(./images/img_twinkle_circle.png);
+            transform: scale(0.8);
+            animation: twinkle 2s steps(24) forwards;
+        }
+
+        .wrapper-examples .examples.selected {
+            background: url(./images/img_word_hover.png);
+        }
+
+        .wrapper-examples .examples:hover {
+            cursor: url(../../include/images/cursor_hover.png), auto;
+            background: url(./images/img_word_hover.png);
+        }
+
+        .wrapper-examples .examples:first-child {
+            top: 45px;
+        }
+
+        .wrapper-examples .examples:nth-child(2) {
+            top: 184px;
+        }
+
+        .wrapper-examples .examples:last-child {
+            bottom: 100px;
+        }
+
+        .wrapper-examples .examples div {
+            position: absolute;
+            top: 0;
+            left: 0;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            width: 406px;
+            height: 100px;
+        }
+
+.wrapper-mirror {
+    position: absolute;
+    top: 0;
+    right: 0;
+    width: 821px;
+    height: 720px;
+    z-index: 2;
+}
+
+.bg-mirror {
+    position: absolute;
+    top: 0;
+    right: 0;
+    width: 821px;
+    height: 720px;
+    background: url(./images/bg_mirror.png);
+    z-index: 3;
+}
+
+    .bg-mirror.head {
+        background: url(./images/bg_mirror_head.png);
+    }
+
+        .bg-mirror.head .wrapper-head {
+            position: absolute;
+            left: 79px;
+        }
+
+            .bg-mirror.head .wrapper-head.first {
+                top: 82px;
+            }
+
+            .bg-mirror.head .wrapper-head.second {
+                top: 277px;
+            }
+
+            .bg-mirror.head .wrapper-head.last {
+                top: 465px;
+            }
+
+    .bg-mirror.clothes {
+        background: url(./images/bg_mirror_clothes.png);
+    }
+
+        .bg-mirror.clothes .wrapper-clothes {
+            position:absolute;
+            left: 76px;
+        }
+
+            .bg-mirror.clothes .wrapper-clothes.first {
+                top: 96px;
+            }
+
+            .bg-mirror.clothes .wrapper-clothes.second {
+                top: 294px;
+            }
+
+            .bg-mirror.clothes .wrapper-clothes.last {
+                top: 487px;
+            }
+
+    .bg-mirror.shoes {
+        background: url(./images/bg_mirror_shoes.png);
+    }
+
+        .bg-mirror.shoes .wrapper-shoes {
+            position: absolute;
+            left: 125px;
+        }
+
+            .bg-mirror.shoes .wrapper-shoes.first {
+                top: 137px;
+            }
+
+            .bg-mirror.shoes .wrapper-shoes.second {
+                top: 333px;
+            }
+
+            .bg-mirror.shoes .wrapper-shoes.last {
+                top: 523px;
+            }
+
+    .bg-mirror.wand {
+        background: url(./images/bg_mirror_wand.png);
+    }
+
+        .bg-mirror.wand .wrapper-wand {
+            position: absolute;
+            left: 136px;
+        }
+
+            .bg-mirror.wand .wrapper-wand.first {
+                top: 96px;
+            }
+
+            .bg-mirror.wand .wrapper-wand.second {
+                top: 286px;
+            }
+
+            .bg-mirror.wand .wrapper-wand.last {
+                top: 469px;
+            }
+
+.wrapper-dodo {
+    position: absolute;
+    right: 70px;
+    bottom: 100px;
+    width: 310px;
+    height: 400px;
+    background-image: url(./images/img_dodo_holeman.png);
+    z-index: 4;
+}
+
+    .wrapper-dodo div {
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+    }
+
+    .wrapper-dodo .wrapper-face {
+        top: 60px;
+        left: 90px;
+        width: 166px;
+        height: 127px;
+        background: url(./images/img_face.png);
+        animation: eyes 3s steps(2) infinite;
+    }
+
+        .wrapper-dodo .wrapper-face.correct {
+            background: url(./images/img_face_correct.png);
+            animation: none;
+        }
+
+        .wrapper-dodo .wrapper-face.incorrect {
+            background: url(./images/img_face_incorrect.png);
+        }
+
+    .wrapper-dodo .wrapper-head.first .img-head {
+        content: url(./images/img_dodo_head_01.png);
+    }
+
+    .wrapper-dodo .wrapper-head.second .img-head {
+        content: url(./images/img_dodo_head_02.png);
+    }
+
+    .wrapper-dodo .wrapper-head.last .img-head {
+        content: url(./images/img_dodo_head_03.png);
+    }
+
+.img-head:hover {
+    cursor: url(../../include/images/cursor_hover.png), auto;
+}
+
+    .wrapper-dodo .wrapper-head .img-twinkle {
+        position: absolute;
+        top: -145px;
+        left: -75px;
+        width: 500px;
+        height: 500px;
+        z-index: 1;
+        background: url(./images/img_twinkle_circle.png);
+        animation: twinkle 2s steps(24) forwards;
+    }
+
+    .wrapper-dodo .wrapper-clothes.first .img-clothes {
+        content: url(./images/img_dodo_clothes_01.png);
+    }
+
+    .wrapper-dodo .wrapper-clothes.second .img-clothes {
+        content: url(./images/img_dodo_clothes_02.png);
+    }
+
+    .wrapper-dodo .wrapper-clothes.last .img-clothes {
+        content: url(./images/img_dodo_clothes_03.png);
+    }
+
+.img-clothes:hover {
+    cursor: url(../../include/images/cursor_hover.png), auto;
+}
+
+    .wrapper-dodo .wrapper-clothes .img-twinkle {
+        position: absolute;
+        top: -20px;
+        left: -75px;
+        width: 500px;
+        height: 500px;
+        z-index: 1;
+        background: url(./images/img_twinkle_circle.png);
+        animation: twinkle 2s steps(24) forwards;
+    }
+
+    .wrapper-dodo .wrapper-shoes.first .img-shoes {
+        content: url(./images/img_dodo_shoes_01.png);
+    }
+
+    .wrapper-dodo .wrapper-shoes.second .img-shoes {
+        content: url(./images/img_dodo_shoes_02.png);
+    }
+
+    .wrapper-dodo .wrapper-shoes.last .img-shoes {
+        content: url(./images/img_dodo_shoes_03.png);
+    }
+
+.img-shoes:hover {
+    cursor: url(../../include/images/cursor_hover.png), auto;
+}
+
+    .wrapper-dodo .wrapper-shoes .img-twinkle {
+        position: absolute;
+        top: 100px;
+        left: -75px;
+        width: 500px;
+        height: 500px;
+        transform: scale(.6);
+        z-index: 1;
+        background: url(./images/img_twinkle_half.png);
+        animation: twinkleHalf 2s steps(18) forwards;
+    }
+
+    .wrapper-dodo .wrapper-wand.first .img-wand {
+        display: none;
+    }
+
+    .wrapper-dodo .wrapper-wand.first .img-drop {
+        position: absolute;
+        top: 81px;
+        left: -118px;
+        width: 300px;
+        height: 400px;
+        background: url(./images/img_drop_blue.png);
+        animation: shakingWand 3s steps(32) infinite;
+    }
+
+    .wrapper-dodo .wrapper-wand.second .img-wand {
+        display: none;
+    }
+
+    .wrapper-dodo .wrapper-wand.second .img-drop {
+        position: absolute;
+        top: 81px;
+        left: -118px;
+        width: 300px;
+        height: 400px;
+        background: url(./images/img_drop_star.png);
+        animation: shakingWand 3s steps(32) infinite;
+    }
+
+    .wrapper-dodo .wrapper-wand.last .img-wand {
+        display: none;
+    }
+
+    .wrapper-dodo .wrapper-wand.last .img-drop {
+        position: absolute;
+        top: 81px;
+        left: -118px;
+        width: 300px;
+        height: 400px;
+        background: url(./images/img_drop_flower.png);
+        animation: shakingWand 3s steps(32) infinite;
+    }
+
+.img-wand:hover {
+    cursor: url(../../include/images/cursor_hover.png), auto;
+}
+
+    .wrapper-dodo .wrapper-wand .img-twinkle {
+        position: absolute;
+        top: -10px;
+        left: -200px;
+        width: 500px;
+        height: 500px;
+        z-index: 1;
+        transform: scale(.8);
+        background: url(./images/img_twinkle_circle.png);
+        animation: twinkle 2s steps(24) forwards;
+    }
+
+@keyframes example {
+    to {
+        left: 30px;
+    }
+}
+
+@keyframes eyes {
+    to {
+        background-position: -200%;
+    }
+}
+
+@keyframes twinkle {
+    to {
+        background-position: -2400%;
+    }
+}
+
+@keyframes twinkleHalf {
+    to {
+        background-position: -1800%;
+    }
+}
+
+@keyframes shakingWand {
+    to {
+        background-position: -3200%;
+    }
+}
+
+.drop-dodo {
+    position: absolute;
+    right: 50px;
+    bottom: 90px;
+    width: 310px;
+    height: 420px;
+    z-index: 4;
+    border: 5px dotted #ffd800;
+    border-radius: 130px;
+    animation: dot 1.5s infinite;
+}
+
+@keyframes dot {
+    0% {
+        opacity: 1;
+    }
+
+    50% {
+        opacity: 0.1;
+    }
+
+    100% {
+        opacity: 1;
+    }
+}

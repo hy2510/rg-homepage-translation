@@ -1,0 +1,1003 @@
+﻿<!doctype html>
+
+<html xmlns="http://www.w3.org/1999/xhtml">
+  <head runat="server">
+    <title></title>
+
+    <meta
+      name="viewport"
+      content="width=device-width, initial-scale=0.95, maximum-scale=0.95, user-scalable=no"
+    />
+    <meta http-equiv="X-UA-Compatible" content="IE=Edge" />
+
+    <link href="../common/css/prek.css" rel="stylesheet" />
+
+    <style type="text/css">
+      .alphabet {
+        padding-top: 25px;
+        font-family: YDVYGO25;
+        font-size: 250px;
+        font-weight: 700;
+        text-align: center;
+        color: red;
+      }
+
+      .word {
+        padding-top: 25px;
+        font-family: YDVYGO25;
+        font-size: 170px;
+        font-weight: 700;
+        margin-top: 40px;
+        color: red;
+      }
+
+      .word2 {
+        padding-top: 20px;
+        font-family: YDVYGO25;
+        font-size: 110px;
+        font-weight: 700;
+        color: red;
+      }
+
+      .word3 {
+        padding-top: 20px;
+        font-family: YDVYGO25;
+        font-size: 110px;
+        font-weight: 700;
+        color: blue;
+      }
+
+      .studybox {
+        width: 700px;
+        height: 306px;
+        position: absolute;
+        margin-left: 170px;
+        margin-top: 140px;
+        display: inline-block;
+        text-align: center;
+        border: 0px solid red;
+      }
+
+      /* color [[[ */
+      @-webkit-keyframes color-move {
+        0% {
+          color: red;
+        }
+
+        50% {
+          color: black;
+        }
+
+        100% {
+          color: red;
+        }
+      }
+
+      @-moz-keyframes color-move {
+        0% {
+          color: red;
+        }
+
+        50% {
+          color: black;
+        }
+
+        100% {
+          color: red;
+        }
+      }
+
+      @-o-keyframes color-move {
+        0% {
+          color: red;
+        }
+
+        50% {
+          color: black;
+        }
+
+        100% {
+          color: red;
+        }
+      }
+
+      @-ms-keyframes color-move {
+        0% {
+          color: red;
+        }
+
+        50% {
+          color: black;
+        }
+
+        100% {
+          color: red;
+        }
+      }
+
+      @keyframes color-move {
+        0% {
+          color: red;
+        }
+
+        50% {
+          color: black;
+        }
+
+        100% {
+          color: red;
+        }
+      }
+
+      .colormove {
+        -webkit-animation: color-move 1.5s infinite;
+        -moz-animation: color-move 1.5s infinite;
+        -o-animation: color-move 1.5s infinite;
+        -ms-animation: color-move 1.5s infinite;
+        animation: color-move 1.5s infinite;
+      }
+      /* color ]]] */
+
+      /* blink [[[ */
+      @-webkit-keyframes blink-blue {
+        0% {
+          color: blue;
+        }
+
+        50% {
+          color: transparent;
+        }
+
+        100% {
+          color: blue;
+        }
+      }
+
+      @-moz-keyframes blink-blue {
+        0% {
+          color: blue;
+        }
+
+        50% {
+          color: transparent;
+        }
+
+        100% {
+          color: blue;
+        }
+      }
+
+      @-o-keyframes blink-blue {
+        0% {
+          color: blue;
+        }
+
+        50% {
+          color: transparent;
+        }
+
+        100% {
+          color: blue;
+        }
+      }
+
+      @-ms-keyframes blink-blue {
+        0% {
+          color: blue;
+        }
+
+        50% {
+          color: transparent;
+        }
+
+        100% {
+          color: blue;
+        }
+      }
+
+      @keyframes blink-blue {
+        0% {
+          color: blue;
+        }
+
+        50% {
+          color: transparent;
+        }
+
+        100% {
+          color: blue;
+        }
+      }
+
+      @-webkit-keyframes blink-red {
+        0% {
+          color: red;
+        }
+
+        50% {
+          color: transparent;
+        }
+
+        100% {
+          color: red;
+        }
+      }
+
+      @-moz-keyframes blink-red {
+        0% {
+          color: red;
+        }
+
+        50% {
+          color: transparent;
+        }
+
+        100% {
+          color: red;
+        }
+      }
+
+      @-o-keyframes blink-red {
+        0% {
+          color: red;
+        }
+
+        50% {
+          color: transparent;
+        }
+
+        100% {
+          color: red;
+        }
+      }
+
+      @-ms-keyframes blink-red {
+        0% {
+          color: red;
+        }
+
+        50% {
+          color: transparent;
+        }
+
+        100% {
+          color: red;
+        }
+      }
+
+      @keyframes blink-red {
+        0% {
+          color: red;
+        }
+
+        50% {
+          color: transparent;
+        }
+
+        100% {
+          color: red;
+        }
+      }
+
+      .blinkblue {
+        -webkit-animation: blink-blue 1.5s infinite;
+        -moz-animation: blink-blue 1.5s infinite;
+        -o-animation: blink-blue 1.5s infinite;
+        -ms-animation: blink-blue 1.5s infinite;
+        animation: blink-blue 1.5s infinite;
+      }
+
+      .blinkred {
+        -webkit-animation: blink-red 1.5s infinite;
+        -moz-animation: blink-red 1.5s infinite;
+        -o-animation: blink-red 1.5s infinite;
+        -ms-animation: blink-red 1.5s infinite;
+        animation: blink-red 1.5s infinite;
+      }
+      /* blink ]]] */
+
+      @keyframes blinkblink {
+        0% {
+          opacity: 1;
+        }
+
+        30% {
+          opacity: 1;
+        }
+
+        50% {
+          opacity: 0;
+        }
+
+        70% {
+          opacity: 1;
+        }
+
+        100% {
+          opacity: 1;
+        }
+      }
+
+      .blinkblink {
+        -webkit-animation: blinkblink 1.5s infinite;
+        -moz-animation: blinkblink 1.5s infinite;
+        -o-animation: blinkblink 1.5s infinite;
+        -ms-animation: blinkblink 1.5s infinite;
+        animation: blinkblink 1.5s infinite;
+      }
+    </style>
+
+    <script src="../common/js/sweetalert.min.js"></script>
+    <script src="../common/js/jquery-2.1.4.min.js"></script>
+    <script src="../common/js/jquery-ui-1.8.21.min.js"></script>
+
+    <script type="text/javascript" src="../common/js/api.js"></script>
+    <script
+      type="text/javascript"
+      src="../common/js/global_function.js?ver=230628001"
+    ></script>
+    <script
+      type="text/javascript"
+      src="../common/js/prek.js?ver=230628001"
+    ></script>
+    <script
+      type="text/javascript"
+      src="js/phonicsland.js?ver=230628001"
+    ></script>
+
+    <script type="text/javascript">
+      var getParam = function (key) {
+        var _parammap = {}
+        document.location.search.replace(
+          /\??(?:([^=]+)=([^&]*)&?)/g,
+          function () {
+            function decode(s) {
+              return decodeURIComponent(s.split('+').join(' '))
+            }
+
+            _parammap[decode(arguments[1])] = decode(arguments[2])
+          },
+        )
+
+        return _parammap[key]
+      }
+
+      var _move = true
+      var _cnt = 0
+      var _nHalf = 0
+      var _nWord = 0
+      var _stage = 0
+      var _letterLen
+      var _tm
+      var _frog
+
+      $(document).ready(function () {
+        getStudyRecord()
+          .then((data) => {
+            if (!data.ok) {
+              throw new Error('Network response was not ok')
+            }
+            return data.json()
+          })
+          .then((json) => {
+            const score1 = json.ScoreStep1
+            const score2 = json.ScoreStep2
+            const score3 = json.ScoreStep3
+
+            getArgs()
+            if (
+              (score1 === '100' || score2 === '100' || score3 === '100') &&
+              _usermode === '1'
+            ) {
+              // 기존의 학습 이력이 있으면 해당 Step으로 바로 이동
+              if (score1 === '100' && score2 === '100') {
+                // Step3 Activity로 이동
+                goStep('step3a.html')
+                return false
+              } else if (score1 === '100') {
+                // Step2 Activity로 이동
+                goStep('step2a.html')
+                return false
+              }
+            } else {
+              PlayLandBGM('PHONICS')
+
+              $('#divStart').css('display', 'block')
+              $('#imgStart').bind('click', function (e) {
+                Start()
+              })
+
+              _letterLen = _phonics[_pNum - 67][1].length
+
+              if (_snd != undefined && _snd != NaN) {
+                _snd.Stop()
+              }
+
+              PlayDirection('PhonicsLand', 'PL-intro.mp3', undefined)
+            }
+          })
+          .catch((error) => {
+            swal('학습 정보를 가져올 수 없습니다. - PhonicsLand/intro.html')
+          })
+      })
+
+      function Start() {
+        if (_snd != undefined && _snd != NaN) {
+          _snd.Stop()
+        }
+
+        hidePopup()
+        LoadTest()
+      }
+
+      function hidePopup() {
+        $('#divStart').hide(
+          'puff',
+          {
+            duration: 'slow',
+            easing: 'swing',
+            queue: false,
+          },
+          1000,
+        )
+
+        StopLandBGM()
+      }
+
+      function LoadTest() {
+        UnLockScreen()
+
+        var i
+        clearTimeout(_tm)
+        $('#divPannel1').css('display', 'none')
+        //$('#imgWord').css('display', 'block');
+        $('body').fadeIn(300)
+
+        if (_stage == 0) {
+          $('#divStudy1').css('display', 'block')
+          $('#divStudy2').css('display', 'none')
+          $('#divStudy3').css('display', 'none')
+          $('#divFrame').css('background-image', "url('img/intro/bg1.jpg')")
+          $('#divStudy1').html('')
+
+          if (_letterLen == 1) {
+            $('#divStudy1').append(
+              '<a id="a0" class="alphabet" style="display:inline-block;">' +
+                _phonics[_pNum - 67][1][0] +
+                '</a>',
+            )
+            //$('#divStudy1').append('<a id="a1" class="alphabet" style="display:inline-block;">' + _phonics[_pNum - 67][1][1] + '</a>');
+            setTimeout(function () {
+              playPhonetic(_phonics[_pNum - 67][1], function () {
+                setTimeout(function () {
+                  $('#a0').css('display', 'inline-block')
+                  $('#a1').css('display', 'inline-block')
+                  setScale($('#a0'), 1.1)
+                  setScale($('#a1'), 1.1)
+                  playPhonetic(
+                    // _phonics[_pNum - 67][1][1],
+                    _phonics[_pNum - 67][1],
+                    function () {
+                      setTimeout(function () {
+                        $('#a0').css('display', 'inline-block')
+                        $('#a1').css('display', 'inline-block')
+                        $('#a0').addClass('blinkred')
+                        $('#a1').addClass('blinkred')
+                        setScale($('#a0'), 1.2)
+                        setScale($('#a1'), 1.2)
+                        playPhonetic(
+                          //_phonics[_pNum - 67][1],
+                          _phonics[_pNum - 67][1],
+                          function () {
+                            setTimeout(function () {
+                              _stage = 1
+                              _nWord = 0
+                              _cnt = 0
+                              $('body').fadeOut(300)
+                              setTimeout(LoadTest, 300)
+                            }, 500)
+                          },
+                        )
+                      }, 500)
+                    },
+                  )
+                }, 500)
+              })
+            }, 500)
+          } else if (_letterLen == 2) {
+            $('#divStudy1').append(
+              '<a id="a0" class="alphabet" style="display:inline-block;">' +
+                _phonics[_pNum - 67][1][0] +
+                '</a>',
+            )
+            $('#divStudy1').append(
+              '<a id="a1" class="alphabet" style="display:inline-block;">' +
+                _phonics[_pNum - 67][1][1] +
+                '</a>',
+            )
+
+            setTimeout(function () {
+              playPhonetic(
+                //_phonics[_pNum - 67][1][0],
+                _phonics[_pNum - 67][1],
+                function () {
+                  setTimeout(function () {
+                    $('#a0').css('display', 'inline-block')
+                    $('#a1').css('display', 'inline-block')
+                    setScale($('#a0'), 1.1)
+                    setScale($('#a1'), 1.1)
+                    playPhonetic(
+                      // _phonics[_pNum - 67][1][1],
+                      _phonics[_pNum - 67][1],
+                      function () {
+                        setTimeout(function () {
+                          $('#a0').css('display', 'inline-block')
+                          $('#a1').css('display', 'inline-block')
+                          $('#a0').addClass('blinkred')
+                          $('#a1').addClass('blinkred')
+                          setScale($('#a0'), 1.2)
+                          setScale($('#a1'), 1.2)
+                          playPhonetic(
+                            //_phonics[_pNum - 67][1],
+                            _phonics[_pNum - 67][1],
+                            function () {
+                              setTimeout(function () {
+                                _stage = 1
+                                _nWord = 0
+                                _cnt = 0
+                                $('body').fadeOut(300)
+                                setTimeout(LoadTest, 300)
+                              }, 500)
+                            },
+                          )
+                        }, 500)
+                      },
+                    )
+                  }, 500)
+                },
+              )
+            }, 500)
+          } else if (_letterLen == 3) {
+            $('#divStudy1').append(
+              '<a id="a0" class="alphabet" style="display:inline-block;">' +
+                _phonics[_pNum - 67][1][0] +
+                '</a>',
+            )
+            $('#divStudy1').append(
+              '<a id="a1" class="alphabet" style="display:inline-block;">' +
+                _phonics[_pNum - 67][1][1] +
+                '</a>',
+            )
+            $('#divStudy1').append(
+              '<a id="a2" class="alphabet" style="display:inline-block;">' +
+                _phonics[_pNum - 67][1][2] +
+                '</a>',
+            )
+
+            setTimeout(function () {
+              playPhonetic(
+                //_phonics[_pNum - 67][1][0],
+                _phonics[_pNum - 67][1],
+                function () {
+                  setTimeout(function () {
+                    $('#a0').css('display', 'inline-block')
+                    $('#a1').css('display', 'inline-block')
+                    $('#a2').css('display', 'inline-block')
+                    setScale($('#a0'), 1.1)
+                    setScale($('#a1'), 1.1)
+                    setScale($('#a2'), 1.1)
+                    playPhonetic(
+                      //_phonics[_pNum - 67][1][1],
+                      _phonics[_pNum - 67][1],
+                      function () {
+                        setTimeout(function () {
+                          $('#a0').css('display', 'inline-block')
+                          $('#a1').css('display', 'inline-block')
+                          $('#a2').css('display', 'inline-block')
+                          setScale($('#a0'), 1.2)
+                          setScale($('#a1'), 1.2)
+                          setScale($('#a2'), 1.2)
+                          playPhonetic(
+                            //_phonics[_pNum - 67][1][2],
+                            _phonics[_pNum - 67][1],
+                            function () {
+                              setTimeout(function () {
+                                setTimeout(function () {
+                                  _stage = 1
+                                  _nWord = 0
+                                  _cnt = 0
+                                  $('body').fadeOut(300)
+                                  setTimeout(LoadTest, 300)
+                                }, 500)
+                              }, 500)
+                            },
+                          )
+                        }, 500)
+                      },
+                    )
+                  }, 500)
+                },
+              )
+            }, 500)
+          } else if (_letterLen == 4) {
+            alert('444')
+          }
+        } else if (_stage == 1) {
+          $('#divStudy1').css('display', 'none')
+          $('#divStudy2').css('display', 'block')
+          $('#divStudy3').css('display', 'none')
+          $('#divFrame').css('background-image', "url('img/intro/bg2.jpg')")
+          $('#divStudy2').html('')
+
+          for (i = 0; i < _phonics[_pNum - 67][_nWord + 2].length; i++) {
+            if (_phonics[_pNum - 67][_nWord + 2][i] == '┒') {
+              $('#divStudy2').append(
+                '<a id="b' +
+                  i.toString() +
+                  '" class="word" style="display:inline-block;">' +
+                  _phonics[_pNum - 67][1] +
+                  '</a>',
+              )
+            } else {
+              $('#divStudy2').append(
+                '<a id="b' +
+                  i.toString() +
+                  '" class="word" style="display:none; color:black;">' +
+                  _phonics[_pNum - 67][_nWord + 2][i] +
+                  '</a>',
+              )
+            }
+          }
+
+          setTimeout(function () {
+            playPhonetic(_phonics[_pNum - 67][1], function () {
+              // 단어 플레이
+              tm = setTimeout(function () {
+                for (i = 0; i < _phonics[_pNum - 67][_nWord + 2].length; i++) {
+                  $('#b' + i.toString()).css('display', 'inline-block')
+                }
+
+                playPhonetic(
+                  _phonics[_pNum - 67][_nWord + 2].replace(
+                    '┒',
+                    _phonics[_pNum - 67][1],
+                  ),
+                  function () {
+                    if (_nWord >= _phonics[_pNum - 67].length - 3) {
+                      _nWord = 0
+                      _stage = 2
+                      $('body').fadeOut(300)
+                      setTimeout(LoadTest, 300)
+                    } else {
+                      _nWord++
+                      LoadTest()
+                    }
+                  },
+                )
+              }, 800)
+            })
+          }, 800)
+        } else {
+          $('#divStudy1').css('display', 'none')
+          $('#divStudy2').css('display', 'none')
+          $('#divStudy3').css('display', 'block')
+          $('#divFrame').css('background-image', "url('img/intro/bg3.jpg')")
+
+          $('#ancWord').html('')
+          var wTmp = ''
+          for (i = 0; i < _phonics[_pNum - 67][_nWord + 2].length; i++) {
+            if (_phonics[_pNum - 67][_nWord + 2][i] == '┒') {
+              wTmp +=
+                '<a id="c' +
+                i.toString() +
+                '" class="word2" style="display:inline-block;">' +
+                _phonics[_pNum - 67][1] +
+                '</a>'
+              //$('<a id="b' + i.toString() + '" class="word" style="display:inline-block;">' + _phonics[_pNum - 67][1] + '</a>').appendTo('#ancWord');
+            } else {
+              wTmp +=
+                '<a id="c' +
+                i.toString() +
+                '" class="word3" style="display:inline-block;">' +
+                _phonics[_pNum - 67][_nWord + 2][i] +
+                '</a>'
+              //$('<a id="b' + i.toString() + '" class="word" style="display:none; color:black;">' + _phonics[_pNum - 67][_nWord + 2][i] + '</a>').appendTo('#ancWord');
+              //$('#ancWord').append('<a id="b' + i.toString() + '" class="word" style="display:none; color:black;">' + _phonics[_pNum - 67][_nWord + 2][i] + '</a>');
+            }
+          }
+
+          $('#ancWord').html(wTmp)
+          $('#divWord').addClass('blinkblink')
+          $('#imgWord').attr(
+            'src',
+            'img/words/' +
+              _phonics[_pNum - 67][_nWord + 2].replace(
+                '┒',
+                _phonics[_pNum - 67][1],
+              ) +
+              '.png',
+          )
+          //$('#ancWord').html(_phonics[_pNum - 67][_nWord + 2].replace('┒', _phonics[_pNum - 67][1]));
+
+          playPhonetic(
+            _phonics[_pNum - 67][_nWord + 2].replace(
+              '┒',
+              _phonics[_pNum - 67][1],
+            ),
+            function () {
+              if (
+                _nWord >= _phonics[_pNum - 67].length - 3 &&
+                _nHalf % 2 == 1
+              ) {
+                $('#ancWord').removeClass('blinkmove')
+                $('#divPannel1').css('display', 'block')
+              } else {
+                $('#ancWord').removeClass('blinkmove')
+                _nHalf++
+                if (_nHalf % 2 == 0) {
+                  _nWord++
+                }
+                LoadTest()
+              }
+            },
+          )
+        }
+      }
+
+      function playPhonetic(pStr, pEndFun) {
+        if (_snd != undefined && _snd != NaN) {
+          _snd.Stop()
+        }
+
+        var audio = $('#player')
+        if (pStr == 'y') {
+          pStr = '-y'
+        }
+        var sndAddr =
+          'https://wcfresource.a1edu.com/NewSystem/sound/PK/Phonetic/' +
+          pStr +
+          '.mp3'
+
+        audio.attr('src', sndAddr)
+        audio.bind('ended', function () {
+          audio.unbind('ended')
+          if (pEndFun != undefined && pEndFun != NaN) {
+            pEndFun()
+          }
+        })
+        audio[0].pause()
+        audio[0].load()
+        audio[0].play()
+        return false
+      }
+
+      function goStep1() {
+        let nextStep = 'step1' + _phonics[_pNum - 67][0] + '.html'
+        goStep(nextStep.toLowerCase())
+      }
+
+      function StaffGoStep(pPage) {
+        if (pPage == 'step2a') {
+          goStep('step2a.html')
+        } else if (pPage == 'step3a') {
+          goStep('step3a.html')
+        } else {
+          goStep(pPage + '.html')
+        }
+      }
+    </script>
+  </head>
+  <body
+    style="
+      background-image: url('img/common/bg.gif');
+      background-repeat: repeat-x repeat-y;
+    "
+  >
+    <form id="form1">
+      <div
+        id="divFrame"
+        class="clsFrame"
+        style="background-image: url('img/intro/bg1.png')"
+      >
+        <div
+          id="divStepIntro"
+          style="
+            width: 110px;
+            height: 110px;
+            position: absolute;
+            margin-left: 0px;
+            margin-left: 0px;
+          "
+        >
+          <img
+            src="img/common/stepmark.png?ver=230628001"
+            style="position: absolute; width: 110px; height: 110px"
+          />
+          <a
+            class="qzNum"
+            style="position: absolute; margin-left: 30px; margin-top: 45px"
+            >Intro</a
+          >
+        </div>
+
+        <!--<div id="divExit" style="width:72px; height:58px; position:absolute; margin-left:940px; margin-top:10px; cursor:pointer;" onclick="return goIndex();">
+            <img id="imgExit" src="../common/img/exit.png?ver=230628001" />
+        </div>-->
+
+        <div
+          id="divDirection"
+          style="
+            width: 624px;
+            height: 32px;
+            position: absolute;
+            margin-left: 200px;
+            margin-top: 0px;
+            text-align: center;
+          "
+        >
+          <img id="img0a" src="img/common/step0a.png?ver=230628001" />
+        </div>
+
+        <div id="divStudy1" class="studybox"></div>
+
+        <div id="divStudy2" class="studybox" style="display: none"></div>
+
+        <div id="divStudy3" class="studybox" style="display: none">
+          <div>
+            <img
+              id="imgWord"
+              src="#"
+              style="width: 350px; margin-left: 10px; margin-top: -10px"
+            />
+          </div>
+          <div id="divWord" style="margin-left: 20px; margin-top: 130px">
+            <a id="ancWord" class="word3"></a>
+          </div>
+        </div>
+
+        <div
+          id="divPannel1"
+          style="
+            width: 200px;
+            height: 96px;
+            position: absolute;
+            margin-left: 410px;
+            margin-top: 230px;
+            border: 5px solid orange;
+            border-radius: 30px;
+            display: none;
+          "
+        >
+          <img
+            title="Replay"
+            id="imgReplay"
+            src="../common/img/replay.png?ver=230628001"
+            style="margin-left: 10px; margin-top: 5px; cursor: pointer"
+            onclick="_nWord = 0; _stage = 0; _cnt=0; LoadTest();"
+          />
+          <img
+            title="Next"
+            id="imgNext"
+            src="../common/img/next.png?ver=230628001"
+            style="margin-left: 10px; margin-top: 5px; cursor: pointer"
+            onclick="goStep1();"
+          />
+        </div>
+
+        <div
+          id="divStart"
+          style="
+            width: 520px;
+            height: 520px;
+            position: absolute;
+            margin-left: 260px;
+            margin-top: 50px;
+            display: none;
+          "
+        >
+          <img
+            class="rollMove"
+            src="img/common/aLPopBorder.png?ver=230628001"
+            style="position: absolute; float: left; top: 0px; left: 0px"
+          />
+          <img
+            src="img/common/aLPopInner.png?ver=230628001"
+            style="position: absolute; left: 71px; top: 71px"
+          />
+          <img
+            id="imgStart"
+            src="../common/img/start.png?ver=230628001"
+            style="position: absolute; left: 220px; top: 360px; cursor: pointer"
+          />
+
+          <a runat="server" class="txtTitle">Phonics Land</a>
+          <a runat="server" class="txtCourse">Intro</a>
+          <a runat="server" class="txtReady">Are you Ready?</a>
+        </div>
+
+        <div style="display: none">
+          <audio id="player">
+            <source id="mp3Source" type="audio/mp3" />
+          </audio>
+        </div>
+
+        <div
+          id="divBtn"
+          style="
+            position: absolute;
+            top: 150px;
+            width: 70px;
+            height: 100px;
+            display: none;
+          "
+        >
+          <div
+            onclick="StaffGoStep('intro')"
+            style="
+              width: 100px;
+              margin-top: 2px;
+              text-align: center;
+              cursor: pointer;
+              border: 1px solid black;
+              background-color: white;
+            "
+          >
+            &nbsp;intro&nbsp;
+          </div>
+          <div
+            onclick="StaffGoStep('step1a')"
+            style="
+              width: 100px;
+              margin-top: 2px;
+              text-align: center;
+              cursor: pointer;
+              border: 1px solid black;
+              background-color: white;
+            "
+          >
+            step1a
+          </div>
+          <div
+            onclick="StaffGoStep('step1b')"
+            style="
+              width: 100px;
+              margin-top: 2px;
+              text-align: center;
+              cursor: pointer;
+              border: 1px solid black;
+              background-color: white;
+            "
+          >
+            step1b
+          </div>
+          <div
+            onclick="StaffGoStep('step2a')"
+            style="
+              width: 100px;
+              margin-top: 2px;
+              text-align: center;
+              cursor: pointer;
+              border: 1px solid black;
+              background-color: white;
+            "
+          >
+            step2a
+          </div>
+          <div
+            onclick="StaffGoStep('step3a')"
+            style="
+              width: 100px;
+              margin-top: 2px;
+              text-align: center;
+              cursor: pointer;
+              border: 1px solid black;
+              background-color: white;
+            "
+          >
+            step3a
+          </div>
+        </div>
+      </div>
+    </form>
+  </body>
+</html>

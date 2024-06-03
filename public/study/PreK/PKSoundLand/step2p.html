@@ -1,0 +1,233 @@
+﻿
+<!DOCTYPE html>
+
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+    <title></title>
+
+    <meta name="viewport" content="width=device-width, initial-scale=0.95, maximum-scale=0.95, user-scalable=no" />
+    <meta http-equiv="X-UA-Compatible" content="IE=Edge" />
+    <link href="../common/css/prek.css" rel="stylesheet" />
+
+    <style type="text/css">
+        .divNum {
+            width: 72px;
+            height: 70px;
+            margin-left: 13px;
+            margin-top: 11px;
+            float: left;
+            box-shadow: 6px 8px 15px #888888;
+            cursor: pointer;
+            background-color: white;
+            padding-top: 26px;
+            font-size: 30px;
+            text-align: center;
+        }
+
+        #divFrame {
+            background: -webkit-linear-gradient(white, white, skyblue); /* For Safari 5.1 to 6.0 */
+            background: -o-linear-gradient(white, white, skyblue); /* For Opera 11.1 to 12.0 */
+            background: -moz-linear-gradient(white, white, skyblue); /* For Firefox 3.6 to 15 */
+            background: -ms-linear-gradient(white, white, skyblue);
+            background: linear-gradient(white, white, skyblue); /* Standard syntax */
+        }
+
+        #divPractice {
+            width: 800px;
+            height: 540px;
+            position: absolute;
+            margin-left: 140px;
+            margin-top: 80px;
+            text-align: center;
+            /*background-image:url('img/step1/step1p.png');
+            border:0px solid green;*/
+        }
+
+        .work {
+            width: auto;
+            height: auto;
+            margin-top: 40px;
+            position: absolute;
+            font-family: YDVYGO25;
+            border: 0px solid blue;
+        }
+
+        .alphabet {
+            position: absolute;
+            width: 160px;
+            height: 160px;
+            margin: 20px;
+            text-align: center;
+            font-family: YDVYGO25;
+            font-size: 130px;
+            float: left;
+            color: yellow;
+            border: 1px solid red;
+        }
+
+        .letter {
+            position: absolute;
+            width: 300px;
+            height: 150px;
+            margin: 20px;
+            padding: 10px;
+            text-align: center;
+            font-family: YDVYGO25;
+            font-size: 120px;
+            color: yellow;
+            border: 0px solid red;
+        }
+
+        .letterImg {
+            position: absolute;
+            width: 160px;
+            height: 160px;
+            margin: 20px;
+            border: 0px solid red;
+        }
+    </style>
+
+    <script src="../common/js/sweetalert.min.js"></script>
+    <script src="../common/js/jquery-1.4.min.js"></script>
+    <script src="../common/js/jquery-ui-1.7.2.custom.min.js"></script>
+
+    <script type="text/javascript" src="../common/js/api.js"></script>
+    <script type="text/javascript" src="../common/js/global_function.js?ver=230628001"></script>
+    <script type="text/javascript" src="../common/js/prek.js?ver=230628003"></script>
+    <script type="text/javascript" src="../common/js/jquery.easing.1.3.js"></script>
+    <script type="text/javascript" src="js/soundland.js?ver=230628001"></script>
+    <script type="text/javascript" src="js/step2p.js?ver=230628003"></script>
+
+    <script type="text/javascript">
+        function Start() {
+            if (_snd != undefined && _snd != NaN) {
+                _snd.Stop();
+            }
+
+            hidePopup();
+
+            return false;
+        }
+
+        function hidePopup() {
+            $('#divStart').hide('puff', {
+                duration: 'slow',
+                easing: 'swing',
+                queue: false
+            }, 1000);
+
+            StopLandBGM();
+            _letter = _soundland[_selected + _cnt].letter;
+            _word = _soundland[_selected + _cnt].qword;
+            LoadTest();
+            //setTimeout(LoadTest, 1100);
+        }
+
+        function StaffGoStep(pPage) {
+            goStep(pPage + '.html');
+        }
+    </script>
+</head>
+<body style="background-image:url('img/common/bg.gif'); background-repeat:repeat-x repeat-y;">
+    <form id="form1">
+    <div id="divFrame" class="clsFrame" style="background-image:url('img/step2/step2p.png');">
+        <div id="divStepIntro" style="width:110px; height:110px; position:absolute; margin-left:0px; margin-left:0px;">
+            <img src="img/common/stepmark.png?ver=230628001" style="width:110px; height:110px; position:absolute; margin-left:0px; margin-left:0px;"/>
+            <a class="qzNum">Step2</a>
+            <a id="ancMark" class="mark" style="margin-top:60px; font-size:14px;">Practice</a>
+        </div>
+        
+        <!--<div id="divExit" style="width:72px; height:58px; position:absolute; margin-left:940px; margin-top:10px; cursor:pointer;" onclick="return goIndex();">
+            <img id="imgExit" src="../common/img/exit.png?ver=230628001" />
+        </div>-->
+
+        <div id="divPractice" >
+            <div style="position:absolute; margin-left:100px; margin-top:150px; padding-left:50px; text-align:center; width:600px; height:200px; border:0px solid red;">
+                <div id="divWordsArray" class="work" style="display:block;">
+                </div>
+            </div>
+        </div>
+
+        <div id="divStart" style="width:520px; height:520px; position:absolute; margin-left:260px; margin-top:50px; display:none;  z-index:11">
+            <img class="rollMove" src="img/common/aLPopBorder.png?ver=230628001" style="position:absolute; float:left; top: 0px; left: 0px;" />
+            <img src="img/common/aLPopInner.png?ver=230628001" style="position:absolute; left:71px; top:71px;"/>
+            <img id="imgStart" src="../common/img/start.png?ver=230628001" style="position:absolute; left:220px; top:360px; cursor:pointer;"/>
+            <a runat="server" class="txtTitle">Story Land</a>
+            <a runat="server" class="txtCourse">Step2</a>
+            <a runat="server" class="txtState">Practice</a>
+            <a runat="server" class="txtReady">Are you Ready?</a>
+        </div>
+
+        <div id="divPannel1" style="width:200px; height:96px; position:absolute; margin-left:410px; margin-top:230px; border:5px solid orange; border-radius:30px; display:none;" >
+            <img title="Replay" src="../common/img/replay.png?ver=230628001" style="margin-left:10px; margin-top:5px; cursor:pointer;" onclick="_cnt=0; LoadTest();"/>
+            <img title="Next" src="../common/img/next.png?ver=230628001"  style="margin-left:10px; margin-top:5px; cursor:pointer;" onclick="goStep2T();"/>
+        </div>
+
+        <div id="divBtn" style="position:absolute; top:150px; width:70px; height:100px; display:none;">
+            <div onclick="StaffGoStep('intro')"  style="width:100px; margin-top:2px; text-align:center; cursor:pointer; border:1px solid black; background-color:white;" >intro</div>
+            <div onclick="StaffGoStep('step1p')"  style="width:100px; margin-top:2px; text-align:center; cursor:pointer; border:1px solid black; background-color:white;" >step1p</div>
+            <div onclick="StaffGoStep('step1a')"  style="width:100px; margin-top:2px; text-align:center; cursor:pointer; border:1px solid black; background-color:white;" id="lblStep1A" >step1a</div>
+            <div onclick="StaffGoStep('step1b')"  style="width:100px; margin-top:2px; text-align:center; cursor:pointer; border:1px solid black; background-color:white;" id="lblStep1B" >step1b</div>
+            <div onclick="StaffGoStep('step2p')"  style="width:100px; margin-top:2px; text-align:center; cursor:pointer; border:1px solid black; background-color:white;" >step2p</div>
+            <div onclick="StaffGoStep('step2a')"  style="width:100px; margin-top:2px; text-align:center; cursor:pointer; border:1px solid black; background-color:white;" >step2a</div>
+            <div onclick="StaffGoStep('step3a')"  style="width:100px; margin-top:2px; text-align:center; cursor:pointer; border:1px solid black; background-color:white;" >step3a</div>
+        </div>
+    </div>
+
+    <div style="display:none;">
+        <audio id="player">
+            <source id="mp3Source" type="audio/mp3" />
+        </audio>
+    </div>
+    </form>
+
+<script type="text/javascript">
+    $(document).ready(function () {
+        // Step1 저장
+        if (_usermode === '1') {
+            saveRecord(1, false).then(data=> {
+                if(!data.ok){
+                    throw Error('')
+                }
+                return data.json()
+            }).then(json => {
+                if(json.result === 0){
+              
+                }else{
+                    throw Error('')
+                }
+            }).catch(error => {
+
+            })
+        }else{
+        }
+    });
+
+    getArgs();
+    var getParam = function (key) {
+        var _parammap = {};
+        document.location.search.replace(/\??(?:([^=]+)=([^&]*)&?)/g, function () {
+            function decode(s) {
+                return decodeURIComponent(s.split("+").join(" "));
+            }
+
+            _parammap[decode(arguments[1])] = decode(arguments[2]);
+        });
+
+        return _parammap[key];
+    };
+
+    _pNum = getParam("arg1");
+    _usermode = getParam("arg2");
+
+    if (_usermode == "3") {
+        if (_soundland[(_pNum - 27) * 24 + 6].qtype == 'A') {
+            document.getElementById("lblStep1B").hidden = true;
+        } else {
+            document.getElementById("lblStep1A").hidden = true;
+        }
+    }
+</script>
+
+</body>
+</html>

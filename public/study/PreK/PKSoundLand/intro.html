@@ -1,0 +1,909 @@
+﻿<!doctype html>
+
+<html xmlns="http://www.w3.org/1999/xhtml">
+  <head>
+    <title></title>
+
+    <meta
+      name="viewport"
+      content="width=device-width, initial-scale=0.95, maximum-scale=0.95, user-scalable=no"
+    />
+    <meta http-equiv="X-UA-Compatible" content="IE=Edge" />
+    <link href="../common/css/prek.css" rel="stylesheet" />
+
+    <style type="text/css">
+      .letter {
+        position: relative;
+        float: left;
+        width: 100px;
+        height: 70px;
+        border: 0px solid red;
+        margin-left: 15px;
+        font-family: YDVYGO23;
+        font-size: 45px;
+        text-align: center;
+        padding-top: 30px;
+        letter-spacing: -4px;
+        border-radius: 20px;
+      }
+
+      .words {
+        position: relative;
+        float: left;
+        width: 160px;
+        height: 70px;
+        border: 0px solid red;
+        margin-left: 10px;
+        font-family: YDVYGO23;
+        font-size: 53px;
+        text-align: center;
+        padding-top: 26px;
+        letter-spacing: -5px;
+        border-radius: 20px;
+      }
+
+      .image {
+        position: relative;
+        float: left;
+        width: 160px;
+        height: 130px;
+        border: 0px solid red;
+        margin-left: 8px;
+        font-family: YDVYGO25;
+        font-size: 50px;
+        text-align: center;
+        margin-top: -15px;
+      }
+
+      .keyword {
+        float: left;
+        height: 60px;
+        border: 0px solid red;
+        margin-left: 15px;
+        font-family: YDVYGO23;
+        font-size: 55px;
+        text-align: center;
+        letter-spacing: -4px;
+        border-radius: 20px;
+        color: red;
+        border: 0px solid blue;
+        padding-top: 10px;
+        padding-left: 3px;
+        padding-right: 5px;
+      }
+
+      .imgword {
+        float: left;
+        height: 60px;
+        border: 0px solid red;
+        /*width:150px;*/
+        height: 90px;
+        margin-top: -10px;
+        margin-left: 15px;
+        font-family: YDVYGO23;
+        font-size: 53px;
+        text-align: center;
+        letter-spacing: -4px;
+        border-radius: 20px;
+        color: red;
+        border: 0px solid blue;
+      }
+
+      .storyword {
+        /*position:relative;*/
+        float: left;
+        height: 60px;
+        margin-left: 15px;
+        font-family: YDVYGO23;
+        font-size: 55px;
+        text-align: center;
+        letter-spacing: -4px;
+        padding-top: 10px;
+        padding-left: 3px;
+        padding-right: 5px;
+        border-radius: 20px;
+        border: 0px solid red;
+      }
+    </style>
+
+    <script src="../common/js/sweetalert.min.js"></script>
+    <script src="../common/js/jquery-2.1.4.min.js"></script>
+    <script src="../common/js/jquery-ui-1.8.21.min.js"></script>
+
+    <script type="text/javascript" src="../common/js/api.js"></script>
+    <script
+      type="text/javascript"
+      src="../common/js/global_function.js?ver=230628001"
+    ></script>
+    <script
+      type="text/javascript"
+      src="../common/js/prek.js?ver=230628002"
+    ></script>
+    <script
+      type="text/javascript"
+      src="../common/js/jquery.easing.1.3.js"
+    ></script>
+    <script type="text/javascript" src="js/soundland.js?ver=230628001"></script>
+
+    <script type="text/javascript">
+      var getParam = function (key) {
+        var _parammap = {}
+        document.location.search.replace(
+          /\??(?:([^=]+)=([^&]*)&?)/g,
+          function () {
+            function decode(s) {
+              return decodeURIComponent(s.split('+').join(' '))
+            }
+
+            _parammap[decode(arguments[1])] = decode(arguments[2])
+          },
+        )
+
+        return _parammap[key]
+      }
+
+      var _letter
+      var _pNum
+      var _move = false
+      var _cnt = 0
+      var _try = 0
+
+      $(document).ready(function () {
+        getStudyRecord()
+          .then((data) => {
+            if (!data.ok) {
+              throw new Error('Network response was not ok')
+            }
+            return data.json()
+          })
+          .then((json) => {
+            const score1 = json.ScoreStep1
+            const score2 = json.ScoreStep2
+            const score3 = json.ScoreStep3
+
+            getArgs()
+            if (
+              (score1 === '100' || score2 === '100' || score3 === '100') &&
+              _usermode === '1'
+            ) {
+              // 기존의 학습 이력이 있으면 해당 Step으로 바로 이동
+              if (score1 === '100' && score2 === '100') {
+                // Step3 Activity로 이동
+                goStep('step3a.html')
+                return false
+              } else if (score1 === '100') {
+                // Step2 Activity로 이동
+                goStep('step2p.html')
+                return false
+              }
+            } else {
+              $('#divStart').css('display', 'block')
+              $('#imgStart').bind('click', function (e) {
+                Start()
+              })
+
+              PlayDirection('SoundLand', 'EB-PK-SC.mp3', undefined)
+            }
+          })
+          .catch((error) => {
+            swal('학습 정보를 가져올 수 없습니다. - SoundLand/intro.html')
+          })
+      })
+
+      function Start() {
+        if (_snd != undefined && _snd != NaN) {
+          _snd.Stop()
+        }
+
+        hidePopup()
+        LoadTest()
+      }
+
+      function hidePopup() {
+        $('#divStart').hide(
+          'puff',
+          {
+            duration: 'slow',
+            easing: 'swing',
+            queue: false,
+          },
+          1000,
+        )
+
+        StopLandBGM()
+
+        ShowNextQzBtn()
+        $('#imgPlayStart').attr('src', '../common/img/sori.png')
+        showClick()
+      }
+
+      function LoadTest() {
+        UnLockScreen()
+
+        playChant()
+        //loadStory();
+
+        $('#divChant1').css('display', 'block')
+        $('#divChant2').css('display', 'block')
+        $('#divPannel1').css('display', 'none')
+
+        var selected = (_pNum - 27) * 24
+        var letter1 = _soundland[selected + _cnt * 2].letter
+        var letter2 = _soundland[selected + _cnt * 2 + 1].letter
+        var word1 = _soundland[selected + _cnt * 2].qword
+        var word2 = _soundland[selected + _cnt * 2 + 1].qword
+        var code = _soundland[selected].code
+
+        $('#stn_1')[0].innerHTML = letter1
+        $('#stn_2')[0].innerHTML = letter1
+        $('#stn_3')[0].innerHTML = letter1
+        $('#stn_4')[0].innerHTML =
+          '<img src="img/quiz/' +
+          code +
+          '/EB-' +
+          code +
+          '-SC-' +
+          word1 +
+          '.png" style="width:160px; height:130px;" />'
+        $('#stn_5')[0].innerHTML = word1
+        $('#stn_6')[0].innerHTML = word1
+
+        $('#stn_7')[0].innerHTML = letter2
+        $('#stn_8')[0].innerHTML = letter2
+        $('#stn_9')[0].innerHTML = letter2
+        $('#stn_10')[0].innerHTML =
+          '<img src="img/quiz/' +
+          code +
+          '/EB-' +
+          code +
+          '-SC-' +
+          word2 +
+          '.png" style="width:160px; height:130px;" />'
+        $('#stn_11')[0].innerHTML = word2
+        $('#stn_12')[0].innerHTML = word2
+      }
+
+      function playChant() {
+        if (_snd != undefined && _snd != NaN) {
+          _snd.Stop()
+        }
+
+        var code = _soundland[(_pNum - 27) * 24].code
+        var audio = $('#player')
+        var storyArr
+
+        if (_cnt == 0) {
+          storyArr = _chantArr1
+        } else if (_cnt == 1) {
+          storyArr = _chantArr2
+        } else if (_cnt == 2) {
+          storyArr = _chantArr3
+        }
+
+        // 사운드가 끝나면 호출되는 함수를 정의
+        var highLight = function () {
+          var i
+          var totalTime = Math.ceil(audio[0].duration * 1000)
+          var currentTime = Math.ceil(audio[0].currentTime * 1000)
+
+          for (i = 0; i < storyArr[_pNum - 27].length; i++) {
+            if (i < storyArr[_pNum - 27].length - 1) {
+              if (
+                currentTime > storyArr[_pNum - 27][i] &&
+                currentTime < storyArr[_pNum - 27][i + 1]
+              ) {
+                if (i >= 1) {
+                  $('#stn_' + i).css('background-color', 'transparent')
+                  setScale(i, 1)
+                }
+                if (i + 1 == 4 || i + 1 == 10) {
+                  setScale(i + 1, 1.4)
+                } else {
+                  $('#stn_' + (i + 1).toString()).css(
+                    'background-color',
+                    'yellow',
+                  )
+                }
+              }
+            } else if ((i = storyArr[_pNum - 27].length - 1)) {
+              if (currentTime > storyArr[_pNum - 27][i]) {
+                if (i >= 1) {
+                  $('#stn_' + i).css('background-color', 'transparent')
+                }
+
+                $('#stn_' + (i + 1).toString()).css(
+                  'background-color',
+                  'yellow',
+                )
+              }
+            }
+          }
+
+          // 재생 시간이 토탈 시간보다 크게되면 함수 호출
+          if (totalTime <= currentTime) {
+            $('#player').unbind('timeupdate', highLight)
+            $('#stn_12').css('background-color', 'transparent')
+            setScale(12, 1)
+            // todo 모두 끝남
+            if (_cnt < 2) {
+              _cnt++
+              // 따라읽기 인터벌 2초
+              //LoadTest();
+              setTimeout(LoadTest, 2500)
+            } else {
+              _cnt = 0
+
+              //$('#divChant1').css('display', 'none');
+              //$('#divChant2').css('display', 'none');
+              $('#divPannel1').css('display', 'block')
+            }
+          }
+        }
+
+        // 재생시간이 변경될 때 마다 함수 호출
+        $('#player').bind('timeupdate', highLight)
+
+        var sndAddr =
+          'https://wcfresource.a1edu.com/NewSystem/sound/PK/SoundLand/' +
+          code +
+          '/EB-' +
+          code +
+          '-SC-C-0' +
+          (_cnt + 1).toString() +
+          '.mp3'
+
+        audio.attr('src', sndAddr)
+        audio[0].pause()
+        audio[0].load()
+        audio[0].play()
+
+        return false
+      }
+
+      function setScale(pNum, pScale) {
+        $('#stn_' + pNum).css('transform', 'scale(' + pScale + ')')
+      }
+
+      function loadStory() {
+        var imgBg
+        $('#divText').empty()
+        $('#divFrame').css('background-color', 'white')
+        $('#divStory').css('display', 'block')
+        $('#divChant1').css('display', 'none')
+        $('#divChant2').css('display', 'none')
+        $('#divPannel1').css('display', 'none')
+        $('#divPannel2').css('display', 'none')
+        $('body').fadeOut(500)
+
+        setTimeout(function () {
+          $('body').fadeIn(400)
+          $('#ancMark')[0].innerHTML = 'Story'
+          if (_pNum - 26 < 10) {
+            imgBg =
+              'img/quiz/pk-0' +
+              (_pNum - 26) +
+              '/EB-PK-0' +
+              (_pNum - 26) +
+              '-SC-S-0' +
+              ((Math.floor(_try / 2) % 3) + 1).toString() +
+              '.jpg'
+          } else {
+            imgBg =
+              'img/quiz/pk-' +
+              (_pNum - 26) +
+              '/EB-PK-' +
+              (_pNum - 26) +
+              '-SC-S-0' +
+              ((Math.floor(_try / 2) % 3) + 1).toString() +
+              '.jpg'
+          }
+          $('#divFrame')
+            .css('background-image', 'url(' + imgBg + ')')
+            .css('background-repeat', 'no-repeat')
+
+          setText()
+          playStory()
+        }, 500)
+      }
+
+      function playStory() {
+        if (_snd != undefined && _snd != NaN) {
+          _snd.Stop()
+        }
+
+        var code = _soundland[(_pNum - 27) * 24].code
+        var audio = $('#player')
+        var storyArr
+
+        if (Math.floor(_try / 2) % 3 == 0) {
+          storyArr = _storyArr1
+        } else if (Math.floor(_try / 2) % 3 == 1) {
+          storyArr = _storyArr2
+        } else if (Math.floor(_try / 2) % 3 == 2) {
+          storyArr = _storyArr3
+        }
+
+        // 사운드가 끝나면 호출되는 함수를 정의
+        var highLight = function () {
+          var i
+          var totalTime = Math.ceil(audio[0].duration * 1000)
+          var currentTime = Math.ceil(audio[0].currentTime * 1000)
+
+          for (i = 0; i < storyArr[_pNum - 27].length; i++) {
+            if (i < storyArr[_pNum - 27].length - 1) {
+              if (
+                currentTime > storyArr[_pNum - 27][i] &&
+                currentTime < storyArr[_pNum - 27][i + 1]
+              ) {
+                $('#sts_' + (i + 1).toString()).css(
+                  'background-color',
+                  'yellow',
+                )
+              } else {
+                $('#sts_' + (i + 1).toString()).css(
+                  'background-color',
+                  'transparent',
+                )
+              }
+            } else {
+              if (currentTime > storyArr[_pNum - 27][i]) {
+                $('#sts_' + (i + 1).toString()).css(
+                  'background-color',
+                  'yellow',
+                )
+              } else {
+                $('#sts_' + (i + 1).toString()).css(
+                  'background-color',
+                  'transparent',
+                )
+              }
+            }
+          }
+
+          // 재생 시간이 토탈 시간보다 크게되면 함수 호출
+          if (totalTime <= currentTime) {
+            $('#player').unbind('timeupdate', highLight)
+            _try++
+
+            if (_try >= 6) {
+              _try = 0
+              $('#divPannel2').css('display', 'block')
+            } else {
+              // 따라읽기 인터벌 2초
+              //loadStory();
+              setTimeout(loadStory, 2500)
+            }
+          }
+        }
+
+        // 재생시간이 변경될 때 마다 함수 호출
+        $('#player').bind('timeupdate', highLight)
+
+        var sndAddr =
+          'https://wcfresource.a1edu.com/NewSystem/sound/PK/SoundLand/' +
+          code +
+          '/EB-' +
+          code +
+          '-SC-S-0' +
+          Math.floor(((_try / 2) % 3) + 1).toString() +
+          '.mp3'
+
+        audio.attr('src', sndAddr)
+        audio[0].pause()
+        audio[0].load()
+        audio[0].play()
+        return false
+      }
+
+      function setText() {
+        var i = 0
+        var j = 0
+        var k = 0
+        var arrTmp
+        var selected = (_pNum - 27) * 24
+        var arrStory = _soundland[selected + _try].choice1.split(' ')
+        var arrWords = _soundland[selected + _try].choice2.split('┒')
+        var code = _soundland[selected].code
+
+        //$('#divText').append('<img src="../common/img/sori.png" onclick="playStory();" style="cursor:pointer; margin-left:20px; float:left;" />');
+
+        for (i = 0; i < arrStory.length; i++) {
+          if (arrStory[i] == '┒') {
+            if (_try % 2 == 0) {
+              $('#divText').append(
+                '<div id="sts_' +
+                  (i + 1).toString() +
+                  '" class="imgword"><img src="img/quiz/' +
+                  code +
+                  '/EB-' +
+                  code +
+                  '-SC-' +
+                  arrWords[j] +
+                  '.png" style="width:120px; height:90px;" /></div>',
+              )
+              j++
+            } else {
+              $('#divText').append(
+                '<div id="sts_' +
+                  (i + 1).toString() +
+                  '" class="keyword">' +
+                  arrWords[j] +
+                  '</div>',
+              )
+              j++
+            }
+          } else {
+            if (arrStory[i].length >= 2 && arrStory[i].indexOf('┒') != -1) {
+              arrTmp = arrStory[i].replace('┒', '┒ ').split(' ')
+              for (k = 0; k < arrTmp.length; k++) {
+                if (arrTmp[k] == '┒') {
+                  if (_try % 2 == 0) {
+                    var htmTxt
+                    htmTxt =
+                      '<div id="sts_' +
+                      (i + 1).toString() +
+                      '" class="imgword">'
+                    htmTxt +=
+                      ' <img src="img/quiz/' +
+                      code +
+                      '/EB-' +
+                      code +
+                      '-SC-' +
+                      arrWords[j] +
+                      '.png" style="width:120px; height:90px;" />'
+                    htmTxt +=
+                      ' <a style="color:black; position:relative; float:right; height:60px; margin-top:20px; margin-left:0px;">' +
+                      arrTmp[k + 1] +
+                      '</a>'
+                    htmTxt += '</div>'
+                    $('#divText').append(htmTxt)
+                    j++
+                  } else {
+                    $('#divText').append(
+                      '<div id="sts_' +
+                        (i + 1).toString() +
+                        '" class="keyword">' +
+                        arrWords[j] +
+                        '<a style="color:black; margin-left:0px;">' +
+                        arrTmp[k + 1] +
+                        '</a></div>',
+                    )
+                    j++
+                  }
+                }
+              }
+            } else {
+              $('#divText').append(
+                '<div id="sts_' +
+                  (i + 1).toString() +
+                  '" class="storyword">' +
+                  arrStory[i] +
+                  '</div>',
+              )
+            }
+          }
+        }
+      }
+
+      function goStep1() {
+        goStep('step1p.html')
+      }
+
+      function StaffGoStep(pPage) {
+        goStep(pPage + '.html')
+      }
+    </script>
+  </head>
+  <body
+    style="
+      background-image: url('img/common/bg.gif');
+      background-repeat: repeat-x repeat-y;
+    "
+  >
+    <form id="form1">
+      <div
+        id="divFrame"
+        class="clsFrame"
+        style="background-image: url('img/step0/Chant_design.jpg')"
+      >
+        <div
+          id="divStepIntro"
+          style="
+            width: 110px;
+            height: 110px;
+            position: absolute;
+            margin-left: 0px;
+            margin-left: 0px;
+          "
+        >
+          <img
+            src="img/common/stepmark.png"
+            style="
+              width: 110px;
+              height: 110px;
+              position: absolute;
+              margin-left: 0px;
+              margin-left: 0px;
+            "
+          />
+          <a id="ancMark" class="mark">Chant</a>
+        </div>
+
+        <!--<div id="divExit" style="width:72px; height:58px; position:absolute; margin-left:940px; margin-top:10px; cursor:pointer;" onclick="return goIndex();">
+            <img id="imgExit" src="../common/img/exit.png" />
+        </div>-->
+
+        <div
+          id="divChant1"
+          style="
+            width: 860px;
+            height: 140px;
+            position: absolute;
+            margin-left: 80px;
+            margin-top: 150px;
+            border: 0px solid red;
+          "
+        >
+          <div id="stn_1" class="letter" style=""></div>
+          <div id="stn_2" class="letter" style=""></div>
+          <div id="stn_3" class="letter" style=""></div>
+          <div id="stn_4" class="image" style=""></div>
+          <div id="stn_5" class="words" style=""></div>
+          <div id="stn_6" class="words" style=""></div>
+        </div>
+        <div
+          id="divChant2"
+          style="
+            width: 860px;
+            height: 140px;
+            position: absolute;
+            margin-left: 80px;
+            margin-top: 310px;
+            border: 0px solid red;
+          "
+        >
+          <div id="stn_7" class="letter" style=""></div>
+          <div id="stn_8" class="letter" style=""></div>
+          <div id="stn_9" class="letter" style=""></div>
+          <div id="stn_10" class="image" style=""></div>
+          <div id="stn_11" class="words" style=""></div>
+          <div id="stn_12" class="words" style=""></div>
+        </div>
+
+        <div
+          id="divStart"
+          style="
+            width: 520px;
+            height: 520px;
+            position: absolute;
+            margin-left: 260px;
+            margin-top: 50px;
+            display: none;
+            z-index: 11;
+          "
+        >
+          <img
+            class="rollMove"
+            src="img/common/aLPopBorder.png"
+            style="position: absolute; float: left; top: 0px; left: 0px"
+          />
+          <img
+            src="img/common/aLPopInner.png"
+            style="position: absolute; left: 71px; top: 71px"
+          />
+          <img
+            id="imgStart"
+            src="../common/img/start.png"
+            style="position: absolute; left: 220px; top: 360px; cursor: pointer"
+          />
+          <a runat="server" class="txtTitle">Story Land</a>
+          <a runat="server" class="txtCourse" style="font-size: 54px"
+            >Chant & Story</a
+          >
+          <a runat="server" class="txtReady">Are you Ready?</a>
+        </div>
+
+        <div
+          id="divPannel1"
+          style="
+            width: 200px;
+            height: 96px;
+            position: absolute;
+            margin-left: 410px;
+            margin-top: 230px;
+            border: 5px solid orange;
+            border-radius: 30px;
+            display: none;
+          "
+        >
+          <img
+            title="Replay"
+            src="../common/img/replay.png"
+            style="margin-left: 10px; margin-top: 5px; cursor: pointer"
+            onclick="_cnt=0; LoadTest();"
+          />
+          <img
+            title="Next"
+            src="../common/img/next.png"
+            style="margin-left: 10px; margin-top: 5px; cursor: pointer"
+            onclick="loadStory();"
+          />
+        </div>
+
+        <div
+          id="divStory"
+          style="
+            width: 1024px;
+            height: 96px;
+            position: absolute;
+            margin-left: 0px;
+            margin-top: 550px;
+            text-align: center;
+            border: 0px solid red;
+            display: none;
+          "
+        >
+          <div
+            id="divText"
+            style="
+              border: 0px solid green;
+              position: relative;
+              display: inline-block;
+            "
+          ></div>
+        </div>
+
+        <div
+          id="divPannel2"
+          style="
+            width: 200px;
+            height: 96px;
+            position: absolute;
+            margin-left: 410px;
+            margin-top: 230px;
+            border: 5px solid orange;
+            border-radius: 30px;
+            display: none;
+          "
+        >
+          <img
+            title="Replay"
+            src="../common/img/replay.png"
+            style="margin-left: 10px; margin-top: 5px; cursor: pointer"
+            onclick="_try=0; loadStory();"
+          />
+          <img
+            title="Next"
+            src="../common/img/next.png"
+            style="margin-left: 10px; margin-top: 5px; cursor: pointer"
+            onclick="goStep1();"
+          />
+        </div>
+
+        <div
+          id="divBtn"
+          style="
+            position: absolute;
+            top: 150px;
+            width: 70px;
+            height: 100px;
+            display: none;
+          "
+        >
+          <div
+            onclick="StaffGoStep('intro')"
+            style="
+              width: 100px;
+              margin-top: 2px;
+              text-align: center;
+              cursor: pointer;
+              border: 1px solid black;
+              background-color: white;
+            "
+          >
+            &nbsp;intro&nbsp;
+          </div>
+          <div
+            onclick="StaffGoStep('step1p')"
+            style="
+              width: 100px;
+              margin-top: 2px;
+              text-align: center;
+              cursor: pointer;
+              border: 1px solid black;
+              background-color: white;
+            "
+          >
+            step1p
+          </div>
+          <div
+            onclick="StaffGoStep('step1a')"
+            style="
+              width: 100px;
+              margin-top: 2px;
+              text-align: center;
+              cursor: pointer;
+              border: 1px solid black;
+              background-color: white;
+            "
+            id="lblStep1A"
+          >
+            step1a
+          </div>
+          <div
+            onclick="StaffGoStep('step1b')"
+            style="
+              width: 100px;
+              margin-top: 2px;
+              text-align: center;
+              cursor: pointer;
+              border: 1px solid black;
+              background-color: white;
+            "
+            id="lblStep1B"
+          >
+            step1b
+          </div>
+          <div
+            onclick="StaffGoStep('step2p')"
+            style="
+              width: 100px;
+              margin-top: 2px;
+              text-align: center;
+              cursor: pointer;
+              border: 1px solid black;
+              background-color: white;
+            "
+          >
+            step2p
+          </div>
+          <div
+            onclick="StaffGoStep('step2a')"
+            style="
+              width: 100px;
+              margin-top: 2px;
+              text-align: center;
+              cursor: pointer;
+              border: 1px solid black;
+              background-color: white;
+            "
+          >
+            step2a
+          </div>
+          <div
+            onclick="StaffGoStep('step3a')"
+            style="
+              width: 100px;
+              margin-top: 2px;
+              text-align: center;
+              cursor: pointer;
+              border: 1px solid black;
+              background-color: white;
+            "
+          >
+            step3a
+          </div>
+        </div>
+      </div>
+
+      <div style="display: none">
+        <audio id="player">
+          <source id="mp3Source" type="audio/mp3" />
+        </audio>
+      </div>
+    </form>
+
+    <script type="text/javascript">
+      _pNum = getParam('arg1')
+      _usermode = getParam('arg2')
+
+      if (_usermode == '3') {
+        if (_soundland[(_pNum - 27) * 24 + 6].qtype == 'A') {
+          document.getElementById('lblStep1B').hidden = true
+        } else {
+          document.getElementById('lblStep1A').hidden = true
+        }
+      }
+    </script>
+  </body>
+</html>

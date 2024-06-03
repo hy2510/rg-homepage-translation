@@ -1,0 +1,104 @@
+{
+	"textures": [
+		{
+			"image": "acorn-sprites.png",
+			"format": "RGBA8888",
+			"size": {
+				"w": 532,
+				"h": 193
+			},
+			"scale": 1,
+			"frames": [
+				{
+					"filename": "acorn1",
+					"rotated": false,
+					"trimmed": false,
+					"sourceSize": {
+						"w": 133,
+						"h": 193
+					},
+					"spriteSourceSize": {
+						"x": 0,
+						"y": 0,
+						"w": 133,
+						"h": 193
+					},
+					"frame": {
+						"x": 0,
+						"y": 0,
+						"w": 133,
+						"h": 193
+					}
+				},
+				{
+					"filename": "acorn2",
+					"rotated": false,
+					"trimmed": false,
+					"sourceSize": {
+						"w": 133,
+						"h": 193
+					},
+					"spriteSourceSize": {
+						"x": 0,
+						"y": 0,
+						"w": 133,
+						"h": 193
+					},
+					"frame": {
+						"x": 133,
+						"y": 0,
+						"w": 133,
+						"h": 193
+					}
+				},
+				{
+					"filename": "acorn3",
+					"rotated": false,
+					"trimmed": false,
+					"sourceSize": {
+						"w": 133,
+						"h": 193
+					},
+					"spriteSourceSize": {
+						"x": 0,
+						"y": 0,
+						"w": 133,
+						"h": 193
+					},
+					"frame": {
+						"x": 266,
+						"y": 0,
+						"w": 133,
+						"h": 193
+					}
+				},
+				{
+					"filename": "acorn4",
+					"rotated": false,
+					"trimmed": false,
+					"sourceSize": {
+						"w": 133,
+						"h": 193
+					},
+					"spriteSourceSize": {
+						"x": 0,
+						"y": 0,
+						"w": 133,
+						"h": 193
+					},
+					"frame": {
+						"x": 399,
+						"y": 0,
+						"w": 133,
+						"h": 193
+					}
+				}
+			]
+		}
+	],
+	"meta": {
+		"app": "https://www.codeandweb.com/texturepacker",
+		"version": "3.0",
+		"smartupdate": "$TexturePacker:SmartUpdate:934d47ea4109cf7ed12f3a87beb94f14:50d4f3c879c78ab5798cb963799f057c:217b7102e5d6a2916d7279b2f87c8d11$"
+	}
+}

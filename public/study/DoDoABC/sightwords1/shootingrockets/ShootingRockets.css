@@ -1,0 +1,349 @@
+﻿@charset "utf-8";
+
+/* CSS Document */
+
+
+/* 공통영역 */
+
+
+
+.box {
+    width: 1280px;
+    min-width: 1280px;
+    height: 720px;
+    position: relative;
+    overflow: hidden;
+}
+
+.exit {
+    width: 4rem;
+    height: auto;
+    margin: 1.6em;
+    cursor: pointer;
+    position: absolute;
+    top: 0;
+    left: 0;
+    opacity: 0.85;
+    z-index: 9999;
+}
+
+/* 컨텐츠 - 5-B Rocket */
+
+.sw_bg {
+    background-image: url(./images/sw_bg.png);
+}
+
+.bg_star {
+    width: 100%;
+    height: 100%;
+    background-image: url(./images/bg_star01.png);
+    opacity: 0;
+    animation: bg_star 5s infinite;
+}
+
+@keyframes bg_star {
+    50% {
+        opacity: 1;
+    }
+}
+
+.bg_rock01 {
+    width: 105px;
+    height: 65px;
+    background-image: url(./images/bg_rock01.png);
+    position: absolute;
+    top: 30px;
+    left: 480px;
+}
+
+.bg_rock02 {
+    width: 68px;
+    height: 110px;
+    background-image: url(./images/bg_rock02.png);
+    position: absolute;
+    top: 590px;
+    left: 124px;
+}
+
+.cloud {
+    width: 2328px;
+    height: 493px;
+    background-image: url(./images/bg_cloud.png);
+    opacity: 0.9;
+    position: absolute;
+    top: 60px;
+    left: 0;
+    animation: cloud 40s linear infinite;
+}
+
+@keyframes cloud {
+    to {
+        background-position: 2328px;
+    }
+}
+
+.wave {
+    animation: wave 20s linear infinite;
+}
+
+@keyframes wave {
+    10%, 90% {
+        transform: translate3d(-10px, -14px, 0);
+    }
+
+    20%, 80% {
+        transform: translate3d(-10px, 18px, -13px);
+    }
+
+    30%, 50%, 70% {
+        transform: translate3d( -12px,8px, 13px);
+    }
+
+    40%, 60% {
+        transform: translate3d(12px, 10px, -16px);
+    }
+}
+
+
+.planet {
+    width: 427px;
+    height: 427px;
+    background-image: url(./images/planet.png);
+    position: absolute;
+    top: -100px;
+    right: -130px;
+    transform: rotate(0);
+    animation: planet 80s linear infinite;
+}
+
+@keyframes planet {
+    50% {
+        background-image: url(./images/planet02.png);
+    }
+
+    100% {
+        transform: rotate(-360deg);
+    }
+}
+
+.bg_sky01 {
+    width: 100%;
+    height: 100%;
+    background-image: url(./images/bg_sky01.png);
+    position: absolute;
+    top: 0;
+    left: 0;
+    opacity: 0;
+    animation: sky 6s infinite;
+}
+
+@keyframes sky {
+    50% {
+        opacity: 1;
+    }
+}
+
+.bg_sky02 {
+    width: 100%;
+    height: 100%;
+    background-image: url(./images/bg_sky02.png);
+    position: absolute;
+    top: 0;
+    left: 0;
+    opacity: 0;
+    animation: sky 7s infinite;
+}
+
+.bg_star01 {
+    width: 100%;
+    height: 100%;
+    background-image: url(./images/bg_star01.png);
+    position: absolute;
+    top: 0;
+    left: 0;
+    opacity: 0;
+    animation: sky 6s infinite;
+}
+
+
+
+.quiz_box {
+    width: 435px;
+    height: 395px;
+    background-image: url(./images/quiz_img_bg.png);
+    position: absolute;
+    top: 140px;
+    left: 68px;
+}
+
+    .quiz_box li img {
+        width: 399px;
+        height: 224px;
+        /*background-image: url(./images/quiz_img.png);*/
+        background-size: cover;
+        background-position: center;
+        position: absolute;
+        top: 15px;
+        left: 19px;
+        border-radius: 20px;
+    }
+
+.example_box {
+    width: 598px;
+    position: absolute;
+    top: 40%;
+    transform: translateY(-50%);
+    margin-left: 560px;
+    margin-bottom: 200px;
+}
+
+    .example_box li {
+        width: 100%;
+        ;
+        height: 140px;
+        line-height: 130px;
+        text-align: center;
+        color: #222;
+        font-size: 2rem;
+        padding-left: 76px;
+        background-image: url(./images/example_bg.png);
+        cursor: pointer;
+    }
+
+    .example_box .empty {
+        background-image: none;
+        cursor: auto;
+        color: transparent;
+    }
+
+    .example_box li:hover {
+        color: #a6006c;
+        cursor: url(../../include/images/cursor_hover.png), pointer;
+    }
+
+    .example_box li.empty:hover {
+        color: transparent;
+        cursor: url(../../include/images/cursor.png), pointer;
+    }
+
+.answer_box {
+    width: 92%;
+    height: 105px;
+    position: absolute;
+    bottom: 54px;
+    left: 50%;
+    transform: translateX(-50%);
+    display: flex;
+    justify-content: space-around;
+}
+
+    .answer_box li {
+        width: 31.5%;
+        height: 100%;
+        border: 4px solid #d978ab;
+        background-color: #000;
+        border-radius: 1rem;
+        position: relative;
+        opacity: 0.3;
+    }
+
+    .answer_box .focus {
+        -webkit-filter: drop-shadow(0px 0px 10px #edadcb);
+        filter: drop-shadow(0 0 10px #edadcb);
+        border: 4px solid #d978ab;
+        opacity: 0.8;
+    }
+
+.answer_box02 li {
+    width: 48%;
+}
+
+.answer_correct li {
+    width: 88%;
+}
+
+.answer_box .word {
+    line-height: 104px;
+    color: #222;
+    background-color: rgba(235,235,253,1);
+    text-align: center;
+    font-size: 2rem;
+    opacity: 1;
+}
+
+.answer_box span {
+    width: 43px;
+    height: 59px;
+    background-image: url(./images/word_roket.png);
+    text-indent: -9999px;
+    position: absolute;
+    top: -40px;
+    left: 300px;
+    opacity: 0;
+    transform: scale(0.5);
+    animation: rocket 0.5s 0.2s forwards;
+}
+
+@keyframes rocket {
+    to {
+        opacity: 1;
+        transform: scale(1)
+    }
+}
+
+.answer_box .word_end {
+    background-color: rgba(0,0,0,0.7);
+    color: #ffe16a;
+    border: 4px solid #c8a15b;
+}
+
+
+.character li {
+    width: 300px;
+    height: 330px;
+    position: absolute;
+    top: 200px;
+    left: 500px;
+    opacity: 0;
+    transform: scale(0.5);
+    animation: character 2s linear forwards;
+}
+
+@keyframes character {
+    15% {
+        transform: rotate(0deg);
+        opacity: 1;
+        top: 150px;
+        left: 600px;
+    }
+
+    40% {
+        transform: rotate(-5deg);
+        opacity: 1;
+        top: 150px;
+        left: 600px;
+    }
+
+    100% {
+        transform: rotate(15deg);
+        opacity: 1;
+        top: -100px;
+        left: 1600px;
+    }
+}
+
+.rocket_goma {
+    background-image: url(./images/rocket_goma.png);
+}
+
+.rocket_leoni {
+    background-image: url(./images/rocket_leoni.png);
+}
+
+.rocket_gino {
+    background-image: url(./images/rocket_gino.png);
+}
+
+.rocket_edmond {
+    background-image: url(./images/rocket_edmond.png);
+}

@@ -1,0 +1,179 @@
+﻿
+<!DOCTYPE html>
+
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head runat="server">
+    <title></title>
+    <script type="text/javascript">
+        var sslStudyInfo = "";
+        sslStudyInfo = '<%=jsonStr%>';
+    </script>
+    <meta name="viewport" content="width=device-width, initial-scale=0.95, maximum-scale=0.95, user-scalable=no" />
+    <meta http-equiv="X-UA-Compatible" content="IE=Edge" />
+
+    <link href="../common/css/prek.css" rel="stylesheet" />
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.2/css/bootstrap.min.css?ver=230628003" />
+
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+    <script src="https://code.jquery.com/ui/1.8.5/jquery-ui.min.js"></script>
+
+    <script type="text/javascript" src="../common/js/api.js"></script>
+    <script type="text/javascript" src="../common/js/prek.js?ver=230628003"></script>
+
+    <script type="text/javascript">
+        var _alphabet;
+        var _move = true;
+
+        var _cnt = 0;
+
+        const ferData = getUrlParameter('fer').toString();
+
+        $(document).ready(function () {
+            PlayGoodJob(undefined);
+
+            PlayLandBGM("PHONICS");
+
+            sendSms().then(data => {
+                if(!data.ok){
+                    throw Error('')
+                }
+                return data.json()
+            }).then(json => {
+
+            }).catch(error => {
+
+            })
+            setTimeout(()=> {
+                hidePopup();
+            }, 1000)
+        });
+
+        function hidePopup() {
+            $('#divFinish').hide('puff', {
+                duration: 'slow',
+                easing: 'swing',
+                queue: false
+            }, 1000);
+
+            StopLandBGM();
+            setTimeout(() => {
+                studyFinish(ferData);
+            }, 1500)
+        }
+
+    </script>
+</head>
+<body style="background-image:url('img/common/bg.gif'); background-repeat:repeat-x repeat-y;">
+<form id="form1">
+    <div id="divFrame" class="clsFrame" style="box-shadow:0px 0px 0px #808080;">
+        <div id="divFinish" style="width:520px; height:520px; position:absolute; margin-left:260px; margin-top:50px; display:block;">
+            <img class="rollMove" src="img/common/aLPopBorder.png?ver=230628001" style="position:absolute; float:left; top: 0px; left: 0px;" />
+            <img src="../common/img/goodjobcircle.png?ver=230628001" style="position:absolute; left:71px; top:71px;"/>
+            <img src="img/common/finish2.png?ver=230628001" style="position:absolute; left:95px; top:135px;"/>
+            <!--<img id="imgFinish" src="../common/img/finish.png?ver=230628001" style="position:absolute; left:210px; top:360px; cursor:pointer;"/>-->
+            <img src="img/common/finish1.png?ver=230628001" style="position:absolute; left:180px; top:250px;"/>
+            <div class="txtTitle">Phonics Land</div>
+        </div>
+    </div>
+    
+    <div class="modal-position2 bg-point-div js-bg-point justify-content-center flex-column align-items-center d-none " style="width:100%; height:100%;">
+            
+        <div class="container js-bg-container " style="height:100%">
+            <!--학습 결과 메세지-->
+            <div class="row mb30 hmd-mb10-1">
+                <div class="col text-center">
+                    <h2 class="mt200 hmd-mt160 mb-0"><span class="txt-score-2 js-text-avg"></span><span class="txt-100">/100</span></h2>
+                    <!-- 굿잡일때는 패쓰마크 안보이게-->
+                    <p class="font-3 font-md-4 color2-x mb-1 Pass-Mark-70 js-tryagain-passmark d-none">(Pass Mark: 70%)</p>
+                </div>
+            </div>
+
+            <!--캐릭터-->
+            <div class="row mb50 hmd-mb30-1">
+                <div class="col">
+
+                    <div class="bg-point js-goodjob-point align-items-center mx-auto js-round-orange position-relative d-none">
+                    <!-- 굿잡일때만 나옴 -->
+                        <h1 class="txt-rgpoint font-md-1 mx-auto mb-0 js-text-point "></h1>
+                    </div>
+                     
+                    <!-- 굿잡 포인트영역: bg-point / 트라이어게인 캐릭터: bg-taCharacter -->
+                    <div class="bg-taCharacter js-tryagain-point align-items-center mx-auto js-round-orange position-relative d-none">
+                    </div>
+
+                </div>
+            </div>
+
+            <div class="row">
+                <!-- 굿잡 내용 -->
+                <p class="col txt-levelup js-img-unit-point js-text-notice d-none "></p>
+                <!-- 트라이 어게인 내용 -->
+                <p class="col txt-levelup js-img-unit-point js-text-notice d-none"></p>
+            </div>
+
+        </div>
+
+    </div>
+
+    <div class="bg-levelup js-bg-levelup justify-content-center vh-100 flex-column align-items-center modal-position2 bg-color-levelup d-none" >
+
+        <div class="p-5">
+            <div class="text-center hmd-mt10">
+            <!--캐릭터-->
+
+                <div class="row">
+
+                    <div class="col text-center mx-auto bg-master">
+                        <div class="txt-master hmd-mb130 hmd-mt40 hmd-mb55 hmd-mt33 js-text-levelup" ></div>
+                        <div class="mb120 hmd-mb60">
+                            <img class="js-img-medal-levelup" src="#" />
+                        </div>
+                        <div class="txt-levelup">
+                            <h2 class="mb-2 font-1 font-md-2">Level Up!</h2>
+                            <p class="d-flex align-items-center justify-content-center font-md-5 js-level-text "></p><span class="txt-levelup2 font-md-2 js-text-nextlevel"></span>
+                            <p class="font-3 font-noto">&nbsp;</p>
+                        </div>
+
+                    </div>
+
+                </div>
+
+            </div>
+        </div>
+            
+    </div>
+
+        <div class="bg-todayGoal js-todayGoal justify-content-center vh-100 flex-column align-items-center modal-position2 d-none" >
+            <div class="js-black-wall black-wall"></div>
+            <div class="col text-center mx-auto bg-daily-goal">
+                <div class="daily-goal-contents">
+                    <div>
+                        <div>
+                            <img src="https://wcfresource.a1edu.com/newsystem/image/eventaward/img_daily_goal_achieved_prek.png" alt="" class="img-goal-achieved" />
+                        </div>
+                        <div>
+                            <span class="message"></span>
+                        </div>
+                        <div>
+                            <span class="goal"></span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+    <div class="js-award justify-content-center vh-100 flex-column align-items-center modal-position2 d-none" >
+        <div class="col text-center mx-auto bg-award"></div>
+        <div style="position: absolute; cursor: pointer; top: 10px; left: 10px;"><img id="imgAwardHome" src="https://wcfresource.a1edu.com/newsystem/AppMobile/eBookSkin/k/Cover0/main_home.png" onclick="goIndex();return false" /></div>
+    </div>
+
+    <div class="d-none">
+        <audio id="audio-eventAward" src="#" controls="controls"></audio>
+        <audio id="audio-goodjob" src="#" controls="controls"></audio>
+        <audio id="audio-levelup" src="#" controls="controls"></audio>
+        <audio id="todayGoalAudio" src="https://wcfresource.a1edu.com/newsystem/sound/soundeffect/daily_goal_sound.mp3"></audio>
+    </div>
+
+    </form>
+</body>
+</html>

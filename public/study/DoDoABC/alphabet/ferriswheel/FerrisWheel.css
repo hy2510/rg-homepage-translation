@@ -1,0 +1,227 @@
+﻿.bg-ferris-wheel {
+    width: 1280px;
+    height: 720px;
+    background: url(./images/bg_ferris_wheel.jpg);
+}
+
+.wrapper-question {
+    position: absolute;
+    left: -340px;
+    width: 445px;
+    height: 720px;
+    background: url(./images/bg_question.png);
+}
+
+    .wrapper-question.open {
+        animation: question 1.5s 2s forwards;
+    }
+
+    .wrapper-question .question {
+        position: absolute;
+        left: 100px;
+    }
+
+    .wrapper-question .question0 {
+        top: 100px;
+    }
+
+    .wrapper-question .question1 {
+        top: 300px;
+    }
+
+    .wrapper-question .question2 {
+        top: 500px;
+    }
+
+@keyframes question {
+    from {
+        left: -340px;
+    }
+
+    to {
+        left: 0px;
+    }
+}
+
+.bg-wheel {
+    position: absolute;
+    top: 90px;
+    left: 575px;
+    width: 537px;
+    height: 537px;
+    background: url(./images/img_wheel.png);
+}
+
+    /*.bg-wheel.active {
+        animation: active 50s linear infinite forwards;
+    }
+
+        .bg-wheel.active .room {
+            animation: spin 50s linear infinite forwards;
+        }*/
+
+@keyframes active {
+    100% {
+        transform: rotate(360deg);
+    }
+}
+
+@keyframes spin {
+    100% {
+        transform: rotate(-360deg);
+    }
+}
+
+.room {
+    position: absolute;
+}
+
+    .room:nth-child(odd) {
+        width: 179px;
+        height: 197px;
+    }
+
+        .room:nth-child(odd) img {
+            position: absolute;
+        }
+
+    .room:nth-child(even) {
+        width: 180px;
+        height: 180px;
+        background-color: #fff;
+        border-radius: 50%;
+    }
+
+    .room:first-of-type {
+        top: -60px;
+        left: 180px;
+        background: url(./images/img_room_01.png);
+    }
+
+    .room:nth-of-type(2) {
+        left: 360px;
+        top: 0px;
+        border: 8px solid #358777;
+    }
+
+        .room:nth-of-type(2) .question {
+            border: 8px solid #358777;
+        }
+
+    .room:nth-of-type(3) {
+        top: 170px;
+        left: 420px;
+        background: url(./images/img_room_02.png);
+    }
+
+    .room:nth-of-type(4) {
+        left: 360px;
+        top: 370px;
+        border: 8px solid #8d4494;
+    }
+
+        .room:nth-of-type(4) .question {
+            border: 8px solid #8d4494;
+        }
+
+    .room:nth-of-type(5) {
+        top: 420px;
+        left: 180px;
+        background: url(./images/img_room_03.png);
+    }
+
+    .room:nth-of-type(6) {
+        left: -4px;
+        top: 370px;
+        border: 8px solid #14a08e;
+        background-color: #fff200 !important;
+    }
+
+    .room:nth-of-type(7) {
+        top: 180px;
+        left: -60px;
+        background: url(./images/img_room_04.png);
+    }
+
+    .room:last-of-type {
+        left: -4px;
+        top: 0px;
+        border: 8px solid #e83a8e;
+    }
+
+        .room:last-of-type .question {
+            border: 8px solid #e83a8e;
+        }
+
+    .room .question {
+        position: absolute;
+        top: -8px;
+        left: -8px;
+    }
+
+.text-alphabet {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    font-size: 5em;
+}
+
+.question {
+    width: 180px;
+    height: 180px;
+    background: white;
+    border: 7px solid #828282;
+    border-radius: 50%;
+    box-shadow: 0 4px 8px 2px rgba(0,0,0,0.4);
+}
+
+    .question:hover {
+        /*box-shadow: 0 4px 8px 2px #fff200;*/
+        border: 7px solid #ff9500;
+        cursor: url(../../include/images/cursor_hover.png), pointer;
+    }
+
+.room:first-of-type .character.correct {
+    content: url(./images/img_character_chello_correct.png);
+}
+
+.room:nth-of-type(3) .character.correct {
+    content: url(./images/img_character_baro_correct.png);
+}
+
+.room:nth-of-type(5) .character.correct {
+    content: url(./images/img_character_dodo_correct.png);
+}
+
+.room:nth-of-type(7) .character.correct {
+    content: url(./images/img_character_millo_correct.png);
+}
+
+
+.room:first-of-type .character.incorrect {
+    content: url(./images/img_character_chello_incorrect.png);
+}
+
+.room:nth-of-type(3) .character.incorrect {
+    content: url(./images/img_character_baro_incorrect.png);
+}
+
+.room:nth-of-type(5) .character.incorrect {
+    content: url(./images/img_character_dodo_incorrect.png);
+}
+
+.room:nth-of-type(7) .character.incorrect {
+    content: url(./images/img_character_millo_incorrect.png);
+}
+
+.result {
+    position: absolute;
+    top: 620px;
+    right: 10px;
+    width: 150px;
+    height: 90px;
+    font-size: 0.9rem;
+    background-color: white;
+    overflow-y: auto;
+}

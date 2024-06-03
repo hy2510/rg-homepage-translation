@@ -1,0 +1,261 @@
+﻿.bg-fireworks {
+    width: 1280px;
+    height: 720px;
+    background: url(./images/bg_fireworks.png);
+}
+
+.wrapper-question {
+    position: absolute;
+    top: 68px;
+    left: 453px;
+    width: 462px;
+    height: 268px;
+}
+
+.wrapper-fireworks {
+    position: absolute;
+    width: 1280px;
+    height: 400px;
+}
+
+    .wrapper-fireworks img {
+        position: absolute;
+    }
+
+        .wrapper-fireworks img:first-of-type {
+            animation: fireworks 0.5s infinite;
+        }
+
+        .wrapper-fireworks img:last-of-type {
+            animation: fireworks 1s infinite;
+        }
+
+@keyframes fireworks {
+    50% {
+        opacity: 1;
+    }
+
+    100% {
+        opacity: 0;
+    }
+}
+
+.question {
+    position: absolute;
+    left: 50%;
+    transform: translateX(-50%) translateY(5%);
+    height: 240px;
+    cursor: url(../../include/images/cursor_hover.png), pointer;
+}
+
+.firecracker {
+    position: absolute;
+    top: 428px;
+    left: 78px;
+    width: 130px;
+    height: 240px;
+    background: url(./images/img_firecracker.png);
+    z-index:1;
+}
+
+    .firecracker.correct {
+        background: url(./images/img_firecracker_correct.png);
+        animation: explode 1.5s 0.8s steps(4) forwards;
+    }
+
+    .firecracker.incorrect {
+        background: url(./images/img_firecracker_incorrect.png);
+        animation: unexplode 2s 0.8s steps(5) forwards;
+    }
+
+@keyframes explode {
+    to {
+        background-position: -520px;
+    }
+}
+
+@keyframes unexplode {
+    to {
+        background-position: -650px;
+    }
+}
+
+.handle {
+    position: absolute;
+    top: 480px;
+    width: 235px;
+    height: 199px;
+    cursor: url(../../include/images/cursor_hover.png), pointer;
+}
+
+    .handle:first-of-type {
+        left: 261px;
+    }
+
+    .handle:nth-of-type(2) {
+        left: 523px;
+    }
+
+    .handle:last-of-type {
+        left: 784px;
+    }
+
+.handle-top {
+    position: absolute;
+    top: 0;
+    width: 235px;
+    height: 70px;
+    background: url(./images/img_handle_top.png);
+    background-repeat: no-repeat;
+    background-position: center;
+}
+
+.handle.push .handle-top {
+    animation: push 1s forwards;
+}
+
+@keyframes push {
+    80% {
+        top: 40px;
+    }
+
+    100% {
+        top: 30px;
+    }
+}
+
+.handle-bottom {
+    position: absolute;
+    bottom: 0;
+    width: 235px;
+    height: 129px;
+    background: url(./images/img_handle_bottom.png);
+}
+
+    .handle-bottom p {
+        position: absolute;
+        margin-top: 10px;
+        top: 50%;
+        left: 50%;
+        transform: translate(-50%, -50%);
+        font-size: 4.6rem;
+    }
+
+.blanc {
+    position: absolute;
+    top: 338px;
+    left: 1036px;
+    width: 236px;
+    height: 332px;
+    background: url(./images/img_character.png);
+    animation: blanc 2s steps(4) infinite;
+}
+
+    .blanc.correct {
+        background: url(./images/img_character_correct.png);
+        animation: blancCorrect 1.5s steps(2) infinite;
+    }
+
+    .blanc.incorrect {
+        background: url(./images/img_character_incorrect.png);
+    }
+
+@keyframes blanc {
+    to {
+        background-position: -944px;
+    }
+}
+
+@keyframes blancCorrect {
+    to {
+        background-position: -472px;
+    }
+}
+
+.cloud {
+    position: absolute;
+    top: 15px;
+    margin-top: 30px;
+    left: 32%;
+    text-align: center;
+    animation: wave 18s both infinite;
+    z-index:3;
+}
+
+@keyframes wave {
+    10%, 90% {
+        transform: translate3d(20px, -2px, 0);
+    }
+
+    20%, 80% {
+        transform: translate3d(-5px, 3px, 0);
+    }
+
+    30%, 50%, 70% {
+        transform: translate3d( 5px,-2px, 0);
+    }
+
+    40%, 60% {
+        transform: translate3d(-20px, -3px, 1px);
+    }
+}
+
+.card {
+    width: 462px;
+    height: 268px;
+    margin: 0 auto;
+    position: relative;
+    -webkit-transform-style: preserve-3d;
+    -webkit-transition: 0.5s;
+    -moz-transform-style: preserve-3d;
+    -moz-transition: 0.5s;
+    -ms-transform-style: preserve-3d;
+    -ms-transition: 0.5s;
+    -o-transform-style: preserve-3d;
+    -o-transition: 0.5s;
+    transition: 0.5s;
+}
+
+.face {
+    position: absolute;
+    backface-visibility: hidden;
+    width: 100%;
+    height: 100%;
+    font-size: 6rem;
+    line-height: 250px;
+    text-align: center;
+}
+
+
+.front {
+    background-image: url(./images/cloud.png);
+    z-index: 10;
+    padding-top: 10px;
+}
+
+.back {
+    transform: rotateX(180deg);
+    background-image: url(./images/cloud.png);
+}
+
+.container.flip .card {
+    transform: rotateX(180deg);
+}
+
+.word.face.back.bigger {
+    animation: fullscale 1.5s forwards;
+}
+
+@keyframes fullscale {
+    50% {
+        font-size:7.2rem;
+    }
+
+    100% {
+        font-size: 5.4rem;
+    }
+}
+
+.characteract {
+    background: url(./images/img_character_laugh.png);
+}

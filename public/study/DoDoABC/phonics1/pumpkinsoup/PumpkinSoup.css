@@ -1,0 +1,294 @@
+﻿.bg-pumpkin-soup {
+    width: 1280px;
+    height: 720px;
+    background: url(./images/bg_pumpkin_soup.png);
+}
+
+.wrapper-question {
+    width: 450px;
+    text-align: center;
+    position: absolute;
+    top: 208px;
+    left: 90px;
+    font-size: 4.8rem;
+}
+
+.wrapper-image {
+    width: 200px;
+    height: 200px;
+    margin-left: 125px;
+}
+
+.question-image {
+    width: 200px;
+    height: 200px;
+}
+    .question-image.bigger {
+        animation: fullscale 1.5s forwards;
+    }
+
+.wrapper-word {
+    margin-top:10px;
+    display: inline-block;
+}
+
+    .wrapper-word span {
+        float: left;
+        font-size: 5rem;
+        height: 94px;
+        line-height: 94px;
+    }
+
+    .wrapper-word .text-blank {
+        text-align: center;
+        border-radius: 1rem;
+        background-color: #dcd5bd;
+        padding: 0 12px;
+    }
+        .wrapper-word .text-blank.one {
+            min-width: 75px;
+            display: block;
+        }
+
+        .wrapper-word .text-blank.two {
+            min-width: 130px;
+            display: block;
+        }
+
+        .wrapper-word .text-blank.three {
+            min-width: 160px;
+            display: block;
+        }
+
+    /*.wrapper-word .text-example {
+        margin-left: 8px;
+    }*/
+
+        .wrapper-word .text-example.correct {
+            color: #a50000;
+        }
+
+
+.wrapper-example {
+    position: absolute;
+    top: 110px;
+    left: 610px;
+    width: 571px;
+    height: 164px;
+}
+
+.pumpkin {
+    position: absolute;
+    width: 167px;
+    height: 164px;
+    /*background: url(./images/img_pumpkin.png);*/
+    cursor: url(../../include/images/cursor_hover.png), pointer;
+    font-size: 5.4rem;
+    z-index: 1
+}
+
+    .pumpkin.shake {
+        animation: shake cubic-bezier(.50,.20,.20,.97) 0.6s;
+    }
+
+    .pumpkin img {
+        width: 100%;
+        height: 100%;
+    }
+
+    .pumpkin:first-of-type {
+        left: 0;
+    }
+
+    .pumpkin:nth-of-type(2) {
+        left: 202px;
+    }
+
+    .pumpkin:last-of-type {
+        left: 404px;
+    }
+
+    .pumpkin p {
+        position: absolute;
+        top: 58%;
+        left: 50%;
+        transform: translate(-50%, -50%);
+    }
+
+    .pumpkin.correct {
+        animation: correct 1.5s forwards;
+    }
+
+    .pumpkin.incorrect {
+        animation: incorrect 1.5s forwards; 
+    }
+
+@keyframes correct {
+    0% {
+        top: 20px;
+    }
+
+    70% {
+        top: 290px;
+        left: 200px;
+        transform: rotate(45deg);
+        opacity: 1;
+    }
+    100% {
+        top: 300px;
+        left: 230px;
+        transform: rotate(60deg);
+        opacity: 0;
+        width: 100px;
+        height: 100px;
+        font-size: 3rem;
+    }
+}
+
+@keyframes incorrect {
+    from {
+        top: 20px;
+    }
+    to {
+        top: 300px;
+        left: 230px;
+        transform: rotate(45deg);
+        opacity: 1;
+        width: 100px;
+        height: 100px;
+        font-size: 3rem;
+    }
+}
+
+
+.cover {
+    position: absolute;
+    top: 323px;
+    left: 754px;
+    z-index: 999;
+}
+
+.jack {
+    position: absolute;
+    top: 407px;
+    left: 1054px;
+    width: 178px;
+    height: 271px;
+    background: url(./images/img_character_jack.png);
+    animation: jack 3s steps(2) infinite;
+}
+
+    .jack.correct {
+        background: url(./images/img_character_jack_correct.png);
+        animation: jackCorrect 1.5s steps(2) 2;
+    }
+
+    .jack.incorrect {
+        background: url(./images/img_character_jack_incorrect.png);
+        animation: jackIncorrect 1.5s steps(2) 2;
+    }
+
+@keyframes jack {
+    to {
+        background-position: -356px;
+    }
+}
+
+@keyframes jackCorrect {
+    to {
+        background-position: -356px;
+    }
+}
+
+@keyframes jackIncorrect {
+    to {
+        background-position: -356px;
+    }
+}
+
+.text-alphabet:hover {
+    color:#fff200;
+}
+
+    .text-alphabet.lower {
+        margin-top:13px;
+    }
+
+.soup {
+    width: 260px;
+    height: 337px;
+    background-image: url(./images/soup.png);
+    position: absolute;
+    right: 266px;
+    bottom: 60px;
+    animation: soup_correct 2s steps(6) infinite;
+}
+
+@keyframes soup_correct {
+    to {
+        background-position: -1560px;
+    }
+}
+
+.soup02 {
+    width: 260px;
+    height: 337px;
+    background-image: url(./images/soup02.png);
+    position: absolute;
+    right: 266px;
+    bottom: 60px;
+    animation: soup_incorrect 1.2s steps(2) forwards;
+}
+
+@keyframes soup_incorrect {
+    to {
+        background-position: -520px;
+    }
+}
+
+.soup img, .soup02 img {
+    position: absolute;
+    z-index: 1000;
+}
+
+@keyframes fullscale {
+    50% {
+        transform: scale(1.3);
+    }
+
+    100% {
+        transform: scale(1);
+    }
+}
+
+@keyframes shake {
+    10%, 90% {
+        transform: translate3d(-10px, 0, 0);
+    }
+
+    20%, 80% {
+        transform: translate3d(10px, 0, 0);
+    }
+
+    30%, 50%, 70% {
+        transform: translate3d(-10px, 0, 0);
+    }
+
+    40%, 60% {
+        transform: translate3d(10px, 0, 0);
+    }
+}
+
+.characteract {
+    background: url(./images/img_character_jack_giggle.png);
+}
+
+.cover02 {
+    width: 470px;
+    height: 172px;
+    background-image: url(./images/soup_cover02.png);
+    position: absolute;
+    top: 285px;
+    left: 674px;
+    z-index: 10;
+}

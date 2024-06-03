@@ -1,0 +1,451 @@
+﻿
+<!DOCTYPE html>
+
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head runat="server">
+    <title></title>
+
+    <meta name="viewport" content="width=device-width, initial-scale=0.95, maximum-scale=0.95, user-scalable=no" />
+    <meta http-equiv="X-UA-Compatible" content="IE=Edge" />
+
+    <link href="../common/css/prek.css" rel="stylesheet" />
+    <link href="css/alphabetland.css" rel="stylesheet" />
+
+    <style type="text/css">
+        .alphabetSmall {
+            position: absolute;
+            width: 60px;
+            margin-left: 115px;
+            margin-top: 145px;
+            font-family: YDVYGO25;
+            font-size: 80px;
+            font-weight: bolder;
+            text-align: center;
+            cursor: pointer;
+            color: #3ffc08;
+            text-align: center;
+        }
+
+        .alphabetBig {
+            position: absolute;
+            width: 60px;
+            margin-left: 50px;
+            margin-top: 30px;
+            font-family: YDVYGO25;
+            font-size: 90px;
+            font-weight: bolder;
+            text-align: center;
+            cursor: pointer;
+            color: #3ffc08;
+            text-align: center;
+        }
+
+        /* Wheel [[[ */
+        @-webkit-keyframes wheel-move {
+            0% {
+                -webkit-transform: rotate(0deg);
+                transform-origin: center;
+            }
+
+            100% {
+                -webkit-transform: rotate(360deg);
+                transform-origin: center;
+            }
+        }
+
+        @-moz-keyframes wheel-move {
+            0% {
+                -moz-transform: rotate(0deg);
+                transform-origin: center;
+            }
+
+            100% {
+                -moz-transform: rotate(360deg);
+                transform-origin: center;
+            }
+        }
+
+        @-o-keyframes wheel-move {
+            0% {
+                -o-transform: rotate(0deg);
+                transform-origin: center;
+            }
+
+            100% {
+                -o-transform: rotate(360deg);
+                transform-origin: center;
+            }
+        }
+
+        @-ms-keyframes wheel-move {
+            0% {
+                -ms-transform: rotate(0deg);
+                transform-origin: center;
+            }
+
+            100% {
+                -ms-transform: rotate(360deg);
+                transform-origin: center;
+            }
+        }
+
+        @keyframes wheel-move {
+            0% {
+                transform: rotate(0deg);
+                transform-origin: center;
+            }
+
+            100% {
+                transform: rotate(360deg);
+                transform-origin: center;
+            }
+        }
+
+        .wheelMove {
+            -webkit-animation: wheel-move 2s linear infinite;
+            -moz-animation: wheel-move 2s linear infinite;
+            -o-animation: wheel-move 2s linear infinite;
+            -ms-animation: wheel-move 2s linear infinite;
+            animation: wheel-move 2s linear infinite;
+        }
+        /* Wheel ]]] */
+    </style>
+
+    <script src="../common/js/sweetalert.min.js"></script>
+    <script src="../common/js/jquery-1.4.min.js"></script>
+    <script src="../common/js/jquery-ui-1.7.2.custom.min.js"></script>
+
+    <script type="text/javascript" src="../common/js/api.js"></script>
+    <script type="text/javascript" src="../common/js/global_function.js?ver=230628001"></script>
+    <script type="text/javascript" src="../common/js/prek.js?ver=230628001"></script>
+    <script type="text/javascript" src="../common/js/jquery-animate-css-rotate-scale.js"></script>
+    <script type="text/javascript" src="js/alphabetland.js?ver=230628001"></script>
+
+    <script type="text/javascript">
+        var _alphabet;
+        var _move = false;
+        var _cnt = 0;
+
+        $(document).ready(function () {
+            getArgs();
+
+            function startStep() {
+                PlayLandBGM("ALPHABET");
+
+                _alphabet = GetAlphabet(_pNum);
+
+                document.addEventListener("touchstart", touchHandler, true);
+                document.addEventListener("touchmove", touchHandler, true);
+                document.addEventListener("touchend", touchHandler, true);
+                document.addEventListener("touchcancel", touchHandler, true);
+
+                $('#divStart').css('display', 'block');
+                $("#imgStart").bind('click', function (e) { Start(); });
+
+
+                $('#divCar1').draggable({
+                    revert: true
+                });
+
+                $('#divCar2').draggable({
+                    revert: true
+                });
+
+                $('#divCar3').draggable({
+                    revert: true
+                });
+
+                $("#divLeft").droppable({
+                    drop: function (event, ui) {
+                        $(this).css({ 'background': 'transparent' });
+                        checkAnswer($(ui.draggable)[0].innerText);
+                        // resetting CSS styles for Drop area.
+                    },
+                    over: function (event, ui) {
+                        $(this).css({ 'background': 'lightpink', 'border-radius': '20px' });
+                        // Creating an effect on dragging over the Drop area.
+                    },
+                    out: function (event, ui) {
+                        $(this).css({ 'background': 'transparent' });
+                        // resetting CSS styles for Drop area.
+                    }
+                });
+
+                PlayDirection('AlphabetLand', 'AL-S2-Activity.mp3', undefined);
+            }
+
+            // Step2B 저장
+            if (_usermode === '1') {
+                saveRecord(1, false).then(data=> {
+                    if(!data.ok){
+                        throw Error('')
+                    }
+                    return data.json()
+                }).then(json => {
+                    if(json.result === 0){
+                        startStep();
+                    }
+                }).catch(error => {
+
+                })
+            }else{
+                startStep();
+            }
+        });
+
+        function touchHandler(event) {
+            var touches = event.changedTouches,
+                first = touches[0],
+                type = "";
+
+            switch (event.type) {
+                case "touchstart": type = "mousedown"; break;
+                case "touchmove": type = "mousemove"; break;
+                case "touchend": type = "mouseup"; break;
+                default: return;
+            }
+
+            var simulatedEvent = document.createEvent("MouseEvent");
+            simulatedEvent.initMouseEvent(type, true, true, window, 1,
+                first.screenX, first.screenY,
+                first.clientX, first.clientY, false,
+                false, false, false, 0/*left*/, null);
+
+            first.target.dispatchEvent(simulatedEvent);
+            //event.preventDefault();
+        }
+
+        function Start() {
+            if (_snd != undefined && _snd != NaN) {
+                _snd.Stop();
+            }
+
+            PlayStart(hidePopup);
+        }
+
+        function hidePopup() {
+            $('#divStart').hide('puff', {
+                duration: 'slow',
+                easing: 'swing',
+                queue: false
+            }, 1000);
+
+            StopLandBGM();
+
+            showDragUp();
+
+            //LoadTest();
+            if (isMobile) {
+                setTimeout(function () { hideDrag(); LoadTest(); }, 3000);
+            } else {
+                PlayDirection('AlphabetLand', 'LADA.mp3', function () { hideDrag(); LoadTest(); });
+            }
+        }
+
+        function LoadTest() {
+            //if (_usermode == 1) wsBRPK.GetCrntStudyID(onSuccGetCrntStudyID, onFail);
+
+            UnLockScreen();
+
+            $('#imgQzNum').attr('src', '../common/img/q' + (_cnt + 1).toString() + '.png');
+            if (_cnt >= 3) {
+                goStep3();
+            } else {
+                $('#imgShadow').css('display', 'block');
+                $('#imgWheel1').removeClass('wheelMove');
+                $('#imgWheel2').removeClass('wheelMove');
+                $('#imgWheel3').removeClass('wheelMove');
+                $('#imgWheel4').removeClass('wheelMove');
+                $('#imgWheel5').removeClass('wheelMove');
+                $('#imgWheel6').removeClass('wheelMove');
+
+                GetChoice(_alphabet.toLowerCase());
+                $('#ancLetter1').html(_choice[0].toUpperCase());
+                $('#ancLetter2').html(_choice[1].toUpperCase());
+                $('#ancLetter3').html(_choice[2].toUpperCase());
+                $('#ancLetter4').html(_alphabet.toLowerCase());
+                $('#ancLetter5').html(_alphabet.toUpperCase());
+                $('#divCars').css('display', 'block');
+            }
+        }
+
+        function checkAnswer(pChar) {
+            LockScreen();
+            $('#imgO').css('display', 'none');
+            $('#imgX').css('display', 'none');
+            $('#imgCorrect').css('display', 'none');
+
+            if (_move == true) {
+                return false;
+            }
+
+            if (_cnt >= 3) {
+                return false;
+            }
+
+            _move = true;
+            $('#divCars').css('display', 'none');
+
+            if (pChar.trim().toUpperCase() == _alphabet.trim().toUpperCase()) {
+                //$("#imgLocker").attr('src', 'img/step2/opened.png');
+                $('#imgShadow').css('display', 'none');
+                playCorrectDrag(undefined, doAfterSuccess);
+                $('#imgO').css('display', 'block');
+                $('#imgCorrect').css('display', 'block');
+                // 정답
+            } else {
+                // 오답
+                $('#imgX').css('display', 'block');
+                playTryAgainDrag(undefined, doAfterFalse);
+            }
+        }
+
+        function doAfterSuccess() {
+            $('#imgO').css('display', 'none');
+            $('#imgX').css('display', 'none');
+            $('#imgCorrect').css('display', 'none');
+            _cnt++;
+            _move = false;
+            //$('#divLocker').css('display', 'none');
+            moveTrain();
+        }
+
+        function doAfterFalse() {
+            $('#imgO').css('display', 'none');
+            $('#imgX').css('display', 'none');
+            $('#imgCorrect').css('display', 'none');
+            LoadTest();
+            _move = false;
+        }
+
+        function moveTrain() {
+            PlayEffect('locomotive2.mp3', undefined);
+            $('#imgWheel1').addClass('wheelMove');
+            $('#imgWheel2').addClass('wheelMove');
+            $('#imgWheel3').addClass('wheelMove');
+            $('#imgWheel4').addClass('wheelMove');
+            $('#imgWheel5').addClass('wheelMove');
+            $('#imgWheel6').addClass('wheelMove');
+            $('#divTest').animate({ 'marginLeft': '+=300px' }, { duration: 3000 }, { easing: 'swing' });
+
+            $('#divFrame').delay(1500).fadeOut(1000, function () {
+                $('#divTest').animate({ 'marginLeft': '-=300px' }, { duration: 1 }, { easing: 'swing' });
+                LoadTest();
+                $('#divFrame').delay(500).fadeIn(100);
+            });
+        }
+
+        function goStep3() {
+            goStep('step3p.html');
+        }
+
+        function StaffGoStep(pPage) {
+            if (pPage == 'step2b') {
+                goStep('step2b.html');
+            } else if (pPage == 'step2a') {
+                goStep('step2a.html');
+            } else if (pPage == 'step3t') {
+                goStep('step3t.html');
+            } else {
+                goStep(pPage + '.html');
+            }
+        }
+    </script>
+</head>
+<body style="background-image:url('img/common/bg.gif'); background-repeat:repeat-x repeat-y;">
+<form id="form1">
+    <div id="divFrame" class="clsFrame" style="background-image:url('img/step2/bgs2b.jpg');">
+        <div id="divStepIntro" style="width:110px; height:110px; position:absolute; margin-left:0px; margin-left:0px;">
+            <img src="img/common/stepmark.png?ver=230622001" style="width:110px; height:110px; position:absolute; margin-left:0px; margin-left:0px;"/>
+            <a class="qzNum">Step2</a>
+            <img id="imgQzNum" src="../common/img/q1.png?ver=230622001" style="width:24px; height:24px; position:absolute; margin-left:43px; margin-top:62px;" />
+        </div>
+
+        <!--<div id="divExit" style="width:72px; height:58px; position:absolute; margin-left:940px; margin-top:10px; cursor:pointer; " onclick="return goIndex();">
+            <img id="imgExit" src="../common/img/exit.png?ver=230622001" />
+        </div>-->
+
+        <div id="divDirection" style="width:624px; height:32px; position:absolute; margin-left:200px; margin-top:0px; text-align:center;">
+            <img id="img0a" src="img/common/step2a.png?ver=230622001" />
+        </div>
+
+        <div id="divNext" style="position:absolute; margin-left:840px; margin-top:10px; cursor:pointer; display:none;" onclick="return goStep3();">
+            <img id="imgNext" src="../common/img/next_up.png?ver=230622001" style="width:60px; height:60px;" />
+        </div>
+
+        <img id="imgCorrect" src="img/step2/bgs2b_correct.png?ver=230622001" style="position:absolute; left:752px; top:134px; display:none;" />
+
+        <div id="divTest" style="width:620px; height:330px; position:absolute; margin-left:180px; margin-top:130px;">
+            <div id="divCenter" style="position:absolute; height:140px; width:179px; margin-left:175px; margin-top:145px; display:block;">
+                <img src="img/step2/career-center.png?ver=230622001" style="position:absolute; margin-left:0px; top: 0px; left: 0px;" />
+                <img id="imgWheel3" src="img/step2/wheelsmall.png?ver=230622001" style="position:absolute; margin-left:23px; margin-top:75px;"/>
+                <img id="imgWheel4" src="img/step2/wheelsmall.png?ver=230622001" style="position:absolute; margin-left:110px; margin-top:75px;"/>
+                <a id="ancLetter4" class="alphabetSmall" style="position:absolute; margin-left:63px; margin-top:25px;"></a>
+            </div>
+
+            <div id="divLeft" style="position:absolute; height:140px; width:179px; margin-left:0px; margin-top:145px; display:block;">
+                <img src="img/step2/career-left.png?ver=230622001" style="position:absolute; margin-left:0px;" />
+                <img id="imgWheel5" src="img/step2/wheelsmall.png?ver=230622001" style="position:absolute; margin-left:10px; margin-top:75px;"/>
+                <img id="imgWheel6" src="img/step2/wheelsmall.png?ver=230622001" style="position:absolute; margin-left:96px; margin-top:75px;"/>
+                <a id="ancLetter5" class="alphabetBig" style="position:absolute; margin-left:50px; margin-top:25px;"></a>
+                <img id="imgShadow" src="img/step2/careerShadow.png?ver=230622001" style="position:absolute; margin-left:0px;"/>
+            </div>
+
+            <div id="divLocomotive" style="position:absolute; height:280px; width:250px; margin-left:340px; margin-top:23px;">
+                <img src="img/step2/locomotive.png?ver=230622001" style="position:absolute; margin-left:0px; margin-top:5px;" />
+                <img id="imgWheel1" src="img/step2/wheelbig.png?ver=230622001" style="position:absolute; margin-left:25px; margin-top:185px;"/>
+                <img id="imgWheel2" src="img/step2/wheelbig.png?ver=230622001" style="position:absolute; margin-left:120px; margin-top:185px;"/>
+            </div>
+        </div>
+
+        <div id="divCars" style="width:890px; height:120px; position:absolute; margin-left:160px; margin-top:480px; display:none;">
+            <div id="divCar1" style="width:179px; height:140px; float:left;">
+                <img src="img/step2/career.png?ver=230622001" style="width:179px; height:140px; position:absolute;"/>
+                <a id="ancLetter1" class="alphabetBig"></a>
+            </div>
+
+            <div id="divCar2" style="width:179px; height:140px; float:left; margin-left:75px;">
+                <img src="img/step2/career.png?ver=230622001" style="width:179px; height:140px; position:absolute;"/>
+                <a id="ancLetter2" class="alphabetBig"></a>
+            </div>
+
+            <div id="divCar3" style="width:179px; height:140px; float:left; margin-left:75px;">
+                <img src="img/step2/career.png?ver=230622001" style="width:179px; height:140px; position:absolute;"/>
+                <a id="ancLetter3" class="alphabetBig"></a>
+            </div>
+        </div>
+
+        <div id="divDrag" style="position:absolute; width:150px; height:250px; margin-left:160px; margin-top:330px; border:0px solid black; display:none;">
+            <img src="../common/img/drag1.png?ver=230622001" style="position:absolute; width:84px; height:200px; margin-left:0px; margin-top:0px;"/>
+            <img id="imgDragF1" src="../common/img/dragfinger1.png?ver=230622001" style="position:absolute; width:130px; height:130px; margin-left:0px; margin-top:130px;"/>
+        </div>
+
+        <div id="divLock"><img id="imgLock" src="../common/img/lock.png?ver=230622001"/></div>
+
+        <img id="imgO" src="../common/img/correct.png?ver=230622001" style="position:absolute; margin-left:360px; margin-top:170px; width:300px; display:none; opacity:0.7;" />
+        <img id="imgX" src="../common/img/fail.png?ver=230622001"  style="position:absolute; margin-left:360px; margin-top:170px; width:300px; display:none; opacity:0.7;"/>
+
+        <div id="divStart" style="width:520px; height:520px; position:absolute; margin-left:260px; margin-top:50px; display:none;">
+            <img class="rollMove" src="img/common/aLPopBorder.png?ver=230622001" style="position:absolute; float:left; top: 0px; left: 0px;" />
+            <img src="img/common/aLPopInner.png?ver=230622001" style="position:absolute; left:71px; top:71px;"/>
+            <img id="imgStart" src="../common/img/start.png?ver=230622001" style="position:absolute; left:220px; top:360px; cursor:pointer;"/>
+
+            <a runat="server" class="txtTitle">Alphabet Land</a>
+            <a runat="server" class="txtCourse">Step2</a>
+            <a runat="server" class="txtState">Activity</a>
+            <a runat="server" class="txtReady">Are you Ready?</a>
+        </div>
+
+        <div id="divBtn" style="position:absolute; top:150px; width:70px; height:100px; display:none;">
+            <div onclick="StaffGoStep('intro')"  style="width:100px; margin-top:2px; text-align:center; cursor:pointer; border:1px solid black; background-color:white;" >intro</div>
+            <div onclick="StaffGoStep('step1p')"  style="width:100px; margin-top:2px; text-align:center; cursor:pointer; border:1px solid black; background-color:white;" >step1p</div>
+            <div onclick="StaffGoStep('step1t')"  style="width:100px; margin-top:2px; text-align:center; cursor:pointer; border:1px solid black; background-color:white;" >step1t</div>
+            <div onclick="StaffGoStep('step2a')"  style="width:100px; margin-top:2px; text-align:center; cursor:pointer; border:1px solid black; background-color:white;" >step2a</div>
+            <div onclick="StaffGoStep('step2b')"  style="width:100px; margin-top:2px; text-align:center; cursor:pointer; border:1px solid black; background-color:white;" >step2b</div>
+            <div onclick="StaffGoStep('step3p')"  style="width:100px; margin-top:2px; text-align:center; cursor:pointer; border:1px solid black; background-color:white;" >step3p</div>
+            <div onclick="StaffGoStep('step3t')"  style="width:100px; margin-top:2px; text-align:center; cursor:pointer; border:1px solid black; background-color:white;" >step3t</div>
+        </div>
+    </div>
+</form>
+</body>
+</html>

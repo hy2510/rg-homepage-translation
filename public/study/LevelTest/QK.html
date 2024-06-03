@@ -1,0 +1,106 @@
+﻿
+<!DOCTYPE html>
+<html>
+<head>
+    <title>ReadingGate</title>
+    <meta charset="utf-8" />
+    <meta http-equiv="Content-Script-Type" content="text/javascript" />
+    <meta http-equiv="Content-Style-Type" content="text/css" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta http-equiv="cache-control" content="no-cache" />
+    <meta name="expires" content="0" />
+    <meta name="viewport" content="width=device-width,user-scalable=no" />
+    <meta name="google" value="notranslate" />
+    <script src="./jsAssets/jquery-2.1.4.min.js"></script>
+    <script src="./jsAssets/jquery-ui.min.js"></script>
+    <script src="./jsAssets/sweetalert.min.js"></script>
+    <link rel="stylesheet" href="./jsAssets/jquery-ui.min.css" />
+    <script src="./jsAssets/common.js"></script>
+    <script src="./jsAssets/study.js"></script>
+
+    <link rel="stylesheet" href="./css/QK.css?ver=230915005" />
+    <script src="./js/api.js"></script>
+    <script type="text/javascript" src="./js/QK.js?ver=230915005"></script>
+    <script type="text/javascript" src="./js/common.js?ver=230915005"></script>
+
+</head>
+<body>
+<table id="body"><tr><td>
+    <img id="tmode" src="img/mod_teacher.png" class="teacher" style="display:none; float:right;"/>
+	<div id="outline">
+		<div id="boxMain" class="qzset1-1">
+			<img src="img/k/bg_contents.png" class="bg"/>
+            <!--<button id="btClose"><img src="img/k/bt_close.png" /></button>-->
+            <div class="timer"><div class="tx">20</div></div>
+            <div class="title">
+                <img src="img/k/tt_alphabet.jpg" class="qzset1"/>
+                <img src="img/k/tt_phonic.jpg" class="qzset2"/>
+                <img src="img/k/tt_wordtest.jpg" class="qzset3"/>
+                <span id="QuizType">
+                    <img src="img/k/tx_a.jpg" class="type_a" />
+                    <img src="img/k/tx_b.jpg" class="type_b" />
+                </span>
+            </div>
+            <div class="guide">
+                <span class="qzset1-1">Listen and click the correct alphabet.</span>
+                <span class="qzset1-2">Listen and click the correct alphabet.</span>
+                <span class="qzset1-3">Listen and click the correct picture.</span>
+                <span class="qzset2-1">Look and click the correct answer.</span>
+                <span class="qzset2-2">Listen and click the correct word.</span>
+                <span class="qzset2-3" style="letter-spacing:-0.0625em">Listen and click the picture with the same sound.</span>
+                <span class="qzset3-1">Look and click the correct word.</span>
+                <span class="qzset3-2">Listen and click the correct picture.</span>
+                <span class="qzset3-3">Look and click the correct word.</span>
+            </div>
+            <button class="aud" id="btAudio"><img src="img/k/bt_audio.jpg"/></button>
+            <div class="num"><img src="img/k/bg_number.jpg"/><span id="elNum">0</span></div>
+            <div class="question">
+                <table class="box-align"><tbody><tr><td>
+                <span id="elQuestion"></span>
+                </td></tr></tbody></table>
+            </div>
+            <div class="picture">
+                <table class="box-align"><tbody><tr><td>
+                <span id="elPicture"></span>
+                </td></tr></tbody></table>
+            </div>
+            <div class="answer" id="elAnswer"></div>
+		</div>
+	</div>
+
+	<div class="pop" id="popStart">
+		<img src="img/k/bg_start.png" class="bg"/>
+		<div class="title qzset1">
+            <img src="img/k/ti_alphabet.jpg" class="qzset1"/>
+            <img src="img/k/ti_phonic.jpg" class="qzset2"/>
+            <img src="img/k/ti_wordtest.jpg" class="qzset3"/>
+        </div>
+		<button class="bt"><img src="img/k/bt_start.jpg"/></button>
+	</div>
+	
+	<div class="pop" id="popResult">
+		<div class="box-msg">
+			<img src="img/k/bg_result.png" class="bg"/>
+			<div class="msg"><img src="img/k/ti_result_msg.jpg"/></div>
+			<div class="lvl"></div>
+			<button class="bt"><img src="img/k/bt_close.jpg"/></button>
+		</div>
+		<div class="box-score">
+			<img src="img/k/bg_score.png" class="bg"/>
+			<table class="part">
+			<tr>
+				<th class="part-a"></th>
+			</tr>
+			<tr>
+				<td class="part-b"></td>
+			</tr>
+			</table>
+		</div>
+	</div>
+
+	<!--#include file="_popup.html"-->
+
+</td></tr></table>
+
+</body>
+</html>
