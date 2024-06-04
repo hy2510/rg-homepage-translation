@@ -1,3 +1,4 @@
+// 다국어
 'use client'
 
 import { ReactNode } from 'react'
@@ -11,7 +12,7 @@ export default function LoginForm({ children }: { children?: ReactNode }) {
 
   return (
     <main className={style.sign_in}>
-      <div className={style.catchphrase}>
+      <div className={style.catchphrase}>ㅋ
         <div className={style.brand_name}>리딩게이트</div>
         <div className={style.sentence}>읽는 즐거움, 커가는 영어실력</div>
       </div>

@@ -1,3 +1,4 @@
+// 다국어
 import Image from 'next/image'
 import { ReactNode } from 'react'
 import { useStyle } from '@/ui/context/StyleContext'

@@ -1,3 +1,4 @@
+// 다국어
 'use client'
 
 import { goToStudy } from '@/app/_function/study-start'

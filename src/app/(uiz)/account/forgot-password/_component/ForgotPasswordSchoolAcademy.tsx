@@ -1,3 +1,4 @@
+// 다국어
 import SITE_PATH from '@/app/site-path'
 import { useRouter } from 'next/navigation'
 import { useState } from 'react'

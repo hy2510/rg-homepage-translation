@@ -1,3 +1,4 @@
+// 다국어
 'use client'
 
 import '@/ui/common/global-option-my-rg/global-option-level-bg-color.scss'

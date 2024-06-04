@@ -1,3 +1,4 @@
+// 다국어
 'use client'
 
 import { useStyle } from '@/ui/context/StyleContext'

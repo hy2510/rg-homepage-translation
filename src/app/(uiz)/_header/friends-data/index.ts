@@ -1,3 +1,4 @@
+// 다국어
 interface DodoFriends {
   id: string
   name: string

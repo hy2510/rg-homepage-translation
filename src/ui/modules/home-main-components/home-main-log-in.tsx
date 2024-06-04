@@ -1,3 +1,4 @@
+// 다국어
 import Link from 'next/link'
 import { Button } from '@/ui/common/common-components'
 import { useStyle } from '@/ui/context/StyleContext'

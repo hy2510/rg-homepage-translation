@@ -1,3 +1,4 @@
+// 다국어
 'use client'
 
 import { useCustomerInfo } from '@/app/_context/CustomerContext'

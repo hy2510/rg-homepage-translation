@@ -1,3 +1,4 @@
+// 다국어
 import Image from 'next/image'
 import { useState } from 'react'
 import { useAchieveLevelPoint } from '@/client/store/achieve/level-point/selector'

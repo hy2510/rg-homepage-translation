@@ -1,3 +1,4 @@
+// 다국어
 import Lottie from 'react-lottie'
 import animationData from '../../../public/src/lottie/loading.json'
 

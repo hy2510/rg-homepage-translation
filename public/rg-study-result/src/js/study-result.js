@@ -1,3 +1,4 @@
+// 다국어
 const POPUP_AUDIO_PATH = `src/audio`
 const DAILY_GOAL_AWARD_IMAGE_PATH = `../src/images/@award-daily-goal`
 const STREAK_AWARD_IMAGE_PATH = `../src/images/@award-streak`

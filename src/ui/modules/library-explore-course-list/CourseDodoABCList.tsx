@@ -1,3 +1,4 @@
+// 다국어
 import './course-list.scss'
 import Image from 'next/image'
 import { ReactNode } from 'react'

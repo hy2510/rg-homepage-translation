@@ -1,3 +1,4 @@
+// 다국어
 import SITE_PATH from '@/app/site-path'
 import { ReactNode } from 'react'
 import { BackLink } from '@/ui/common/common-components'

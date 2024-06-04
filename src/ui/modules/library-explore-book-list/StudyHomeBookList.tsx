@@ -1,3 +1,4 @@
+// 다국어
 import { useState } from 'react'
 import {
   useStudentHistory,

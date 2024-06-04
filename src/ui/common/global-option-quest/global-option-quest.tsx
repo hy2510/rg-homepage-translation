@@ -1,3 +1,4 @@
+// 다국어
 import './global-option-level-bg-color.scss'
 import Image from 'next/image'
 import { useState } from 'react'

@@ -1,3 +1,4 @@
+// 다국어
 'use client'
 
 import SITE_PATH from '@/app/site-path'

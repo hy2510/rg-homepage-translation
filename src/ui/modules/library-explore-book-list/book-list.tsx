@@ -1,3 +1,4 @@
+// 다국어
 import { ReactNode } from 'react'
 import { AlertBar, EmptyMessage } from '@/ui/common/common-components'
 import { useStyle } from '@/ui/context/StyleContext'

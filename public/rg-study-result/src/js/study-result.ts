@@ -1,3 +1,4 @@
+// 다국어
 type Popup = {
   popup: {
     divContainer: HTMLDivElement

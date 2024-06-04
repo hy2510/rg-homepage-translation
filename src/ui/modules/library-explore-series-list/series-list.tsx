@@ -1,3 +1,4 @@
+// 다국어
 import './series-item-theme.scss'
 import Image from 'next/image'
 import Link from 'next/link'
